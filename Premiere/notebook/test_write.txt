@@ -1,0 +1,1 @@
+Ce fichier sert simplement à montrer que l'ouverture d'un fichier en mode "w" efface le contenu de ce fichier si ce fichier existe

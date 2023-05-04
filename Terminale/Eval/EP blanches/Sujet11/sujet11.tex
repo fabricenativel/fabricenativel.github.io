@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{11}{2022--2023}
+\pythonmode
+
+\Exo{Nom de variables en python}{}
+
+En Python, un nom de variable valide, :
+\begin{itemize}
+    \item doit commencer par une lettre ou un \textit{underscore} : {\tt \_}
+    \item ne contient pas d'espace
+    \item peut contenir des lettres ou des chiffres
+    \item ne doit pas être un des mots réservés du langage. Les mots réservés sont : {\tt and, as, assert, break, class, continue, def, del, elif, else, except, exec, finally, for, from, global, if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, with, yield.}
+\end{itemize}
+Ecrire une fonction {\tt nom\_valide} qui prend en argument une chaine de caractères et renvoie {\tt True} si cette chaine de caractère représente un nom de variable valide et {\tt False} sinon.
+
+\aide \; Aide \\    
+    On pourra créer une liste contenant les mots réservés et utiliser {\tt in} pour savoir si une chaine de caractères se trouve ou pas dans cette liste.
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> nom_valide("ma_variable")
+True
+>>> nom_valide("la temperature")
+False
+>>> nom_valide("5cases")
+False
+>>> nom_valide("for")
+False
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Insertion dans une liste déjà triée}{}
+
+Pour insérer un élément dans une liste \textit{déjà triée par ordre croissant}, on propose l'algorithme suivant :
+\begin{enumerate}
+	\item Ajouter l'élément à la fin de la liste
+	\item Echanger l'élément avec son voisin de gauche tant qu'il est plus petit et que le début de liste n'est pas atteint
+\end{enumerate}
+Compléter l'implémentation suivante de cette algorithme
+\begin{lstlisting}
+def insertion(element,liste):
+    '''Insère element dans  liste (qui est déjà triée)'''
+    liste........(element)
+    pos = ......
+    while pos>... and liste[pos]<.....:
+        liste[pos],liste[pos-1] =  ........... , ............ 
+        pos = ......
+\end{lstlisting}
+
+\textbf{Exemple}
+\begin{lstlisting}
+    >>> liste = [1,4,7,13,17]
+    >>> insertion(8,liste)
+    >>> liste
+    [1,4,7,8,13,17]
+\end{lstlisting}
+
+\end{document}

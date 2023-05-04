@@ -1,0 +1,100 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\newcommand{\ind}{\phantom{\ \ \ \ }}
+% Idées : IMC, signe astrologique
+%
+%
+
+\Exos{Ecriture binaire et hexadécimale des entiers positifs}{\Pre}
+
+\Exo{Quelques conversions pour démarrer !}{\capacite}\\
+Compléter le tableau de conversion suivant :
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabularx}{0.9\textwidth}{|X|X|X|}
+\hline
+Ecriture décimale & Ecriture binaire & Ecriture héxadécimale \\
+\hline
+ $\base{201}{10}$ &  &  \\
+ \hline
+ & & $\base{EA}{16}$ \\
+ \hline
+ $\base{57}{10}$ &  &  \\
+ \hline
+  & $\base{00100001}{2}$ &  \\
+ \hline
+
+ $\base{128}{10}$  & &  \\
+ \hline
+ $\base{163}{10}$ & & \\
+ \hline
+  & & $\base{5B}{16} $\\
+ \hline
+ &  $\base{10010101}{2}$ & \\
+  \hline
+ & $\base{10010010}{2}$ &  \\
+ \hline
+\end{tabularx}
+\end{center}
+\aide \; Pour convertir depuis la base 10 dans la base 2 ou la base 16, utiliser si besoin, l'algorithme des divisions successives vu en cours. Refaire au préalable les exemples du cours si nécessaire.
+\vspace{0.2cm}
+
+\Exo{Un peu de réflexion}{\raisonnement}
+\QListe
+\item Quel est le plus grand nombre entier positif écrit en utilisant 10 chiffres en base 2 ?
+\item Que peut-on dire d'un nombre dont l'écriture en base 2 ne contient qu'un seul chiffre 1 ?
+\item \SQListe
+\item L'écriture en base 2 d'un nombre divisible par 2 se termine forcément par quel chiffre ? Pourquoi ?
+\item De façon générale, soit $b$ un entier supérieur ou égal à 2, que dire de l'écriture en base $b$ d'un nombre divisible par $b$ ?
+\FinListe
+\item En base 10, un million s'écrit avec 7 chiffres, combien en faut-il pour l'écrire en base 2 ?
+\FinListe
+\vspace{0.2cm}
+
+
+\Exo{Enigme}{\raisonnement} \\
+Il manque des chiffres (remplacées par des \_) dans le nombre binaire suivant : $\quad \_001\_\_111\_$ \\
+Pouvez-vous retrouver les chiffres manquants, sachant qu'il n'y a pas de zéros non significatifs dans ce nombre, qu'il est divisible par 2, qu'il contient un nombre impair de zéro. Et enfin que son écriture décimale dépasse $\base{355}{10}$.
+\vspace{0.2cm}
+
+\Exo{Dessin mystère}{\ordinateur} 
+\QListe
+\item Donner dans chaque cas l'écriture binaire sur un octet du nombre indiqué, puis noircir les cases correspondates de la ligne du tableau situé à côté du nombre. Vous devez voir apparaître un dessin !\
+\begin{tabularx}{0.64\textwidth}{p{1.3cm}X|p{0.2cm}|p{0.2cm}|p{0.2cm}|p{0.2cm}|p{0.2cm}|p{0.2cm}|p{0.2cm}|p{0.2cm}|}
+\cline{3-10}
+$\base{60}{10}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{66}{10}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{65}{10}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{129}{10}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{165}{10}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{153}{10}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{42}{16}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+$\base{3C}{16}=$ & $\left( \_\;\_\;\_\;\_\;\_\;\_\;\_\;\_\; \right)_{2} \qquad $ &  & & & & & & & \\
+\cline{3-10}
+\end{tabularx}
+\item  Créer un fichier nommé \texttt{dessin.pbm}, dont la première ligne est \texttt{8 8}. Sur les lignes suivantes taper les écriture binaire ci-dessus. Ouvrez ce fichier avec un visualiseur d'image. Qu'en pensez-vous ?
+\FinListe
+\vspace{0.2cm}
+
+
+\Exo{Fonction python}{\python \; \ordinateur}
+\QListe
+\item Tester la fonction \texttt{bin} de Python en affichant par exemple \texttt{bin(201)} et \texttt{bin(57)}. Comparer avec les réponses de l'exercice 1. Quelle est votre hypothèse sur \texttt{bin} ?
+\item Confirmer cette hypothèse en faisant afficher l'aide de la fonction \texttt{bin}.
+\item Reprendre les deux questions ci-dessus pour la fonction \texttt{hex}.
+\FinListe
+\vspace{0.2cm}
+
+\end{document}

@@ -1,0 +1,282 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{7}
+
+\pythonmode
+\newcommand{\DB}{\cnum Lecture et traitement de données en tables}
+
+
+% Retour données en table
+\begin{frame}
+	\mframe{\DB}
+	\begin{alertblock}{Données en tables}
+		\begin{itemize}
+			\item<1-> Le traitement et l'analyse de données volumineuses (\textit{big data}) est l'une des activités principales en informatique de nos jours .
+			\item<2-> Ces données sont souvent organisées en \textcolor{red}{tables}.
+			\item<3-> Une ligne de données en table s'appelle un \textcolor{blue}{enregistrement}
+			\item<4-> Une colonne s'apelle un \textcolor{blue}{champ}
+			\item<5-> Les titres des colonnes sont les \textcolor{blue}{descripteurs}
+		\end{itemize}
+	\end{alertblock}
+	\onslide<6->{
+		\begin{block}{Format csv}
+			Le format de fichier \textcolor{red}{csv} (\textit{\textcolor{red}{c}omma \textcolor{red}{s}eparated \textcolor{red}{v}alue}) représente  des données en tables. Chaque ligne du fichier est une donnée et sur chaque ligne les champs sont séparées par des virgules (ou parfois un autre caractère comme le point-virgule).
+		\end{block}}
+\end{frame}
+
+% Exemple table et CSV
+\begin{frame}
+	\mframe{\DB}
+	\begin{exampleblock}{Exemple}
+		\begin{tabularx}{\textwidth}{Xp{1cm}X}
+			$\bullet$\ Des données en table &  & $\bullet$ Représentation en fichier csv \\
+			\begin{tabular}{|c|c|c|}
+				\hline
+				Nom      & Prénom & Naissance \\
+				\hline
+				Pascal   & Blaise & 1623      \\
+				\hline
+				Lovelace & Ada    & 1815      \\
+				\hline
+				Boole    & George & 1815      \\
+				\hline
+			\end{tabular}       &  &
+			\begin{tabular}{|l|}
+				\hline
+				{\tt Nom;Prénom;Naissance} \\
+				{\tt Pascal;Blaise;1623}   \\
+				{\tt Lovelace;Ada;1815}    \\
+				{\tt Boole;George;1815}    \\
+				\hline
+			\end{tabular}                                                    \\
+		\end{tabularx}
+		Le fichier csv à droite sera utilisé par la suite, on l'appelle \textcolor{OliveGreen}{\tt exemple.csv} de façon à y faire référence. \\
+	\end{exampleblock}
+	\onslide<2->{
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<2-> La première ligne du fichier csv décrit les champs, il contient les \textcolor{blue}{attributs} (appelés aussi \textcolor{blue}{descripteur}).
+			\item<3-> Les données d'un fichier csv sont au format texte, par conséquent même une donnée numérique (comme ici l'année de naissance) est en fait une chaine de caractères.
+		\end{itemize}}
+	\end{block}
+\end{frame}
+
+
+% Descripteur de fichiers
+\begin{frame}
+	\mframe{\DB}
+	\begin{alertblock}{Gestions des fichiers en Python}
+		En python, on peut ouvrir un fichier présent sur l'ordinateur à l'aide de l'instruction \textcolor{blue}{\tt open}. Cette instruction renvoie une variable appelée \textcolor{blue}{descripteur de fichier} et prend un paramètre indiquant le mode d'ouverture du fichier :
+		\begin{itemize}
+			\item<2-> \textcolor{red}{"r"} (read) pour ouvrir le fichier en lecture. C'est le mode par défaut.
+			\item<3-> \textcolor{red}{"w"} (write) pour ouvrir le fichier en écriture. Attention, le contenu initial du fichier est alors perdu.
+			\item<4-> \textcolor{red}{"a"} (append) pour ouvrir le fichier en ajout.
+		\end{itemize}
+	\end{alertblock}
+	\begin{exampleblock}{Exemples}
+		\onslide<5->{Ecrire l'instruction permettant de créer le descripteur de fichier {\tt anniv} sur le fichier {\tt anniversaires.txt} en mode ajout.\\}
+		\onslide<6->{\textcolor{OliveGreen}{\tt anniv = open("anniversaires.txt","a")}}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\DB}
+	\begin{alertblock}{Opérations sur les descripteurs de fichiers}
+		Les opérations suivantes sont possibles sur un descripteur de fichier crée à l'aide de l'instruction {\tt open} :
+		\begin{itemize}
+			\item<2-> Lecture du contenu complet du fichier avec \textcolor{blue}{\tt read}
+			\item<3-> Lecture du contenu ligne par ligne avec \textcolor{blue}{\tt readline}
+			\item<4-> Ecriture avec de \textcolor{blue}{\tt write}
+			\item<6-> Fermeture \textcolor{blue}{\tt close}
+		\end{itemize}
+	\end{alertblock}
+	\begin{exampleblock}{Exemples}
+		\onslide<7->{Ouvrir le fichier "truc.txt", lire sa première ligne puis le refermer. \\}
+		\onslide<8->{\textcolor{OliveGreen}{\tt fic = open("truc.txt","r")}\\}
+		\onslide<9->{\textcolor{OliveGreen}{\tt lig1 = fic.readline()}\\}
+		\onslide<10->{\textcolor{OliveGreen}{\tt fic.close()}\\}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\DB}
+	\begin{alertblock}{Les dictionnaires de Python}
+		\begin{itemize}
+			\item<1-> Les dictionnaires de Python permettent de stocker des données sous forme de tableau associant une clé à une valeur : \vspace{0.2cm} \\
+			      \begin{tabularx}{0.8\textwidth}{l|Y|Y|Y|Y|Y|}
+				      \cline{2-6}
+				      Valeurs                        & {\tt val1}                     & {\tt val2}                     & {\tt val3}                     & {\tt val4}                     & {\tt Val5}                     \\
+				      \cline{2-6}
+				      \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} \\
+				      \multicolumn{1}{c}{Clés}       & \multicolumn{1}{c}{\tt 'cle1'} & \multicolumn{1}{c}{\tt 'cle2'} & \multicolumn{1}{c}{\tt 'cle3'} & \multicolumn{1}{c}{\tt 'cle4'} & \multicolumn{1}{c}{\tt 'cle5'} \\
+			      \end{tabularx}
+			\item<2-> Un dictionnaire se note entre accolades : \textbf{\{} et \textbf{\}}
+			\item<3-> Les paires clés/valeurs sont séparés par des virgules.
+			\item<4-> Le caractère "\textcolor{blue}{\tt :}" sépare une clé de la valeur associée.
+		\end{itemize}
+	\end{alertblock}
+	\begin{exampleblock}{Exemples}
+		\begin{itemize}
+			\item<5-> Un dictionnaire contenant des objets et leurs prix :\\
+			      \onslide<6-> {\tt prix = \{ "verre":12 , "tasse" : 8, "assiette" : 16\} }
+			\item<7-> Un dictionnaire traduisant des couleurs du français vers l'anglais \\
+			      \onslide<8-> {\tt couleurs = \{ "vert":"green" , "bleu" : "blue", "rouge" : "red" \} }
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Opérations sur un dictionnaire
+\begin{frame}
+	\mframe{\DB}
+	\begin{alertblock}{Opérations sur un dictionnaire}
+		\begin{itemize}
+			\item<1-> On accède aux éléments d'un dictionnaire avec la syntaxe \textcolor{blue}{\tt nom\_dictionnaire[cle]}\\
+			      \onslide<2->\textcolor{gray}{{\tt prix = \{ "verre":12 , "tasse" : 8, "assiette" : 16, "plat" : 30 \} } \\
+				      Par exemple, {\tt prix["verre"]} contient 12}
+			\item<3-> On peut ajouter une clé à un dictionnaire existant en effectuant une affectation \textcolor{blue}{\tt nom\_dictionnaire[nouvelle\_cle]=nouvelle\_valeur} \\
+			      \onslide<4->\textcolor{gray}{On ajoute un nouvel objet avec son prix : \\
+			      {\tt prix["couteau"]=20}
+			      }
+			\item<5-> On peut modifier la valeur associée à une clé avec une affectation \textcolor{blue}{\tt nom\_dictionnaire[cle]=nouvelle\_valeur}\\
+			      \onslide<6->\textcolor{gray}{Le pris d'une tasse passe à 10 : \\
+			      {\tt prix["tasse"]=10}
+			      }
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\DB}
+	\begin{block}{Présence dans un dictionnaire}
+		\begin{itemize}
+			\item<1-> Attention, essayer d'accéder à une clé qui n'est pas dans un dictionnaire renvoie une erreur !\\
+			      \onslide<2-> \textcolor{gray}{Il n'y a pas de clé {\tt 'fourchette'} dans le dictionnaire prix, donc \textcolor{blue}{\tt prix['fourchette']} renvoie une erreur ({\tt \textcolor{red}{KeyError}}).}
+			\item<3-> On teste la présence d'une clé dans un dictionnaire avec \textcolor{blue}{\tt cle in nom\_dictionnaire}\\
+			      \onslide<4->\textcolor{gray}{la fourchette n'est pas dans le dictionnaire prix \\
+				      Le test \textcolor{blue}{\tt fourchette in prix} renvoie \textcolor{blue}{\tt False}}
+			\item<5-> On peut supprimer une clé existante dans un dictionnaire avec \textcolor{blue}{\tt del nom\_dictionnaire[cle]}\\
+			      \onslide<6->\textcolor{gray}{On supprimer le couteau : \\
+				      \textcolor{blue}{\tt del prix["couteau"]}
+			      }
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Opérations sur un dictionnaire
+\begin{frame}
+	\mframe{\DB}
+	\begin{alertblock}{Parcours d'un dictionnaire}
+		\begin{itemize}
+			\item<1-> Le parcours par clé s'effectue directement avec \textcolor{blue}{\tt for cle in nom\_dictionnaire}\\
+			      \onslide<2->\textcolor{gray}{{\tt prix = \{ "verre":12 , "tasse" : 8, "assiette" : 16, "plat" : 30 \} } \\
+			      Par exemple, {\tt for objet in prix} permettra à la variable {\tt objet} de prendre successivement les valeurs des clés : {\tt "verre", "tasse", "assiette"} et {\tt "plat"}.}
+			\item<3-> Le parcours par valeur s'effectue en ajoutant \textcolor{blue}{\tt .values()} au nom du dictionnaire : \textcolor{blue}{\tt for valeur in nom\_dictionnaire.values() \\}
+			      \onslide<4->\textcolor{gray}{
+			      Par exemple, {\tt for p in prix.values()} permettra à la variable {\tt p} de prendre successivement les valeurs du dictionnaire : {\tt 12, 8 , 16} et {\tt 30}.
+			      }
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+
+% Module csv de Python
+\begin{frame}
+	\mframe{\DB}
+	\begin{block}{Python et les fichiers csv}
+		\begin{itemize}
+			\item<1-> Le module \textcolor{blue}{\tt csv} de Python permet de récupérer les informations d'un fichier csv, sous forme de listes de listes ou de dictionnaires
+			\item<2-> Pour les dictionnaires, ce sont alors les  descripteurs qui servent de clés.
+			\item<3-> Tous les champs (même ceux contenant des nombres) sont récupérés sous forme de chaines de caractères (type \textcolor{blue}{\tt str} de Python) à la façon de ce qui se passe lors d'un {\tt input}. Faire donc attention lors de calculs ou de comparaisons avec les données de ces champs.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Exemple csv Python
+\begin{frame}[fragile]
+	\mframe{\DB}
+	\begin{exampleblock}{Exemple}
+		Récupération des éléments du fichier {\tt exemple.csv} ci-dessus dans un dictionnaire :
+		\begin{lstlisting}	
+	import csv
+	fic=open("exemple.csv","r",encoding="utf-8")
+	# Lecture sous forme de dictionnaire 
+	donnees = list(csv.DictReader(fic,delimiter=';'))
+	fic.close()
+	\end{lstlisting}
+		\onslide<2->{Après execution, on a par exemple \\ {\tt donnees[0]=\{'Nom' : 'Pascal', 'Prenom' : 'Blaise', 'Naissance' : '1623'\}} \\}
+		\onslide<3->{C'est à dire que chaque ligne de la table correspond à un dictionnaire}
+	\end{exampleblock}
+\end{frame}
+
+
+% Traitement des données en Python
+\begin{frame}[fragile]
+	\mframe{\DB}
+	\begin{block}{Traitement des données}
+		\begin{itemize}
+			\item<1-> Une fois les données {\tt csv} lues et récupérées dans une liste de dictionnaires, on peut trier les informations et y faire des recherches.
+			\item<2-> Par exemple pour le fichier csv donné en exemple :
+			      \begin{tabular}{|l|}
+				      \hline
+				      {\tt Nom;Prénom;Naissance} \\
+				      {\tt Pascal;Blaise;1623}   \\
+				      {\tt Lovelace;Ada;1815}    \\
+				      {\tt Boole;George;1815}    \\
+				      \hline
+			      \end{tabular}
+			\item<3-> Si les données sont récupérées dans la liste de dictionnaire {\tt personnages}. On peut afficher les personnes nées en 1815 avec :
+			      \begin{lstlisting}
+    	for p in personnages:
+    		if p["Naissance"]=="1815":
+    			print(p["Nom],p["Prénom"])
+    \end{lstlisting}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Trier des données
+\begin{frame}[fragile]
+	\mframe{\DB}
+	\begin{alertblock}{Trier une liste en Python}
+		\begin{itemize}
+			\item<1-> La fonction \textcolor{red}{\tt sorted} de Python permet de trier une liste. Elle renvoie la liste triée. La syntaxe est la suivante : \textcolor{red}{\tt liste\_triee = sorted(liste)}.
+			\item<2-> Par exemple:
+			      \begin{lstlisting}
+	notes = [15,11,10,18,9]
+	note_triees=sort(notes)
+	print(notes_triees)
+	 \end{lstlisting}
+			      affichera : {\tt [9,10,11,15,18]}
+			\item<3-> On peut obtenir un tri par ordre décroissant en indiquant {\tt reverse=True} \textcolor{red}{\tt liste\_triee = sorted(liste,reverse=True)}.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Trier des données
+\begin{frame}[fragile]
+	\mframe{\DB}
+	\begin{alertblock}{Trier une liste de dictionnaires}
+		\begin{itemize}
+			\item<1-> La fonction \textcolor{red}{\tt sorted} permet aussi de trier des listes de dictionnaires on indique alors le critère de tri à l'aide de l'option \textcolor{blue}{\tt key}.
+			\item<2-> Par exemple:
+			      \begin{lstlisting}
+	def note(eleve):
+		return eleve["Note"]	
+	
+	notes = [{"Prenom":"Albert","Note":15},{"Prenom":"Jim","Note":10},{"Prenom":"Sarah","Note":19}]
+	notes.sort(key=note,reverse=True)
+	print(notes)
+	 \end{lstlisting}
+			      affichera : {\tt [\{'Prenom': 'Sarah', 'Note': 19\}, \{'Prenom': 'Albert', 'Note': 15\}, \{'Prenom': 'Jim', 'Note': 10\}]}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\end{document}

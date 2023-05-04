@@ -1,0 +1,52 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{1}{2022--2023}
+\pythonmode
+
+\Exo{Vérification de palindrome}{}
+
+Une chaine de caractères est un \textit{palindrome} lorsqu'elle peut être lue indifféremment de gauche à droite ou de droite à gauche, par exemple \og KAYAK \fg ou \og ANNA \fg sont des palindromes.
+Ecrire une fonction {\tt est\_palindrome} qui prend en argument une chaine de caractères et renvoie {\tt True} si cette chaine est un palindrome et {\tt False} sinon.
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> est_palindrome("toto")
+False
+>>> est_palindrome("ressasser")
+True
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Insertion dans une liste déjà triée}{}
+
+Pour insérer un élément dans une liste \textit{déjà triée par ordre croissant}, on propose l'algorithme suivant :
+\begin{enumerate}
+	\item Ajouter l'élément à la fin de la liste
+	\item Echanger l'élément avec son voisin de gauche tant qu'il est plus petit et que le début de liste n'est pas atteint
+\end{enumerate}
+Compléter l'implémentation suivante de cette algorithme
+\begin{lstlisting}
+def insertion(element,liste):
+    '''Insère element dans  liste (qui est déjà triée)'''
+    liste........(element)
+    pos = ......
+    while pos>... and liste[pos]<.....:
+        liste[pos],liste[pos-1] =  ........... , ............ 
+        pos = ......
+\end{lstlisting}
+
+\textbf{Exemple}
+\begin{lstlisting}
+    >>> liste = [1,4,7,13,17]
+    >>> insertion(8,liste)
+    >>> liste
+    [1,4,7,8,13,17]
+\end{lstlisting}
+\end{document}

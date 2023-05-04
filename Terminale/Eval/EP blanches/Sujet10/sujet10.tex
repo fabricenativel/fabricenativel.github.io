@@ -1,0 +1,69 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{10}{2022--2023}
+\pythonmode
+
+\Exo{Mot équilibré}{}
+
+On dit qu'un mot est \textit{équilibré} lorsqu'il contient autant de voyelles que de consonnes. Par exemple le mot {\tt rapide} est un mot équilibré, par contre {\tt lent} n'est pas équilibré. Ecrire  une fonction {\tt est\_equilibre} qui prend en paramètre un mot {\tt mot} et renvoie {\tt True} si {\tt mot} est équilibré et {\tt False} sinon.
+On suppose que {\tt mot} est constitué uniquement de lettres minuscules et non accentuées et on rappelle que les voyelles sont les lettres {\tt a,e,i,o,u} et {\tt y}.
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> est_equilibre("oiseau")
+False
+>>> est_equilibre("patate")
+True
+>>> est_equilibre("toux")
+True
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Conversion en binaire}{}
+
+Pour rappel, la conversion d'un nombre entier en binaire peut s'effectuer à l'aide de \textit{l'algorithme des divisions successives} qui consiste à :
+\begin{itemize}
+\item[\textbullet] effectuer la division euclidienne de $n$ par 2, soit $q$ le quotient et $r$ le reste.
+\item[\textbullet] si le quotient est 0, on s'arrête l'écriture binaire est la suite des restes prises dans l'ordre inverse. Sinon on recommence l'étape 1 en remplaçant $n$  par $q$
+\end{itemize}
+
+Par exemple pour $n=77$ :
+\begin{itemize}
+ \item[\textbullet] $77 = 2 \times 38$ + 1, comme $38 \neq 0$ on continue
+ \item[\textbullet] $38 = 2 \times 19$ + 0, comme $19 \neq 0$ on continue
+ \item[\textbullet] $19 = 2 \times 9$ + 1
+ \item[\textbullet] $9 = 2 \times 4$ + 1
+ \item[\textbullet] $4 = 2 \times 2$ + 0 
+ \item[\textbullet] $2 = 2 \times 1$ + 0
+ \item[\textbullet] $1 = 2 \times 0$ + 1 arrêt car le quotient est 0.
+\end{itemize}
+L'écriture binaire de 77 est la suite des restes prises dans l'ordre inverse : $1001101$.
+
+
+Compléter la fonction ci-dessous qui implémente cet algorithme, on rappelle que le quotient dans la division euclidienne de $n$ par 2 s'obtient avec {\tt n//2} et le reste avec {\tt n\%2} :
+\begin{lstlisting}
+def binaire(n):
+    # On effectue la première division euclidienne, le reste doit être converti en chaine de caractères pour initialiser l'écriture binaire
+    ecriture_binaire = str(...)
+    n = n .....
+    # Tant que le quotient n'est pas nul, on recommence
+    while  ..... :
+        ecriture_binaire = str(...) + ....
+        n = .....
+    return ecriture_binaire
+\end{lstlisting}
+
+\textbf{Exemples : }
+\begin{lstlisting}
+>>> binaire(77)
+'1001101'
+\end{lstlisting} 
+
+\end{document}

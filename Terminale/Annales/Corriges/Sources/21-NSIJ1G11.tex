@@ -1,0 +1,78 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+\begin{frame}
+    \mframe{\Schema}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|Y|}
+    \hline
+    Etapes  & Etape 0 \newline Pile d'origine {\tt P} & Etape 1  \newline {\tt empiler(P,8)} & Etape 2 \newline {\tt depiler(P)} & Etape 3 \newline {\tt est\_vide(P)} \\
+    \hline
+    Pile &  \  \newline 
+     \begin{tabular}{|c|} 
+         \\
+        \hline
+        \ 4 \ \\
+        \hline
+        7 \\
+        \hline
+        1 \\
+        \hline
+        5 \\
+        \hline
+     \end{tabular} \ \newline
+     & 
+     \  \newline 
+     \begin{tabular}{|c|} 
+        \textcolor{blue}{\textbf 8} \\
+        \hline
+        \textcolor{blue}{ 4} \\
+        \hline
+        \textcolor{blue}{ 7} \\
+        \hline
+        \textcolor{blue}{ 1} \\
+        \hline
+        \textcolor{blue}{ 5} \\
+        \hline
+     \end{tabular} \ \newline
+     & 
+     \  \newline 
+     \begin{tabular}{|c|} 
+        \textcolor{blue}{} \\
+        \hline
+        \textcolor{blue}{ 4} \\
+        \hline
+        \textcolor{blue}{ 7} \\
+        \hline
+        \textcolor{blue}{ 1} \\
+        \hline
+        \textcolor{blue}{ 5} \\
+        \hline
+     \end{tabular} \ \newline
+     & 
+     \  \newline 
+     \begin{tabular}{|c|} 
+        \textcolor{blue}{} \\
+        \hline
+        \textcolor{blue}{ 4} \\
+        \hline
+        \textcolor{blue}{ 7} \\
+        \hline
+        \textcolor{blue}{ 1} \\
+        \hline
+        \textcolor{blue}{ 5} \\
+        \hline
+     \end{tabular} \ \newline
+     \\ 
+     \hline 
+     \multicolumn{2}{|c|}{Valeurs renvoyées}   & \textcolor{blue}{\tt None} & \textcolor{blue}{8} & \textcolor{blue}{\tt False} \\
+     \hline 
+    \end{tabularx}
+\end{frame}
+\end{document}

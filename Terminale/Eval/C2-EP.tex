@@ -1,0 +1,64 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+\pythonmode
+
+\DevoirNSI{Entrainement à l'épreuve pratique}{\Term}\vspace{0.2cm}
+
+\Exo{Appartient}{} 
+
+Ecrire une fonction {\tt appartient} qui prend en paramètre un entier {\tt n} et une liste d'entiers {\tt entiers} et renvoie {\tt True} si {\tt n} apparaît dans {\tt entiers} et {\tt False} sinon.
+\begin{lstlisting}
+>>> appartient(10,[4,17,11])
+False
+>>> appartient(10,[])
+False
+>>> appartient(2,[8,5,1,1,1,2,7])
+True
+>>> appartient(0,[0,1,1,0,0,0,1])
+True
+>>> appartient(2,[0,1,1,0,0,0,1])
+False
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Palindrome}{}
+
+Une chaine de caractères est un \textit{palindrome} lorsqu'elle peut être lue indifféremment de gauche à droite ou de droite à gauche, par exemple \og KAYAK \fg ou \og ANNA \fg sont des palindromes.
+Ecrire une fonction {\tt est\_palindrome} qui prend en argument une chaîne de caractères et renvoie {\tt True} si cette chaîne est un palindrome et {\tt False} sinon. 
+
+\textbf{Exemples :} 
+\begin{lstlisting}
+>>> est_palindrome("toto")
+False
+>>> est_palindrome("ressasser")
+True
+>>> est_palindrome("")
+True
+>>> est_palindrome("radar")
+True
+>>> est_palindrome("p")
+True
+>>> est_palindrome("retirer")
+False
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Bonus}{}
+\QListe
+\item Si vous avez proposé une solution récursive à l'exercice 2 alors donner une solution itérative et inversement.
+\item Pour l'exercice 1, lorsqu'un la liste {\tt entiers} est triée, un algorithme plus rapide existe pour déterminer si un entier {\tt n} y figure ou non.
+    \SQListe
+    \item Rappeler le nom de cet algorithme et expliquer rapidement son fonctionnement.
+    \item Expliquer pourquoi cet algorithme est \textit{plus rapide}.\\
+        \aide \; On pourra indiquer simplement leur complexité en temps.
+    \item Ecrire une implémentation en Python de cet algorithme 
+    \FinListe
+\FinListe
+\end{document}

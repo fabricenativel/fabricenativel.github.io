@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+\pythonmode
+
+\DevoirNSI{Entrainement à l'épreuve pratique}{\Term}\vspace{0.2cm}
+
+\Exo{Somme des éléments d'une liste}{} 
+\QListe
+\item Ecrire une fonction {\tt somme\_iteratif} qui prend en paramètre une liste d'entiers et renvoie la somme des éléments de cette liste en faisant un parcours de liste. Si la liste est vide, cette fonction renvoie 0. Voici quelques exemples  d'appel à cette fonction dans une console Python :
+\begin{lstlisting}
+>>> somme_iteratif([4,17,11])
+32
+>>> somme_iteratif([])
+0
+>>> somme_iteratif([8,5,1,1,1,2])
+18
+>>> somme_iteratif([10])
+10
+\end{lstlisting}
+
+\item Ecrire une fonction {\tt somme\_recursif} qui prend en paramètre une liste d'entiers et renvoie la somme des éléments de cette liste. Cette fonction doit s'appeler elle-même. De même que pour {\tt somme\_iteratif} si la liste est vide, on renvoie 0.
+
+\aide \; Aide :
+On pourra recopier et utiliser la fonction suivante qui renvoie la "\textit{queue}" d'une liste, c'est à dire cette liste privée de son premier élément. Par exemple {\tt queue[4,17,11]} renvoie {\tt [17,11]}.
+\begin{lstlisting}
+    def queue(liste):
+            return liste[1:]
+\end{lstlisting}
+
+\item \textbf{Bonus :} La fonction {\tt queue} donnée ci-dessus peut s'écrire sans utiliser la notation en tranche comme dans {\tt liste[1:]}. Donner une façon d'écrire la fonction {\tt queue} sans utiliser cette notation.
+\FinListe
+
+\vspace{0.3cm}
+
+\Exo{Partitions d'un entier}{} \\
+\danger \; Attention, exercice \textbf{difficile}, donné uniquement en bonus.
+
+L'entier 4 peut s'écrire de diverses façons comme somme d'entiers :
+\begin{itemize}
+    \item 4 = 4
+    \item 4 = 3 + 1
+    \item 4 = 2 + 2
+    \item 4 = 2 + 1 + 1
+    \item 4 = 1 + 1 + 1 + 1
+\end{itemize}
+Ce sont les \textbf{partitions} de l'entier 4. 
+
+Ecrire une fonction {\tt partitions} qui prend en argument un entier {\tt n} et renvoie la liste de ses partitions. Par exemple :
+\begin{lstlisting}
+>>> partitions(3)
+>>> [[3],[2,1],[1,1,1]]
+\end{lstlisting}
+
+\end{document}

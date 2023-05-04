@@ -1,0 +1,350 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{3}
+\newcommand{\Python}{\cnum Initiation à Python avec turtle}
+
+\pythonmode
+
+
+% Remarques sur les langages de programmation
+\begin{frame}
+	\mframe{\Python}
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<1-> Il existe \textit{plusieurs milliers} de langages informatique.
+			\item<2-> Parmi les plus importants historiquement et les plus utilisés, on peut citer :
+			      \begin{itemize}
+				      \item<3-> Cobol, Fortran, Lisp,
+				      \item<4-> le \textcolor{blue}{langage C} et ses dérivés, Pascal, Ada
+				      \item<5-> Perl, Javascript, PHP, \textcolor{red}{Python}, Java.
+			      \end{itemize}
+			\item<6-> Ne pas confondre langages de programmations et algorithme. Un algorithme est une méthode permettant de résoudre un problème. Un langage informatique permet de formuler un algorithme pour l'exécuter sur un ordinateur.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Python
+\begin{frame}
+	\mframe{\Python}
+	\begin{alertblock}{A propos de Python}
+		\begin{itemize}
+			\item<1-> Langage crée par un informaticien néerlandais : \textcolor{blue}{Guido Van Rossum}. La première version date de 1991, nous en sommes actuellement à la version 3.
+			\item<2-> C'est un langage sous licence libre, gratuit, multiplateforme.
+			\item<3-> C'est un langage extensible grâce à l'ajout de nombreuses bibliothèques.
+			\item<4-> C'est un langage interprété.
+			\item<5-> Choisi pour l'enseignement de la spécialité {\sc nsi} au lycée.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Variables
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{block}{Programmation en python : généralités}
+		\begin{itemize}
+			\item<1-> Python renvoie un message d'erreur lorsqu'il n'arrive pas à interpréter les instructions de votre programme. Prendre l'habitude de \textcolor{blue}{lire attentivement} ces messages, qui sont de premiers indices pour déterminer la source de l'erreur
+			\item<2-> En Python, les \textcolor{blue}{commentaires} s'écrivent en faisant commencer la ligne par le caractère \textcolor{red}{\tt \#}.
+			\item<3-> Le respect de la syntaxe du langage est \textcolor{blue}{fondamental} et demande de la \textcolor{blue}{rigueur}.
+			\item<4-> Attention aussi à bien surveiller les correspondances entre les parenthèses mais aussi les guillemets ou les apostrophes qui sont souvent source d'erreurs.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Turtle : papier et crayon
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{block}{Création du papier et du crayon}
+		\begin{lstlisting}
+	import turtle
+	papier = turtle.Screen()
+	crayon = turtle.Turtle()
+		\end{lstlisting}
+	\end{block}
+	\onslide<2->{\begin{block}{Remarques}
+			\begin{itemize}
+				\item<3-> les noms {\tt papier} et {\tt crayon} sont des \textcolor{blue}{noms de variables}, choisis par le programmeur.
+				\item<4-> On peut créer plusieurs crayons différents ({\tt stylo =}\tmc{turtle.Turtle()}).
+				\item<5-> l'instruction {\tt crayon.}\tmc{reset()} permet d'effacer la totalité des tracés de la tortue nommée {\tt crayon}.
+				\item<6-> l'instruction {\tt crayon.}\tmc{undo()} permet d'effacer le dernier tracé de la tortue nommée {\tt crayon}.
+			\end{itemize}
+		\end{block}}
+\end{frame}
+
+% Turtle : papier et crayon 1/2
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{alertblock}{\textcolor{yellow}{\danger} Attention}
+		Dans la suite, on supposera que la tortue a été nommée {\tt crayon} et l'écran {\tt papier}. Mais, ces noms sont \textcolor{blue}{choisis par le programmeur}.
+	\end{alertblock}
+	\begin{block}{Propriétés de la tortue}
+		\begin{itemize}
+			\item<2-> {\tt crayon.}\tmc{pensize}{\tt(size)} fixe l'épaisseur de la tortue à {\tt size}.
+			\item<3-> {\tt crayon.}\tmc{color}{\tt(color)} change à {\tt color} la couleur de la tortue.
+			\item<4-> {\tt crayon.}\tmc{penup}{\tt ()} et {\tt crayon.}\tmc{penup}{\tt ()} permettent respectivement de relever ou d'abaisser la tortue.
+			\item<5-> {\tt crayon.}\tmc{showturtle}{\tt ()} et {\tt crayon.}\tmc{hideturtle}{\tt ()} permettent respectivement de faire apparaître ou non la tortue.
+			\item<6-> {\tt crayon.}\tmc{speed}{\tt (s)}  pour modifier la vitesse de tracé.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Turtle : papier et crayon 2/2
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemples}
+		Ecrire les instructions permettant d'obtenir un crayon abaissé, rouge, d'épaisseur~3, caché et se déplaçant à la vitesse maximale.\pause
+		\begin{lstlisting}
+	crayon.pendown() 
+	crayon.pensize(3)
+	crayon.color("red")
+	crayon.hideturtle()
+	crayon.speed(10)
+	\end{lstlisting}
+	\end{exampleblock}
+\end{frame}
+
+
+% Turtle : Orientation
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{block}{Orientation de la tortue}
+		\begin{itemize}
+			\item<2-> L'orientation de la tortue est définie par l'angle qu'elle fait avec l'axe horizontale et est initialement fixé à 0.
+			\item<4-> Les instructions suivantes permettent de modifier cette orientation \\
+			      \bigskip
+			      \begin{tabularx}{\linewidth}{p{4.5cm}|X}
+				      \psset{unit=0.6px, xlabelsep}
+				      \begin{pspicture}
+					      \pstGeonode[PointName=none,PointSymbol=none](90,-70){O}(0,-70){A}(180,-70){B}(90,-160){C}(90,20){D}
+					      \ncline[linewidth=0.7px,linecolor=red]{->}{O}{B}
+					      \ncline[linewidth=0.5px]{->}{O}{A}
+					      \ncline[linewidth=0.5px]{->}{O}{C}
+					      \ncline[linewidth=0.5px]{->}{O}{D}
+					      \rput(190,-70){{\footnotesize \textcolor{blue}{0}}}
+					      \rput(-10,-70){\footnotesize \textcolor{blue}{180}}
+					      \rput(90,25){\footnotesize \textcolor{blue}{90}}
+					      \rput(90,-170){\footnotesize \textcolor{blue}{270}}
+					      \pstRotation[PointName=none,PointSymbol=none,RotAngle=60]{O}{B}[E]
+					      \pstRotation[PointName=none,PointSymbol=none,RotAngle=160]{O}{B}[F]
+					      \pstRotation[PointName=none,PointSymbol=none,RotAngle=20]{O}{B}[G]
+					      \onslide<6->{\ncline[linewidth=0.5px,linecolor=RawSienna]{->}{O}{E} \pstMarkAngle[MarkAngleRadius=40,LabelSep=50,MarkAngleType=default,arrows=->]{B}{O}{E}{$a$}}
+					      \onslide<8,9>{\ncline[linewidth=0.5px,linecolor=RawSienna,linestyle=dashed]{->}{O}{F} \pstMarkAngle[MarkAngleRadius=30,LabelSep=20,MarkAngleType=default,arrows=->,linecolor=OliveGreen]{E}{O}{F}{\textcolor{OliveGreen}{$l$}}}{}
+					      \onslide<10>{\ncline[linewidth=0.5px,linecolor=RawSienna,linestyle=dashed]{->}{O}{G} \pstMarkAngle[MarkAngleRadius=30,LabelSep=20,MarkAngleType=default,arrows=<-,linecolor=OliveGreen]{G}{O}{E}{\textcolor{OliveGreen}{$r$}}}{}
+
+				      \end{pspicture} &
+				      \begin{itemize}
+					      \item<5-> {\tt crayon.}\tmc{setheading}{\tt (a)} pour fixer l'orientation de la tortue à l'angle {\tt a}.
+					      \item<7-> {\tt crayon.}\tmc{left}{\tt (l)} pour faire tourner la tortue de {\tt l} degrés à gauche \textcolor{blue}{à partir de son orientation actuelle}.
+					      \item<9-> {\tt crayon.}\tmc{right}{\tt (r)} pour faire tourner la tortue de {\tt r} degrés à droite \textcolor{blue}{à partir de son orientation actuelle}.
+				      \end{itemize}
+			      \end{tabularx}
+			      \bigskip
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Turtle : Déplacement
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{block}{Déplacement de la tortue}
+		\begin{itemize}
+			\item<2-> La position de la tortue est définie par ses coordonnées dans un repère (comme en mathématiques) et est initialement l'origine du repère.
+			\item<4-> Les instructions suivantes permettent de modifier cette position \\
+			      \begin{tabularx}{\linewidth}{p{4.5cm}|X}
+				      \psset{xunit=0.5cm,yunit=0.5cm,xlabelsep=0,ylabelsep=0.1,MarkHashLength=2pt}
+				      \begin{pspicture}(0,4)(-4,4)
+					      \psgrid[xunit=0.5cm,yunit=0.5cm,subgriddiv=0,gridlabels=0,gridcolor=lightgray](0,0)(-4,-4)(4,4)
+					      \pstGeonode[PointName=none,PointSymbol=none](-4,0){X1}(4,0){X2}(0,-4){Y1}(0,4){Y2}
+					      \ncline[linewidth=0.5px]{->}{X1}{X2}
+					      \ncline[linewidth=0.5px]{->}{Y1}{Y2}
+					      \onslide<6->{\pstGeonode[PointName=none,PointSymbol=|](-2,0){x} \rput(-2,-0.4){{\scriptsize \textcolor{blue}{x}}}}
+					      \onslide<6->{\pstGeonode[PointName=none,PointSymbol=+](0,3){y} \rput(0.2,3){{\scriptsize \textcolor{blue}{y}}}}
+					      \onslide<7->{\psline[linecolor=RawSienna,linestyle=dashed]{<-}(-2,3)(0,3) \psline[linecolor=RawSienna,linestyle=dashed]{<-}(-2,3)(-2,0) }
+					      \onslide<8->{\pstGeonode[PosAngle=135,PointSymbol=*,PointName=none](-2,3){M}}
+					      \onslide<10->{\pstGeonode[PosAngle=135,PointSymbol=none,PointName=none](-1.8,2.8){N} \ncline[linewidth=1.5px,linecolor=gray]{->}{M}{N}}
+					      \onslide<11->{\pstGeonode[PosAngle=135,PointSymbol=none,PointName=none](2,-1){P} \ncline[linestyle=dashed,linecolor=OliveGreen]{->}{M}{P} \naput{$l$}}
+				      \end{pspicture} &
+				      \begin{itemize}
+					      \item<5-> {\tt crayon.}\tmc{goto}{\tt (x,y)} pour déplacer la tortue au point de coordonnées {\tt (x,y)}.
+					      \item<9-> {\tt crayon.}\tmc{forward}{\tt (l)} pour faire avancer la tortue d'une distance {\tt l} \textcolor{blue}{dans sa direction actuelle}.
+					      \item<12-> {\tt crayon.}\tmc{backward}{\tt (l)} pour faire reculer la tortue d'une distance {\tt l}\textcolor{blue}{dans la direction opposée à sa direction actuelle}.
+				      \end{itemize}
+			      \end{tabularx}
+			      \bigskip
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Appel à une fonction
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{alertblock}{Fonctions}
+		\begin{itemize}
+			\item<2->{Les fonctions sont des blocs d'instructions destinés à accomplir une tâche lors de leur \textcolor{blue}{appel} (par exemple avec \tmc{turtle}, tracé un carré).}
+			\item<3->{Leurs résultats peut dépendre de valeurs appelées \textcolor{blue}{paramètres} de la fonction (par exemple, le côté du carré).}
+			\item<4->{Pour définir une fonction en Python, on utilise la syntaxe suivante :
+			      \begin{lstlisting}
+	def <nom_fonction>(<arguments>):
+		<instruction>
+		\end{lstlisting}}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Exemple de fonction
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Un exemple de fonction}
+		Tracer un trait à partir du point de coordonnées {\tt (x,y)} en donnant la longueur $l$ et la direction $a$.
+		\begin{tabularx}{\linewidth}{p{4.5cm}|X}
+			\psset{xunit=0.5cm,yunit=0.5cm,xlabelsep=0,ylabelsep=0.1,MarkHashLength=2pt}
+			\begin{pspicture}(0,2)(-4,2)
+				\pstGeonode[PointName=none,PointSymbol=none](-2,-3){M}(2,-3){MX}(1,2){N}
+				\rput(-3,-3){(x,y)} \rput(0,-2.5){Angle $a$}
+				\ncline[linewidth=1px,linecolor=blue]{->}{M}{N} \naput{longueur $l$}
+				\ncline[linewidth=0.25px,linestyle=dashed]{->}{M}{MX}
+				\pstMarkAngle[LabelSep=50,arrows=->]{MX}{M}{N}{Angle $a$}
+			\end{pspicture} &
+			\begin{itemize}
+				\item<2-> Relever le crayon
+				\item<3-> Aller en {\tt (x,y)}
+				\item<4-> S'orienter dans la direction d'angle $a$
+				\item<5-> Abaisser le crayon
+				\item<6-> Avancer de la longueur $l$
+			\end{itemize}
+		\end{tabularx}
+	\end{exampleblock}
+\end{frame}
+
+% Exemple de fonction
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Un exemple de fonction}
+		Tracer un trait à partir du point de coordonnées {\tt (x,y)} en donnant la longueur $l$ et la direction $a$.
+		\begin{tabularx}{\linewidth}{p{4.5cm}|X}
+			\psset{xunit=0.5cm,yunit=0.5cm,xlabelsep=0,ylabelsep=0.1,MarkHashLength=2pt}
+			\begin{pspicture}(0,2)(-4,2)
+				\pstGeonode[PointName=none,PointSymbol=none](-2,-3){M}(2,-3){MX}(1,2){N}
+				\rput(-3,-3){(x,y)} \rput(0,-2.5){Angle $a$}
+				\ncline[linewidth=1px,linecolor=blue]{->}{M}{N} \naput{longueur $l$}
+				\ncline[linewidth=0.25px,linestyle=dashed]{->}{M}{MX}
+				\pstMarkAngle[LabelSep=50,arrows=->]{MX}{M}{N}{Angle $a$}
+			\end{pspicture} &
+			\begin{itemize}
+				\item Relever le crayon
+				\item Aller en {\tt (x,y)}
+				\item S'orienter dans la direction d'angle $a$
+				\item Abaisser le crayon
+				\item Avancer de la longueur $l$
+			\end{itemize}
+		\end{tabularx}
+		\begin{lstlisting}
+		def trait(x,y,l,a):
+			crayon.penup()
+			crayon.goto(x,y)
+			crayon.setheading(a)
+			crayon.pendown()
+			crayon.forward(l)
+		\end{lstlisting}
+	\end{exampleblock}
+\end{frame}
+
+
+% boucle for
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{alertblock}{Boucles {\tt for}}
+		\begin{itemize}
+			\item<2-> Les instructions :
+			      \begin{lstlisting}
+	for <variable> in range(<entier>):
+		 <instructions>
+	\end{lstlisting}
+			      permet de créer une variable parcourant les entiers de 0 à {\tt <entier>} (exclu).
+			\item<3-> Les {\tt <instructions>} indentées qui suivent seront executées pour chaque valeur prise par la variable.
+			\item<4-> La boucle {\tt for} permet donc de répéter un nombre prédéfini de fois des instructions, on dit que c'est une boucle bornée.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% boucle for
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Une boucle avec la fonction trait}
+		En faisant varier la direction et la longueur dans la fonction {\tt trait} définie ci-dessus à l'aide d'une boucle on obtient le dessin suivant :
+		\begin{center}
+			\includegraphics[scale=0.25]{ex-cours.eps}
+		\end{center}
+	\begin{lstlisting}
+	direction = 0
+	longueur = 10
+	for t in range(51):
+		trait(0,0,longueur,direction)
+		direction+=3.6
+		longueur+=5
+	papier.exitonclick()
+	\end{lstlisting}
+	\end{exampleblock}
+\end{frame}
+
+
+% Instructions conditionnelles
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{alertblock}{Instructions conditionnelles}
+		\begin{itemize}
+			\item<2-> La syntaxe d'une instruction conditionnelle en Python est :
+			      \begin{lstlisting}
+	if <condition>:
+		<instructions1>
+	else:
+		<instructions2>
+	\end{lstlisting}
+			      Cela permet d'exécuter les {\tt <instructions1>} si la {\tt condition} est vérifiée, sinon on exécute les {\tt <instructions2>}.
+			\item<3->  \textcolor{red}{\danger} On fera bien attention à la syntaxe du langage, et notamment à l'usage du caractère \textcolor{red}{\tt :} qui suit la condition (et le {\tt else}) et à l'\textcolor{red}{indentation}, c'est à dire le décalage des instructions qui doivent s'executer.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Exemple instructions conditionnelles
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemples}
+		\begin{enumerate}
+			\item<1-> Ecrire l'instruction permettant de tester si la variable {\tt erreurs} vaut 0
+			\item<2-> On suppose qu'une variable {\tt longueur} peut être positive ou négative, si cette variable est positive alors on fait avancer la tortue de {\tt longueur}, sinon on la fait reculer de {\tt -longueur}.
+			      Ecrire les instructions python correspondantes.
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+% Exemple instructions conditionnelles
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemples}
+		\begin{enumerate}
+			\item Ecrire l'instruction permettant de tester si la variable {\tt erreurs} vaut 0
+			      \begin{lstlisting}
+    if erreur==0:
+		\end{lstlisting}
+			\item On suppose qu'une variable {\tt longueur} peut être positive ou négative, si cette variable est positive alors on fait avancer la tortue de {\tt longueur}, sinon on la fait reculer de {\tt -longueur}.
+			      Ecrire les instructions python correspondantes.
+			      \begin{lstlisting}
+		if longueur>0:
+			crayon.forward(longueur)
+		else:
+			crayon.backward(-longueur)
+	\end{lstlisting}
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+	<!--Titre du QCM-->
+	<question type="category">
+		<category>
+			<text><![CDATA[<infos><name>OS</name><answernumbering>123</answernumbering><niveau>1ERE</niveau><matiere>NUMERIQUE SC.INFORM.</matiere></infos>]]></text>
+		</category>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Obtenir l'aide sur une commande]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Dans un terminal Linux, quelle commande faut-il écrire pour obtenir la documentation sur la commande <span style="font-family: 'courier new', courier;">pwd </span>?</div><div style="font-family: Arial; font-size: 13px;">&nbsp;</div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd pwd</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">man pwd</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">ls pwd</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">mkdir pwd</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Droits]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">On considère l'affichage suivant d'un terminal Linux :</div><div style="font-family: Arial; font-size: 13px; text-align: left;">&nbsp;</div><div style="font-family: Arial; font-size: 13px; text-align: left;"><span style="font-family: 'courier new', courier; background-color: #ced4d9; color: #34495e;">% ls -l</span><br><span style="font-family: 'courier new', courier; background-color: #ced4d9; color: #34495e;">total 0</span><br><span style="font-family: 'courier new', courier; background-color: #ced4d9; color: #34495e;">-rw-r----- 1 1003 nativel profs août &nbsp;25 09:47 Evaluation1</span></div><div style="font-family: Arial; font-size: 13px; text-align: left;">&nbsp;</div><div style="font-family: Arial; font-size: 13px; text-align: left;">Cocher l'affirmation exacte parmi les propositions ci-dessous :</div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Le fichier <span style="font-family: 'courier new', courier;">devoir<span style="font-family: arial, helvetica, sans-serif;"> n'est lisible que par son propriétaire.</span></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Personne ne peut modifier le fichier <span style="font-family: 'courier new', courier;">devoir.<span style="font-family: arial, helvetica, sans-serif;"><br></span></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Personne ne peut lire le fichier <span style="font-family: 'courier new', courier;">devoir<span style="font-family: arial, helvetica, sans-serif;">.</span></span></div><div style="font-family: Arial; font-size: 13px;">&nbsp;</div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Un utilisateur appartenant au groupe <span style="font-family: 'courier new', courier;">profs<span style="font-family: arial, helvetica, sans-serif;"> peut lire le fichier devoir.</span></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Création d'un répertoire]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Quelle commande permet de créer un répertoire ?</div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">mkdir</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">rmdir</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">touch</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">createdir</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Libres et propriétaires]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Quelle est la différence entre un logiciel libre et un logiciel propriétaire ?</div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="100" format="plain_text">
+			<text><![CDATA[On peut consulter le code source d'un logiciel libre, pas celui d'un logiciel propriétaire]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="plain_text">
+			<text><![CDATA[Un logiciel libre est gratuit alors qu'un logiciel propriétaire est payant]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="plain_text">
+			<text><![CDATA[Un logiciel propriétaire est plus sécurisé qu'un logiciel libre]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="plain_text">
+			<text><![CDATA[Un logiciel propriétaire possède davantage de fonctionnalités qu'un logiciel libre]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Droits]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Dans un terminal Linux, quelle commande permet d'attribuer à tous les utilisateurs le droit de lecture sur le fichier <span style="font-family: 'courier new', courier;">toto.txt </span>?</div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">chmod a+r toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">chmod a+w toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">chmod a-r toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">chmod o+r toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Droits]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><div style="font-family: Arial; font-size: 13px;">On considère l'affichage suivant d'un terminal Linux :</div><div style="font-family: Arial; font-size: 13px; text-align: left;">&nbsp;</div><div style="font-family: Arial; font-size: 13px; text-align: left;"><span style="font-family: 'courier new', courier; background-color: #ced4d9; color: #34495e;">% ls -l</span><br><span style="font-family: 'courier new', courier; background-color: #ced4d9; color: #34495e;">total 0</span><br><span style="font-family: 'courier new', courier; background-color: #ced4d9; color: #34495e;">-rw-r----- 1 1003 nativel profs août &nbsp;25 09:47 Evaluation1</span></div><div style="font-family: Arial; font-size: 13px; text-align: left;">&nbsp;</div><div style="font-family: Arial; font-size: 13px; text-align: left;">Que peut-on déduire de cet affichage ?</div></div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="0" format="plain_text">
+			<text><![CDATA[Le propriétaire du fichier a le droit d'écriture  mais pas celui d'exécution ni de lecture]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="plain_text">
+			<text><![CDATA[Le propriétaire du fichier a le droit d'écriture et de lecture et d'exécution]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="100" format="plain_text">
+			<text><![CDATA[Le propriétaire du fichier a le droit d'écriture et de lecture mais pas celui d'exécution]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="plain_text">
+			<text><![CDATA[Le propriétaire du fichier n'a aucun droit sur le fichier]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Se déplacer dans l'arborescence]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Si trouve dans le répertoire <span style="font-family: 'courier new', courier;">Systèmes<span style="font-family: arial, helvetica, sans-serif;">, quelle commande permet de remonter dans le répertoire <span style="font-family: 'courier new', courier;">Cours <span style="font-family: arial, helvetica, sans-serif;">?</span></span></span></span></div>]]></text>
+		</questiontext>
+		<image_base64>
+			<text><![CDATA[iVBORw0KGgoAAAANSUhEUgAAALsAAACqCAYAAAD1Gj5UAAAJJmlDQ1BpY2MAAEiJlZVnUJNZF8fv
+8zzphUASQodQQ5EqJYCUEFoo0quoQOidUEVsiLgCK4qINEWQRQEXXJUia0UUC4uCAhZ0gywCyrpx
+FVFBWXDfGZ33HT+8/5l7z2/+c+bec8/5cAEgiINlwct7YlK6wNvJjhkYFMwE3yiMn5bC8fR0A9/V
+uxEArcR7ut/P+a4IEZFp/OW4uLxy+SmCdACg7GXWzEpPWeGjy0wPj//CZ1dYsFzgMt9Y4eh/eexL
+zr8s+pLj681dfhUKABwp+hsO/4b/c++KVDiC9NioyGymT3JUelaYIJKZttIJHpfL9BQkR8UmRH5T
+8P+V/B2lR2anr0RucsomQWx0TDrzfw41MjA0BF9n8cbrS48hRv9/z2dFX73kegDYcwAg+7564ZUA
+dO4CQPrRV09tua+UfAA67vAzBJn/eqiVDQ0IgALoQAYoAlWgCXSBETADlsAWOAAX4AF8QRDYAPgg
+BiQCAcgCuWAHKABFYB84CKpALWgATaAVnAad4Dy4Aq6D2+AuGAaPgRBMgpdABN6BBQiCsBAZokEy
+kBKkDulARhAbsoYcIDfIGwqCQqFoKAnKgHKhnVARVApVQXVQE/QLdA66At2EBqGH0Dg0A/0NfYQR
+mATTYQVYA9aH2TAHdoV94fVwNJwK58D58F64Aq6HT8Id8BX4NjwMC+GX8BwCECLCQJQRXYSNcBEP
+JBiJQgTIVqQQKUfqkVakG+lD7iFCZBb5gMKgaCgmShdliXJG+aH4qFTUVlQxqgp1AtWB6kXdQ42j
+RKjPaDJaHq2DtkDz0IHoaHQWugBdjm5Et6OvoYfRk+h3GAyGgWFhzDDOmCBMHGYzphhzGNOGuYwZ
+xExg5rBYrAxWB2uF9cCGYdOxBdhK7EnsJewQdhL7HkfEKeGMcI64YFwSLg9XjmvGXcQN4aZwC3hx
+vDreAu+Bj8BvwpfgG/Dd+Dv4SfwCQYLAIlgRfAlxhB2ECkIr4RphjPCGSCSqEM2JXsRY4nZiBfEU
+8QZxnPiBRCVpk7ikEFIGaS/pOOky6SHpDZlM1iDbkoPJ6eS95CbyVfJT8nsxmpieGE8sQmybWLVY
+h9iQ2CsKnqJO4VA2UHIo5ZQzlDuUWXG8uIY4VzxMfKt4tfg58VHxOQmahKGEh0SiRLFEs8RNiWkq
+lqpBdaBGUPOpx6hXqRM0hKZK49L4tJ20Bto12iQdQ2fRefQ4ehH9Z/oAXSRJlTSW9JfMlqyWvCAp
+ZCAMDQaPkcAoYZxmjDA+SilIcaQipfZItUoNSc1Ly0nbSkdKF0q3SQ9Lf5RhyjjIxMvsl+mUeSKL
+ktWW9ZLNkj0ie012Vo4uZynHlyuUOy33SB6W15b3lt8sf0y+X35OQVHBSSFFoVLhqsKsIkPRVjFO
+sUzxouKMEk3JWilWqUzpktILpiSTw0xgVjB7mSJleWVn5QzlOuUB5QUVloqfSp5Km8oTVYIqWzVK
+tUy1R1WkpqTmrpar1qL2SB2vzlaPUT+k3qc+r8HSCNDYrdGpMc2SZvFYOawW1pgmWdNGM1WzXvO+
+FkaLrRWvdVjrrjasbaIdo12tfUcH1jHVidU5rDO4Cr3KfFXSqvpVo7okXY5upm6L7rgeQ89NL0+v
+U++Vvpp+sP5+/T79zwYmBgkGDQaPDamGLoZ5ht2GfxtpG/GNqo3uryavdly9bXXX6tfGOsaRxkeM
+H5jQTNxNdpv0mHwyNTMVmLaazpipmYWa1ZiNsulsT3Yx+4Y52tzOfJv5efMPFqYW6RanLf6y1LWM
+t2y2nF7DWhO5pmHNhJWKVZhVnZXQmmkdan3UWmijbBNmU2/zzFbVNsK20XaKo8WJ45zkvLIzsBPY
+tdvNcy24W7iX7RF7J/tC+wEHqoOfQ5XDU0cVx2jHFkeRk4nTZqfLzmhnV+f9zqM8BR6f18QTuZi5
+bHHpdSW5+rhWuT5z03YTuHW7w+4u7gfcx9aqr01a2+kBPHgeBzyeeLI8Uz1/9cJ4eXpVez33NvTO
+9e7zofls9Gn2eedr51vi+9hP0y/Dr8ef4h/i3+Q/H2AfUBogDNQP3BJ4O0g2KDaoKxgb7B/cGDy3
+zmHdwXWTISYhBSEj61nrs9ff3CC7IWHDhY2UjWEbz4SiQwNCm0MXwzzC6sPmwnnhNeEiPpd/iP8y
+wjaiLGIm0iqyNHIqyiqqNGo62ir6QPRMjE1MecxsLDe2KvZ1nHNcbdx8vEf88filhICEtkRcYmji
+uSRqUnxSb7JicnbyYIpOSkGKMNUi9WCqSOAqaEyD0tandaXTlz/F/gzNjF0Z45nWmdWZ77P8s85k
+S2QnZfdv0t60Z9NUjmPOT5tRm/mbe3KVc3fkjm/hbKnbCm0N39qzTXVb/rbJ7U7bT+wg7Ijf8Vue
+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
+iihgFyqYsKfE4ty6PtPju7HMfTlWrbUp9cFUUnno1Yfqo56z5MpRrNP2bz/eRj8tSx4ujMF3vGa2
+xgkBu1CBXaA+/3sZ/fs6cSQ+CdXytWhq0pPB4ydj1aYab1BNubEaE91ZqHvdYFu/0iQcH0uN7qcZ
+d/ZvZtTPfj8QsAt9HPYv3hmUOZcX1wjatxufY34cPexL6P1v6LouEO9RtTP2Zafv1f6eza2OEONi
+TPgsfZr/1gnfqOUYv7fqFLALfQB7wegM+liKHs6qPq2ZGj0E35hVtFbJWLAGTdalQ8AIzp4ahn+n
+OsytsZtrbl15fwOrgF3oQ9gLrFJ54NYNjXGKuN4+wLDM1edLH0u0B9xi7nlLfI1Gk7z2OrsHlUNB
+wC5UKGBPfcrNmxKqapXLUolJ4LS9Pi03GeEd507X4pkvTXuIpD0RlWHd+XPzDRyifRmv+eFaQ8Au
+VDBhT8vFjTqwS3MQFt2bU7u8hLgQD5av9kV59GHOuZjwtpc55Qa/tNfF7i/pP79z4tzpGdT/SK1S
+wC5UYCN76LZlOLvtI+Di/7j1WEJpTT1MBtuz0LE3OsWzXRlcmtsUg1lhaNqeJGq58UefiArYhQpR
+zi4kJGAXEhKwCwkJ2IW+TtgfPHiQqqurm/6f6Oho8YkICdiFhAq7/g+iBUxTUe7zjwAAACV0RVh0
+ZGF0ZTpjcmVhdGUAMjAyMS0wOC0yNVQxMDo0MDowOCswNDowMC0rGaIAAAAldEVYdGRhdGU6bW9k
+aWZ5ADIwMjEtMDgtMjVUMTA6NDA6MDgrMDQ6MDBcdqEeAAAAH3RFWHRwczpIaVJlc0JvdW5kaW5n
+Qm94ADE4N3gxNzArMCswBhdllAAAABx0RVh0cHM6TGV2ZWwAQWRvYmUtMy4wIEVQU0YtMy4wCptw
+u+MAAAAASUVORK5CYII=]]></text>
+		</image_base64>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd -<br></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd .</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd<br></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd ..</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Fichiers cachés]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Quelle commande permet de lister les fichiers d'un répertoire, y compris les fichiers cachés ?</div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">ls -A<br></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">ls -B</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">ls -l<br></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">ls .<br></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Voir le contenu d'un fichier]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">Quelle commande permet d'afficher dans le terminale le contenu du fichier <span style="font-family: 'courier new', courier;">toto.txt <span style="font-family: arial, helvetica, sans-serif;">?</span></span></div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cat toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">dog toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">ls toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">show toto.txt</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+	<question type="multichoice">
+		<name>
+			<text><![CDATA[Répertoire personnel]]></text>
+		</name>
+		<questiontext format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;">L'utilisateur <span style="font-family: 'courier new', courier;">Alfred<span style="font-family: arial, helvetica, sans-serif;"> a tapé la commande <span style="font-family: 'courier new', courier;">cd /home/Alfred/<span style="font-family: arial, helvetica, sans-serif;"> de façon a se placer dans son répertoire personnel. C'est tout à fait correct, mais un raccourci existe, lequel ?</span></span></span></span></div>]]></text>
+		</questiontext>
+		<externallink/>
+		<usecase>1</usecase>
+		<defaultgrade>1</defaultgrade>
+		<editeur>0</editeur>
+		<single>true</single>
+		<answer fraction="100" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd ~<br></span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd -</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd ..</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+		<answer fraction="0" format="html">
+			<text><![CDATA[<div style="font-family: Arial; font-size: 13px;"><span style="font-family: 'courier new', courier;">cd .</span></div>]]></text>
+			<feedback>
+				<text><![CDATA[]]></text>
+			</feedback>
+		</answer>
+	</question>
+</quiz>

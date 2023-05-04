@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DNSI{Systèmes d'exploitation}{\Pre}\vspace{0.2cm}
+
+\bashmode
+
+
+
+\Exo{Gestion des dossiers}{2,5 pts}\\
+En tapant la commande {\tt tree} dans son répertoire personnel (c'est à dire dans {\tt /home/alfred/}), un utilisateur d'un système Linux a obtenu le résultat ci-dessous. \\
+\tei{arbo.eps}{0.7}{1}{On suppose que le répertoire courant est {\tt /home/alfred/}.
+\QListe
+\item Ecrire une commande permettant de se déplacer dans le dossier {\tt Factures} en donnant un chemin relatif\\
+\lpo[1]
+\item Ecrire une commande permettant d'y creer les dossiers {\tt Eau} et {\tt Electricité}\\
+\lpo[1]
+\item Alfred a commis une erreur en nommant l'un des dossiers du répertoire {\tt Photos}, c'est {\tt 2020} et non {\tt 20020}, de même le dossier {\tt Donwload} doit être renommé en {\tt Download}. Ecrire les commandes permettant de changer le nom de ces dossiers en se déplaçant avant dans leur répertoire parent.\\
+\aide \; On rappelle que le répertoire courant est {\tt Factures}.
+\FinListe
+\ \vspace{0.1cm}
+}
+
+\lpo[3]
+\QListe[1]
+\item Donner une commande permettant de se rendre dans le dossier {\tt Images} en donnant un chemin absolu.\\
+\aide\; on rappelle que l'arborescence ci-dessus est celle de {\tt /home/alfred/}\\
+\lpo[1]
+\item Lorsqu'on se trouve dans le dossier {\tt Images}, donner une commande permettant de se rendre dans le dossier {\tt Importants} en donnant un chemin relatif : \\
+\lpo[1]
+\FinListe
+\vspace{0.3 cm}
+
+\Exo{Fichiers}{2,5 pts}
+\QListe
+\item Rappeler le nom de la commande permettant d'afficher le contenu d'un fichier à l'écran. Quel sera l'effet de cette commande si on ne possède pas les droits de lecture sur le fichier ?\\
+\lpo[2]
+\item Quelle commande permet de lister le contenu d'un dossier ? \\
+\lpo[1]
+\item Quelle est la particularité d'un fichier caché ? Quelle option de la commande donnée en réponse ci-dessus permet de voir ces fichiers ? \\
+\lpo[2]
+\item Dans chaque cas écrire une commande permettant de modifier les droits sur le fichier \texttt{monfichier} de la façon indiquée :
+\SQListe
+\item Supprimer le droit de lecture pour le groupe et pour les autres\\
+\lpo[1]
+\item Supprimer le droit d'écriture pour l'utilisateur \\
+\lpo[1]
+\item Ajouter le droit d'écriture et de lecture pour le propriétaire et le groupe\\
+\lpo[1]
+\item Ajouter le droit d'éxécution à tout le monde \\
+\lpo[1]
+\FinListe
+\FinListe
+\vspace{0.3cm}
+
+\pagebreak
+
+\Exo{Un peu de pratique !}{5 pt}
+\begin{tcolorbox}[title=\textcolor{black}{\danger \; Attention !},colbacktitle=lightgray]
+     Pour cet exercice, la ligne de commande et \textbf{uniquement} la ligne de commande est utilisée, aussi la connection au système se fera \textbf{sans interface graphique}. Toute connection en mode graphique entraîne la nullité de la totalité des réponses fournies !
+\end{tcolorbox}
+\QListe
+    \item Se connecter et créer le fichier réponse
+\SQListe
+\item A l'écran graphique de connection, appuyer simultanément sur \keys{\ctrl + \Alt + F4}, puis suivre les instructions à l'écran pour vous connecter (entrer simplement votre \textit{login} c'est à dire votre identifiant de connection puis votre mot de passe)
+\item Se rendre dans le dossier {\tt Evaluations}, y créer le dossier {\tt DS1}, se déplacer dans {\tt DS1} et y créer le fichier {\tt ex3.txt} dans lequel vous entrerez vos réponses aux questions suivantes.
+\FinListe
+    \item Heure de connection
+\SQListe
+\item Lire l'aide de la commande  {\tt last}
+\item Dans votre fichier réponse écrire l'heure (format {\tt hh:mm:ss}) de votre toute dernière connection au système ainsi que la commande qui vous a permis de l'obtenir.\\
+    \aide \; Deux options de la commande {\tt last} sont attendues dans votre réponse, celle permettant de limiter les résultats affichés à la toute dernière connection et celle permettant d'afficher l'heure avec les secondes.
+\FinListe
+    \item Un peu de Python
+\SQListe
+    \item Lancer l'interpréteur Python
+    \item Calculer : $ 2021^{3}-2^{30}$
+    \item Lire l'aide de {\tt chr}, afficher le code Unicode du caractère {\tt @}.
+    \item Quitter l'interpréteur Python et écrire dans votre fichier les réponses aux deux questions précédentes.
+\FinListe
+\item Question bonus \\
+La commande {\tt curl}, permet de transférer sur l'ordinateur un fichier présent sur un serveur distant. Entre autres, cette commande fonctionne avec les protocole {\tt https} et {\tt http}. Elle peut donc être utilisée pour télécharger en ligne de commande des fichiers présents sur des sites internet.
+Utiliser cette commande pour télécharger le fichier disponible à l'adresse suivante : \\
+{\tt https://fabricenativel.github.io/Premiere/bonus.txt}\\
+Si vous y parvenez, écrire dans votre fichier réponse le mot présent dans ce fichier.
+
+\aide \; On rappelle qu'au lycée, les accès au \textit{Web} se font via un proxy dont l'adresse est :\\
+\phantom{\aide \; }{\tt http://172.19.240.1} \\
+\phantom{\aide \; }et dont le numéro de port est {\tt 3129}.
+
+
+\FinListe
+\medskip
+\begin{tcolorbox}[title=\textcolor{black}{\faHandPointRight \; Remarques},colbacktitle=lightgray]
+    \begin{itemize}
+        \item A la fin de l'évaluation : utiliser {\tt exit} ou {\tt logout} pour vous déconnecter.
+        \item Pour afficher l'interface graphique de connection habituelle appuyer simultanément sur \keys{\ctrl + \Alt + F1}.
+    \end{itemize}
+\end{tcolorbox}
+\end{document}
+

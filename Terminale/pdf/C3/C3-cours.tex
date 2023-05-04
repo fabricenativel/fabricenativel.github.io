@@ -1,0 +1,140 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{3}
+
+\newcommand{\Processus}{\cnum Processus}
+
+\pythonmode
+
+
+\begin{frame}
+	\mframe{\Processus}
+	\begin{alertblock}{Définition}
+		Un \textcolor{red}{processus} est un programme en cours d'execution.
+	\end{alertblock}
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<2-> Ne pas confondre \textit{processus} et \textit{programme}. Un même programme, exécuté par différents utilisateurs et/ou à différents moments dans le temps correspond à des processus différents. On dit qu'un processus est associé à un \textcolor{blue}{contexte d'exécution}.
+			\item<3-> Sur un sytème de type Linux, la commande {\tt ps} permet de lister les processus actifs, la commande {\tt htop} permet d'en avoir une vue dynamique. Ces commandes affichent notamment un numéro appelé {\sc pid} (pour {\sc p}rocess {\sc id}entifier) qui identifie de façon unique chaque processus.
+			\item<4-> Les ressources de l'ordinateur  ne peuvent pas être utilisées de façon simultanée par les nombreux processus. Le temps d'utilisation de ces ressources est donc partagé en intervalle très courts et attribués aux processus par une partie spécifique de l'OS : \textcolor{red}{l'odonnanceur}.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%Etats d'un processus
+\begin{frame}
+	\mframe{\Processus}
+	\begin{block}{Etats d'un processus}
+		Les systèmes d'exploitation gèrent  l'exécution \og \textcolor{gray}{simultanée} \fg de plusieurs processus en leur attribuant différents états :
+		\begin{itemize}
+			\item<2-> \textcolor{red}{élu} : le processus est en train de s'exécuter (il utilise le {\sc cpu}).
+			\item<3-> \textcolor{red}{bloqué} : le processus était dans l'état élu, mais il attend une ressource qui n'est pas disponible.
+			\item<4-> \textcolor{red}{prêt} : le processus était bloqué mais il a obtenu la ressource qu'il attendait.
+			\item<5->  \textcolor{red}{terminé} : le processus a terminé son exécution.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%Etats d'un processus : schéma
+\begin{frame}
+	\mframe{\Processus}
+	\begin{block}{Schéma : états des processus}
+		\begin{center}
+			\begin{tabularx}{0.9\textwidth}{YYY}
+				\rnode{P}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{Sepia}{Prêt}}}} &                                                                                                                                                       & \rnode{B}{\psframebox[framearc=.3,framesep=0,linecolor=darkgray,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{darkgray}{Bloqué}}}} \\
+				                                                                                                                                                     & \ \vspace{1.5cm}                                                                                                                                          &                                                                                                                                                      \\
+				                                                                                                                                                     & \rnode{E}{\psframebox[framearc=.3,framesep=0,linecolor=red,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{red}{Elu}}}}       &                                                                                                                                                      \\
+				                                                                                                                                                     & \ \vspace{1.5cm}                                                                                                                                          &                                                                                                                                                      \\
+				                                                                                                                                                     & \rnode{T}{\psframebox[framearc=.3,framesep=0,linecolor=blue,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{blue}{Terminé}}}} &                                                                                                                                                      \\
+			\end{tabularx}
+		\end{center}
+	\onslide<2->{{\ncline[doubleline=true,doublesep=0.4pt,doublecolor=red,linecolor=red,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{P}{E} \naput[labelsep=0]{\textcolor{red}{Election}}}}
+	\onslide<3->{{\ncline[doubleline=true,doublesep=0.4pt,doublecolor=gray,linecolor=gray,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{E}{B} \nbput[labelsep=0]{\textcolor{gray}{Ressource non disponible}}}}
+	\onslide<4->{{\ncline[doubleline=true,doublesep=0.4pt,doublecolor=blue,linecolor=blue,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{E}{T} \nbput[labelsep=0]{\textcolor{blue}{Fin d'exécution}}}}
+	\onslide<5->{{\ncline[doubleline=true,doublesep=0.4pt,doublecolor=Sepia,linecolor=Sepia,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{B}{P} \nbput[labelsep=0]{\textcolor{Sepia}{Ressource attribuée}}}}
+	\end{block}
+\end{frame}
+
+%Etats d'un processus
+\begin{frame}
+	\mframe{\Processus}
+	\begin{block}{Quelques commandes}
+		\begin{itemize}
+			\item<2-> Tout processus possède un numéro unique permettant de l'identifier : le \textcolor{red}{{\sc pid}}.
+			\item<3-> Les processus (sauf le processus initial de {\sc pid} 0) ont un aussi un \textcolor{red}{{\sc ppid}} qui est le {\sc pid} de leur processus parent.
+			\item<4-> Plusieurs commandes permettent de visualiser les processus :
+			\begin{itemize}
+				\item<5-> \textcolor{blue}{\tt ps} pour avoir une vue instantanée des processus,
+				\item<6-> \textcolor{blue}{\tt pstree} pour avoir une vue hiérarchisée des processus,
+				\item<7-> \textcolor{blue}{\tt top} pour avoir une vue dynamique des processus.
+			\end{itemize}
+			\item<8-> La commande \textcolor{blue}{\tt kill} permet de mettre fin à un processus.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Processus}
+	\begin{alertblock}{Définition}
+		L' \textcolor{red}{ordonnanceur} (\textit{scheduler} en anglais) est la partie du système d'exploitation qui choisit l'ordre d'exécution des processus. Parmi les algorithmes d'ordonnancement possibles, on peut citer :
+		\begin{itemize}
+			\item<2-> \textcolor{blue}{le tourniquet} : le temps {\sc cpu} est affectée à chaque processus à tour de rôle
+			\item<3-> \textcolor{blue}{le premier entré, premier sorti}, ({\sc fifo}, pour \textit{first in first out}) : c'est le principe d'une file d'attente.
+			\item<4-> \textcolor{blue}{le plus court d'abord} : il faut évaluer le temps d'execution des processus.
+			\item<5-> La mise en place d'un \textcolor{blue}{ordre de priorité} entre les processus.
+		\end{itemize}
+	\end{alertblock}
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<6-> L'exemple typique de la méthode {\sc fifo}, est la gestion de la file d'attente d'une imprimante.
+			\item<7-> Sur un sytème de type Linux, la commande \textcolor{blue}{\tt nice} permet d'attribuer un ordre de priorité à un processus de $-20$ (le plus prioritaire) à 19 (le moins prioritaire).
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Processus}
+	\begin{block}{Ressources}
+		Les ressources peuvent être attribuées aux processus de façon :
+		\begin{itemize}
+			\item<2-> \textcolor{blue}{partagée} c'est à dire que la ressource peut être utilisé de façon simultanée par plusieurs processus.
+			      \onslide<3-> Par exemple, un fichier dans lequel on souhaite seulement lire des informations est une ressource partagée.
+			\item<4-> \textcolor{blue}{exclusive} c'est à dire que la ressource est vérouillée et attribuée à un unique processus.
+			      \onslide<5-> Par exemple, une imprimante est une ressource attribuée de façon exclusive.
+		\end{itemize}
+	\end{block}
+	\onslide<6->{\begin{alertblock}{Interblocage}
+			On se trouve dans une situation d'\textcolor{red}{interblocage} (en anglais \textcolor{red}{\textit{deadlock}}), lorsque des ressources exclusives requises par des processus sont utilisées par d'autres qui attendent eux mêmes des ressources utilisées par les premiers.
+		\end{alertblock}}
+\end{frame}
+
+
+
+\begin{frame}
+	\mframe{\Processus}
+	\setlength{\shadowsize}{1pt}
+	\psset{linewidth=1.5pt}
+	\begin{block}{Illustration d'une situation d'interblocage}
+		\begin{center}
+			\begin{tabularx}{\textwidth}{p{2.5cm}Xp{2.5cm}Xp{2.5cm}}
+				                                                                        &  & \rnode{R1}{\textcolor{red}{\ovalbox{\makebox[2.5cm]{Ressource R1}}}} &  &                                                                         \\
+				\vspace{0.5cm} \                                                        &  &                                                                      &  &                                                                         \\
+				\rnode{P1}{\textcolor{blue}{\shadowbox{\makebox[2.5cm]{Processus P1}}}} &  &                                                                      &  & \rnode{P2}{\textcolor{blue}{\shadowbox{\makebox[2.5cm]{Processus P2}}}} \\
+				\vspace{0.5cm} \                                                        &  &                                                                      &  &                                                                         \\
+				                                                                        &  & \rnode{R2}{\textcolor{red}{\ovalbox{\makebox[2.5cm]{Ressource R2}}}} &  &                                                                         \\
+			\end{tabularx}
+		\end{center}
+		\onslide<2-> {\ncangle[angleA=90, armA=0, nodesepA=-0.5cm,angleB=180]{->}{P1}{R2} \naput{ Attend la}}
+		\onslide<3-> {\ncangle[angleA=0, angleB=-90]{->}{R2}{P2} \naput{ attribuée au}}
+		\onslide<4-> {\ncangle[angleA=90, angleB=0]{->}{P2}{R1} \naput{ Attend la }}
+		\onslide<5-> {\ncangle[angleA=180, angleB=90]{->}{R1}{P1} \naput{ attribuée au}}
+	\end{block}
+\end{frame}
+
+\end{document}

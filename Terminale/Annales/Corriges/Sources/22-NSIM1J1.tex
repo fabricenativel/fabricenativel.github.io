@@ -1,0 +1,72 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+\newcommand{\Pile}[6]{
+    \begin{tabular}{|c|}
+        \rnode{#6}{#1} \\
+        \hline
+        #2 \\
+        \hline
+        #3 \\
+        \hline
+        #4 \\
+        \hline
+        \multicolumn{1}{c}{#5}
+    \end{tabular}
+}
+
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{c}
+    \Pile{}{}{}{}{Départ}{PI} \\
+    {\tt <p><em></em></p>} \\
+    La pile est initialement vide 
+    \end{tabular}
+    \begin{tabular}{c}
+        \Pile{{}}{}{}{\tt <p>}{Etape 1}{PI} \\
+        \textcolor{red}{\tt <p>}{\tt <em></em></p>} \\
+        On empile une balise ouvrante
+    \end{tabular}
+    \begin{tabular}{c}
+        \Pile{{}}{}{\tt <em>}{\tt <p>}{Etape 2}{PI} \\
+        {\tt <p>}\textcolor{red}{\tt <em>}{\tt </em></p>} \\
+        On empile une balise ouvrante
+    \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{c}
+        \Pile{{}}{}{}{\tt <p>}{Etape 3}{PI} \\
+        {\tt <p><em>}\textcolor{red}{\tt </em>}{\tt</p>} \\
+        On dépile car la fermante correspond à l'ouvrante empilée.
+    \end{tabular}
+    \begin{tabular}{c}
+        \Pile{{}}{}{}{}{Etape 3}{PI} \\
+        {\tt <p><em></em>}\textcolor{red}{\tt </p>} \\
+        On dépile car la fermante correspond à l'ouvrante empilée.
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Débit} & 100 kbps & 500 kbps & \textcolor{blue}{10 Mbps} & 100 Mpbs \\
+        \hline
+        \textbf{Métrique associée} & \textcolor{blue}{1000} & 200 & 10 & 1 \\
+        \hline
+    \end{tabular}
+\end{frame}
+    
+\end{document}

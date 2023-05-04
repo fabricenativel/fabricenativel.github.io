@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{5}{2022--2023}
+\pythonmode
+
+\Exo{Recherche simple}{}
+
+Ecrire une fonction {\tt est\_dans} qui prend en argument un entier {\tt n} et une liste d'entiers {\tt entiers} et qui renvoie {\tt True} si {\tt n} est dans la liste {\tt entiers} et {\tt False} sinon.
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> est_dans(4,[1,6,8,3])
+False
+>>> est_dans(4,[5,12,0,1,4,7])
+True
+>>> est_dans(4,[])
+False
+>>> est_dans(7,[7])
+True
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Fusion de deux listes déjà triées}{}
+
+On veut écrire une fonction {\tt fusion} qui prend en argument deux listes \textit{déjà triées}  et renvoie ces deux listes fusionnées. Pour cela, on propose l'algorithme récursif suivant :
+\begin{itemize}
+    \item si l'une des deux listes est vide, alors on renvoie l'autre. Par exemple {\tt fusion([7,9],[])} renvoie la première liste c'est à dire {\tt [7,9]}.
+    \item sinon, on renvoie le minimum entre les deux premiers éléments de chacune des deux listes suivie de la fusion du reste. Par exemple {\tt fusion([7,9],[8,10])} doit renvoyer \\ {\tt [7] + fusion([9],[8,10])}
+\end{itemize} 
+
+\aide \; Rappel \\
+Si {\tt l} est une liste de Python alors {\tt l[1:]} est une copie de cette liste à partir de son deuxième élément.
+
+\begin{lstlisting}
+    def fusion(l1,l2):
+    """fusion récursive des deux listes l1 et l2 déjà triées"""
+    if l1 == []:
+        ........
+    if l2 .....:
+        ..........
+    if .....<.....:
+        return ..........
+    else:
+        return ..........
+\end{lstlisting}
+
+\textbf{Exemples}
+\begin{lstlisting}
+>>> fusion([1,5,7],[2,6,18,20])
+[1, 2, 5, 6, 7, 18, 20]
+>>> fusion([5,18],[])
+[5, 18]
+>>> fusion([],[2,5,9])
+[2, 5, 9]
+>>> fusion([5,8],[1,2,3,4,6,7,9,10])
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+\end{lstlisting}
+\end{document}

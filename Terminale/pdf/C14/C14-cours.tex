@@ -1,0 +1,44 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{14}
+
+\pythonmode
+
+\newcommand{\CD}{\cnum Calculabilité, décidabilité}
+
+\pythonmode
+
+\begin{frame}
+	\mframe{\CD}
+	\begin{block}{Définitions}
+		\begin{itemize}
+			\item<1-> Un problème de décision est un problème auquel on peut répondre par \textcolor{blue}{oui} ou \textcolor{blue}{non}\\
+			\onslide<2->{\small \textcolor{OliveGreen}{Par exemples : un nombre donné est-il pair ? un graphe contient-il un cycle ?}}
+			\item<3-> Un problème est dit  \textcolor{blue}{indécidable} lorsqu'il n'existe pas d'algorithme permettant d'y répondre.\\
+			\onslide<4->{\small \textcolor{OliveGreen}{Par exemple, le problème de savoir si un nombre donné est pair n'est pas indécidable. On peut écrire un algorithme qui répond oui ou non à ce problème.}}
+			\item<5-> On appelle \textcolor{blue}{problème de l'arrêt} le problème de décision qui consiste à savoir si oui ou non un programme s'arrête.
+		\end{itemize}
+	\end{block}
+	\onslide<6->{
+	\begin{alertblock}{Résultat}
+		Le problème de l'arrêt est indécidable.
+	\end{alertblock}}
+\end{frame}
+
+\begin{frame}
+	\mframe{\CD}
+	\begin{block}{Définition}
+			\onslide<1-> Une fonction $f : x \mapsto f(x)$ est dite \textcolor{red}{calculable}, lorsqu'il existe une algorithme permettant de calculer $f(x)$ pour n'importe quelle valeur de $x$.\\
+			\onslide<2->{\small \textcolor{OliveGreen}{Par exemple la fonction qui permet de déterminer la longueur du plus court chemin dans un graphe est calculable (voir l'algorithme de Djikstra)}}
+	\end{block}
+	\onslide<3->{
+	\begin{alertblock}{Résultat}
+		Le problème de la calculabilité d'une fonction ne dépend pas du langage de programmation.
+	\end{alertblock}}
+\end{frame}
+\end{document}

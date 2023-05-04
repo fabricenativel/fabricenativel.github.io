@@ -1,0 +1,20 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Systeme}{\cnum Système d'exploitation}
+\pythonmode
+\begin{frame}
+\begin{tabular}{ccccc}
+	& & & & \vspace{0.2cm} \\
+\rnode{Objets}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{Sepia}{\small Objets \og réels \fg}}}} & \hspace{1cm} & \onslide<2->{\rnode{{Classe}}{\begin{tabular}{|c|} \hline Classe \\ \hline Attributs \\  Méthode \\ \hline \end{tabular}}} & \hspace{1cm} & \onslide<3->{\rnode{Infor}{\psframebox[framearc=.3,framesep=0,linecolor=blue,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{blue}{\small Objet \og informatique \fg} }} }} \\
+\end{tabular}
+\ncline[doubleline=true,doublesep=3pt,doublecolor=OliveGreen,linecolor=OliveGreen,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{Objets}{Classe} \naput[labelsep=0]{\textcolor{OliveGreen}{\small Modélisation}}
+\ncline[doubleline=true,doublesep=3pt,doublecolor=OliveGreen,linecolor=OliveGreen,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{Classe}{Infor}\naput[labelsep=0]{\textcolor{OliveGreen}{\small Instanciation}}
+
+\end{frame}
+
+\end{document}

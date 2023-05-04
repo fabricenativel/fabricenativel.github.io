@@ -1,0 +1,2650 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours de NSI  du lycée Hintermann-Afféjee">
+      
+      
+        <meta name="author" content="Fabrice NATIVEL">
+      
+      
+      
+        <link rel="prev" href="../revisions/">
+      
+      
+        <link rel="next" href="../sql/">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+    
+    
+      
+        <title>C1-Récursivité - Numériques et Sciences Informatiques Lycée</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/fenarius.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c1-recursivite" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Numériques et Sciences Informatiques Lycée" class="md-header__button md-logo" aria-label="Numériques et Sciences Informatiques Lycée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m352 124.5-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4-43.2-32.4c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0h160c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8 0 26.5-21.5 48-48 48h-21.5c-17 0-33.3-6.7-45.3-18.7L480 160h-32v21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1 0 60.6-49.1 109.7-109.8 109.7H32.3c-3.3 0-6.6-.4-9.6-1.4-9.2-2.8-16.7-9.6-20.3-18.5C1 488.7.2 485.2 0 481.4c-.2-3.7.3-7.3 1.3-10.7 2.8-9.2 9.6-16.7 18.6-20.4 3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1 0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1V124.5zm160-52.2v-.6.6zm-1.3 7.4-46.4-11.6c-.2 1.3-.3 2.6-.3 3.9 0 13.3 10.7 24 24 24 10.6 0 19.5-6.8 22.7-16.3zm-379.8 36.8c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87V227c0 32.8 8.4 64.8 24 93H112c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7l69.4-59.6-152.6 23.5c-7 1.1-13.9-2.6-16.9-9S0 232.7 5.3 228l125.6-111.5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Numériques et Sciences Informatiques Lycée
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C1-Récursivité
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/home.svg' width=16px height=16px>&thinsp; Accueil
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Premiere/progression/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/checklist-16.svg' width=16px height=16px>&thinsp; Cours de première
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../progression/" class="md-tabs__link md-tabs__link--active">
+        <img src='https://fabricenativel.github.io/icones/list-ordered-16.svg' width=16px height=16px>&thinsp; Cours de terminale
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../officiels/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/file-badge-16.svg' width=16px height=16px>&thinsp; Documents officiels
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index_annales/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/graduation-cap.svg' width=16px height=16px>&thinsp; Annales du Bac
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../projets/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/lightbulb.svg' width=16px height=16px>&thinsp; Projets
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../liens/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/links.svg' width=16px height=16px>&thinsp; Liens
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/python.svg' width=16px height=16px>&thinsp; Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../apropos/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/information.svg' width=16px height=16px>&thinsp; A propos
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Numériques et Sciences Informatiques Lycée" class="md-nav__button md-logo" aria-label="Numériques et Sciences Informatiques Lycée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m352 124.5-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4-43.2-32.4c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0h160c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8 0 26.5-21.5 48-48 48h-21.5c-17 0-33.3-6.7-45.3-18.7L480 160h-32v21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1 0 60.6-49.1 109.7-109.8 109.7H32.3c-3.3 0-6.6-.4-9.6-1.4-9.2-2.8-16.7-9.6-20.3-18.5C1 488.7.2 485.2 0 481.4c-.2-3.7.3-7.3 1.3-10.7 2.8-9.2 9.6-16.7 18.6-20.4 3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1 0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1V124.5zm160-52.2v-.6.6zm-1.3 7.4-46.4-11.6c-.2 1.3-.3 2.6-.3 3.9 0 13.3 10.7 24 24 24 10.6 0 19.5-6.8 22.7-16.3zm-379.8 36.8c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87V227c0 32.8 8.4 64.8 24 93H112c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7l69.4-59.6-152.6 23.5c-7 1.1-13.9-2.6-16.9-9S0 232.7 5.3 228l125.6-111.5z"/></svg>
+
+    </a>
+    Numériques et Sciences Informatiques Lycée
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/home.svg' width=16px height=16px>&thinsp; Accueil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/home.svg' width=16px height=16px>&thinsp; Accueil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Ressources pour l'enseignement de la spécialité NSI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/checklist-16.svg' width=16px height=16px>&thinsp; Cours de première
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/checklist-16.svg' width=16px height=16px>&thinsp; Cours de première
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/progression/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/os/" class="md-nav__link">
+        C1-Systèmes d'exploitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/codage/" class="md-nav__link">
+        C2-Représentation des entiers et des caractères
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/ippt1/" class="md-nav__link">
+        C3-Initiation à Python avec Turtle - Partie 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/architecture/" class="md-nav__link">
+        C4-Architecture matérielle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/ippt2/" class="md-nav__link">
+        C5-Initiation à Python avec Turtle - Partie 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/notionsalgo/" class="md-nav__link">
+        C6-Notions d'algorithmique
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/donneestable/" class="md-nav__link">
+        C7-Lecture et traitement de données en table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/leweb/" class="md-nav__link">
+        C8-Le web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/algostri/" class="md-nav__link">
+        C9-Algorithmes de tri
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/negatifs/" class="md-nav__link">
+        C10-Représentation des entiers négatifs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/reseau/" class="md-nav__link">
+        C11-Réseau
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/interactionweb/" class="md-nav__link">
+        C12-Interaction dans une page web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/gloutons/" class="md-nav__link">
+        C13-Algorithmes gloutons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/fusiontable/" class="md-nav__link">
+        C14-Fusion de tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/interface/" class="md-nav__link">
+        C15-Interface homme-machine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/flottant/" class="md-nav__link">
+        C16-Notion de nombre flottant
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/knn/" class="md-nav__link">
+        C17-Algorithme des k plus proches voisins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/list-ordered-16.svg' width=16px height=16px>&thinsp; Cours de terminale
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/list-ordered-16.svg' width=16px height=16px>&thinsp; Cours de terminale
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revisions/" class="md-nav__link">
+        C0-Révisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          C1-Récursivité
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        C1-Récursivité
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#activites" class="md-nav__link">
+    Activités
+  </a>
+  
+    <nav class="md-nav" aria-label="Activités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activite-1-a-la-decouverte-de-la-recursivite" class="md-nav__link">
+    Activité 1 : A la découverte de la récursivité
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activite-2-dautres-exemples-de-recursivite" class="md-nav__link">
+    Activité 2 : D'autres exemples de récursivité
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activite-3-soulever-le-capot-de-la-recursivite" class="md-nav__link">
+    Activité 3 : Soulever le capot de la récursivité
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours" class="md-nav__link">
+    Cours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1-factorielle" class="md-nav__link">
+    Exercice 1 : Factorielle&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2-analyser-un-programme-recursif" class="md-nav__link">
+    Exercice 2 : Analyser un programme récursif&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3-comprendre-un-programme-recursif" class="md-nav__link">
+    Exercice 3 : Comprendre un programme récursif&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-4-additions-et-soustractions" class="md-nav__link">
+    Exercice 4 : Additions et soustractions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-5-dessin-recursif" class="md-nav__link">
+    Exercice 5 : Dessin récursif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-6-comparaison-de-deux-chaines-de-caracteres" class="md-nav__link">
+    Exercice 6 : Comparaison de deux chaines de caractères
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-7-comprendre-la-recursivite" class="md-nav__link">
+    Exercice 7 : Comprendre la récursivité&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-8-melange-dune-liste" class="md-nav__link">
+    Exercice 8 : Mélange d'une liste &thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-9-recherche-dichotomique-dans-un-tableau-trie" class="md-nav__link">
+    Exercice 9 : Recherche dichotomique dans un tableau trié&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-10-flocon-de-von-koch" class="md-nav__link">
+    Exercice 10 : Flocon de Von Koch&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-11-les-tours-de-hanoi" class="md-nav__link">
+    Exercice 11 : Les tours de Hanoï
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-12-algorithme-deuclide-de-calcul-du-pgcd" class="md-nav__link">
+    Exercice 12 : Algorithme d'Euclide de calcul du pgcd&thinsp; &thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-13-suite-de-fibonnaci" class="md-nav__link">
+    Exercice 13 : Suite de Fibonnaci&thinsp; 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humour-dinformaticien" class="md-nav__link">
+    Humour d'informaticien
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/" class="md-nav__link">
+        C2-Bases de données et SQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processus/" class="md-nav__link">
+        C3-Processus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diviser/" class="md-nav__link">
+        C4-Diviser pour régner
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poo/" class="md-nav__link">
+        C5-Notions de programmation orienté objet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sl/" class="md-nav__link">
+        C6-Structures de données linéaires
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puces/" class="md-nav__link">
+        C7-Système sur puce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arbres/" class="md-nav__link">
+        C8-Arbres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sgbd/" class="md-nav__link">
+        C9-Schéma relationnel d'une base de données
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algoarbre/" class="md-nav__link">
+        C10-Algorithmes sur les arbres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphes/" class="md-nav__link">
+        C11-Graphes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routage/" class="md-nav__link">
+        C12-Protocoles de routage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../texte/" class="md-nav__link">
+        C13-Recherche textuelle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calculabilite/" class="md-nav__link">
+        C14-Calculabilité, décidabilité
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cryptographie/" class="md-nav__link">
+        C15-Sécurisation des communications
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/file-badge-16.svg' width=16px height=16px>&thinsp; Documents officiels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/file-badge-16.svg' width=16px height=16px>&thinsp; Documents officiels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../officiels/" class="md-nav__link">
+        Documents officiels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/graduation-cap.svg' width=16px height=16px>&thinsp; Annales du Bac
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/graduation-cap.svg' width=16px height=16px>&thinsp; Annales du Bac
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index_annales/" class="md-nav__link">
+        Annales du bac
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          2021
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          2021
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2021/EE/" class="md-nav__link">
+        Epreuves écrites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2021/EP/" class="md-nav__link">
+        Epreuves pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          2022
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2022/EE/" class="md-nav__link">
+        Epreuves écrites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2022/EP/" class="md-nav__link">
+        Epreuves pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          2023
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2023/EE/" class="md-nav__link">
+        Epreuves écrites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2023/EP/" class="md-nav__link">
+        Epreuves pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/lightbulb.svg' width=16px height=16px>&thinsp; Projets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/lightbulb.svg' width=16px height=16px>&thinsp; Projets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projets/" class="md-nav__link">
+        Projets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          Projets de Première
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Projets de Première
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/" class="md-nav__link">
+        Index des projets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/morpion/" class="md-nav__link">
+        Morpion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/cryptographie/" class="md-nav__link">
+        Cryptographie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/forcebrute/" class="md-nav__link">
+        Force brute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/pyxel/" class="md-nav__link">
+        Jeu avec Pyxel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/steganographie/" class="md-nav__link">
+        Steganographie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/qcm/" class="md-nav__link">
+        QCM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+          Projets de Terminale
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Projets de Terminale
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/gomoku/" class="md-nav__link">
+        Gomoku
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/reseau/" class="md-nav__link">
+        POO et Réseau
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/reines/" class="md-nav__link">
+        Les 8 reines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/pyxel/" class="md-nav__link">
+        Jeu avec Pyxel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/links.svg' width=16px height=16px>&thinsp; Liens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/links.svg' width=16px height=16px>&thinsp; Liens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../liens/" class="md-nav__link">
+        Liens
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/python.svg' width=16px height=16px>&thinsp; Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/python.svg' width=16px height=16px>&thinsp; Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/information.svg' width=16px height=16px>&thinsp; A propos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/information.svg' width=16px height=16px>&thinsp; A propos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apropos/" class="md-nav__link">
+        A Propos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#activites" class="md-nav__link">
+    Activités
+  </a>
+  
+    <nav class="md-nav" aria-label="Activités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activite-1-a-la-decouverte-de-la-recursivite" class="md-nav__link">
+    Activité 1 : A la découverte de la récursivité
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activite-2-dautres-exemples-de-recursivite" class="md-nav__link">
+    Activité 2 : D'autres exemples de récursivité
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activite-3-soulever-le-capot-de-la-recursivite" class="md-nav__link">
+    Activité 3 : Soulever le capot de la récursivité
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours" class="md-nav__link">
+    Cours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1-factorielle" class="md-nav__link">
+    Exercice 1 : Factorielle&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2-analyser-un-programme-recursif" class="md-nav__link">
+    Exercice 2 : Analyser un programme récursif&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3-comprendre-un-programme-recursif" class="md-nav__link">
+    Exercice 3 : Comprendre un programme récursif&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-4-additions-et-soustractions" class="md-nav__link">
+    Exercice 4 : Additions et soustractions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-5-dessin-recursif" class="md-nav__link">
+    Exercice 5 : Dessin récursif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-6-comparaison-de-deux-chaines-de-caracteres" class="md-nav__link">
+    Exercice 6 : Comparaison de deux chaines de caractères
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-7-comprendre-la-recursivite" class="md-nav__link">
+    Exercice 7 : Comprendre la récursivité&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-8-melange-dune-liste" class="md-nav__link">
+    Exercice 8 : Mélange d'une liste &thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-9-recherche-dichotomique-dans-un-tableau-trie" class="md-nav__link">
+    Exercice 9 : Recherche dichotomique dans un tableau trié&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-10-flocon-de-von-koch" class="md-nav__link">
+    Exercice 10 : Flocon de Von Koch&thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-11-les-tours-de-hanoi" class="md-nav__link">
+    Exercice 11 : Les tours de Hanoï
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-12-algorithme-deuclide-de-calcul-du-pgcd" class="md-nav__link">
+    Exercice 12 : Algorithme d'Euclide de calcul du pgcd&thinsp; &thinsp; 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-13-suite-de-fibonnaci" class="md-nav__link">
+    Exercice 13 : Suite de Fibonnaci&thinsp; 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humour-dinformaticien" class="md-nav__link">
+    Humour d'informaticien
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="c1-recursivite"><span class='numchapitre'>C1</span> Récursivité <span style='float:right;'><span class="twemoji" title="Langages et programmation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg></span></span></h1>
+<p><span class='quote'>To understand recursion, one must first understand recursion</span><br><span class='author'>S. Hawking</span></p>
+<h2 id="activites">Activités</h2>
+<h3 id="activite-1-a-la-decouverte-de-la-recursivite"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Activité 1 : <em>A la découverte de la récursivité</em></h3>
+<ol>
+<li>
+<p>L'escalier</p>
+<ol>
+<li>
+<p>Ecrire un programme Python permettant de tracer un escalier tel que ci-dessous en répétant le motif de base (le tracé d'une marche):
+<img alt="escalier" class="imgcentre" src="../images/C1/escalier.png" /></p>
+</li>
+<li>
+<p>Pour réaliser le dessin ci-dessus vous avez probablement utilisé une boucle, votre programme est dit <strong>itératif</strong>. Remarquons à présent que l'escalier à construire était composé de 8 marches. On pourrait écrire qu'un escalier de 8 marches, c'est une marche suivi d'un escalier de 7 marches. Nous venons de donner une définition <strong>récursive</strong> c'est à dire qu'on a définit un escalier par rapport à lui même. Les fonctions de Python peuvent de la même façon faire appelle à elle-même et donc être récursive. Par exemple :
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dessine_escalier</span><span class="p">(</span><span class="n">nb_marches</span><span class="p">):</span>
+    <span class="n">dessine_une_marche</span><span class="p">()</span>
+    <span class="n">dessine_escalier</span><span class="p">(</span><span class="n">nb_marche</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+Intégrer cette fonction dans le programme précédant, écrire la fonction <code>dessine_une_marche</code> puis tester. Que se passe-t-il ?</p>
+</li>
+<li>
+<p>Intégrer une condition d'arrêt : si <code>nb_marches</code> est négatif ou nul, ne rien faire. Tester de nouveau.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Le dessin de la frise ci-dessous est constitué de la répétition d'un motif de base (en rouge).
+    <img alt="motif d'une frise" class="imgcentre" src="../images/C1/ex_motif.png" /></p>
+<ol>
+<li>Ecrire une fonction <code>motif()</code> qui dessine le motif de base (les dimensions sont indiquées sur l'illustration ci-dessous):
+<img alt="motif" class="imgcentre" src="../images/C1/motif.png" width="400px" /></li>
+<li>A l'aide d'un programme itératif, construire la frise.</li>
+<li>Donner une définition récursive de la frise</li>
+<li>Ecrire une fonction récursive permettant de construire la frise.</li>
+</ol>
+</li>
+<li>
+<p>La spirale</p>
+<ol>
+<li>
+<p>Ecrire un programme Python <strong>itératif</strong> permettant de tracer la spirale de carré suivante sachant que :</p>
+<ul>
+<li>Le côté du grand carré initial mesure 200 pixels</li>
+<li>Le coin inférieur gauche des carrés est l'origine du repère</li>
+<li>A chaque étape les carrés tournent de 20°</li>
+<li>A chaque étape la côté du carré diminue de 10% de sa longueur.</li>
+<li>On interrompt la construction lorsque la taille est inférieure ou égale à 10 pixels
+<img alt="spirale de carre" class="imgcentre" src="../images/C1/spirale.png" /></li>
+</ul>
+</li>
+<li>
+<p>On déompose la spirale en un premier carré (en trait épais ci dessous), suivi d'une spirale de carrés (en gris et traits fin ci-dessous) :
+<img alt="spirale de carre" class="imgcentre" src="../images/C1/spirale2.png" />
+En déduire une définition récursive de la spirale.</p>
+</li>
+<li>Proposer une fonction <strong>récursive</strong> permettant de construire la spirale.</li>
+</ol>
+</li>
+</ol>
+<h3 id="activite-2-dautres-exemples-de-recursivite"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Activité 2 : <em>D'autres exemples de récursivité</em></h3>
+<ol>
+<li>
+<p>Somme des <code>n</code> premiers entiers</p>
+<ol>
+<li>Ecrire une fonction python <code>somme(n)</code> itérative qui calcule la somme des <code>n</code> premiers entiers. Par exemple <code>somme(5)</code> renvoie <code>15</code> puisque <code>1+2+3+4+5=15</code>.</li>
+<li>Compléter l'égalité mathématique suivante entre <code>somme(n)</code> et <code>somme(n-1)</code> : <br>
+    <code>somme(n) = somme(n-1) + ...</code></li>
+<li>En déduire une version récursive de la fonction <code>somme(n)</code></li>
+</ol>
+</li>
+<li>
+<p>Écrire à l'envers</p>
+<ol>
+<li>Compléter puis tester le code de la fonction Python ci-dessous qui prend en argument une chaine de caractère et la renvoie écrite à l'envers
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">envers</span><span class="p">(</span><span class="n">chaine</span><span class="p">):</span>
+<span class="n">resultat</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">caractere</span> <span class="ow">in</span> <span class="o">.....</span><span class="p">:</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="o">......</span> <span class="o">+</span> <span class="n">resultat</span>
+<span class="k">return</span> <span class="o">.....</span>
+</code></pre></div></li>
+<li>
+<p>On décompose une <code>chaine</code> en <code>chaine = debut + dernier caractère</code>, compléter la définition récursive suivante :
+<code>envers(chaine) = .......... + envers(.......)</code></p>
+</li>
+<li>
+<p>En déduire une version récursive de la fonction <code>envers</code></p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>On pourra écrire au préalable une fonction <code>debut(chaine)</code> qui renvoie la chaine privée de son dernier caractère. On rapelle que le dernier caractère de <code>chaine</code> s'obtient avec <code>chaine[-1]</code>.</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="activite-3-soulever-le-capot-de-la-recursivite"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Activité 3 : <em>Soulever le capot de la récursivité</em></h3>
+<ol>
+<li>Se rendre sur le site <a href="http://www.pythontutor.com/visualize.html" target="_blank">Python tutor</a>, un outil en ligne permettant de visualiser le fonctionnement d'un programme Python. Laisser les options par défaut à l'exception de <code>inline primitives don't nest objects [default]</code> ) à remplacer par <code>render all objects on the heap (Python/Java)</code> comme ci-dessous :
+<img alt="pythontutor" class="imgcentre" src="../images/C1/pythontutor.png" /></li>
+<li>
+<p>Entrer sur Python tutor le code de fonction <code>somme(n)</code> itérative, qu'on teste avec <code>n=5</code> :
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span><span class="o">+=</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">somme</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+    Suivre l'exécution pas à pas du calcul.</p>
+</li>
+<li>
+<p>Faire de même mais avec la fonction <code>somme_recursive(n)</code> :
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">somme_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">+</span> <span class="n">somme_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span>  <span class="n">somme_recursive</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>La figure suivante représente une étape de l'exécution. Comment expliquer que les entiers sont "stockés" à droite mais qu'aucun calcul n'a encore été effectué ?
+<img alt="pythontutor" class="imgcentre" src="../images/C1/tutorrecursif.png" /></li>
+<li>La colonne de droite où sont stockés les entiers s'appelle une <strong>pile</strong>, (<em>heap</em> en anglais). La taille maximale de cette pile est la profondeur maximale de récursion (<em>recursion depth</em>). Quitter Python Tutor et tester la fonction <code>somme_recursive</code> avec une valeur élevée de <code>n</code> (par exemple <code>n=3000</code>). Que se passe-t-il ? Expliquer.</li>
+<li>La version itérative est-elle concernée par ce problème ?</li>
+</ol>
+<h2 id="cours">Cours</h2>
+<p>Vous pouvez télécharger une copie au format pdf du diaporama de synthèse de cours présenté en classe :</p>
+<p><span class='centre'><a class="md-button" href="../pdf/C1/C1-cours.pdf" target="_blank">Diaporama de cours <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z"/></svg></span></a></span></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Ce diaporama ne vous donne que quelques points de repères lors de vos révisions. Il devrait être complété par la relecture attentive de vos <strong>propres</strong> notes de cours et par une révision approfondie des exercices.</p>
+</div>
+<h2 id="exercices">Exercices</h2>
+<h3 id="exercice-1-factorielle"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 1 : <em>Factorielle</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice en lien avec les mathématiques"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 241.1C0 161 65 96 145.1 96c38.5 0 75.4 15.3 102.6 42.5l72.3 72.2 72.2-72.2C419.5 111.3 456.4 96 494.9 96 575 96 640 161 640 241.1v29.7C640 351 575 416 494.9 416c-38.5 0-75.4-15.3-102.6-42.5L320 301.3l-72.2 72.2c-27.3 27.2-64.2 42.5-102.7 42.5C65 416 0 351 0 270.9v-29.8zM274.7 256l-72.2-72.2c-15.2-15.2-35.9-23.8-57.4-23.8-44.8 0-81.1 36.3-81.1 81.1v29.7c0 44.8 36.3 81.1 81.1 81.1 21.5 0 42.2-8.5 57.4-23.8l72.2-72.1zm90.5 0 72.2 72.2c15.2 15.2 35.9 23.8 57.4 23.8 44.8 0 81.1-36.3 81.1-81.1v-29.8c0-44.8-36.3-81.1-81.1-81.1-21.5 0-42.2 8.5-57.4 23.8L365.3 256z"/></svg></span></span></span></h3>
+<p>En mathématiques, on appel <em>factorielle</em> d'un entier <span class="arithmatex">\(n\)</span> et on <span class="arithmatex">\(n!\)</span> le produit de cet entier par tous ceux qui le précèdent à l'exception de zéro. On convient d'autre part que <span class="arithmatex">\(0!=1\)</span>.  Par exemple, <br>
+<span class="arithmatex">\(5! =  5 \times 4 \times 3 \times 2 \times 1 = 120\)</span>.</p>
+<ol>
+<li>Programmer une version itérative d'une fonction <code>factorielle(n)</code> qui renvoie factorielle de l'entier positif <code>n</code> passé en argument.</li>
+<li>Recopier et compléter : <br>
+<span class="arithmatex">\(n! = n\times \underbrace{(n-1) \times \dots \times 1}_{...}\)</span> <br>
+<span class="arithmatex">\(n! = n \times \dots\)</span></li>
+<li>En déduire une version récursive de la fonction <code>factorielle(n)</code>.</li>
+</ol>
+<h3 id="exercice-2-analyser-un-programme-recursif"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 2 : <em>Analyser un programme récursif</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice testant une capacité du chapitre"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M192 104.8c0-9.2-5.8-17.3-13.2-22.8-11.6-8.7-18.8-20.7-18.8-34 0-26.5 28.7-48 64-48s64 21.5 64 48c0 13.3-7.2 25.3-18.8 34-7.4 5.5-13.2 13.6-13.2 22.8 0 12.8 10.4 23.2 23.2 23.2H336c26.5 0 48 21.5 48 48v56.8c0 12.8 10.4 23.2 23.2 23.2 9.2 0 17.3-5.8 22.8-13.2 8.7-11.6 20.7-18.8 34-18.8 26.5 0 48 28.7 48 64s-21.5 64-48 64c-13.3 0-25.3-7.2-34-18.8-5.5-7.4-13.6-13.2-22.8-13.2-12.8 0-23.2 10.4-23.2 23.2V464c0 26.5-21.5 48-48 48h-56.8c-12.8 0-23.2-10.4-23.2-23.2 0-9.2 5.8-17.3 13.2-22.8 11.6-8.7 18.8-20.7 18.8-34 0-26.5-28.7-48-64-48s-64 21.5-64 48c0 13.3 7.2 25.3 18.8 34 7.4 5.5 13.2 13.6 13.2 22.8 0 12.8-10.4 23.2-23.2 23.2H48c-26.5 0-48-21.5-48-48V343.2C0 330.4 10.4 320 23.2 320c9.2 0 17.3 5.8 22.8 13.2 8.7 11.6 20.7 18.8 34 18.8 26.5 0 48-28.7 48-64s-21.5-64-48-64c-13.3 0-25.3 7.2-34 18.8-5.5 7.4-13.6 13.2-22.8 13.2C10.4 256 0 245.6 0 232.8V176c0-26.5 21.5-48 48-48h120.8c12.8 0 23.2-10.4 23.2-23.2z"/></svg></span></span></span></h3>
+<p>On considère la fonction <code>mystere</code> ci-dessous :
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mystere</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">liste</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mystere</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+</code></pre></div></p>
+<ol>
+<li>
+<p>Analyser ce programme, en déduire le rôle de cette fonction.</p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>Faire fonctionner "à la main" ce programme sur une liste de petite taille, revoir le rôle de <code>pop</code> si nécessaire.</p>
+</div>
+</li>
+<li>
+<p>Donner une version itérative de cette fonction</p>
+</li>
+</ol>
+<h3 id="exercice-3-comprendre-un-programme-recursif"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 3 : <em>Comprendre un programme récursif</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice testant une capacité du chapitre"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M192 104.8c0-9.2-5.8-17.3-13.2-22.8-11.6-8.7-18.8-20.7-18.8-34 0-26.5 28.7-48 64-48s64 21.5 64 48c0 13.3-7.2 25.3-18.8 34-7.4 5.5-13.2 13.6-13.2 22.8 0 12.8 10.4 23.2 23.2 23.2H336c26.5 0 48 21.5 48 48v56.8c0 12.8 10.4 23.2 23.2 23.2 9.2 0 17.3-5.8 22.8-13.2 8.7-11.6 20.7-18.8 34-18.8 26.5 0 48 28.7 48 64s-21.5 64-48 64c-13.3 0-25.3-7.2-34-18.8-5.5-7.4-13.6-13.2-22.8-13.2-12.8 0-23.2 10.4-23.2 23.2V464c0 26.5-21.5 48-48 48h-56.8c-12.8 0-23.2-10.4-23.2-23.2 0-9.2 5.8-17.3 13.2-22.8 11.6-8.7 18.8-20.7 18.8-34 0-26.5-28.7-48-64-48s-64 21.5-64 48c0 13.3 7.2 25.3 18.8 34 7.4 5.5 13.2 13.6 13.2 22.8 0 12.8-10.4 23.2-23.2 23.2H48c-26.5 0-48-21.5-48-48V343.2C0 330.4 10.4 320 23.2 320c9.2 0 17.3 5.8 22.8 13.2 8.7 11.6 20.7 18.8 34 18.8 26.5 0 48-28.7 48-64s-21.5-64-48-64c-13.3 0-25.3 7.2-34 18.8-5.5 7.4-13.6 13.2-22.8 13.2C10.4 256 0 245.6 0 232.8V176c0-26.5 21.5-48 48-48h120.8c12.8 0 23.2-10.4 23.2-23.2z"/></svg></span></span></span></h3>
+<p>On donne le code incomplet d'une fonction récursive permettant de calculer le produit de deux entiers positifs <code>a</code> et <code>b</code> en effectuant uniquement des additions :
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">produit</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">b</span><span class="o">==...</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">...+</span><span class="n">produit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></p>
+<ol>
+<li>Compléter les égalités suivantes :<ul>
+<li><span class="arithmatex">\(a \times 0 = \dots\)</span></li>
+<li><span class="arithmatex">\(a \times b = a + a \times (\dots  \dots)\)</span></li>
+</ul>
+</li>
+<li>Compléter le code de la fonction ci-dessus et la tester</li>
+<li>Que se passe-t-il si on choisit une valeur assez grande pour <code>b</code>, par exemple 5000 ? Pourquoi ? En est-il de même pour de grandes valeurs de <code>a</code> ? Pourquoi ?</li>
+<li>Améliorer le code de cette fonction de façon à ce que le dépassement de pile de récursion n'arrive que lorsque <code>a</code> et <code>b</code> sont tous deux supérieurs à la taille maximale.</li>
+</ol>
+<h3 id="exercice-4-additions-et-soustractions"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 4 : <em>Additions et soustractions</em></h3>
+<p>On suppose qu'on ne dispose que de deux opérations : ajouter 1 ou retrancher 1.</p>
+<ol>
+<li>Écrire à l'aide de ces deux opérations, une version itérative de l'addition de deux entiers.</li>
+<li>Même question avec une version récursive.</li>
+</ol>
+<h3 id="exercice-5-dessin-recursif"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 5 : <em>Dessin récursif</em></h3>
+<ol>
+<li>Dessiner une suite de carré imbriqués comme ci-dessous (la carré initial mesure 200 pixels et diminue de 20 pixels à chaque carré suivant)
+<img alt="carres" class="imgcentre" src="../images/C1/carres.png" /></li>
+<li>Si vous aviez donné une version itérative de ce dessin, en faire une version récursive et inversement.</li>
+</ol>
+<h3 id="exercice-6-comparaison-de-deux-chaines-de-caracteres"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 6 : <em>Comparaison de deux chaines de caractères</em></h3>
+<ol>
+<li>
+<p>Ecrire de façon itérative, une fonction <code>compare(chaine1,chaine2)</code> qui renvoie le nombre de fois où <code>chaine1</code>  et <code>chaine2</code> ont le même caractère au même emplacement. A titre d'exemples : </p>
+<ul>
+<li><code>compare("recursif","iteratif")</code> renvoie 2, </li>
+<li><code>compare("Python","Javascript")</code> renvoie 0. </li>
+</ul>
+</li>
+<li>
+<p>Écrire cette même fonction de façon récursive.</p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>Vous aurez peut être besoin d'une fonction <code>reste(chaine)</code> qui renvoie la chaine passée en paramètre privée de son premier élément. Par exemple <code>reste("python")</code> renvoie <code>ython</code>. Ecrire vous même cette fonction, ou chercher comment utiliser les <em>slices</em> de Python.</p>
+</div>
+</li>
+</ol>
+<h3 id="exercice-7-comprendre-la-recursivite"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 7 : <em>Comprendre la récursivité</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice extrait du Bac"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9V320c0 28.4-10.8 57.7-22.3 80.8-6.5 13-13.9 25.8-22.5 37.6-3.2 4.3-4.1 9.9-2.3 15s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7.3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7-3.2-14.2-7.5-28.7-13.5-42v-24.6c0-30.2 10.2-58.7 27.9-81.5 12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5.8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1l280.6-101c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1c-7.6-2.7-15.6-4.1-23.7-4.1zM128 408c0 35.3 86 72 192 72s192-36.7 192-72l-15.3-145.4L354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6l-142.2-51.4L128 408z"/></svg></span></span></span></h3>
+<p><em>Cet exercice est extrait d'un sujet de <span style="font-variant:small-caps;">bac</span> de la session 2022</em></p>
+<ol>
+<li>
+<p>Voici une fonction codée en Python :
+    <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Partez !&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></p>
+<ol>
+<li>Qu'affiche la commande <code>f(5)</code> ?</li>
+<li>Pourquoi dit-on de cette fonction qu'elle est récursive ?</li>
+</ol>
+</li>
+<li>
+<p>On rappelle qu'en Python, l'opérateur <code>+</code> a le comportement suivant sur les chaînes de caractères :
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span> <span class="o">+</span> <span class="s1">&#39;bc&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S</span>
+<span class="go">&#39;abc&#39;</span>
+</code></pre></div>
+    Et le comportement suivant sur les listes :
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L</span>
+<span class="go">[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]</span>
+</code></pre></div>
+    On a besoin pour les questions suivantes de pouvoir ajouter une chaîne de caractères <code>s</code> en préfixe à chaque chaîne de caractères de la liste <code>liste</code>. On appellera cette fonction <code>ajouter</code>.
+    Par exemple, <code>ajouter("a",["b","c"])</code> doit retourner `["ab","ac"].</p>
+<ol>
+<li>Recopier le code suivant en complétant la ligne 4:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ajouter</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">liste</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span>  <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+        <span class="n">res</span><span class="o">.............</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Que renvoie la commande <code>ajouter("b",["a","b","c"])</code> ?</li>
+<li>Que renvoie la commande <code>ajouter("a",[""])</code> ?</li>
+</ol>
+</li>
+<li>
+<p>On s'intéresse ici à la fonction suivante écrite en Python où <code>s</code> est une chaîne de caractères et <code>n</code> un entier naturel.
+    <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">produit</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">+</span> <span class="n">ajouter</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">produit</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div></p>
+<ol>
+<li>Que renvoie la commande <code>produit("ab",0)</code> ? Le résultat est-il une liste vide ?</li>
+<li>Que renvoie la commande <code>produit("ab",1)</code> ?</li>
+<li>Que renvoie la commande <code>produit("ab",2)</code> ?</li>
+</ol>
+</li>
+</ol>
+<h3 id="exercice-8-melange-dune-liste"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 8 : <em>Mélange d'une liste </em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice extrait du Bac"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9V320c0 28.4-10.8 57.7-22.3 80.8-6.5 13-13.9 25.8-22.5 37.6-3.2 4.3-4.1 9.9-2.3 15s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7.3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7-3.2-14.2-7.5-28.7-13.5-42v-24.6c0-30.2 10.2-58.7 27.9-81.5 12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5.8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1l280.6-101c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1c-7.6-2.7-15.6-4.1-23.7-4.1zM128 408c0 35.3 86 72 192 72s192-36.7 192-72l-15.3-145.4L354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6l-142.2-51.4L128 408z"/></svg></span></span></span></h3>
+<p><em>Cet exercice est extrait d'un sujet de <span style="font-variant:small-caps;">bac</span> de la session 2021</em></p>
+<p>On s'intéresse dans cet exercice à un algorithme de mélange des éléments d'une liste.</p>
+<ol>
+<li>Pour la suite, il sera utile de disposer d'une fonction <code>echange</code> qui permet d'échanger dans une liste lst les éléments d'indice i1 et i2.
+Expliquer pourquoi le code Python ci-dessous ne réalise pas cet échange et en proposer une modification.
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">echange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">):</span>
+        <span class="n">lst</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span>
+        <span class="n">lst</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lst</span><span class="p">[</span><span class="n">i2</span><span class="p">]</span>
+</code></pre></div></li>
+<li>
+<p>La documentation du module random de Python fournit les informations ci-dessous concernant la fonction randint(a,b) : </p>
+<blockquote>
+<p><code>Renvoie un entier aléatoire N tel que a &lt;= N &lt;= b. Alias pour randrange(a,b+1).</code></p>
+</blockquote>
+<p>Parmi les valeurs ci-dessous, quelles sont celles qui peuvent être renvoyées par
+l'appel <code>randint(0, 10) ?</code> <br>
+0 &nbsp; &nbsp; &nbsp;&nbsp; 1 &nbsp; &nbsp; &nbsp;&nbsp; 3.5&nbsp; &nbsp; &nbsp;&nbsp; 9&nbsp; &nbsp; &nbsp;&nbsp;10&nbsp; &nbsp;&nbsp; &nbsp;11</p>
+</li>
+<li>
+<p>Le mélange de Fischer Yates est un algorithme permettant de permuter aléatoirement les éléments d'une liste. On donne ci-dessous une mise en œuvre récursive de cet algorithme en Python.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="k">def</span> <span class="nf">melange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">ind</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ind</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ind</span><span class="p">)</span>
+        <span class="n">echange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="n">melange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">ind</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></p>
+<ol>
+<li>Expliquer pourquoi la fonction <code>melange</code> se termine toujours.</li>
+<li>Lors de l’appel de la fonction <code>melange</code>, la valeur du paramètre <code>ind</code> doit être égal au plus grand indice possible de la liste <code>lst</code>. Pour une liste de longueur <code>n</code>, quel est le nombre d'appels récursifs de la fonction melange effectués, sans compter l’appel initial ?</li>
+<li>
+<p>On considère le script ci-dessous :</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">lst</span><span class="o">=</span><span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+    <span class="n">melange</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+<p>On suppose que les valeurs successivement renvoyées par la fonction <code>randint</code> sont <code>2, 1, 2</code> et <code>0</code>.
+Les deux premiers affichages produits par l'instruction <code>print(lst)</code> de la fonction <code>melange</code> sont : <br>
+<code>[0,1,2,3,4]</code><br>
+<code>[0,1,4,3,2]</code><br>
+Donner les affichages suivants produits par la fonction <code>melange</code></p>
+</li>
+<li>
+<p>Proposer une version itérative du mélange de Fischer Yates.</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="exercice-9-recherche-dichotomique-dans-un-tableau-trie"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 9 : <em>Recherche dichotomique dans un tableau trié</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Retour sur des notions antérieures"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M75 75 41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24h110.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24v104c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></span></span></h3>
+<ol>
+<li>
+<p>Rappeler l'algorithme de recherche dichotomique dans un tableau trié vu en classe de première et donner son fonctionnement sur un exemple simple.</p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>Voir <a href="https://fabricenativel.github.io/Premiere/notionsalgo/#activite-2-recherche-dichotomique" taget="_blank">cette page</a> du cours de première.</p>
+</div>
+</li>
+<li>
+<p>Coder cet algorithme de façon itérative</p>
+</li>
+<li>Coder cet algorithme de façon récursive</li>
+</ol>
+<h3 id="exercice-10-flocon-de-von-koch"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 10 : <em>Flocon de Von Koch</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice difficile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.1 52.4 442.6 6.5c-1.9-3.9-6.1-6.5-10.5-6.5s-8.5 2.6-10.4 6.5l-16.5 45.9-46 16.8c-4.3 1.6-7.3 5.9-7.2 10.4 0 4.5 3 8.7 7.2 10.2l45.7 16.8 16.8 45.8c1.5 4.4 5.8 7.5 10.4 7.5s8.9-3.1 10.4-7.5l16.5-45.8 45.7-16.8c4.2-1.5 7.2-5.7 7.2-10.2 0-4.6-3-8.9-7.2-10.4l-45.6-16.8zm-132.4 53c-12.5-12.5-32.8-12.5-45.3 0l-2.9 2.9c-22-8-45.8-12.3-70.5-12.3C93.1 96 0 189.1 0 304s93.1 208 208 208 208-93.1 208-208c0-24.7-4.3-48.5-12.2-70.5l2.9-2.9c12.5-12.5 12.5-32.8 0-45.3l-80-80zM200 192c-57.4 0-104 46.6-104 104v8c0 8.8-7.2 16-16 16s-16-7.2-16-16v-8c0-75.1 60.9-136 136-136h8c8.8 0 16 7.2 16 16s-7.2 16-16 16h-8z"/></svg></span></span></span></h3>
+<p>La courbe de Koch est une figure qui se construit de manière récursive.  Le cas de base (ordre 0) s'obtient en traçant un segment de longueur <span class="arithmatex">\(l\)</span>. Le cas récursif d'ordre <span class="arithmatex">\(n&gt;0\)</span> s'obtient en effectuant les transformations suivantes  :</p>
+<table>
+<thead>
+<tr>
+<th>Etape</th>
+<th>Illustration</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/31-20e3.svg" title=":one:" /></td>
+<td><img alt="koch1" src="../images/C1/koch1.png" width="400px" /></td>
+<td>Partager le segment en trois morceaux de longueur égale</td>
+</tr>
+<tr>
+<td><img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/32-20e3.svg" title=":two:" /></td>
+<td><img alt="koch2" src="../images/C1/koch2.png" width="400px" /></td>
+<td>Construire un triangle équilatéral à partir du segment du milieu</td>
+</tr>
+<tr>
+<td><img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/33-20e3.svg" title=":three:" /></td>
+<td><img alt="koch3" src="../images/C1/koch3.png" width="400px" /></td>
+<td>Supprimer le segment du milieu</td>
+</tr>
+</tbody>
+</table>
+<p>On a écrit une fonction <code>courbe_koch</code> permettant de tracer à l'aide du module turtle de Python la courbe de Koch  en donnant en paramètre la longueur initiale du segment et l'ordre. On donne ci-dessous ce code incomplet : 
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">courbe_koch</span><span class="p">(</span><span class="n">tortue</span><span class="p">,</span><span class="n">longueur</span><span class="p">,</span><span class="n">ordre</span><span class="p">):</span>
+    <span class="k">if</span> <span class="o">........</span>
+        <span class="o">........</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ordre</span><span class="o">=........</span>
+        <span class="n">longueur</span><span class="o">=........</span>
+        <span class="n">courbe_koch</span><span class="p">(</span><span class="n">tortue</span><span class="p">,</span><span class="n">longueur</span><span class="p">,</span><span class="n">ordre</span><span class="p">)</span>
+        <span class="o">.................</span>
+        <span class="n">courbe_koch</span><span class="p">(</span><span class="n">tortue</span><span class="p">,</span><span class="n">longueur</span><span class="p">,</span><span class="n">ordre</span><span class="p">)</span>
+        <span class="o">................</span>
+        <span class="n">courbe_koch</span><span class="p">(</span><span class="n">tortue</span><span class="p">,</span><span class="n">longueur</span><span class="p">,</span><span class="n">ordre</span><span class="p">)</span>
+        <span class="o">................</span>
+        <span class="n">courbe_koch</span><span class="p">(</span><span class="n">tortue</span><span class="p">,</span><span class="n">longueur</span><span class="p">,</span><span class="n">ordre</span><span class="p">)</span>
+</code></pre></div></p>
+<ol>
+<li>Compléter et tester ce code pour tracer une courbe de Koch d'ordre 4. Vous devriez obtenir une figure similaire à celle représentée ci-dessous : 
+<img alt="courbekoch" class="imgcentre" src="../images/C1/courbekoch.png" /></li>
+<li>En utilisant cette fonction construire le <a href="https://fr.wikipedia.org/wiki/Flocon_de_Koch" target="_blank">flocon de Koch</a>, c'est à dire la figure obtenu en construisant les courbe de Koch sur les trois côtés d'un triangle équilatéral. </li>
+<li>Le flocon de Koch est un exemple classique de courbe <em>fractale</em>, construire un autre exemple de fractale : <a href="https://fr.wikipedia.org/wiki/Triangle_de_Sierpi%C5%84ski" target="_blank">le triangle de Sierpinski</a>.</li>
+</ol>
+<h3 id="exercice-11-les-tours-de-hanoi"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 11 : <em>Les tours de Hanoï</em></h3>
+<p>Inventé par le mathématicien français <a href="https://fr.wikipedia.org/wiki/%C3%89douard_Lucas" target="_blank">Edouard Lucas</a>,  <a href="https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF" target="_blank">les tours de Hanoï</a> sont un jeu de réflexion dans lequel on doit déplacer des disques de tailles croissantes d'une tour de départ à une tour d'arrivée en respectant les contraintes suivantes : <br>
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> on ne peut déplacer qu'un disque à la fois, celui situé en haut de la tour <br>
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> on ne peut jamais déplacer un disque sur un disque plus petit.<br></p>
+<ol>
+<li>Faire quelques parties en ligne à <a href="http://championmath.free.fr/tourhanoi.htm" target="_blank">cette adresse</a> pour comprendre le jeu.</li>
+<li>Module <code>hanoi.py</code><ol>
+<li>Télécharger ci-dessous le module Python <code>Hanoi.py</code> et le sauver dans le répertoire de votre choix.
+<span class='centre'><a class="md-button" href="../files/C1/hanoi.py">Module Hanoi <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7Z"/></svg></span></a></span> </li>
+<li>Ce module propose les fonctions suivantes : <br>
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> <code>dessine_depart(n)</code> qui dessine l'état de départ du jeu avec <code>n</code> disques.<br>
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> <code>fin()</code> affiche dans la fenêtre "Cliquer pour terminer" et termine le programme après un clic.<br>
+    <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> <code>deplace_disque(depart,arrive)</code> déplace le disque de la tour <code>depart</code> à la tour <code>arrivee</code> si cela est possible (sinon affiche un message d'erreur).<br>
+    On donne ci-dessous un exemple d'utilisation de ce module, le compléter de façon à afficher la résolution complète du jeu avec 3 disques.
+    <div class="highlight"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">hanoi</span>
+
+    <span class="n">hanoi</span><span class="o">.</span><span class="n">dessine_depart</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">hanoi</span><span class="o">.</span><span class="n">deplace_disque</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">hanoi</span><span class="o">.</span><span class="n">fin</span><span class="p">()</span>
+</code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>Résolution automatique par récursivité</p>
+<ol>
+<li>Compléter la description de chacune des étapes de la résolution du problème pour 6 disques illustrées ci-dessous :</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Etape</th>
+<th>Illustration</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="0⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/30-20e3.svg" title=":zero:" /></td>
+<td><img alt="hanoi0" src="../images/C1/etape0.png" /></td>
+<td>6 disques empilés sur la tour 1</td>
+</tr>
+<tr>
+<td><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/31-20e3.svg" title=":one:" /></td>
+<td><img alt="hanoi1" src="../images/C1/etape1.png" /></td>
+<td>Déplacement de ... disques de la tour 1 vers la tour ....</td>
+</tr>
+<tr>
+<td><img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/32-20e3.svg" title=":two:" /></td>
+<td><img alt="hanoi2" src="../images/C1/etape2.png" /></td>
+<td>Déplacement du disque de la tour ... vers la tour ...</td>
+</tr>
+<tr>
+<td><img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/33-20e3.svg" title=":three:" /></td>
+<td><img alt="hanoi3" src="../images/C1/etape3.png" /></td>
+<td>Déplacement de ... disques de la tour 1 vers la tour ....</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Exprimer les étapes 1 et 3 sous la forme de la résolution d'un problème de tours de Hanoi dont on précisera la tour d'arrivée, la tour de départ ainsi que le nombre de disque.</li>
+<li>
+<p>Compléter :</p>
+<blockquote>
+<p>Pour résoudre <code>hanoi</code> à 6 disques :<br>
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> Résoudre hanoi à ... disques <br>
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> Déplacer le disque de taille 6<br>
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m6.427 4.427 3.396 3.396a.25.25 0 0 1 0 .354l-3.396 3.396A.25.25 0 0 1 6 11.396V4.604a.25.25 0 0 1 .427-.177Z"/></svg></span> Résoudre hanoi à ... disques <br></p>
+</blockquote>
+</li>
+<li>
+<p>En déduire un algorithme récursif pour résoudre le problème des tours de Hanoï.</p>
+</li>
+<li>Coder et faire fonctionner cet algorithme à l'aide des fonctions présentes dans le module <code>hanoi.py</code>.</li>
+</ol>
+</li>
+</ol>
+<h3 id="exercice-12-algorithme-deuclide-de-calcul-du-pgcd"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 12 : <em>Algorithme d'Euclide de calcul du pgcd</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Retour sur des notions antérieures"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M75 75 41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24h110.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24v104c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></span><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice en lien avec les mathématiques"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 241.1C0 161 65 96 145.1 96c38.5 0 75.4 15.3 102.6 42.5l72.3 72.2 72.2-72.2C419.5 111.3 456.4 96 494.9 96 575 96 640 161 640 241.1v29.7C640 351 575 416 494.9 416c-38.5 0-75.4-15.3-102.6-42.5L320 301.3l-72.2 72.2c-27.3 27.2-64.2 42.5-102.7 42.5C65 416 0 351 0 270.9v-29.8zM274.7 256l-72.2-72.2c-15.2-15.2-35.9-23.8-57.4-23.8-44.8 0-81.1 36.3-81.1 81.1v29.7c0 44.8 36.3 81.1 81.1 81.1 21.5 0 42.2-8.5 57.4-23.8l72.2-72.1zm90.5 0 72.2 72.2c15.2 15.2 35.9 23.8 57.4 23.8 44.8 0 81.1-36.3 81.1-81.1v-29.8c0-44.8-36.3-81.1-81.1-81.1-21.5 0-42.2 8.5-57.4 23.8L365.3 256z"/></svg></span></span></span></h3>
+<ol>
+<li>Faites des recherches sur <a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide" target="_blank">l'algorithme d'Euclide</a>.<ol>
+<li>Que permet de faire cet algorithme ?</li>
+<li>Faire fonctionner cet algorithme à la main avec les valeurs suivantes en donnant les étapes:<ul>
+<li><span class="arithmatex">\(a=48\)</span> et <span class="arithmatex">\(b=36\)</span></li>
+<li><span class="arithmatex">\(a=13\)</span> et <span class="arithmatex">\(b=9\)</span></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Rappeler les instructions Python permettant d'obtenir le reste et le quotient d'une division euclidienne.</li>
+<li>Donner une implémentation itérative de cet algorithme</li>
+<li>Donner une implémentation récursive de cet algorithme</li>
+</ol>
+<h3 id="exercice-13-suite-de-fibonnaci"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 13 : <em>Suite de Fibonnaci</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Exercice en lien avec les mathématiques"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 241.1C0 161 65 96 145.1 96c38.5 0 75.4 15.3 102.6 42.5l72.3 72.2 72.2-72.2C419.5 111.3 456.4 96 494.9 96 575 96 640 161 640 241.1v29.7C640 351 575 416 494.9 416c-38.5 0-75.4-15.3-102.6-42.5L320 301.3l-72.2 72.2c-27.3 27.2-64.2 42.5-102.7 42.5C65 416 0 351 0 270.9v-29.8zM274.7 256l-72.2-72.2c-15.2-15.2-35.9-23.8-57.4-23.8-44.8 0-81.1 36.3-81.1 81.1v29.7c0 44.8 36.3 81.1 81.1 81.1 21.5 0 42.2-8.5 57.4-23.8l72.2-72.1zm90.5 0 72.2 72.2c15.2 15.2 35.9 23.8 57.4 23.8 44.8 0 81.1-36.3 81.1-81.1v-29.8c0-44.8-36.3-81.1-81.1-81.1-21.5 0-42.2 8.5-57.4 23.8L365.3 256z"/></svg></span></span></span></h3>
+<p>La suite de Fibonnaci <span class="arithmatex">\((f_n)\)</span> est définie par :</p>
+<div class="arithmatex">\[\left\{ \begin{array}{lll} 
+f_0&amp;=&amp;0, \\
+f_1&amp;=&amp;1, \\
+f_{n}&amp;=&amp;f_{n-1}+f_{n-2} \mathrm{\ \ pour\ tout\ \ } n\geq2. \end{array} \right.\]</div>
+<p>C'est à dire que chaque terme de la suite est la somme des deux précédents.</p>
+<ol>
+<li>
+<p>Calculer à la main les premières valeurs de cette suite en complétant le tableau suivant :</p>
+<p><table>
+<tr> <td><span class="arithmatex">\(\textcolor{darkred}{n}\)</span></td> <td>0</td> <td>1</td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td>  </tr>
+<tr> <td><span class="arithmatex">\(\textcolor{darkred}{f_n}\)</span></td> <td>0</td> <td>1</td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td> <td><span class="arithmatex">\(\dots\)</span></td>  </tr>
+</table></p>
+</li>
+<li>
+<p>Compléter le code suivant permettant de calculer les termes de cette suite :</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">fibonnaci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">....</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">........+............</span>
+</code></pre></div>
+</li>
+<li>
+<p>Tester cette fonction en écrivant une boucle qui écrit les termes de la suite de Fibonnaci pour les entiers de 1 à 50. </p>
+</li>
+<li>Que remarquez-vous ?</li>
+<li>
+<p>Recopier et compléter le schéma suivant qui montre les appels récursifs nécessaires au calcul de <span class="arithmatex">\(f_5\)</span>.</p>
+<pre class="mermaid"><code>            graph TD
+            f5[f5] --&gt; f4[f4]
+            f5 --&gt; f3[f3]
+            f4 --&gt; f32[f3]
+            f4 --&gt; f2[...]
+            f3 --&gt; f33[...]
+            f3 --&gt; f34[...]</code></pre>
+</li>
+<li>
+<p>En déduire une explication de la lenteur observée à la question 4.</p>
+</li>
+<li>
+<p>Proposer une version itérative du calcul du énième terme de la suite de Fibonnaci.</p>
+</li>
+</ol>
+<div class="admonition lien">
+<p class="admonition-title">Pour aller plus loin</p>
+<p>La vidéo suivante (en anglais) reprend ce problème et propose une solution pour coder un algorithme plus efficace
+<div class="centre"><iframe width="560" height="315" src="https://www.youtube.com/embed/Qk0zUZW-U_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></p>
+</div>
+<h2 id="humour-dinformaticien">Humour d'informaticien</h2>
+<div class="centre">
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Mini-thread : pourquoi il est dangereux d&#39;utiliser des fonctions récursives sans réfléchir aux conditions de sortie.</p>&mdash; Mathis Hammel (@MathisHammel) <a href="https://twitter.com/MathisHammel/status/1553278078100639745?ref_src=twsrc%5Etfw">July 30, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      
+        <script src="../../javascript/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

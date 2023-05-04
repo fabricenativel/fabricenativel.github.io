@@ -1,0 +1,250 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{12}
+
+\pythonmode
+
+\newcommand{\Reseau}{\cnum Protocoles de routage}
+
+\pythonmode
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{block}{Quelques dates clés de l'historique d'internet}
+		\begin{itemize}
+			\item<1-> Debut des années 1960 : idée de la création d'un réseau informatique global permettant d'interconnecter de multiples sous-réseaux.
+			\item<2-> Début des années 1970 : naissance d'{\sc arpanet}, ancêtre d'internet.
+			\item<3-> 1973 : définition des protocoles {\sc tcp} (Transmission Control Protol) et {\sc ip} (Internet Protocol)
+			\item<4-> 1983 : premier serveur de noms de domaines ({\sc dns} pour domain name server))
+			\item<5-> 1989 : Naissance du \textit{web}
+			\item<6-> 2010 : Plus de 5 milliards de machines connectés.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Protocoles TCP/IP}
+		Internet fonctionne suivant une architecture réseau en 4 couches : \\
+		\begin{center}
+			\begin{tabularx}{0.9\textwidth}{c|X}
+				                                                                    &                                                                                                                                \\
+				\onslide<2->{\framebox[3cm]{\textcolor{blue}{\large Applications}}} & \alt<6->{\small {{\sc http}, {\sc pop}, {\sc ftp} \dots ... }}{\phantom{\small {{\sc http}, {\sc pop}, {\sc ftp} \dots ... }}} \\
+				                                                                    &                                                                                                                                \\
+				\onslide<3->{\framebox[3cm]{\textcolor{blue}{\large Transport}}}    & \alt<7->{\small {{\sc tcp}, {\sc udp}}}{\phantom{\small {{\sc tcp}, {\sc udp}}}}                                               \\
+				                                                                    &                                                                                                                                \\
+				\onslide<4->{\framebox[3cm]{\textcolor{blue}{\large Réseau}}}       & \alt<8->{\small {{\sc ip}v4, {\sc ip}v6}}{\phantom{\small {{\sc ip}v4, {\sc ip}v6}}}                                           \\
+				                                                                    &                                                                                                                                \\
+				\onslide<5->{\framebox[3cm]{\textcolor{blue}{\large Liaison}}}      & \alt<9->{\small {Ethernet, {\sc wifi}}}{\phantom{\small {Ethernet, {\sc wifi}}}}                                               \\
+			\end{tabularx}
+		\end{center}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<1-> Chaque couche  ne communique qu'avec les couches voisines.
+			\item<2-> Chaque couche ajoute les données dont il a besoin pour fonctionner à l'information transmise. C'est ce qu'on appelle l'\textcolor{blue}{encapsulation} des données.
+			\item<3-> Un autre modèle en 7 couches existe : le modèle {\sc osi}.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Adresse mac}
+		\begin{itemize}
+			\item<1-> On considère un réseau local, de deux ordinateurs (reliés par un simple cable) ou de plusieurs ordinateurs (reliés par un \textit{switch})
+			\item<2-> Les adresses {\sc mac} (pour \textit{Media Access Control})  permettent d'identifier de façon unique un élément du réseau. Elle sont composées de six nombres en hexadécimal séparé par le caractère deux points (\textcolor{blue}{:}), par exemple {\tt 1A:B2:EC:AE:B0:DE}.
+			\item<3-> Le protocole {\tt arp} permet d'associer l'adresse {\sc mac} à l'adresse {\sc ip}.
+			\item<4-> Une commande {\tt ping} entre deux de ces machines, commence donc par un appel au protocole {\tt arp} afin d'obtenir l'adresse {\sc mac} de la machine cible.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Adresse ip}
+		\begin{itemize}
+			\item<1-> Deux machines ne peuvent communiquer que si \textcolor{blue}{elles sont sur le même réseau}, c'est à dire que leur adresse {\sc ip} débute par une partie commune. La longueur de cette partie commune dépend du masque de sous réseau.
+			\item<2-> Par exemple si le masque de sous réseau est {\tt 255.255.255.0}, cela signifie que les trois premiers octets de l'adresse {\sc ip} doivent être communs.
+			\item<3-> Un masque de sous réseau se note aussi en notation {\sc cidr} (pour Classless Inter-Domain Routing) en indiquant simplement le nombre de bits communs. Comme 3 octects = 24 bits, Le masque précédent se note donc plus simplement {\tt /24}.
+			\item<4-> Si le masque de sous réseau est {\tt 255.255.255.0}, le nombre maximal de machines sur le réseau est de 254 (parmi les 256 possibilités, deux sont réservées. L'une pour le \textit{broadcast} (envoi à tout le réseau) et l'autre pour le sous-réseau lui-même.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{exampleblock}{Exemple}
+		On considère trois machines : A ({\tt 192.168.130.10}), B ({\tt 192.168.155.100}) et C ({\tt 192.168.144.203}) et on suppose qu'on a défini pour ces machines le masque de sous réseau {\tt 255.255.240.0}
+		\begin{itemize}
+			\item<1-> Donner ce masque de sous réseau en notation {\sc cidr}. \\
+			      \onslide<4-> \textcolor{OliveGreen}{On convertit 240 en binaire : $(240)_{10} = (11110000)_2$, il y a donc 20 bits (8+8+4) en commun le masque est donc {\tt /20}.}
+			\item<2-> Indiquer les machines qui peuvent communiquer entre elles.\\
+			      \onslide<5-> \textcolor{OliveGreen}{Le problème porte sur le troisième octet, les adresses {\sc ip} doivent avoir leur 4 premier octet communs pour pouvoir communiquer :}
+			      \onslide<6-> \textcolor{OliveGreen}{\begin{itemize}
+					      \item A : {\tt 192.168.\textcolor{red}{130}.10}, or $(130)_{10} = (100000010)_2$
+					      \item B : {\tt 192.168.\textcolor{red}{155}.100}, or $(155)_{10} = (10011011)_2$
+					      \item C : {\tt 192.168.\textcolor{red}{144}.203}, or $(144)_{10} = (10010000)_2$
+				      \end{itemize}
+				      \textcolor{OliveGreen} B et C peuvent communiquer entre elles mais pas avec A.}
+			\item<3-> Confirmer éventuellement par un test dans Filius
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Routeurs}
+		\begin{itemize}
+			\item<1-> Les routeurs permettent de faire communiquer des ordinateurs appartenant à des sous réseaux différents.
+			\item<2-> A titre d'exemple une \textit{box internet} dans une maison joue le rôle de switch (elle permet aux différents ordinateurs du foyer de communiquer entre eux) mais aussi de routeur (elle permet de communiquer avec des ordinateurs hors de la maison).
+			\item<3-> Les \textit{tables de routage} sont des informations stockés localement dans chaque routeur et lui permettant d'orienter les paquets qu'ils reçoit vers un autre routeur ou un sous réseau avec lequel il communique.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Protocoles de routage}
+		\begin{itemize}
+			\item<1-> Pour des réseaux de petites tailles, les tables de routage peuvent être écrites \og à la main \fg. \onslide<2->{Les inconvénients sont nombreux car les tables sont alors statiques et ne s'adaptent pas (par exemple lors d'une panne ou de l'ajout de nouveaux éléments au réseau).}
+			\item<3-> Des protocoles de routage permettant de générer de façon automatique les tables de routage ont donc été mis au point, nous allons en présenter deux :
+			      \begin{itemize}
+				      \item<4-> Le protocole de routage {\sc rip} (Routing Information Protocol) transmet les paquets de proche en proche en essayant de minimiser le nombre de routeurs traversé.
+				      \item<5-> Le protocole de routage {\sc ospf} (Open Shortest Path First) transmet les paquets en tenant compte de la vitesse de connection entre les routeurs
+			      \end{itemize}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Le protocole {\sc rip}}
+		\begin{itemize}
+			\item<1-> A l'origine les routeurs ne connaissent que les réseaux auxquels ils sont directement connectés
+			\item<2-> Puis régulièrement (toutes les 30 secondes), chaque routeur reçoit la table de routage de ses voisins et il met alors à jour sa propre table :
+			      \begin{itemize}
+				      \item<3-> S'il y découvre une route vers un réseau inconnu, il l'ajoute à sa propre table en augmentant de 1 la distance.
+				      \item<4-> S'il y découvre une route vers un réseau connu mais plus courte, il met à jour sa table.
+			      \end{itemize}
+			\item<5-> Si un routeur ne reçoit pas d'information d'un voisin figurant dans sa table (pendant 3 min), il considère celui ci comme en panne (et lui affecte la distance maximale de 16).
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Inconvénients du protocole {\sc rip}}
+		\begin{itemize}
+			\item<1-> L'échange régulier des tables de routage augmente la quantité d'information qui circule sur le réseau
+			\item<2-> Le protocole se limite au réseau de petites tailles car un distance maximale de 15 sauts est imposée
+			\item<3-> Le protocole se base uniquement sur le nombre de sauts et pas sur la qualité de la liaison entre deux routeurs qui peut être très différentes :
+			      {\small \begin{tabular}{|c|c|c|}
+				      \hline
+				      Technologie   & BP descendante         & BP montante            \\
+				      \hline
+				      Bluetooth     & 3 Mbit/s               & 3 Mbit/s               \\
+				      Ethernet      & 10 Mbit/s              & 10 Mbit/s              \\
+				      Wi-Fi         & 10 Mbit/s ~ 10 Gbits/s & 10 Mbit/s ~ 10 Gbits/s \\
+				      ADSL          & 13 Mbit/s              & 1 Mbit/s               \\
+				      4G            & 100 Mbit/s             & 50 Mbit/s              \\
+				      Satellite     & 50 Mbit/s              & 1 Mbit/s               \\
+				      Fast Ethernet & 100 Mbit/s             & 100 Mbit/s             \\
+				      FFTH (fibre)  & 10 Gbit/s              & 10 Gbit/s              \\
+				      5G            & 20 Gbit/s              & 10 Gbit/s              \\
+				      \hline
+			      \end{tabular}}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Protocoles {\sc ospf}}
+		\begin{itemize}
+			\item<1-> On commence par attribuer un coût \textit{inversement proportionnel à la qualité de la connection} à chaque liaison.\\
+			      \onslide<2-> Cette formule qui calcule le coût $c$ d'une liaison ayant un débit $d$ (en bit/s) peut être par exemple :
+			      \onslide<3-> $c = \dfrac{10^8}{d}$. Mais elle peut-être différente et sera donné à chaque exercice.
+			\item<4-> On transforme donc le réseau en un \textcolor{blue}{graphe pondéré} dans lequel on doit rechercher le plus court chemin entre deux sommets.
+			      \begin{itemize}
+				      \item<5-> Dans les cas simples de petits graphes, la réponse est intuitive.
+				      \item<6-> Sinon, on dispose d'un algorithme permettant de répondre à ce problème : l'algorithme de \textcolor{red}{Dijkstra} (informaticien néerlandais, 1930--2002).
+			      \end{itemize}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{exampleblock}{Algorithme de Dijkstra}
+		\begin{center}
+			\includegraphics[scale=0.5]{dji.eps}
+		\end{center}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|}
+			\hline
+			A                                        & B                                         & C                                        & D                                      & E                                         & F                                         &                                    \\
+			\hline
+			\alt<2->{ 0 (A)}{ }                      & \alt<4->{5 (A)}{}                         & \alt<5->{1 (A)}{ }                       &                                        &                                           &                                           & \alt<3->{ \textcolor{blue}{A}}{ }  \\
+			\hline
+			\alt<3->{\textcolor{blue}{\ding{52}}}{ } & \alt<8->{4 (C)}{ }                        & \alt<6->{\textcolor{red}{1 (A)}}{ }      &                                        & \alt<9->{6 (C)}{ }                        & \alt<10->{8 (C)}{ }                       & \alt<7->{ \textcolor{blue}{C}}{ }  \\
+			\hline
+			\alt<3->{\textcolor{blue}{\ding{52}}}{ } & \alt<11->{\textcolor{red}{4 (C)}}{ }      & \alt<7->{\textcolor{blue}{\ding{52}}}{ } & \alt<13->{8 (B)}{ }                    & \alt<14->{6 (B)}{ }                       & \alt<14->{8 (C)}{ }                       & \alt<12->{ \textcolor{blue}{B}}{ } \\
+			\hline
+			\alt<3->{\textcolor{blue}{\ding{52}}}{ } & \alt<12->{\textcolor{blue}{\ding{52}}}{ } & \alt<7->{\textcolor{blue}{\ding{52}}}{ } & \alt<18->{8 (B)}{ }                    & \alt<15->{\textcolor{red}{6 (B)}}{ }      & \alt<17->{7 (E)}{}                        & \alt<16->{ \textcolor{blue}{E}}{ } \\
+			\hline
+			\alt<3->{\textcolor{blue}{\ding{52}}}{ } & \alt<12->{\textcolor{blue}{\ding{52}}}{ } & \alt<7->{\textcolor{blue}{\ding{52}}}{ } & \alt<21->{8 (B)}{ }                    & \alt<16->{\textcolor{blue}{\ding{52}}}{ } & \alt<19->{\textcolor{red}{7 (E)}}{ }      & \alt<20->{ \textcolor{blue}{F}}{ } \\
+			\hline
+			\alt<3->{\textcolor{blue}{\ding{52}}}{ } & \alt<12->{\textcolor{blue}{\ding{52}}}{ } & \alt<7->{\textcolor{blue}{\ding{52}}}{ } & \alt<22->{\textcolor{red}{{8 (B)}}}{ } & \alt<16->{\textcolor{blue}{\ding{52}}}{ } & \alt<19->{\textcolor{blue}{\ding{52}}}{ } & \alt<23->{ \textcolor{blue}{D}}{ } \\
+			\hline
+		\end{tabularx}
+	\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{exampleblock}{Algorithme de Dijkstra}
+		\begin{center}
+			\includegraphics[scale=0.5]{monka.eps}
+		\end{center}
+		\begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|X|}
+			\hline
+			A & B & C & D & E & F & G & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+			  &   &   &   &   &   &   & \\
+			\hline
+		\end{tabularx}
+	\end{exampleblock}
+\end{frame}
+
+\end{document}

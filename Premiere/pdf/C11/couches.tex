@@ -1,0 +1,39 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/MkDocs/docs/commun/MacrosCours.tex}}
+\newcommand{\Systeme}{\cnum Système d'exploitation}
+\pythonmode
+
+%Schéma représentatif
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Systeme}
+    \begin{tabularx}{0.6\textwidth}{XccY}
+        \rnode{E}{\psframebox[linecolor=Sepia,linewidth=1pt]{\textcolor{Sepia}{    Donnée } }} &  &   & \rnode{R}{\psframebox[framearc=.3,framesep=0,linecolor=BlueViolet,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{BlueViolet}{\textbf{ \faMale} Bob} }}} \\
+                                                                                                                                                                                    &  &   &                                                                                                                                                                                  \\
+        \textcolor{Sepia}{\parbox{0.5cm}{$P_1$} \rnode{Et1}{$\bullet$}}                                                                                                             &  &   &                                                                                                                                                                                  \\
+                                                                                                                                                                                    &  &   & \textcolor{BlueViolet}{\rnode{Rt1}{$\bullet$} \parbox{0.5cm}{$P_1$}}                                                                                                             \\
+        \textcolor{Sepia}{\parbox{0.5cm}{$P_2$} \rnode{Et2}{$\bullet$}}                                                                                                             &  &                                                                                                                                                                                      \\
+                                                                                                                                                                                    &  &   & \textcolor{BlueViolet}{\rnode{Rt2}{$\bullet$} \parbox{0.5cm}{$P_2$}}                                                                                                             \\
+        \textcolor{Sepia}{\parbox{0.5cm}{$P_3$} \rnode{Et3}{$\bullet$}}                                                                                                             &  &                                                                                                                                                                                      \\
+                                                                                                                                                                                    &  &   & \textcolor{BlueViolet}{\rnode{Rt3}{$\bullet$} \parbox{0.5cm}{$P_3$}}                                                                                                             \\
+        \textcolor{Sepia}{\parbox{0.5cm}{$P_4$} \rnode{Et4}{$\bullet$}}                                                                                                             &  &                                                                                                                                                                                      \\
+                                                                                                                                                                                    &  &   & \textcolor{BlueViolet}{\rnode{Rt4}{$\bullet$} \parbox{0.5cm}{$P_4$}}                                                                                                             \\
+        \textcolor{Sepia}{\parbox{0.5cm}{$P_5$} \rnode{Et5}{$\bullet$}}                                                                                                             &  &                                                                                                                                                                                      \\
+                                                                                                                                                                                    &  &   & \textcolor{BlueViolet}{\rnode{Rt5}{$\bullet$} \parbox{0.5cm}{$P_5$}}                                                                                                             \\
+    \end{tabularx}
+    \ncline{-}{Et1}{Et2} \ncline{-}{Et2}{Et3} \ncline{-}{Et3}{Et4} \ncline{-}{Et4}{Et5} \ncline{-}{Et5}{Et6}
+    \ncline{-}{Rt1}{Rt2} \ncline{-}{Rt2}{Rt3} \ncline{-}{Rt3}{Rt4} \ncline{-}{Rt4}{Rt5} \ncline{-}{Rt5}{Rt6}
+    \ncline[arrowsize=0.2,linecolor=Green]{->}{Et1}{Rt1}
+    \ncline[arrowsize=0.2,linecolor=Green]{->}{Et2}{Rt2}
+    \ncline[arrowsize=0.2,linecolor=Green]{->}{Et3}{Rt3}
+    \ncline[arrowsize=0.2,linecolor=Green]{->}{Et4}{Rt4}
+    \ncline[arrowsize=0.2,linecolor=Green]{->}{Et5}{Rt5}
+\end{frame}
+
+
+\end{document}

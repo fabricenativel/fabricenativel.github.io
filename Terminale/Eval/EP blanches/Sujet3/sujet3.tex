@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{3}{2022}
+\pythonmode
+
+\Exo{Calcul d'une moyenne}{}
+
+Ecrire une fonction {\tt calcule\_moyenne}  qui prend en paramètres une liste de nombres et renvoie la moyenne de ces nombres. Si la liste est vide on renvoie {\tt None}. Par exemple {\tt calcul\_moyenne([12,10,16,10])} renvoie 12.0.
+
+\textbf{Exemples :} 
+\begin{lstlisting}
+>>> calcul_moyenne([18,19,7,13])
+14.25
+>>> calcul_moyenne([7,13,11,18])
+12.25
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Rendu de monnaie}{}
+
+On rappelle que l'algorithme glouton de rendu de monnaie consiste tant que la somme à rendre n'est pas nulle à rendre la pièce de plus forte valeur possible et à diminuer d'autant la somme à rendre. Compléter l'implémentation itérative ci-dessous de la fonction {\tt rendre\_monnaie} qui prend en paramètre la somme {\tt s} à rendre ainsi que la liste {\tt pieces} des valeurs du système monétaire classées par ordre croissant de valeurs (donc la plus grande pièce à la fin). On ne traite pas dans cette implémentation le cas où le système monétaire ne permet pas de rendre la somme demandée.
+\begin{lstlisting}
+    def rendre_monnaie(s,pieces):
+    indice_piece = .......
+    a_rendre = .....
+    while s != ...:
+        if .... <= s:
+            s .....
+            a_rendre.......
+        else:
+            indice_piece .....
+    return a_rendre
+\end{lstlisting}
+
+\textbf{Exemple :} 
+\begin{lstlisting}
+>>> rendre_monnaie(128,[1, 2, 5, 10, 20, 50])
+[50, 50, 20, 5, 2, 1]
+\end{lstlisting}
+
+\end{document}

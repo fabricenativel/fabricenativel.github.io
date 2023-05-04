@@ -1,0 +1,130 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{8}
+
+\newcommand{\DBB}{\cnum Schéma relationnel d'une base de données}
+
+\pythonmode
+
+\begin{frame}
+	\mframe{\DBB}
+	\begin{alertblock}{Insertion, suppression, modification en SQL}
+	\begin{itemize}
+ 	\item<1-> L'insertion de données dans une table se fait à l'aide de {\sc insert} \\
+	\onslide<2->{\textcolor{blue}{\sc insert into} {\tt nom\_table (col1, col2, col3, \dots)} \textcolor{blue}{\sc values} {\tt val1, val2, val3, \dots}} \\
+	\onslide<3->{\textcolor{gray}{On peut éviter de spécifier les noms de colonnes si on insére toutes les données}}
+	\item<4-> La suppression de données dans une table se fait à l'aide de {\sc delete} \\
+	\onslide<5->{\textcolor{blue}{\sc delete from} {\tt nom\_table} \textcolor{blue}{\sc where} {\tt condition}} \\
+	\onslide<6->{\textcolor{gray}{La {\tt condition} indiquée permet de sélectionner les données à effacer et s'écrit de la même façon que les conditions d'une requête {\textcolor{blue}{\sc select}}}}
+	\item<7-> La modification de données dans une table se fait à l'aide de {\sc update} \\
+	\onslide<8->{\textcolor{blue}{\sc update} {\tt table} \textcolor{blue}{\sc set} {\tt col1=val1, col2=val2, \dots} \textcolor{blue}{\sc where} {\tt condition}}
+	\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Exemples
+\begin{frame}
+	\mframe{\DBB}
+	\begin{exampleblock}{Exemples}
+	On prend l'exemple de la table {\tt personnes} :
+	\begin{center}
+	 {\footnotesize \begin{tabular}{|c|c|c|c|}
+	\hline
+	id & Nom & Prénom & Naissance \\
+	\hline
+	1 & Pascal & Blaise & 1623 \\
+	\hline
+	2 & Lovelace & Ada & 1815 \\
+	\hline
+	3 & Boole & George & 1815 \\
+	\hline
+	\end{tabular}}
+	 \end{center}
+	\begin{itemize}
+	\item<1-> Ecrire une requête permettant d'insérer Alan Turing né en 1912 dans cette table en incrémentant le champ {\tt id}
+	\item<2-> Insérer John Doe dans cette table, sans préciser sa date de naissance ni le champ {\tt id}
+	\item<3-> Modifier l'enregistrement de John Doe en donnant son année de naissance : 2021 et son id : 13.
+	\item<4-> Supprimer l'enregistrement de John Doe de la table
+	\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Schéma relationnel
+\begin{frame}
+	\mframe{\DBB}
+	\begin{alertblock}{Schéma relationnel}
+	Le schéma relationnel d'une base de données présente les tables de cette base sous la forme de liste ou de tableau. Dans les deux cas, on précise la clé primaire de la table en soulignant l'attribut. On indique aussi parfois le type des attributs.
+	\end{alertblock}
+	\begin{exampleblock}{Exemple}
+	\onslide<2->{Le schéma relationnel de la table {\tt personne} peut s'écrire :}
+	\begin{itemize}
+	 \item<3-> Sous forme de liste : \\
+	 \onslide<4->  \textbf{personnes} {\tt (\underline{id} : {\sc int},  {\tt Nom} : {\sc text}, {\tt Prenom} : {\sc text}, {\tt Naissance} : {\sc int})}
+	 \item<5-> {Sous forme de tableau : \\
+	 \begin{tabular}{|lll|}
+\hline
+\multicolumn{3}{|c|}{\textbf{personnes}} \\
+\hline
+{\tt \underline{id}} & : & {\sc int} \\
+\hline
+{\tt Nom} & : & {\sc text} \\
+\hline
+{\tt Prenom} & : & {\sc text} \\
+\hline
+{\tt Naissance} & : & {\sc int} \\
+\hline
+\end{tabular}}
+	\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+%Duplication de l'information
+\begin{frame}
+	\mframe{\DBB}
+	\begin{block}{Duplication de l'information}
+	On évite pour de multiples raisons (espace occupé, efficacité pour les recherches ou les modifications, \dots) de dupliquer l'information présente dans une base de données. Cela conduit à l'utilisation de plusieurs tables \textcolor{blue}{liées} entre elles, c'est à dire que certains attributs d'une table sont les clés primaires d'une autre table. On dit que ce sont des \textcolor{red}{clés étrangères}. Les clés étrangères sont précédées de {\tt \#} dans le schéma relationnel.
+	\end{block}
+	\begin{exampleblock}{Exemple}
+	\onslide<2->{On souhaite modéliser un relevé de notes sur lequel figure :
+	\begin{itemize}
+	\item[-]<3-> Un élève (nom, prénom, date de naissance, et identifiant unique)
+	\item[-]<4-> Un ensemble de matière fixées
+	\item[-]<5-> Au plus une note par matière et par élève
+	\end{itemize}	
+	\begin{itemize}
+	\item<6-> Expliquer pourquoi un schéma relationnel d'une seule table notes n'est pas satisfaisant.
+	\item<7-> Proposer un schéma relationnel constituté de 3 tables
+	}
+	\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\DBB}
+	\begin{alertblock}{Intégrité référentielle}
+	Dans une base de données, l'\textcolor{red}{intégrité référentielle}, assure qu'une clé étrangère est toujours présente en tant que clé primaire dans la table qu'elle référence. Cela assure la cohérence des données et empêche des suppressions par erreur de la part des utilisateurs.
+	\end{alertblock}
+	\begin{exampleblock}{Exemple}
+	\onslide<2->{Dans l'exemple précédent, la table des notes doit toujours faire référence à un élève et à une matière. L'intégrité référentielle préserve automatiquement la relation "une note appartient forcément à un élève" et "une note est donnée dans une matière existante"}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\DBB}
+	\begin{alertblock}{Jointure}
+	\begin{itemize}
+	\item<1-> La \textcolor{red}{jointure} est l'opération permettant de récupérer des informations fragmentées sur plusieurs tables.
+	\item<2-> La syntaxe est la suivante : \\
+	\onslide<3->{{\sc select} {\tt attr1,attr2, \dots} {\sc from} {\tt table1} {\sc join} {\tt table2} {\sc on} {\tt table1.attr = table2.attr}}
+	\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass[11pt,a4paper,landscape]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+\usepackage{multirow}
+
+\begin{document}
+
+\begin{tabular}{|c|c||c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c||c|c|c|c|c|c|c|c||}
+    \hline
+    \multirow{2}{*}{Adresse IPv4  du PC3} & Ligne 1 & \multicolumn{8}{|c||}{172} & \multicolumn{8}{|c||}{150} & \multicolumn{8}{|c||}{4} & \multicolumn{8}{|c||}{30} \\
+    \cline{2-34}
+    & Ligne 2 & 1 & 0 & 1 & 0 & 1 & 1 &  0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & \textcolor{red}{0} &\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}&  \textcolor{red}{0}  & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} &  \textcolor{red}{0} & \textcolor{red}{0}& \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{0}   \\
+    \hline
+    Masque de sous réseau & Ligne 3 & 1 & 1 & 1 & 1 & 1 & 1& 1 & 1 & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1}  & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} &\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}\\
+    \hline
+    \multicolumn{34}{|c|}{Pour obtenir l'adresse réseau binaire, on réalise un {\sc et} (\&) logique entre chaque bit de l'adresse IP (ligne 2) et du masque de sous réseau (ligne 3)}\\
+    \hline
+    \multirow{2}{*}{Adresse du réseau} & Ligne 4 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 0 & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} &\textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0}&  \textcolor{red}{0}  & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} \\
+    \cline{2-34}
+     & Ligne 5 & \multicolumn{8}{|c||}{172} & \multicolumn{8}{|c||}{150} & \multicolumn{8}{|c||}{\textcolor{red}{4}} & \multicolumn{8}{|c||}{\textcolor{red}{0}} \\
+    \hline
+\end{tabular}
+\end{document}

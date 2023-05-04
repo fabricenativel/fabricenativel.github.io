@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{9}{2022--2023}
+\pythonmode
+
+\Exo{Nombre d'occurrence}{}
+
+Écrire une fonction  {\tt nombre\_occurrences} qui prend en paramètre un entier {\tt n} et une liste d'entiers {\tt entiers} et qui renvoie le nombre d’occurrences de {\tt n} dans {\tt entiers}, c'est à dire le nombre de fois où l'entier {\tt n} apparaît dans la liste {\tt entiers}:
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> nombre_occurrences(5,[1,4,5,-2,-5,12,5,8])
+2
+>>> nombre_occurrences(0,[1,0,1,0,0,0,1,0])
+5
+>>> nombre_occurrences(7,[1,2,3,4,5,6]) 
+0
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Maison en  POO}{}
+
+Dans une agence immobilière, on modélise les maisons à vendre par :
+\begin{itemize}
+    \item[\textbullet] une surface totale
+    \item[\textbullet] un nombre de pièces
+    \item[\textbullet] un quartier 
+    \item[\textbullet] un prix 
+\end{itemize}
+
+\QListe
+\item Compléter la classe {\tt Maison} ci-dessous représentant cette modélisation :
+
+\begin{lstlisting}
+    class Maison:
+        def __init__(self,surface,nb_pieces,quartier,prix)
+            self.surface = .....
+            self.nb_pieces = .....
+            self.quartier = .....
+            self.prix = .....
+\end{lstlisting} 
+
+\item Créer un objet de classe {\tt Maison}, nommé {\tt ex\_maison} et qui représente une maison de 150 m\textsuperscript{2} ayant 4 pièces situé dans le quartier du Moufia et valant \numprint{330000} euros.
+
+\item Compléter cette classe en écrivant une méthode {\tt modifie\_prix} qui prend en argument un {\tt nouveau\_prix} et affecte ce nouveaux prix à la maison.
+
+
+\FinListe
+
+
+
+\end{document}

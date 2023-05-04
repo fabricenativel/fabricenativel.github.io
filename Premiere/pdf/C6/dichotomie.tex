@@ -1,0 +1,26 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{4}
+\pythonmode
+\newcommand{\PL}{\cnum Dichotomie}
+
+\pythonmode
+
+\begin{frame}
+    \mframe{\PL}
+    Pour rechercher si \textcolor{blue}{28} est dans $[14, 15, 17, 22, 23, 25, 29, 34, 38]$ : 
+    \begin{center}
+        
+        $\underbrace{[\overset{\textcolor{red}{\vee}}{14}; 15; 17; 22;}_{ } \underset{\uparrow}{\textcolor{red}{23}} ; \underbrace{25; 29; 34; \overset{\textcolor{red}{\vee}}{38}]}_{ }$ \\
+        Comme \textcolor{blue}{28}>\textcolor{red}{23} : chercher à droite \\
+        $[\colorbox{lightgray}{14; 15; 17; 22 23} ; \underbrace{\overset{\textcolor{red}{\vee}}{25}; 29;} \underbrace{34; \overset{\textcolor{red}{\vee}}{38}]}_{ }$
+    
+    \end{center}
+\end{frame}
+
+\end{document}

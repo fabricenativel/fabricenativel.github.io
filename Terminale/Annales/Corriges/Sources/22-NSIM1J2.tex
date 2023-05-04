@@ -1,0 +1,80 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Schema}
+    \rput(3.5,-0.5){\circlenode{A}{A}}
+    \rput(1,-1){\circlenode{B}{B}}
+    \rput(5,-1){\circlenode{E}{E}}
+    \rput(2.5,-1.5){\circlenode{C}{C}}
+    \rput(5,-2){\circlenode{F}{F}}
+    \rput(6,-1.7){\circlenode{D}{D}}
+    \ncline[linecolor=blue,linewidth=1pt]{B}{A} \naput[labelsep=1pt]{\small 1}
+    \ncline[linecolor=blue,linewidth=1pt]{B}{C} \naput[labelsep=1pt]{\small 10}
+    \ncline[linecolor=blue,linewidth=1pt]{C}{A} \naput[labelsep=-1pt]{\small 0,1}
+    \ncline[linecolor=blue,linewidth=1pt]{C}{E} \naput[labelsep=1pt]{\small 1}
+    \ncline[linecolor=blue,linewidth=1pt]{E}{D} \naput[labelsep=1pt]{\small 0,1}
+    \ncline[linecolor=blue,linewidth=1pt]{F}{D} \naput[labelsep=0.5pt]{\small 0,1}
+    \ncline[linecolor=blue,linewidth=1pt]{A}{E} \naput[labelsep=1pt]{\small 1}
+    \ncline[linecolor=blue,linewidth=1pt]{C}{F} \naput[labelsep=1pt]{\small 1}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+\begin{center}
+    \begin{tabular}{|lll|}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{morceaux}} \\
+    \hline
+    {\tt \underline{id\_morceau}} & : & {\sc int} \\
+    \hline
+    {\tt titre} & : & {\sc text}  \\
+    \hline
+    {\tt année} & : & {\sc int} \\
+    \hline
+    {\tt \# id\_interprete} & : & {\sc int} \rnode{o}{\phantom{o}}\\
+    \hline
+    \end{tabular} \hspace{1.5cm}
+    \begin{tabular}{|lll|}
+    \hline
+    \multicolumn{3}{|c|}{\textbf{interpretes}} \\
+    \hline
+    \rnode{e}{\tt \underline{id\_interprete}} & : & {\sc int} \\
+    \hline
+    {\tt nom} & : & {\sc text} \\
+    \hline
+    {\tt pays} & : & {\sc text} \\
+    \hline
+    \end{tabular}\vspace{0.05cm}\\
+    \ncangle[angleA=0,angleB=180,armB=0.7cm,linewidth=0.8pt,arrowscale=1.8]{*->}{o}{e}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}
+\mframe{Schéma}
+
+\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{|p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}|p{0.8cm}p{0.8cm}|}
+    \hline
+       &   \multicolumn{1}{p{0.8cm}}{ }  &     &  \multicolumn{1}{p{0.8cm}}{ }  &   \multicolumn{1}{p{0.8cm}}{ }  &   \multicolumn{1}{p{0.8cm}}{ }   & & \\[0.8cm]
+    \cline{2-2} \cline{4-4} \cline{6-6} \cline{8-8}
+        &  & & & & & & \\[0.8cm]
+    \cline{2-4} \cline{6-8}
+       &   \multicolumn{1}{p{0.8cm}}{ }  &  \multicolumn{1}{p{0.8cm}}{ }   &   &   \multicolumn{1}{p{0.8cm}}{ }  &  \multicolumn{1}{p{0.8cm}}{ }   & &\\[0.8cm]
+    \cline{2-2} \cline{4-4} \cline{6-6} \cline{8-8}
+        &  & & & & & &\\[0.8cm]
+    \hline
+\end{tabular}
+\end{frame}
+
+\end{document}

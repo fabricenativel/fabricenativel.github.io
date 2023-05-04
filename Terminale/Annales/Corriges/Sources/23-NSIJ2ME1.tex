@@ -1,0 +1,40 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Schema}
+    \psset{unit=0.5cm}
+    \rput(5,0.5){\circlenode{A}{A}}
+    \rput(1,1){\circlenode{B}{B}}
+    \rput(11,-2.5){\circlenode{C}{C}}
+    \rput(8,1.5){\circlenode{F}{F}}
+    \rput(4.8,5){\circlenode{G}{G}}
+    \rput(5.4,-3){\circlenode{D}{D}}
+    \rput(8.2,4){\circlenode{E}{E}}
+    \rput(17,5.6){\circlenode{H}{H}}
+    \rput(16,0){\circlenode[linecolor=OliveGreen]{Z}{\textcolor{OliveGreen}{Z}}}
+    \ncline[linecolor=blue,linewidth=1pt]{B}{A}
+    \ncline[linecolor=blue,linewidth=1pt]{B}{G}
+    \ncline[linecolor=blue,linewidth=1pt]{F}{A}
+    \ncline[linecolor=blue,linewidth=1pt]{G}{A}
+    \ncline[linecolor=blue,linewidth=1pt]{D}{A}
+    \ncline[linecolor=blue,linewidth=1pt]{D}{C}
+    \ncline[linecolor=blue,linewidth=1pt]{G}{E}
+    \ncline[linecolor=blue,linewidth=1pt]{E}{F}
+    \ncline[linecolor=blue,linewidth=1pt]{G}{H}
+    \ncline[linecolor=blue,linewidth=1pt]{C}{H}
+    \ncline[linecolor=OliveGreen,linewidth=1pt]{Z}{H}
+    \ncline[linecolor=OliveGreen,linewidth=1pt]{Z}{C}
+\end{frame}
+
+
+\end{document}

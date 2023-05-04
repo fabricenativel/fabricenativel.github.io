@@ -1,0 +1,73 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DevoirNSI{Premiers pas en SQL}{\Term}\vspace{0.2cm}
+\pythonmode
+
+
+
+\Exo{Principe des bases de données}{{}} \\
+Un collectionneur de disque vinyl  souhaite créer une base de données des morceaux de musique qu'il possède. Cette base serait composée d'une seule table :
+\begin{center}    
+\begin{tabular}{|ll|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Vinyl}} \\
+    \hline
+    {\tt Titre} & {\sc text} \\
+    {\tt Auteur} & {\sc int} \\
+    {\tt Année} & {\sc int} \\
+    {\tt Catégorie} & {\sc int} \\
+    \hline
+\end{tabular}
+\end{center}
+
+\QListe
+\item Quels sont les attributs de cette table ?
+\item On souhaite ajouter un attribut `Durée` qui indique la durée du morceau de musique (en secondes), proposer un type pour cette attribut.
+\item Proposer un domaine pour l'attribut `Année`.
+\item Expliquer dans quelle situation le **principe d'unicité** des bases de données n'est pas respectée avec cette table. Que faire pour y remedier ?
+\FinListe
+
+\vspace{0.2cm}
+
+\Exo{Requêtes SQL}{}\\
+Télécharger à l'adresse suivante la base de données des pays du monde : \\
+{\tt https://fabricenativel.github.io/Terminales/files/Evaluations/countries.db} \\
+Ouvrir cette base avec {\tt SqliteBrowser}, on précise la signification des colonnes suivantes :
+\begin{itemize}
+\item {\tt Population} : le nombre d'habitants du pays.
+\item {\tt Region} : La région du pays (par exemple {\sc western europe} pour europe de l'ouest)
+\item {\tt Area} : la surface du pays (en \textit{miles} carré).
+\item {\tt Coastline} : la surface côtière du pays, cette valeur vaut "0,00" lorsque le pays n'a pas d'ouverture sur la mer
+\item {\tt GDP} : le produit intérieur brut par habitant, c'est une mesure de la richesse du pays.
+\end{itemize}
+\QListe
+\item Dans chaque cas, répondre en \textbf{écrivant une requête SQL}  dont on donnera les résultats.
+\SQListe
+\item Donner la population et le produit intérieur brut de l'allemagne (\textit{Germany} en anglais).\\
+\aide \; Aide : le modèle de réponse attendue est donc :\\
+\textit{"La population de l'Allemagne est ........... et son {\sc pib} est ......... \\ Résultats obtenus avec la requête .................................... "}
+
+\item Combien de régions différentes pour les pays figurent dans cette base ?
+\item Lister par ordre croissant les trois pays les plus peuplés au monde
+\item Lister les pays situés en europe ({\sc eastern europe} ou {\sc western europe})  ayant moins de 50 miles carrés de superficie.
+\item Donner le plus grand pays n'ayant pas d'ouverture sur la mer.
+\item Donner les noms des pays commençant par un \textit{t} et finissant par \textit{istan}.
+\item Quel est le pays d'asie le plus riche (c'est à dire pour lequel le champ {\sc gdp} a la valeur maximale) ?
+\item Quel est la surface moyenne des pays d'afrique  ? 
+\FinListe
+\item \textbf{question bonus} \\
+D'après Wikipedia : \textit{"La loi de Benford stipule que le premier chiffre d'un nombre issu de données statistiques réelles n'est pas équiprobable. Un chiffre a d'autant plus de chance de figurer en premier qu'il est petit.}
+C'est à dire qu'on pourrait s'attendre à ce que par exemple le nombre d'habitant d'un pays ait autant de chance de commencer par un {\tt 1} que par un {\tt 2}, {\tt un 3}, \dots alors qu'en réalité, cela n'est pas le cas, et le {\tt 1} apparaît bien plus fréquemment que le {\tt 9}. Le vérifier en vous aidant des données sur les pays du monde.
+
+\aide \; Aide \\
+On pourra (par exemple) utiliser {\tt substr(chaine,debut,fin)} qui renvoie la partie de la chaine de caractère {\tt chaine} qui commence à {\tt debut} et termine à {\tt fin}. 
+
+\FinListe
+\end{document}
+

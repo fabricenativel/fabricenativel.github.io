@@ -1,0 +1,115 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{5}
+\newcommand{\POO}{\cnum Programmation orienté objet}
+
+\pythonmode
+
+
+%Retour le paradigme procedural
+\begin{frame}
+	\mframe{\POO}
+	\begin{block}{Programmation procédurale}
+		Jusqu'à maintenant pour programmer nous avons utilisé une approche dite \textit{procédurale}, c'est à dire que :
+		\begin{itemize}
+			\item<2->    nous avons défini des variables représentant ce que l'on souhaite modéliser. Par exemple, avec le module {\tt curse} la position d'un point sur le terminal est représenté par deux entiers (ligne et colonne).
+			\item<3->    nous créons ensuite des fonctions qui modifient l'état de ces variables. Par exemple, pour déplacer notre point nous créons une fonction qui va modifier la position du point.
+		\end{itemize}
+		\onslide<4->{En informatique, une façon de d'approcher un problème et d'en concevoir et  modéliser une solution s'appelle un \textcolor{red}{paradigme} de programation, et nous n'avons donc jusqu'à maintnenant utilisé le \textcolor{blue}{paradigme procédural}.}
+	\end{block}
+\end{frame}
+
+% Introduction à la POO
+\begin{frame}
+	\mframe{\POO}
+	\begin{alertblock}{Définition}
+		\begin{itemize}
+			\item<1-> Un \textcolor{red}{objet} en informatique, est une réprésentation dans un langage de programmation d'un élément du monde  physique (voiture, chien, film, \dots),  ou d'un concept (jeu, personnage, \dots).
+			\item<2-> Un \textcolor{red}{attribut} est une caractéristique de l'objet, par exemple un objet livre pourrait avoir comme attribut son auteur, son nombre de pages, \dots
+			\item<3-> Une \textcolor{red}{méthode} est une fonction permettant d'interagir avec l'objet et de définir son comportement. Par exemple, un objet {\tt personnage} d'un jeu vidéo peut être doté d'une méthode permettant de le déplacer.
+			\item<4-> Une \textcolor{red}{classe}, déclare l'ensemble des attributs et méthodes communes à des objets. On dit donc parfois qu'un objet est l'\textcolor{blue}{instanciation} d'une classe. Par exemple, un livre en particulier (\textit{Les misérables}, Victor Hugo) est une instanciation de la classe des livres (qui indique qu'un livre a un auteur et un titre).
+			\item<5-> En \textcolor{red}{programmation orienté objet}, le concepteur du logiciel centre sa réflexion sur les objets qu'il manipule et sur la façon dont ces objets communiquent et interagissent. Il s'agit donc d'un nouveau \textcolor{red}{paradigme de programmation}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \mframe{\POO}
+  \begin{block}{Visualisation et exemples}
+    \begin{center}
+  \begin{tabular}{ccccc}
+    & & & & \vspace{0.2cm} \\
+  \rnode{Objets}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{Sepia}{\small Objets \og réels \fg}}}} & \hspace{1cm} & \onslide<2->{\rnode{{Classe}}{\begin{tabular}{|c|} \hline Classe \\ \hline Attributs \\  Méthode \\ \hline \end{tabular}}} & \hspace{1cm} & \onslide<3->{\rnode{Infor}{\psframebox[framearc=.3,framesep=0,linecolor=blue,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{blue}{\small Objet \og informatique \fg} }} }} \\
+    
+  \end{tabular}
+\end{center}
+  \onslide<2->\ncline[doubleline=true,doublesep=3pt,doublecolor=OliveGreen,linecolor=OliveGreen,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{Objets}{Classe} \naput[labelsep=0]{\textcolor{OliveGreen}{\small Modélisation}}
+  \onslide<3->\ncline[doubleline=true,doublesep=3pt,doublecolor=OliveGreen,linecolor=OliveGreen,linewidth=1pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{Classe}{Infor}\naput[labelsep=0]{\textcolor{OliveGreen}{\small Instanciation}}
+  Exemples :
+  \begin{itemize}
+    \item<4-> une voiture (objet réel)  pourrait être modélisé par des attributs marque, modèle, immatriculation,  et des méthodes comme faire le plein, réparer.
+    \item<5-> un point (objet mathématique) pourrait être modélise par des attributs comme abscisse, ordonnée et nom et des méthodes comme déplacer.
+    \item<6-> un personnage (objet virtuel) d'un jeu vidéo pourrait être modéliser par des attributs comme race, points de vie, arme, ... et des méthodes comme se battre, parler, ... 
+  \end{itemize}
+\end{block}
+  
+  \end{frame}
+
+
+% Premiers exemples
+\begin{frame}[fragile]
+	\mframe{\POO}
+	\begin{exampleblock}{Exemple}
+		\begin{itemize}
+			\item<1-> Le module {\tt turtle} de Python est orienté objet, ainsi, les tortues sont pensées comme des objets  pouvant dessiner sur  l'écran, qui est lui-même un objet  (possédant par exemple une méthode pouvant modifier sa couleur).
+			\item<2-> Considérons le fragment de code suivant :
+			      \begin{lstlisting}
+  ecran = turtle.Screen()
+  ecran.bgcolor("brown")
+  caroline=turtle.Turtle()
+  caroline.forward(100)
+\end{lstlisting}
+			      Repérer les objets et qui sont crées, quelle sont les méthodes appelées et avec quelle syntaxe ?
+			      \onslide<3->{
+				      \textcolor{OliveGreen}{On crée un objet {\tt ecran} de la classe {\tt Screen} et un objet {\tt caroline} de la classe {\tt tortue}.} \\
+			      }
+			      \onslide<4->{\textcolor{OliveGreen}{On appelle la méthode {\tt bgcolor} sur l'objet {\tt ecran} et la méthode {\tt forward} sur l'objet {\tt caroline}. La syntaxe est à chaque fois : \\
+			      \textbf{<objet>.<methode>(...)}}}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Constructeur
+\begin{frame}
+	\mframe{\POO}
+	\begin{block}{Syntaxe de Python}
+		\begin{itemize}
+			\item<2-> En Python, la définition d'une classe commence par le mot clé \textcolor{red}{\tt class} suivi du nom de la classe (par convention le nom d'une classe commence par une majuscule) et du caractère \textcolor{red}{\tt :}
+			\item<3-> Une méthode spéciale appelée \textcolor{red}{constructeur} permet d'instancier la classe pour créer un objet, il s'agit de la méthode \textcolor{red}{\tt init} de plus en Python les méthodes spéciales sont encadrés par des doubles soulignés \textcolor{red}{\tt \_\_}
+			\item<4-> Le mot clé \textcolor{red}{self} permet de faire référence à l'objet.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Constructeur : exemple
+\begin{frame}[fragile]
+	\mframe{\POO}
+	\begin{exampleblock}{Exemple}
+		Il existe de nombreux type de dés à jouer, qui possèdent en commun d'avoir un nombre de faces bien définis et de pouvoir être lancé afin d'obtenir un résultat. On peut donc représenter un dé par un objet informatique
+		\begin{lstlisting}
+  class De:
+    
+      def __init__(nombre_faces):
+      self.faces=nombre_faces
+		
+\end{lstlisting}
+	\end{exampleblock}
+\end{frame}
+
+\end{document}

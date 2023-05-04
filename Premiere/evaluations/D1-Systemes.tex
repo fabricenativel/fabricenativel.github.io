@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DNSI{Systèmes d'exploitation}{\Pre}\vspace{0.2cm}
+
+\bashmode
+
+
+
+\Exo{Quelques commandes}{5 pts}\\
+En tapant la commande {\tt tree} dans son répertoire personnel (c'est à dire dans {\tt /home/alfred/}), un utilisateur d'un système Linux a obtenu le résultat ci-contre. \\
+\tei{arbo.eps}{0.25}{2}{On suppose que le répertoire actuel est {\tt /home/alfred/}.
+\QListe
+\item Ecrire une commande permettant de se déplacer dans le dossier {\tt Factures} en donnant un chemin relatif\\
+\lpo[1]
+\item Ecrire une commande permettant d'y creer les dossiers {\tt Eau} et {\tt Electricité}\\
+\lpo[1]
+\item Donner une commande permettant de se rendre dans le dossier {\tt Images} en donnant un chemin absolu.\\
+\aide\; on rappelle que l'arborescence ci-dessus est celle de {\tt /home/alfred/}\\
+\lpo[1]
+\FinListe
+\ \vspace{0.1cm}
+}
+\QListe[1]
+\item Quelle commande permet de lister le contenu d'un dossier ? \\
+\lpo[1]
+\item Dans chaque cas écrire une commande permettant de modifier les droits sur le fichier \texttt{monfichier} de la façon indiquée :
+\SQListe
+\item Supprimer le droit de lecture pour le groupe et pour les autres\\
+\lpo[1]
+\item Ajouter le droit d'écriture et de lecture pour le propriétaire et le groupe\\
+\lpo[1]
+\FinListe
+\FinListe
+\vspace{0.3cm}
+
+\Exo{Un peu de pratique !}{5 pt}
+\begin{tcolorbox}[title=\textcolor{black}{\danger \; Attention !},colbacktitle=lightgray]
+     Pour cet exercice, la ligne de commande et \textbf{uniquement} la ligne de commande est utilisée, aussi la connection au système se fera \textbf{sans interface graphique}. Toute connection en mode graphique entraîne la nullité de la totalité des réponses fournies !
+\end{tcolorbox}
+\QListe
+    \item Se connecter et créer le fichier réponse
+\SQListe
+\item A l'écran graphique de connection, appuyer simultanément sur \keys{\ctrl + \Alt + F4}, puis suivre les instructions à l'écran pour vous connecter (entrer simplement votre \textit{login} c'est à dire votre identifiant de connection puis votre mot de passe)
+\item Se rendre dans le dossier {\tt Evaluations}, y créer le dossier {\tt DS1}, se déplacer dans {\tt DS1} et y créer le fichier {\tt ex2.txt}.
+\item Ecrire dans le fichier {\tt ex2.txt} la phrase suivante : {\tt Etape 1 réussie !} \\
+    \aide \; On rapelle que la commande {\tt nano} permet d'éditer un fichier dans le terminal
+\FinListe
+    \item Heure de connection
+\SQListe
+\item Lire l'aide de la commande  {\tt last}
+\item Dans votre fichier réponse écrire {\tt Etape 2} suivi de l'heure (format {\tt hh:mm}) de votre toute dernière connection au système (en expliquant comment vous avez obtenu cette information).
+\FinListe
+\item Un peu de Python
+\SQListe
+    \item En utilisant Python, calculer : $ 2022^{3}-2^{32}$
+    \item Importer la valeur de {\tt pi} depuis le module {\tt math}, quelle est sa valeur ?
+    \item Quitter l'interpréteur Python et écrire dans votre fichier {\tt Etape 3} suivi des réponses au deux questions précédentes.
+\FinListe
+
+\FinListe
+\begin{tcolorbox}[title=\textcolor{black}{\faHandPointRight \; Remarques},colbacktitle=lightgray]
+    \begin{itemize}
+        \item A la fin de l'évaluation : utiliser {\tt exit} ou {\tt logout} pour vous déconnecter.
+        \item Pour afficher l'interface graphique de connection habituelle appuyer simultanément sur \keys{\ctrl + \Alt + F1}.
+    \end{itemize}
+\end{tcolorbox}
+\end{document}
+

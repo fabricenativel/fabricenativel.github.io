@@ -1,0 +1,125 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{16}
+
+\pythonmode
+
+\newcommand{\NF}{\cnum Notion de nombres flottant}
+
+\pythonmode
+
+% Nombres flottants
+\begin{frame}
+    \mframe{\NF}
+    \begin{alertblock}{Nombres flottants}
+        \begin{itemize}
+            \item<2-> Les nombres flottants sont des représentation \textcolor{red}{approximative} des nombres réels.
+            \item<3-> Les calculs utilisant des nombres flottants sont donc toujours entachés d'erreurs d'arrondi qui peuvent au final perturber le résultat d'un calcul.
+        \end{itemize}
+    \end{alertblock}
+    \onslide<4->{
+    \begin{exampleblock}{Exemples}
+        Par exemple, le calcul de $0,1 + 0,2$ ne donne pas exactement $0,3$.
+    \end{exampleblock}}
+\end{frame}
+
+
+\begin{frame}
+    \mframe{\NF}
+    \begin{block}{Ecriture dyadique}
+        De la même façon que les chiffres après la virgule d'un nombre en écriture décimal utilisent les puissances de 10 négatives :
+        \onslide<2->{
+            \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{}  & \multicolumn{1}{c}{\footnotesize{dizaines}} & \multicolumn{1}{c}{\footnotesize{unités}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\footnotesize{dixièmes}}  & \multicolumn{1}{c}{\footnotesize{centièmes}}  & \multicolumn{1}{c}{}  \\
+        \cline{2-8}
+        \multicolumn{1}{c|}{} & ... & $10^{1}$ & $10^0$ & , & $10^{-1}$ & $10^{-2}$ & ...  \\
+        \cline{2-8}
+        $3,14_{10}$ = &  &  &  3 & , & 1 & 4 &  \\
+        \cline{2-8}
+    \end{tabular}\\
+        }
+        \onslide<3->{En écriture binaire (ou dyadique) les chiffres après la virgule correspondent aux puissances négatives de 2 :}
+        \onslide<4->{
+            \renewcommand{\arraystretch}{1.4}
+            \begin{tabular}{l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+                \cline{2-8}
+                \multicolumn{1}{c|}{} & ... & $2^{1}$ & $2^0$ & , & $2^{-1}$ & $2^{-2}$ & ...  \\
+                \cline{2-8}
+                $10,01_{10}$ = &  & 1 &  0 & , & 0 & 1 &  \\
+                \cline{2-8}
+            \end{tabular}\\
+            \onslide<5->{et donc $10,01_{10} = 2,25$}
+        }
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \mframe{\NF}
+    \begin{block}{Méthode : du décimal au dyadique}
+        Pour traduire une partie décimal en écriture dyadique :
+        \begin{itemize}
+            \item<2-> Multiplier la partie décimale par 2. Si ce produit est supérieur ou égal à 1, ajouter 1 à l'écriture dyadique sinon ajouter 0.
+            \item<3-> Recommencer avec la partie décimale de ce produit tant qu'elle est non nul.
+        \end{itemize}
+    \end{block}
+    \begin{exampleblock}{Exemple}
+        \onslide<4->{Par exemple si on veut écrire $0,59375_{10}$ en binaire :}
+        \begin{itemize}
+            \item<5-> $0,59375 \times 2 = 1,1875 \geq 1$ donc on ajoute 1 à l'écriture dyadique : $0,1_2$
+            \item<6-> $0,1875 \times 2 = 0,375 < 1$ donc on ajoute 0 à l'écriture dyadique : $0,10_2$
+            \item<7-> $0,375 \times 2 = 0,75 < 1$ donc on ajoute 0 à l'écriture dyadique : $0,100_2$
+            \item<8-> $0,75 \times 2 = 1,5 \geq 1$ donc on ajoute 1 à l'écriture dyadique : $0,1001_2$
+            \item<9-> $0,5 \times 2 = 1,0 \geq 1$  donc on ajoute 1 à l'écriture dyadique : $0,10011_2$
+            \item<10-> On s'arrête car la partie décimale du produit est 0 et $0,59375_{10}=0,10011_2$
+        \end{itemize}
+    \end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+    \mframe{\NF}
+    \begin{exampleblock}{Exemples}
+        \begin{enumerate}
+            \item<1-> Donner l'écriture décimale de $1101,0111_2$ \\
+            \onslide<3-> \textcolor{OliveGreen}{$1101,0111_2 = 2^3+2^2+2^0+2^{-2}+2^{-3}+2^{-4} = 13,4375$}
+            \item<2-> Donner l'écriture dyadique $3,5$\\
+            \onslide<4-> \textcolor{OliveGreen}{Pour la partie entière $3 = 2^1 + 2^0$. \\ Pour la partie décimale on multiple $0,5\times2=1,0$ le premier chiffre est 1 et on s'arrête car la partie décimale de ce produit est 0.\\ Donc $3,5_{10}=11,1_{2}$}
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \mframe{\NF}
+    \begin{alertblock}{Ecritrure dyadique illimitée}
+        De la même façon que certaines écritures décimale sont illimitées comme par exemple :
+        $$ \frac{1}{3} = 0,3333333.... $$
+        (on notera bien les points de suspensions)
+        Certaines écritures dyadiques sont illimitées, par exemple :
+        $$ 0,1_{10} = 0,00011001100110011001100.... $$
+    \end{alertblock}
+    
+\end{frame}
+
+\begin{frame}
+    \mframe{\NF}
+    \begin{block}{\textcolor{yellow}{\rappel} Ecriture scientifique}
+        Les nombres très grands ou très petits ont une écriture décimale trop difficile à manipuler, à lire ou à utiliser. On préfère les écrire en \textcolor{red}{notation scientifique}. \pause \\
+Ecrire un nombre en \textit{notation scientifique} c'est l'écrire sous la forme \pause $$a \times 10^n$$ \pause où $a$ est un nombre décimal n'ayant qu'un seul chiffre non nul à gauche de la virgule et $n$ un nombre  relatif. \\
+  Par exemple, \pause : $7200000000000 = 7,2 \times 10^{12}$
+    \end{block}
+    \begin{alertblock}{Nombres flottants}
+        L'arithmétique à virgule flottant des ordinateurs utilise ce principe en base 2 mais avec une taille de mantisse et d'exposant limité. 
+    \end{alertblock}
+\end{frame}
+
+
+\end{document}
+
+
+

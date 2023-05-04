@@ -1,0 +1,27 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{4}
+\pythonmode
+\newcommand{\PL}{\cnum Dichotomie}
+
+\pythonmode
+
+\begin{frame}
+    \mframe{\PL}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{}  & \multicolumn{1}{c}{\footnotesize{dizaines}} & \multicolumn{1}{c}{\footnotesize{unités}} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{\footnotesize{dixièmes}}  & \multicolumn{1}{c}{\footnotesize{centièmes}}  & \multicolumn{1}{c}{}  \\
+        \cline{2-8}
+        \multicolumn{1}{c|}{} & ... & $10^{1}$ & $10^0$ & , & $10^{-1}$ & $10^{-2}$ & ...  \\
+        \cline{2-8}
+        3,14 = &  &  &  3 & , & 1 & 4 &  \\
+        \cline{2-8}
+    \end{tabular}
+\end{frame}
+
+\end{document}

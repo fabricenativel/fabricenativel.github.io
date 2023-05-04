@@ -1,0 +1,68 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+\newcommand{\Pile}[5]{
+	\begin{tabular}{|c|}
+		\hline
+		\rnode{#4}{#3}         \\
+		\hline
+		#2                     \\
+		\hline
+		#1                     \\
+		\hline
+		\multicolumn{1}{c}{#5} \\
+	\end{tabular}
+}
+
+%Schéma représentatif
+\begin{frame}
+	\mframe{\Schema}
+	\Pile{\; \;}{}{}{P1}{{\tt p}} \hspace{1cm}
+	\Pile{12}{}{}{P2}{{\tt p}} \hspace{1cm}
+	\Pile{12}{4}{}{P3}{{\tt p}} \hspace{1cm}
+	\Pile{12}{4}{5}{P4}{{\tt p}} \hspace{1cm}
+	\Pile{12}{20}{}{P5}{{\tt p}} \hspace{1cm}
+	\Pile{32}{}{}{P6}{{\tt p}}
+	\ncarc[nodesep=5pt,arcangle=20,linecolor=blue,linewidth=1pt,offset=10pt]{->}{P1}{P2} \naput{$12$}
+	\ncarc[nodesepA=5pt,nodesepB=5pt,arcangle=20,linecolor=blue,linewidth=1pt,offset=10pt]{->}{P2}{P3} \naput{$4$}
+	\ncarc[nodesepA=5pt,nodesepB=5pt,arcangle=20,linecolor=blue,linewidth=1pt,offsetA=10pt,offsetB=5pt]{->}{P3}{P4} \naput{$5$}
+	\ncarc[nodesepA=0pt,nodesepB=5pt,arcangle=20,linecolor=blue,linewidth=1pt,offsetA=7pt,offsetB=10pt]{->}{P4}{P5} \naput{$\times$}
+	\ncarc[nodesepA=5pt,nodesepB=5pt,arcangle=20,linecolor=blue,linewidth=1pt,offset=10pt]{->}{P5}{P6} \naput{$+$}
+
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Schema}
+	\begin{tabular}{cccccccccc}
+		                &  &   &   &   &   &   &   & \textcolor{blue}{\small 1} &   \\
+		                &  & 1 & 1 & 0 & 0 & 0 & 1 & 0                          & 1 \\
+		$+$             &  & 0 & 0 & 0 & 0 & 0 & 0 & 0                          & 1 \\
+		\vspace{-0.3cm} &  &   &   &   &   &   &   &                            &   \\
+		\hline
+		\vspace{-0.3cm} &  &   &   &   &   &   &   &                            &   \\
+		=               &  & 1 & 1 & 0 & 0 & 0 & 1 & 1                          & 0 \\
+	\end{tabular}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Schema}
+	\begin{tabular}{cccccccccc}
+		                & \textcolor{blue}{\small 1} & \textcolor{blue}{\small 1}  &   &   &   &   &   &   &   \\
+		                &  & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+		$+$             &  & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 \\
+		\vspace{-0.3cm} &  &   &   &   &   &   &   &   &   \\
+		\hline
+		\vspace{-0.3cm} &  &   &   &   &   &   &   &   &   \\
+		=               & \textcolor{red}{\small 1} & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+	\end{tabular}
+\end{frame}
+
+\end{document}

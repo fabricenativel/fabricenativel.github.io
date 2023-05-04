@@ -1,0 +1,37 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{3}
+
+\newcommand{\DR}{\cnum Diviser pour régner}
+
+\pythonmode
+
+
+\begin{frame}
+	\mframe{\DR}
+	\begin{tabularx}{0.35\textwidth}{YYYY}
+        & & \rnode{C4}{\framebox{\textcolor{black}{ \textbf{\large 4}}}} & \rnode{C2}{\framebox{\textcolor{black}{ \textbf{\large 2}}}} \\
+         & & & \ \vspace{0.5cm} \\
+        & &\rnode{C3}{\framebox{\textcolor{black}{ \textbf{\large 3}}}} & \rnode{C7}{\framebox{\textcolor{black}{ \textbf{\large 7}}}} \\
+        & &  & \ \vspace{0.1cm} \\
+         \hline
+         & &  & \ \vspace{-0.2cm} \\
+        & \textcolor{blue}{ \textbf{\large 2}} & \textcolor{blue}{ \textbf{\large 9}} & \textcolor{blue}{ \textbf{\large 4}} \\
+        & &  & \ \vspace{-0.2cm} \\
+        \textcolor{red}{ \textbf{\large 1}} & \textcolor{red}{ \textbf{\large 2}} & \textcolor{red}{ \textbf{\large 6}} & \textcolor{red}{ \textbf{\large .}} \\
+        \hline
+         & &  & \ \vspace{-0.2cm} \\
+         \textcolor{black}{ \textbf{\large 1}} & \textcolor{black}{ \textbf{\large 5}} & \textcolor{black}{ \textbf{\large 5}} & \textcolor{black}{ \textbf{\large 4}} \\
+    \end{tabularx}
+    \ncline[linecolor=blue,linewidth=1pt]{<->}{C7}{C4}
+    \ncline[linecolor=blue,linewidth=1pt]{<->}{C7}{C2}
+    \ncline[linecolor=red,linewidth=1pt]{<->}{C3}{C2}
+    \ncline[linecolor=red,linewidth=1pt]{<->}{C3}{C4}
+\end{frame}
+
+\end{document}

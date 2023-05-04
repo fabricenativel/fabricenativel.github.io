@@ -1,0 +1,83 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{ActCor}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DevoirNSI{Premiers pas en SQL}{\Term}\vspace{0.2cm}
+\pythonmode
+
+
+
+\Exo{Principe des bases de données}{{}} \\
+Un collectionneur de disque vinyl  souhaite créer une base de données des morceaux de musique qu'il possède. Cette base serait composée d'une seule table :
+\begin{center}    
+\begin{tabular}{|ll|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Vinyl}} \\
+    \hline
+    {\tt Titre} & {\sc text} \\
+    {\tt Auteur} & {\sc int} \\
+    {\tt Année} & {\sc int} \\
+    {\tt Catégorie} & {\sc int} \\
+    \hline
+\end{tabular}
+\end{center}
+
+\QListe
+\item Quels sont les attributs de cette table ?
+\tcor{Les attributs sont {\tt Titre, Auteur, Année} et {\tt catégorie}}{1}
+\item On souhaite ajouter un attribut `Durée` qui indique la durée du morceau de musique (en secondes), proposer un type pour cette attribut.
+\tcor{On peut proposer le type {\tt INT} pour un nombre entier de secondes.}{1}
+\item Proposer un domaine pour l'attribut `Année`.
+\tcor{L'année doit être supérieure à l'année de sortie du premier Vinyl}{1}
+\item Expliquer dans quelle situation le **principe d'unicité** des bases de données n'est pas respectée avec cette table. Que faire pour y remedier ?
+\tcor{Si deux disques sorties la même année ont les mêmes attributs, on doit ajouter une clé primaire afin d'identifier chaque disque de façon unique.}{1}
+\FinListe
+
+\vspace{0.2cm}
+
+\Exo{Requêtes SQL}{}\\
+Télécharger à l'adresse suivante la base de données des pays du monde : \\
+{\tt https://fabricenativel.github.io/Terminales/files/Evaluations/countries.db} \\
+Ouvrir cette base avec {\tt SqliteBrowser}, on précise la signification des colonnes suivantes :
+\begin{itemize}
+\item {\tt Population} : le nombre d'habitants du pays.
+\item {\tt Region} : La région du pays (par exemple {\sc western europe} pour europe de l'ouest)
+\item {\tt Area} : la surface du pays (en \textit{miles} carré).
+\item {\tt Coastline} : la surface côtière du pays, cette valeur vaut "0,00" lorsque le pays n'a pas d'ouverture sur la mer
+\item {\tt GDP} : le produit intérieur brut par habitant, c'est une mesure de la richesse du pays.
+\end{itemize}
+\QListe
+\item Dans chaque cas, répondre en \textbf{écrivant une requête SQL}  dont on donnera les résultats.
+\SQListe
+\item Donner la population et le produit intérieur brut de l'allemagne (\textit{Germany} en anglais).\\
+\aide \; Aide : le modèle de réponse attendue est donc :\\
+\textit{"La population de l'Allemagne est ........... et son {\sc pib} est ......... \\ Résultats obtenus avec la requête .................................... "}
+\tcor{L'allemagne a une population de 82 millions d'habitants et un {\sc pib} de 27600. \\Résultats obtenus avec la requête :\\ {\tt SELECT Popilation, GDP FROM countries WHERE Country="Germany"}}{2}
+\item Combien de régions différentes pour les pays figurent dans cette base ?
+\tcor{11 régions différentes figurent dans la base. \\Résultat obtenu avec la requête  :\\{\tt SELECT DISTINCT region FROM countries}. On pouvait aussi utiliser {\tt SELECT COUNT(DISTINCT Region) FROM countries}}{2}
+\item Lister par ordre croissant les trois pays les plus peuplés au monde
+\tcor{Les 3 pays les plus peuplés sont la Chine, l'Inde et les Etats-Unis. \\Résultat obtenu avec la requête : \\ {\tt SELECT Country, Population FROM countries ORDER BY Population DESC LIMIT 3}}{2}
+\item Lister les pays situés en europe ({\sc eastern europe} ou {\sc western europe})  ayant moins de 50 miles carrés de superficie.
+\tcor{Les pays situés en europe et ayant moins de 50 miles carré de superficie sont Gibraltar et Monaco. \\ Résultat obtenu avec la requête :\\
+{\tt SELECT Country FROM countries WHERE (Region = "EASTERN EUROPE" OR Region = "WESTERN EUROPE") AND Area <= 50}}{2}
+\item Donner le plus grand pays n'ayant pas d'ouverture sur la mer.
+\tcor{Le plus grand pays n'ayant pas d'ouverture sur la mer est le Kazakhstan \\ Résultat obtenu avec la requête :\\
+{\tt SELECT Country FROM countries WHERE Coastline='0.0' ORDER BY Area DESC LIMIT 1}}{2}
+\item Donner les noms des pays commençant par un \textit{t} et finissant par \textit{istan}.
+\tcor{Les pays dont les noms commencent par un \textit{t} et finissent par \textit{istan} sont : Tajikistan et Turkmenistan\\ Résultat obtenu avec la requête :\\
+SELECT Country FROM countries WHERE Country LIKE "t\%istan"}{2}
+\item Quel est le pays d'asie le plus riche (c'est à dire pour lequel le champ {\sc gdp} a la valeur maximale) ?
+\tcor{Le pays d'asie le plus riche est Hong Kong.\\ Résultat obtenu avec la requête : \\
+{\tt SELECT Country FROM countries WHERE Region="ASIA (EX. NEAR EAST)" ORDER BY GDP DESC LIMIT 1}}{2}
+\item Quel est la surface moyenne des pays d'afrique  ? 
+\tcor{La surface moyenne des pays d'afrique est $\simeq$ \numprint{532636.77} .\\ Résultat obtenu avec la requête : \\
+{\tt SELECT AVG(area) FROM countries WHERE Region LIKE "\%AFRICA\%"}}{2}
+\FinListe
+
+\FinListe
+\end{document}
+

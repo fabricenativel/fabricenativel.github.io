@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//Macros.tex}}
+\ModeActivite
+\Activites{\debase\; -- C2 : Représentation des entiers et des caractères}{\Pre}
+
+%Nom de la première activité
+
+\begin{Exercise}[title={Codage hexadécimal},number=2]
+
+	Comme vu en cours, il faut jusqu'à 8 chiffres en base 2 (8 bits) pour écrire les entiers de 0 à 255, le codage \textit{hexadécimal} est bien plus utilisé car plus compact. En effet,  deux caractères suffisent à écrire un nombre compris entre 0 et 255.
+	\begin{enumerate}
+		\item[] Etape 1 : séparer les 8 bits en deux groupes de 4, par exemple $ 11001111 \rightarrow 1100 \ 1111 $
+		\item[] Etape 2 : consulter le tableau suivant et remplacer chaque groupe de 4 par le caractère correspondant, par exemple $ 11001111 \rightarrow CF $ \par \smallskip
+		      \begin{tabular}{|c|c||c|c||c|c||c|c|}
+			      \hline
+			      Groupe & Caractère & Groupe & Caractère & Groupe & Caractère & Groupe & Caractère \\
+			      \hline
+			      0000   & 0         & 0001   & 1         & 0010   & 2         & 0011   & 3         \\
+			      \hline
+			      0100   & 4         & 0101   & 5         & 0110   & 6         & 0111   & 7         \\
+			      \hline
+			      1000   & 8         & 1001   & 9         & 1010   & A         & 1011   & B         \\
+			      \hline
+			      1100   & C         & 1101   & D         & 1110   & E         & 1111   & F         \\
+			      \hline
+		      \end{tabular}
+	\end{enumerate}
+    Le codage hexadécimal $CF$ est bien plus facile à retenir que le codage binaire $11001111$.
+	\Question Appliquer la méthode
+	\subQuestion Ecrire le codage hexadécimal de $10111001$.
+	\subQuestion Ecrire $100_{10}$ en base 2 puis donner son codage hexadécimal.
+	\Question Compter en base 16
+    \subQuestion Dans le tableau de correspondance entre le groupe et le caractère, calculer la valeur décimale de chacun des groupes de 4 bits, que remarquez-vous ?
+    \subQuestion Quelles devraient être les valeurs associées aux lettres $A$, $B$, $C$, $D$, $E$ et $F$ ?
+    \subQuestion Si on considère chaque caractère du tableau comme un chiffre, dans quelle base travaille-t-on ? Justifier.
+    \subQuestion Compléter : \\
+    $ 187 = 12 \times 16 + \dots$, or \\
+	$12 \rightarrow \dots$ et $11 \rightarrow  \dots$ donc \\
+	$187_{10} = \dots \dots_{16}$ 
+    \subQuestion Ecrire $162_{10}$ en base 16 \\
+	\aide \; Effectuer la \textit{division euclidienne} de 162 par 16 de façon à écrire 162 sous la forme : \\$162 = q\times 16 + r$
+    \subQuestion Même question pour $218_{10}$
+    \Question de la base 16 vers la base 10
+    \subQuestion Ecrire $6C_{16}$ en base 10
+    \subQuestion Même question pour $17_{16}$
+    \Question Le codage des couleurs \par
+    En informatique, une couleur est représentée par trois valeurs pouvant aller de 0 à 255 . Ces valeurs représentent les niveaux des trois couleurs primaires rouge, vert et bleu. Une couleur est donc représentée sous la forme $(r,v,b)$ où $r$,$v$ et $b$ sont des entiers entre 0 et 255. Le codage hexadécimal (utilisé notamment en langage {\sc html}) représente une couleur sous la forme de six chiffres en base 16.
+    \subQuestion Quelles sont les valeurs de rouge, vert et bleu dans le code $A1C077$ ?
+    \subQuestion Expliquer pourquoi le code $FF0000$ représente le rouge pur.
+    \subQuestion Expliquer pourquoi le code $808080$ représente le gris.
+	\subQuestion Donner le code couleur {\sc html} de la couleur représentée en code $(r,v,b)$ par (28,140,212).
+	\subQuestion Donner le code (r,v,b) de la couleur $18E54E$
+
+\end{Exercise}
+\end{document}

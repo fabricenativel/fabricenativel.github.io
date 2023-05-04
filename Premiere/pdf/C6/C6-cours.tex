@@ -1,0 +1,219 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{6}
+\pythonmode
+\newcommand{\NA}{\cnum Notions d'algorithmique}
+
+\pythonmode
+
+
+
+% Rappel parcours d'une liste
+\begin{frame}
+	\mframe{\NA}
+	\begin{alertblock}{\textcolor{yellow}{\rappel} Parcours d'une liste}
+		On rappelle qu'une liste \textcolor{blue}{\tt L}, en Python peut se représenter par le schéma suivant : \\
+		\begin{tabularx}{0.8\textwidth}{l|Y|Y|Y|Y|Y|}
+			\cline{2-6}
+			Eléments                    & {\tt L[0]}                     & {\tt L[1]}                     & {\tt L[2]}                     & {\tt L[3]}                     & {\dots}                        \\
+			\cline{2-6}
+			\multicolumn{1}{c}{ }       & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} \\
+			\multicolumn{1}{c}{Indices} & \multicolumn{1}{c}{0}          & \multicolumn{1}{c}{1}          & \multicolumn{1}{c}{2}          & \multicolumn{1}{c}{3}          & \multicolumn{1}{c}{\dots}      \\
+		\end{tabularx} \\
+		On peut parcourir cette liste :
+		\begin{itemize}
+			\item<2-> \textcolor{red}{Par indice} (on se place sur la seconde ligne du schéma ci-dessus) et on crée une variable (un entier) qui va parcourir la liste des indices : \\
+			      \textcolor{blue}{\tt for indice in range(len(L))} \\
+			      Il faut alors accéder aux éléments en utilisant leurs indices.
+			\item <3->\textcolor{red}{Par élément} (on se place sur la première ligne du schéma ci-dessus) et on crée une variable qui va parcourir directement la liste des éléments : \\
+			      \textcolor{blue}{\tt for element in L} \\
+			      La variable de parcours (ici {\tt element}) contient alors directement les éléments).
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Algorithme de recherche dans une liste
+\begin{frame}
+	\mframe{\NA}
+	\begin{block}{Algorithme de recherche simple}
+		Un algorithme de recherche \textcolor{blue}{simple} d'un élément dans une liste consiste:
+		\begin{enumerate}
+			\item<2-> à parcourir les éléments de cette liste
+			\item<3-> renvoyer {\tt True} si on trouve cet élément
+			\item<4-> sinon continuer le parcours et renvoyer {\tt False} si la fin de liste est atteinte
+		\end{enumerate}
+	\end{block}	
+\end{frame}
+
+% Algorithme de recherche par dichotomie
+\begin{frame}
+	\mframe{\NA}
+	\begin{block}{Algorithme de recherche par dichotomie}
+		Lorsqu'une \textcolor{red}{liste est triée}, on peut utiliser la recherche par dichotomie :
+		\begin{enumerate}
+			\item<2-> Partager la liste en deux moitiés
+			\item<3-> Comparer l'élément cherché avec celui situé au milieu
+			\item<4-> En déduire dans quelle moitié poursuivre la recherche
+			\item<5-> S'arrêter lorsque la zone de recherche ne contient plus qu'un élément.
+		\end{enumerate}
+	\end{block}	
+\end{frame}
+
+% Algorithme de recherche par dichotomie
+\begin{frame}
+	\mframe{\NA}
+	\begin{block}{Algorithmique}
+		Dans l'étude d'un algorithme, on s'intéresse aux notions suivantes :
+		\begin{enumerate}
+			\item<2-> \textcolor{blue}{terminaison} : peut-on garantir que l'algorithme se termine en un temps fini ? (ne concerne que les algorithmes avec des boucles non bornées)
+			\item<3-> \textcolor{blue}{correction} : peut-on garantir que l'algorithme fournit la réponse correcte ?
+			\item<4-> \textcolor{blue}{complexité} : evolution du temps d'exécution de l'algorithme en fonction de la taille des données.
+		\end{enumerate}
+	\end{block}	
+\end{frame}
+
+% Complexité d'un algorithme
+\begin{frame}
+	\mframe{\NA}
+	\begin{alertblock}{Définition : complexité}
+		La \textcolor{red}{complexité} d'un algorithme est une mesure de son efficacité.
+		\onslide<2-> On parle notamment de :
+		\begin{itemize}
+			\item<3-> Complexité en temps : le nombre d'opérations nécessaire à l'exécution d'un algorithme en fonction de la taille des données
+			\item<4-> Complexité en mémoire : l'occupation mémoire en fonction de la taille des données
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Complexité de la recherche simple
+\begin{frame}
+	\mframe{\NA}
+	\begin{block}{Complexité des algorithmes de recherche}
+		\begin{itemize}
+			\item<2-> Le nombre de comparaisons nécessaire à l'algorithme de recherche simple est proportionnel à la taille de la liste. 
+			\onslide<3->On dit que cet algorithme a une \textcolor{red}{complexité linéaire}.\\
+			\onslide<4->L'allure du graphique représentant le temps d'exécution en fonction de la taille des données est une droite.
+			\item<5-> Le nombre de comparaisons nécessaire à l'algorithme de recherche dichotomique augmente de 1 lorsque la taille de la liste double.
+			\onslide<6-> En mathématiques, les fonctions évoluant de cette façon sont appelées \textcolor{blue}{logarithmes}, l'algorithme de recherche dichotomique a donc une \textcolor{red}{complexité logarithmique}
+		\end{itemize}
+	\end{block}	
+\end{frame}
+
+\begin{frame}
+	\mframe{\NA}
+	\begin{alertblock}{Correction d'un algorithme}
+		On dira qu'un algorithme est \textcolor{red}{correct}
+		\onslide<2-> lorsqu'il renvoie la réponse attendue pour n'importe quel donnée.
+	\end{alertblock}
+	\onslide<3->{\begin{block}{Tests et correction}
+			\onslide<4->{Des tests ne permettent \textcolor{red}{pas} de prouver qu'un algorithme est correct.}
+			\onslide<5->{En effet, ils ne permettent de valider le comportement de l'algorithme que dans quelques cas particuliers et jamais dans le cas général}
+		\end{block}}
+\end{frame}
+
+\begin{frame}
+	\mframe{\NA}
+	\begin{alertblock}{Preuve de la correction d'un algorithme}
+		Pour prouver la correction d'un algorithme on utilise la notion \textcolor{red}{d'invariant de boucle}. C'est une propriété du programme qui
+		\begin{itemize}
+			\item<2-> est vraie à l'entrée dans la boucle.
+			\item<3-> reste vraie à chaque itération si elle l'était à l'itération précédente.
+		\end{itemize}
+		\onslide<4->{Trouver un invariant de boucle c'est \textcolor{red}{prouver} qu'un algorithme fournit la réponse attendue quelque soient les données.}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+	\mframe{\NA}
+	\begin{exampleblock}{Exemple}
+		On considère la fonction ci-dessous :
+		\begin{lstlisting}
+def compte(elt,liste):
+	'''compte le nombre de fois où elt apparaît dans liste'''
+	compteur=0
+	for x in liste:
+		if x==elt:
+			compteur=compteur+1
+	return compteur
+\end{lstlisting}
+		\onslide<2-> En trouvant un invariant de boucle, montrer qu'à la sortie de la boucle, la variable compteur contient le nombre de fois où \texttt{elt} apparaît dans \texttt{liste}
+	\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\NA}
+	\begin{exampleblock}{Correction de l'exemple}
+		\textcolor{OliveGreen}{On note la liste \texttt{[$e_1$,$e_2$,\dots,$e_n$]}, et on note \texttt{k} le nombre de tours de boucle\\}
+		\onslide<2->{\textcolor{OliveGreen}{Montrons que la propriété : \\}   \textcolor{blue}{\og \texttt{compteur} contient le nombre de de fois où \texttt{elt} apparaît dans les \texttt{k} premiers éléments de la liste \fg}} \\
+		\onslide<3->\textcolor{OliveGreen}{ est un invariant de boucle.}
+		\begin{itemize}
+			\item<4-> \textcolor{OliveGreen}{En entrant dans la boucle (\texttt{k}=0) la propriété est vraie car \texttt{compteur} vaut 0.}
+			\item<5-> \textcolor{OliveGreen}{Supposons la propriété vraie au k-ième tour de boucle alors, au tour suivant elle reste vraie puisqu'on ajoute 1 au compteur lorsque \texttt{elt=$e_{k+1}$}}
+		\end{itemize}
+		\onslide<6->\textcolor{OliveGreen}{Cette propriété est donc bien un invariant de boucle.}
+		\onslide<7->\textcolor{OliveGreen}{L'invariant de boucle reste vraie en sortie de boucle ce qui prouve que l'algorithme est correct.}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\NA}
+	\begin{block}{\textcolor{yellow}{\rappel\;} Rappel}
+		On distingue deux types de boucle :
+		\begin{itemize}
+			\item<2-> Les boucles \textcolor{blue}{bornées}, on connaît leur nombre de répétitions. Ce sont les boucles \texttt{for} de Python.
+			\item<3-> Les boucles \textcolor{blue}{non bornées}, qui peuvent se répéter un nombre indéterminé de fois. Ce sont les boucles \texttt{while} de Python.
+		\end{itemize}
+	\end{block}
+	\onslide<4->{
+		\begin{alertblock}{Terminaison d'un algorithme}
+			Une boucle non bornée pouvant se répéter à l'infini, on s'interroge sur le problème de la \textcolor{red}{terminaison} d'un programme. C'est à dire qu'on souhaite prouver mathématiquement qu'un programme s'arrête quelques soient les données fournies.
+		\end{alertblock}}
+\end{frame}
+
+\begin{frame}
+	\mframe{\NA}
+	\begin{alertblock}{Preuve de la terminaison d'un algorithme}
+		\begin{itemize}
+			\item Pour prouver la terminaison d'un algorithme on utilise la notion \textcolor{red}{de variant de boucle}. Il s'agit de mettre en évidence une \textcolor{red}{suite d'entiers naturels strictement décroissante} avec le nombre de tours de boucle. \\
+			\item<2->{On montre en mathématique qu'une telle suite ne peut être infinie, traduit en langage informatique cela signifie que la boucle s'arrête forcément.}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+	\mframe{\NA}
+	\begin{exampleblock}{Exemple}
+		On considère la fonction ci-dessous :
+		\begin{lstlisting}
+def quotient(a,b):
+	'''Renvoie le quotient dans la division euclidienne de a par b avec a et b deux entiers naturels'''
+	q=0
+	while a-b>=0:
+		a=a-b
+		q=q+1
+	return q
+\end{lstlisting}
+		\onslide<2-> En trouvant un variant de boucle, prouver la terminaison de ce programme.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\NA}
+	\begin{exampleblock}{Correction de l'exemple}
+		\textcolor{OliveGreen}{Montrer que la suite de valeurs prises par la variable \texttt{a} est une suite d'entiers naturels strictement décroissante.}
+		\begin{itemize}
+			\item<2->{\textcolor{OliveGreen}{La valeur initiale de \texttt{a} est un entier naturel (précondition)}}
+			\item<3->{\textcolor{OliveGreen}{A chaque tour de boucle la valeur de \texttt{a} diminue (de \texttt{b}).}}
+			\item<4->{\textcolor{OliveGreen}{La nouvelle valeur de \texttt{a} est \texttt{a-b} qui est garantie positive par condition d'entrée dans la boucle}}
+		\end{itemize}
+		\onslide<5->\textcolor{OliveGreen}{Les trois éléments ci-dessus prouvent que la suite de valeurs prises par la variable \texttt{a} est une suite d'entiers naturels strictement décroissante. Cette suite de valeurs est donc finie ce qui prouve la terminaison de cet algorithme.}
+	\end{exampleblock}
+\end{frame}
+
+\end{document}

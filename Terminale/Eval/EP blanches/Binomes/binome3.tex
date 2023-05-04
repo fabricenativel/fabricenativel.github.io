@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+% niveau et nom du projet à définir ici
+\newcommand{\niveau}{\Term}
+
+\fancyhead[L]{\niveau} \fancyhead[R]{Lycée Hintermann-Afféjee}
+\fancyfoot[C]{}
+\begin{center}
+\framebox{\makebox[0.986\textwidth][c]{\Large \bf Entrainement à l'épreuve pratique}} \\
+\end{center}
+
+\begin{tabularx}{0.47\textwidth}{|p{1.7cm}X|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Elève A}} \\
+    Nom    & \dotfill \\
+    Prénom & \dotfill \\
+    \hline
+\end{tabularx} \hfill
+\begin{tabularx}{0.47\textwidth}{|p{1.7cm}X|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Elève B}} \\
+    Nom    & \dotfill \\
+    Prénom & \dotfill \\
+    \hline
+\end{tabularx} 
+
+\vspace{0.25cm}
+\textbf{Enoncé}
+
+Ecrire une fonction {\tt liste\_indices}  qui prend en paramètres un entier {\tt n} et une liste d'entiers {\tt l} et qui renvoie la liste  des indices d'apparition de  {\tt n} dans {\tt l}. Par exemple, {\tt liste\_indices(5,[17,5,11,5,5,14])} renvoie {\tt [1,3,4]}. Lorsque l'entier n'apparaît pas dans la liste, on renvoie la liste vide.
+
+\textbf{Exemples :} 
+\begin{lstlisting}
+>>> liste_indice(13,[13,24,10,13])
+[0,3]
+>>> liste_indice(11,[7,19,15,14,2])
+[]
+>>> liste_indice(14,[7,14,15,28,2])
+[1]
+\end{lstlisting}
+
+\vspace{0.1cm}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|}
+    \hline
+    \ding{43} {\bf Etape \ding{182} : elève A/B} : Comprendre l'énoncé, proposer des tests pour la fonction demandée \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \hline
+\end{tabularx}
+
+\vspace{0.1cm}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|}
+    \hline
+    \ding{43} {\bf Etape \ding{183} : élève A} : Ecrire en français un algorithme pour résoudre le problème \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \hline
+\end{tabularx}
+
+\vspace{0.1cm}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|}
+    \hline
+    \ding{43} {\bf Etape \ding{184} : élève B} : Traduire cet algorithme en Python et le tester \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \hline
+\end{tabularx}
+
+\end{document}

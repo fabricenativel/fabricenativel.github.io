@@ -1,0 +1,31 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{3}
+\newcommand{\Python}{\cnum Initiation à Python avec turtle}
+
+\pythonmode
+
+
+% Turtle : Orientation
+\begin{frame}
+	\mframe{\Python}
+	
+				      \psset{unit=0.6px, xlabelsep,arrowscale=2}
+				      \begin{pspicture}
+					      \pstGeonode[PointName=none,PointSymbol=none](100,-100){A}(350,-100){D}
+					      \Triangleccc{A,B,C}{200,200,200}{PointName=none,PointSymbol=none}{PointName=none,PointSymbol=none}{0}
+						  \rput(200,-110){\ding{202}}
+						  \pstLineAB[linestyle=dashed]{A}{D}
+						  \pstMarkAngle[LabelSep=50,MarkAngleRadius=30,arrows=->]{D}{B}{C}{120°}
+						  \pstMarkAngle[LabelSep=20,MarkAngleRadius=30,arrows=->]{D}{B}{C}{\ding{203}}
+						  \psline{->}(100,-100)(295,-100)
+				      \end{pspicture}
+\end{frame}
+
+
+\end{document}

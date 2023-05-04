@@ -1,0 +1,159 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{13}
+
+\pythonmode
+
+\newcommand{\AG}{\cnum Algorithmes gloutons}
+
+\pythonmode
+
+% Le problème du sac à dos
+\begin{frame}
+    \mframe{\AG}
+    \begin{block}{Problème du sac à dos}
+        \begin{itemize}
+            \item<2-> On dispose d'un sac à dos et d'une liste objet ayant chacun un poids et une valeur. Le problème du sac à dos consiste à remplir ce sac en maximisant la valeur des objets qu'il contient tout en respectant une contrainte sur le poids du sac.
+            \item<3-> Ce problème très connu se pose dans différents contextes :
+                  \begin{itemize}
+                      \item<4-> Clé usb ayant une capacité maximale à remplir avec des vidéos ayant chacune une taille et une importance.
+                      \item<5-> Temps maximal pour répondre aux questions d'un examen, répondre à chaque question prend un certain temps et rapporte des points.
+                      \item<6-> \dots
+                  \end{itemize}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% Un exemple
+\begin{frame}
+    \mframe{\AG}
+    \begin{exampleblock}{Exemple}
+        On dispose de 5h de temps libre et on peut faire les activités suivantes auxquelles on a attribué une importance selon notre motivation :
+        \begin{itemize}
+            \item<2-> Activité A : Aller au cinéma (2h30) - Importance 14
+            \item<3-> Activité B : Faire du sport (2h00) - Importance 10
+            \item<4-> Activité C : Aller à la plage (3h00) - Importance 18
+            \item<5-> Activité D : Faire une randonnée (3h30) - Importance 25
+        \end{itemize}
+        \onslide<6->{Quelles activités choisir pour maximiser le total d'importance ?}
+    \end{exampleblock}
+\end{frame}
+
+% Algorithme Gloutons
+\begin{frame}
+    \mframe{\AG}
+    \begin{alertblock}{Une méthode de résolution}
+        Pour proposer une solution à un problème de sac à dos on peut adopter la méthode suivante :
+        \begin{enumerate}
+            \item<2-> Classer les objets par ordre d'importance (soit leur valeur, soit leur valeur par unité de poids)
+            \item<3-> Remplir le sac en commençant par les objets ayant la plus grande valeur et en ajoutant un objet à chaque fois que le poids maximal n'est pas dépassé
+        \end{enumerate}
+    \end{alertblock}
+\end{frame}
+
+%
+\begin{frame}
+    \mframe{\AG}
+    \begin{exampleblock}{Exemple}
+        \onslide<4->Dans l'exemple ci-dessus le classement des activités suivant l'importance :
+        \begin{enumerate}
+            \item<5-> Activité D : 25 (3h30)
+            \item<6-> Activité C : 18 (3h)
+            \item<7-> Activité A : 14 (2h30)
+            \item<8-> Activité B : 10 (2h)
+        \end{enumerate}
+        \onslide<9->{En suivante cette méthode, on choisit donc l'activité D. Plus aucune autre activité n'est alors possible sans dépasser le temps limite de 5h.\\}
+        \onslide<10->{\textcolor{blue}{Cette méthode de résolution ne donne donc pas forcément la meilleur solution}}\\
+        \onslide<11->{On peut vérifier qu'on obtiendrait le même résultat en classant les activités par le rapport importance par unité de temps.}
+    \end{exampleblock}
+\end{frame}
+
+% 
+\begin{frame}
+    \mframe{\AG}
+    \begin{block}{Notion d'algorithme glouton}
+        La méthode que nous avons adopté pour résoudre le problème du sac à dos est ce qu'on appelle un \textcolor{red}{algorithme glouton}:
+        \begin{itemize}
+            \item<2->  le principe général est de résoudre un problème complexe \textbf{étape par étape} en faisant à chaque étape un choix qui ne sera pas forcement optimal au final mais qui maximise dans l'immédiat une grandeur.
+            \item<3-> Il est possible qu'un autre choix conduise a un gain plus important par la suite.
+            \item<4-> Cet algorithme ne fournit donc pas toujours la \textcolor{red}{meilleure solution}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% 
+\begin{frame}
+    \mframe{\AG}
+    \begin{block}{Problème du rendu de monnaie}
+        On dispose d'un système monétaire avec un ensemble de valeurs pour les pièces et les billets. Le problème du rendu de monnaie consiste à chercher le nombre minimal de pièce permettant de former une somme donnée.
+    \end{block}
+    \begin{exampleblock}{Exemple}
+        \begin{itemize}
+            \item<2-> Les valeurs possibles des pièces sont : 1, 3, 4, 5 et 10
+            \item<3-> On doit former la somme de 17
+        \end{itemize}
+        \onslide<4-> \textcolor{OliveGreen}{La solution est 10 + 4 + 3 = 17.}
+    \end{exampleblock}
+\end{frame}
+
+% Algorithme Gloutons pour le rendu de monnaie
+\begin{frame}
+    \mframe{\AG}
+    \begin{alertblock}{Une méthode de résolution}
+        Pour proposer une solution à un problème de rendu de monnaie on peut adopter l'algorithme \textcolor{blue}{glouton} suivant :
+        \begin{enumerate}
+            \item<2-> Choisir la pièce de plus forte valeur ne dépassant pas la somme à former.
+            \item<3-> Soustraire cette pièce de la somme à former et recommencer tant que la somme à former n'est pas nulle.
+        \end{enumerate}
+        \onslide<4->{Cet algorithme est glouton car le choix de la pièce de plus forte valeur n'est pas forcément le meilleur globalement mais est le maximum de valeur rendu pour une seule pièce à ce moment.}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}
+    \mframe{\AG}
+    \begin{exampleblock}{Exemple}
+        En appliquant cette méthode à l'exemple précédent :
+        \begin{itemize}
+            \item<2-> On choisit 10 et il reste 7 à rendre
+            \item<3-> On choisit 5 et il reste 2 à rendre
+            \item<4-> On choisit 1 et il reste 1 à rendre
+            \item<5-> On choisit 1 et il reste 0 à rendre
+        \end{itemize}
+        \onslide<6-> La solution obtenue est donc 10+5+1+1, ce n'est donc pas la solution optimale.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \mframe{\AG}
+    \begin{block}{Remarque}
+        \begin{itemize}
+            \item<1-> On montre, mais cela dépasse le cadre du cours de {\sc nsi} en première qu'avec certains systèmes monétaires appelés \textcolor{red}{canoniques} l'algorithme glouton fournit \textcolor{blue}{toujours} une solution optimale.
+            \item<2-> Le système de monnaie des euros est canoniques. Et donc avec les euros, l'algorithme fournit toujours la solution optimale.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \mframe{\AG}
+    \begin{block}{Attention !}
+        Dans certain cas, l'algorithme glouton échoue et ne donne pas de solutions alors qu'il en existe.
+    \end{block}
+    \begin{exampleblock}{Exemple}
+        Les valeurs possibles des pièces sont $20,8,5,2$ et il faut rendre 21
+        \begin{itemize}
+            \item<3-> Montrer qu'il existe des solutions à ce problème.
+            \item<4-> Quelle sera la réponse fournie par l'algorithme glouton .
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+
+\end{document}
+
+
+

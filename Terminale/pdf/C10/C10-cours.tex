@@ -1,0 +1,99 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{10}
+
+\newcommand{\AB}{\cnum Algorithmes sur les arbres}
+
+\pythonmode
+
+% Relation entre hauteur et taille
+\begin{frame}
+	\mframe{\AB}
+	\begin{alertblock}{Parcours d'un arbre}
+		On peut parcourir un arbre binaire :
+		\begin{itemize}
+			\item<2-> En largeur, cela revient à lister les noeuds par ordre croissant de profondeur et de gauche à droite \\
+			      \onslide<3-> \textcolor{gray}{L'implémentation de ce parcours peut se faire à l'aide d'une file dans laquelle on stocke les noeuds restants à parcourir. A chaque fois qu'on traite un noeud, on le defile et on enfile ses fils (voir la fiche d'activité).}
+			\item<3-> En profondeur, on tire alors partie de la structure récursive des arbres. Pour parcourir l'arbre $T=(e,sag,sad)$ on doit relancer le parcours sur $sag$ et $sad$. On distingue alors trois parcours suivant que $e$ est affiché avant, entre ou après $sag$ et $sad$ :
+			      \begin{itemize}
+				      \item<4-> Dans le parcours préfixé, $e$ est affiché avant de parcourir $sag$ et $sad$.
+				      \item<5-> Dans le parcours infixé, $e$ est affiché après le parcours de $sag$ mais avant celui de  $sad$.
+				      \item<6-> Dans le parcours suffixé, $e$ est affiché après le parcours de $sag$ et $sad$
+			      \end{itemize}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\AB}
+	\begin{exampleblock}{Exemple}
+		\begin{center}
+			\begin{tabular}{p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}}
+				                     &                      &                      & \rnode{A}{\boxed{R}} &                      &                      & \phantom{0}\vspace{0.5cm} \\
+				                     & \rnode{B}{\boxed{T}} &                      &                      &                      & \rnode{C}{\boxed{C}} & \phantom{0}\vspace{0.5cm} \\
+				\rnode{D}{\boxed{V}} &                      & \rnode{E}{\boxed{I}} &                      & \rnode{F}{\boxed{F}} &                      & \phantom{0}\vspace{0.5cm} \\
+				                     & \rnode{I}{\boxed{M}} &                      & \rnode{G}{\boxed{P}} &                      & \rnode{H}{\boxed{A}} &                           \\
+				\ncline{->}{A}{B} \ncline{->}{A}{C} \ncline{->}{B}{D} \ncline{->}{B}{E} \ncline{->}{F}{G} \ncline{->}{F}{H} \ncline{C}{F} \ncline{D}{I}
+			\end{tabular}
+		\end{center}
+		Donner l'ordre des noeuds lorsqu'on parcourt l'arbre ci-dessus :
+		\begin{itemize}
+			\item<1-> En largeur
+			\item<2-> En profondeur préfixé
+			\item<3-> En profondeur infixé
+			\item<4-> En profondeur suffixé
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\AB}
+	\begin{alertblock}{Arbre binaire de recherche}
+		Un arbre binaire \textcolor{blue}{de recherche} (noté {\sc abr}), est un arbre binaire tel que :
+		\begin{itemize}
+			\item<2-> Les étiquettes des noeuds, appelées \textcolor{blue}{clé} sont toutes comparables entre elles. \\
+			      \onslide<4->{\textcolor{gray}{Par exemple, les étiquettes sont toutes des nombres ou encore des chaines de caractères (comparées par ordre alphabétique).}}
+			\item<5-> Pour tous les noeuds l'ensemble des clés présentes dans le sous arbre gauche (resp. droit) sont strictement inférieures (resp. supérieures) à la clé du noeud.\\
+			      \onslide<6->{\textcolor{gray}{Par souci de simplicité, on admettra que les clés sont uniques dans un {\sc abr} ce qui permet d'éviter le cas de clés égales}}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\AB}
+	\begin{exampleblock}{Exemple}
+		\begin{center}
+			\begin{tabular}{p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}p{0.3cm}}
+				                     &                      &                      & \rnode{A}{\boxed{10}} &                       &                       & \phantom{0}\vspace{0.5cm} \\
+				                     & \rnode{B}{\boxed{6}} &                      &                       &                       & \rnode{C}{\boxed{19}} & \phantom{0}\vspace{0.5cm} \\
+				\rnode{D}{\boxed{4}} &                      & \rnode{E}{\boxed{?}} &                       & \rnode{F}{\boxed{16}} &                       & \phantom{0}\vspace{0.5cm} \\
+				                     & \rnode{I}{\boxed{5}} &                      & \rnode{G}{\boxed{13}} &                       & \rnode{H}{\boxed{17}} &                           \\
+				\ncline{->}{A}{B} \ncline{->}{A}{C} \ncline{->}{B}{D} \ncline{->}{B}{E} \ncline{->}{F}{G} \ncline{->}{F}{H} \ncline{C}{F} \ncline{D}{I}
+			\end{tabular}
+		\end{center}
+		\begin{itemize}
+			\item<1-> Cet arbre est-il un {\sc abr} si la clé manquante est 2 ? 9 ? 12 ?
+			\item<2-> On suppose que la clé manquante est 9. Proposer une nouvelle valeur pour le noeud de clé 16 de façon à ce que cet arbre reste un {\sc abr}.
+			\item<3-> Proposer une valeur pour le noeud de clé 16 de façon à ce que cet arbre ne soit pas un {\sc abr}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\AB}
+	\begin{alertblock}{Recherche dans un {\sc abr}}
+		\begin{itemize}
+			\item<1-> La recherche d'un élément dans un {\sc abr} a pour complexité la hauteur de cet arbre. En effet, on descend d'un niveau dans l'arbre à chaque étape de la recherche en choisissant d'aller à gauche ou à droite suivante que l'élément recherché est plus petit ou plus grand que le noeud parcouru.
+			\item<2-> Par conséquent, si l'arbre est dégénéré, la hauteur est égale au nombre de noeuds et l'algorithme équivaut à la recherche dans une liste.
+			\item<3-> Si l'arbre est complet par contre la complexité est logarithmique et équivaut à une recherche dichotomique dans une liste triée.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\end{document}

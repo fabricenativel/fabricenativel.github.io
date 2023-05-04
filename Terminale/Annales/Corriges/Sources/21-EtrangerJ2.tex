@@ -1,0 +1,99 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+\newcommand{\Pile}[6]{
+    \begin{tabular}{|c|}
+        \rnode{#6}{#1} \\
+        \hline
+        #2 \\
+        \hline
+        #3 \\
+        \hline
+        #4 \\
+        \hline
+        \multicolumn{1}{c}{#5}
+    \end{tabular}
+}
+
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{cc}
+        \multicolumn{2}{c}{Liste : [ \rnode{D}{}]} \\
+        \vspace{0.5cm} & \\
+        \Pile{A}{R}{D}{V}{Pile Gauche}{SG} &    \Pile{7}{8}{9}{10}{Pile Droite}{SD} \\
+        \multicolumn{2}{c}{Etat initial} \\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{cc}
+        \multicolumn{2}{c}{Liste : [ \rnode{D}{}]} \\
+        \vspace{0.5cm} & \\
+        \Pile{A}{R}{D}{V}{Pile Gauche}{SG} &    \Pile{7}{8}{9}{10}{Pile Droite}{SD} \\
+        \multicolumn{2}{c}{Dépiler à gauche, ajouter à la fin de la liste} \\
+    \end{tabular}
+    \ncarc{->}{SG}{D}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{cc}
+        \multicolumn{2}{c}{Liste : [A, \rnode{D}{}]} \\
+        \vspace{0.5cm} & \\
+        \Pile{}{R}{D}{V}{Pile Gauche}{SG} &    \Pile{7}{8}{9}{10}{Pile Droite}{SD} \\
+        \multicolumn{2}{c}{Dépiler à droite, ajouter à la fin de la liste} \\
+    \end{tabular}
+    \ncarc{->}{SD}{D}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{cc}
+        \multicolumn{2}{c}{Liste : [A, 7, \rnode{D}{}]} \\
+        \vspace{0.5cm} & \\
+        \Pile{}{R}{D}{V}{Pile Gauche}{SG} &    \Pile{}{8}{9}{10}{Pile Droite}{SD} \\
+        \multicolumn{2}{c}{Dépiler à gauche, ajouter à la fin de la liste} \\
+    \end{tabular}
+    \ncarc[offsetA=-0.2cm]{->}{SG}{D}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{cccccccccc}
+         & & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 0 \\
+        $\bigoplus$ & & 0 & 1 & 1 & 0 & 1 & 0 & 1 & 1 \\
+        \vspace{-0.3cm} & & & & & & & & & \\
+        \hline
+        \vspace{-0.3cm} & & & & & & & & & \\
+        = & & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+         \hline
+            \tiny{bleu} & \tiny{bleu} & \tiny{bleu} & \tiny{bleu} & \tiny{bleu} & \tiny{blanc} & \tiny{blanc} &  \tiny{blanc} &  \tiny{blanc} &  \tiny{blanc} &  \tiny{rouge} &\tiny{rouge} &\tiny{rouge} &\tiny{rouge} &\tiny{rouge} \\
+         \hline
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+         \hline
+            \tiny{vert} & \tiny{jaune} & \tiny{jaune} & \tiny{vert} & \tiny{jaune} & \tiny{jaune} & \tiny{vert} &  \tiny{jaune} &  \tiny{jaune} &  \tiny{vert} &  \tiny{jaune} &\tiny{jaune} &\tiny{vert} &\tiny{jaune} &\tiny{jaune} \\
+         \hline
+    \end{tabular}
+\end{frame}
+
+\end{document}

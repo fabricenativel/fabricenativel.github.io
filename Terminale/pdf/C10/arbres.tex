@@ -1,0 +1,22 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+
+\Exos{Arbres}{\Term}
+\exomode
+
+\newcommand{\Noeud}[1]{\framebox{\parbox[c][0.6cm][c]{0.4cm}{#1}}}
+
+\begin{tabularx}{0.5\textwidth}{XXXXX}
+& & \rnode{A}{\Noeud{A}} & &     \phantom{\quad} \vspace{0.3cm}  \\ 
+&\rnode{L}{\Noeud{B}} & & \rnode{G}{\Noeud{C}}   &  \ncline{->}{A}{L} \ncline{->}{A}{G} \vspace{0.3cm}  \\
+ \rnode{O}{\Noeud{D}} & & \rnode{R}{\Noeud{E}} & & \rnode{I}{\Noeud{F}}     \ncline{->}{L}{R} \ncline{->}{L}{O} \ncline{->}{C}{R} \vspace{0.3cm} \\
+  & \rnode{H}{\Noeud{G}} &  & \rnode{E}{\Noeud{H}} & \ncline{->}{G}{I} \ncline{->}{O}{H}   \ncline{->}{I}{E} \\
+\end{tabularx}
+
+\end{document}	

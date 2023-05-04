@@ -1,0 +1,207 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{9}
+
+\pythonmode
+
+\newcommand{\Algotris}{\cnum Algorithmes de tri}
+
+\lstset{language=python,numbers=left, tabsize=2, frame=single, breaklines=true, basicstyle=\ttfamily,
+	numberstyle=\tiny\ttfamily, framexleftmargin=0mm, backgroundcolor=\color{grispale}, xleftmargin=12mm}
+
+% Généralités - Tri sélection
+\begin{frame}
+	\mframe{\Algotris}
+    \onslide<1->{
+	\begin{block}{Généralités}
+		Les algorithmes de tris sont fondamentaux en informatique, ils prennent en entrée une suite de valeurs (nombres, mots, \dots) qu'on peut \textit{comparer} entre eux (relation supérieur ou égal pour les nombres, ordre alphabétique pour les mots, \dots) et fournissent en sortie cette liste de valeurs ordonnées.
+	\end{block}}
+    \onslide<2->{\begin{block}{\textcolor{yellow}{\danger} \; Spécificités de Python}
+        \begin{itemize}
+        \item<2->   Les listes de Python sont modifiées lorsqu'on les passe en paramètre à une fonction, on dit qu'elles sont \textcolor{red}{mutables}.
+        \item<3-> Par conséquent, une liste passé en paramètre lors d'un tri est modifiée, et on a donc pas besoin d'utiliser une instruction \pmc{return} pour récupérer la liste triée dans le programme principal.
+        \item<4-> D'autres types de données de Python (par exemple les entiers ou les chaines de caractères) sont \textcolor{red}{non mutables}, elles ne sont pas modifiées lorsqu'on les passe en paramètre à une fonction.
+        \end{itemize}
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{alertblock}{Algorithme du tri par sélection}
+		\begin{itemize}
+			\item<1-> Rechercher le plus petit élément de la liste à partir de l'indice 0
+			\item<2-> Echanger cet élément avec le premier de la liste
+			\item<3-> Rechercher le plus petit élément de la liste à partir de l'indice 1
+			\item<4-> Echanger cet élément avec le second de la liste
+			\item<5-> Et ainsi de suite jusqu'à ce que la liste soit entièrement triée
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Exemple tri sélection
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{exampleblock}{Exemple}
+		\onslide<1->{On considère la liste \texttt{[12,10,18,15,14]} décrire les étapes d'un tri par sélection sur cette liste}
+		\begin{enumerate}
+			\item<2->{Sélection du plus petit élément depuis l'indice 0 : \texttt{[12,\textcolor{red}{10},18,15,14]}}
+			\item<3->{Placement en première position de liste : \texttt{[\textcolor{red}{10},12,18,15,14]}}
+			\item<4->{Sélection du plus petit élément depuis l'indice 1 : \texttt{[10,\textcolor{red}{12},18,15,14]}}
+			\item<5->{Placement en deuxième position de liste: \texttt{[10,\textcolor{red}{12},18,15,14]}}
+			\item<6->{Sélection du plus petit élément depuis l'indice 2 : \texttt{[10,12,18,15,\textcolor{red}{14}]}}
+			\item<7->{Placement en 3\textsuperscript{e} de liste: \texttt{[10,12,\textcolor{red}{14},15,18]}}
+			\item<8->{Sélection du plus petit élément depuis l'indice 3 : \texttt{[10,12,14,\textcolor{red}{15},18]}}
+			\item<9->{Placement en 4\textsuperscript{e} position de liste: \texttt{[10,12,14,\textcolor{red}{15},18]}}
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+% Implémentation tri sélection
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{block}{Implémentation en Python}
+		En supposant qu'on dispose déjà de :
+		\begin{itemize}
+			\item<2-> la fonction \texttt{ind\_min} qui renvoie l'indice du plus petit des éléments  à partir de l'indice \texttt{ind},
+			\item<3-> la fonction \texttt{echange} qui intervertit les éléments de la liste situés aux indices \texttt{ind} et \texttt{ind\_min}.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\mframe{\Algotris}
+	\begin{block}{Implémentation du tri par sélection en Python}
+		En supposant qu'on dispose déjà de :
+		\begin{itemize}
+			\item la fonction \texttt{ind\_min} qui renvoie l'indice du plus petit des éléments  à partir de l'indice \texttt{ind},
+			\item la fonction \texttt{echange} qui intervertir les éléments de la liste situés aux indices \texttt{ind} et \texttt{ind\_min}.
+		\end{itemize}
+		\begin{lstlisting}
+def tri_selection(liste):
+    longueur = len(liste)
+    for ind in range(longueur):
+        ind_min = min_liste(liste,ind)
+        echange(liste,ind,ind_min)
+\end{lstlisting}
+	\end{block}
+\end{frame}
+
+
+% Tri insertion
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{alertblock}{Algorithme du tri par insertion}
+        Le principe est de considérer qu'une partie située en début de liste est déjà triée (cette partie est initialement vide), ensuite on parcourt le reste de la liste et on insère chaque élément qu'on rencontre dans la partie déjà triée.
+		\begin{itemize}
+			\item<1-> on parcourt la liste à partir du premier élément
+			\item<2-> chaque élément rencontré est inséré à la bonne position en début de liste
+			\item<3-> Cette insertion peut se faire en échangeant cet élément avec son voisin de gauche tant qu'il lui est supérieur
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Exemple tri insertion
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{exampleblock}{Exemple}
+		\onslide<1->{On considère la liste \texttt{[12,10,18,15,14]} décrire les étapes d'un tri par sélection sur cette liste}
+		\renewcommand{\arraystretch}{0.8}
+		\begin{tabularx}{\textwidth}{p{3cm}@{}|@{}p{3cm}|X}
+			Début (triée)                                         & Fin (à trier)                                        &                                        \\
+			\onslide<2->{{\tt [}}                                 & \onslide<2->{{\tt \textcolor{red}{12},10,18,15,14]}} & \onslide<2->{\\}
+			\onslide<3->{{\tt [12,}}                              & \onslide<3->{{\tt \textcolor{red}{10},18,15,14]}}    &                                        \\
+			\onslide<4->{{\tt [12,\textcolor{red}{10},}}          & \onslide<4->{{\tt 18,15,14]}}                        & \onslide<5->{Insertion du 10}          \\
+			\onslide<6->{{\tt [\textcolor{red}{10},12}}           & \onslide<6->{{\tt 18,15,14]}}                        &                                        \\
+			\onslide<7->{{\tt [10,12}}                            & \onslide<7->{{\tt \textcolor{red}{18},15,14]}}       &                                        \\
+			\onslide<8->{{\tt [10,12,\textcolor{red}{18}}}        & \onslide<8->{{\tt 15,14]}}                           & \onslide<8->{18 déjà placé}            \\
+			\onslide<9->{{\tt [10,12,18,\textcolor{red}{15}}}     & \onslide<9->{{\tt 14]}}                              & \onslide<9->{Insertion du 15}          \\
+			\onslide<10->{{\tt [10,12,\textcolor{red}{15},18}}    & \onslide<10->{{\tt 14]}}                             &                                        \\
+			\onslide<11->{{\tt [10,12,\textcolor{red}{14},15,18}} & \onslide<11->{]}                                     &                                        \\
+		\end{tabularx}
+	\end{exampleblock}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+	\mframe{\Algotris}
+	\begin{block}{Implémentation du tri par insertion en Python}
+		En supposant qu'on dispose déjà de  la fonction \texttt{echange} qui intervertir les éléments de la liste situés en donnant leurs indices.
+		\begin{lstlisting}
+# Tri par insertion
+def tri_insertion(liste):
+    for ind in range(1,len(liste)-1):
+        pos = ind
+        while pos>=0 and liste[pos+1]<liste[pos]:
+            echange(liste,pos,pos+1)
+            pos=pos-1
+\end{lstlisting}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{block}{Notion de complexité d'un algorithme}
+		Lorsqu'on s'intéresse aux performances d'un algorithme, on fait varier le volume de données traité par l'algorithme et on étudie :
+		\begin{itemize}
+			\item<2-> l'évolution du nombre d'opération nécessaires au fonctionnement de l'algorithme, c'est ce qu'on appelle la \textcolor{red}{la compléxité en temps} de l'algorithme.
+			\item<3-> l'évolution de l'espace mémoire nécessaire au fonctionnement de l'algorithme, c'est ce qu'on appelle la \textcolor{red}{la compléxité spatiale} de l'algorithme.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{block}{Complexité linéaire}
+		\begin{itemize}
+			\item<2-> On dira qu'un algorithme a une complexité en temps \textcolor{red}{linéaire} lorsque qu'un multiplication de la taille des données par un facteur $k$ se traduit par une augmentation du temps de calcul par un facteur proche de $k$.
+			\item<3-> Par exemple si la complexité est linéaire traiter une liste \textcolor{red}{10} fois plus grande prendra environ \textcolor{red}{10} fois plus de temps
+			\item<4-> Dans ce cas lorsqu'on trace le graphique du temps de calcul en fonction de la taille des données on obtient une \textcolor{red}{droite}.
+		\end{itemize}
+	\end{block}
+	\onslide<5->{
+		\begin{exampleblock}{Exemple}
+			Un algorithme de parcourt simple d'une liste (par exemple recherche de minimum ou calcul de moyenne) a une complexité linéaire.
+		\end{exampleblock}}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{block}{Complexité quadratique}
+		\begin{itemize}
+			\item<2-> On dira qu'un algorithme a une complexité en temps \textcolor{red}{quadratique} lorsque qu'un multiplication de la taille des données par un facteur $k$ se traduit par une augmentation du temps de calcul par un facteur proche de $k^2$.
+			\item<3-> Par exemple si la complexité est quadratique traiter une liste \textcolor{red}{10} fois plus grande prendra environ \textcolor{red}{100} fois plus de temps
+			\item<4-> Dans ce cas lorsqu'on trace le graphique du temps de calcul en fonction de la taille des données on obtient une \textcolor{red}{parabole}.
+		\end{itemize}
+	\end{block}
+	\onslide<5->{
+		\begin{alertblock}{A retenir !}
+			Les algorithmes de tri par insertion ou par sélection ont une complexité quadratique.
+		\end{alertblock}}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Algotris}
+	\begin{exampleblock}{Exemples}
+		\begin{itemize}
+			\item<1-> On suppose qu'on dispose d'un algorithme de complexité linéaire travaillant sur une liste, il traite une liste de \numprint{1000} éléments en \numprint{0.015} secondes. Donner une estimation du temps de calcul pour une liste de \numprint{250000} éléments.\\
+			      \onslide<2-> {\textcolor{OliveGreen}{La taille des données a été multiplié par 250, la complexité étant lineaire le temps de calcul sera aussi approximativement multiplié par 250. \\}}
+			      \onslide<3->{\textcolor{OliveGreen}{$0.015 \times 250 = 3.75$, on peut donc prévoir un temps de calcul d'environ 3,75 secondes}}
+			\item<4-> Même question pour un algorithme de complexité quadratique qui traite une liste de \numprint{1000} éléments en \numprint{0.07} secondes.\\
+			      \onslide<5-> {\textcolor{OliveGreen}{La taille des données a été multiplié par 250, la complexité étant quadratique le temps de calcul sera  approximativement multiplié par $250^2=62500$ \\}}
+			      \onslide<6->{\textcolor{OliveGreen}{$0.07 \times 62\,500 = 4375$, on peut donc prévoir un temps de calcul d'environ $4\,375$ secondes, c'est à dire près d'une heure et 15 minutes !}}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//Macros.tex}}
+\ModeActivite
+\Activites{\debase\; -- C10 : Représentation des entiers relatifs}{\Pre}
+
+
+\begin{tcolorbox}[title=\textcolor{black}{\rappel \; Ecriture binaire d'un entier positif},colbacktitle=lightgray]
+\begin{itemize}
+\item[$\bullet$] Passage du binaire au décimal :\\
+Pour écrire $(1011010)_2$ en base 10, puisque chaque chiffre correspond à une puissance de 2 :\\
+\begin{tabular}{|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|l}
+\cline{1-7}
+${2^6}$ & ${2^5}$ & ${2^4}$ & ${2^3}$ & ${2^2}$ & ${2^1}$ & ${2^0}$ \\ 
+\cline{1-7}
+ $1$ &  $0$ &  $1$ &  $1$ &  $0$ &  $1$ &  $0$  & = $ 1 \times$ $2^6$+ $ 1 \times 2^4$+$1\times 2^3$ + $1\times 2^1$ \\
+ \cline{1-7}
+\multicolumn{7}{l}{}& $= 64 + 16 + 8 + 2 = 90$ \\ 
+\end{tabular}
+
+\item[$\bullet$] Passage du décimal au binaire :\\
+Sur des petits exemples et en faisant du calcul mental (bien connaître les premières puissances de 2) on peut retrouver directement le résultat. Par exemple : \\
+$41 = 32  + 8 + 1$ donc $(41)_{10}=(101001)_2$ \\
+Sinon, on utilise l'algorithme des divisions successives, la suite des restes est l'écriture du nombre. Par exemple pour $107$ : \\
+\begin{tabular}{lllllll}
+$107$ & $=$ & $2$ & $\times$ & $53$ & $+$ & $\boxed{1}$ \\
+$53$ & $=$ & $2$ & $\times$ & $26$ & $+$ & $\boxed{1}$ \\
+$26$ & $=$ & $2$ & $\times$ & $13$ & $+$ & $\boxed{0}$ \\
+$13$ & $=$ & $2$ & $\times$ & $6$ & $+$ & $\boxed{1}$ \\
+$6$ & $=$ & $2$ & $\times$ & $3$ & $+$ & $\boxed{0}$ \\
+$3$ & $=$ & $2$ & $\times$ & $1$ & $+$ & $\boxed{1}$ \\
+$1$ & $=$ & $2$ & $\times$ & $0$ & $+$ & $\boxed{1}$ \\
+\end{tabular}\\
+Donc, $(107)_{10} = (1101011)_2$.
+\end{itemize}
+\end{tcolorbox}
+
+
+%Nom de la première activité
+\begin{Exercise}[title={Compter avec des 0 et des 1}]
+% Rappel écriture binaire
+
+
+\Question Quelques rappels sur la représentations des nombres positifs
+\subQuestion Donner l'écriture binaire de 11. 
+\subQuestion Donner l'écriture binaire de 93.
+\subQuestion Poser et effectuer l'addition binaire de 11 et de 93.
+\subQuestion Vérifier en l'écrivant en décimal que le résultat obtenu est bien 104.
+\Question Cas des nombres négatifs : approche naïve. \\
+Pour représenter les nombres négatifs en binaire, une première idée consiste à indiquer sur le bit le plus à gauche le signe du nombre : 0 si le nombre est positif et 1 si le nombre est négatif. Par exemple si on dispose d'un octet, le 8\textsuperscript{e} bit indique le signe et par exemple $(\textbf{1}0011010)_2$ est un nombre négatif, sa valeur absolue est $(0011010)_2=26$. En conclusion, avec cette représentation : $(10011010)_2 = (-26)_{10}$.
+\subQuestion Donner l'écriture binaire de $-11$ avec cette représentation. Même question pour $-48$.
+\subQuestion Donner la  valeur décimale de $(10111000)_2$ et celle de $(11100001)_2$.
+\subQuestion Donner la  valeur décimale de $(10000000)_2$ et celle de $(00000000)_2$.
+\subQuestion Poser et effectuer l'addition binaire de $11$ et de $-11$. Obtient-on le résultat attendu ?
+\Question Complément à 2 \\
+Afin de palier aux problèmes de la représentation précédente, on utilise pour représenter les nombres négatifs en binaire la méthode dite du \textit{complément à 2}. Pour représenter un nombre négatif par exemple $-42$ :
+\begin{enumerate}
+\item on commence par écrire la valeur absolue du nombre en binaire. Ici $42 = 32 + 8  + 2$ donc \\$42 = (00101010)_2$
+\item on inverse tous les bits  $00101010 \longrightarrow 11010101$, c'est cette inversion des bits qui donne son nom à la méthode.
+\item on fait l'addition binaire de 1 au nombre obtenu : $(11010101)_2 + (1)_2 = (11010110)$. Attention lors de cette opération on ne tient pas compte de la dernière retenue.
+\end{enumerate}
+L'intérêt de cette méthode est d'éliminer les inconvénients de la technique précédente. Nous allons le vérifier.
+\subQuestion Donner l'écriture en complément à 2 de $11$. Vérifier que l'addition binaire à $11$ donne bien $0$.
+\subQuestion Même question pour $93$.
+\subQuestion Donner l'écriture en complément à 2 de $-128$.
+\subQuestion Conclure
+\end{Exercise}
+\end{document}

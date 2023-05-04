@@ -1,0 +1,125 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{1}
+\newcommand{\Recursivite}{\cnum Récursivité}
+
+\pythonmode
+
+% Récursivité : définition et première remarques
+\begin{frame}
+	\mframe{\Recursivite}
+	\begin{alertblock}{Définition}
+		\onslide<2->{En informatique, on dit qu'une fonction est \textcolor{red}{récursive},}
+		\onslide<3->{lorsque cette fonction fait appel à elle-même.}
+	\end{alertblock}
+	\onslide<4->{
+		\begin{block}{Remarques}
+			\begin{itemize}
+				\item<5-> Une fonction récursive permet donc, \textit{comme une boucle}, de répéter des instructions. Une même fonction peut donc souvent se programmer de façon \textcolor{blue}{itérative} (avec des boucles) ou de façon \textcolor{blue}{récursive} (en s'appelant elle-même).
+				\item<6-> Une fonction récursive doit toujours \textcolor{blue}{contenir une condition d'arrêt}, dans le cas contraire elle s'appelle elle-même à l'infini et le programme ne se termine jamais.
+				\item<7-> Les valeurs passées en paramètres lors des appels successifs doivent être différents, sinon la fonction s'exécute à l'identique à chaque appel et donc boucle à l'infini.
+			\end{itemize}
+		\end{block}}
+\end{frame}
+
+% Récursivité : Exemples des puissances
+\begin{frame}
+	\mframe{\Recursivite}
+	\begin{exampleblock}{Exemple : les puissances positives}
+		En mathématiques, pour un nombre quelconque $a$ et un entier positif $n$, on définit $a$ puissance $n$ par :\\
+		$ a^n = a \times a \times \dots \times a $, et on convient que $a^0=1$
+		\begin{itemize}
+			\item<2->{Définir une fonction Python {\tt puissance(a,n)} qui retourne $a^n$ en effectuant ce calcul de façon itératif}
+			\item<3->{Recopier et compléter : $a^n = \dots \times a^{\dots}$}
+			\item<4->{En déduire une version récursive de la fonction calculant les puissances}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Récursivité : Exemples des puissances
+\begin{frame}[fragile]
+	\mframe{\Recursivite}
+	\begin{exampleblock}{Exemple : les puissances positives}
+		\begin{itemize}
+			\item<1-> \textcolor{OliveGreen}{Puissance : version itérative}
+			      \begin{lstlisting}
+def puissance_iteratif(a,n):
+    p=1
+    for k in range(n):
+        p=p*a
+    return p
+\end{lstlisting}
+			\item<2-> $a^n = \textcolor{OliveGreen}{a} \times a^{\textcolor{OliveGreen}{n-1}}$
+			\item<3-> \textcolor{OliveGreen}{Puissance : version récursive}
+			      \begin{lstlisting}
+def puissance_recursif(a,n):
+    if n==0:
+        return 1
+    else:
+        return a*puissance_recursif(a,n-1)
+\end{lstlisting}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+
+% Récursivité : Exemple du nombre d'occurence récursif - Enoncé
+\begin{frame}[fragile]
+	\mframe{\Recursivite}
+	\begin{exampleblock}{Exemple : une fonction à analyser}
+		\begin{lstlisting}
+def mystere(elt,liste):
+    if liste==[]:
+        return 0
+    first=liste.pop(0)
+    if elt==first:
+        return 1+mystere(elt,liste)
+    else:
+        return mystere(elt,liste)
+\end{lstlisting}
+		\begin{itemize}
+			\item<2-> Que fait la fonction {\tt mystere} ci-dessus ?
+			\item<3-> Cette fonction est-elle programmée de façon itérative ? récursive ? Justifier.
+			\item<4-> Proposer une version de cette fonction qui ne s'appelle pas elle-même.
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Récursivité : Exemple du nombre d'occurence récursif - Correction
+\begin{frame}[fragile]
+	\mframe{\Recursivite}
+	\begin{exampleblock}{Exemple : une fonction à analyser}
+		\begin{itemize}
+			\item<2-> \textcolor{OliveGreen}{Cette fonction compte le nombre d'occurence de {\tt elt} dans {\tt liste}}
+			\item<3-> \textcolor{OliveGreen}{Elle ne contient pas de boucle, elle n'est donc pas programmé de façon itérative. Par contre c'est une fonction récursive car elle fait appel à elle même.}
+			\item<4-> \textcolor{OliveGreen}{Version itérative}
+			      \begin{lstlisting}
+def occurence(elt,liste):
+	occ=0
+	for x in liste:
+		if x==elt:
+			occ=occ+1
+	return occ
+\end{lstlisting}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Récursivité : Remarques
+\begin{frame}
+	\mframe{Recursivite}
+	\begin{block}{Remarques importantes}
+		\begin{itemize}
+			\item<2-> On peut toujours transformer une fonction itérative en son équivalent récursif.
+			\item<3-> Certains problèmes (que nous verrons en exercice) ont une solution récursive très lisible et rapide à programmer. La formulation récursive est donc parfois \og plus adaptée \fg à un problème.
+			\item<4-> La programmation récursive est parfois gourmande en ressource car les appels récursifs successifs doivent parfois être conservés dans une \textcolor{blue}{pile} dont la taille est limitée.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}

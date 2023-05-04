@@ -1,0 +1,152 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DevoirNSI{Récursivité et programmation Python}{\Term}\vspace{0.2cm}
+\pythonmode
+
+
+\Exo{Exécution de programmes, recherche et corrections de bugs}{\bac : \textit{2022 Asie-Pacifique}}
+
+
+\QListe
+\item On considère la fonction {\tt somme} prenant en paramètre un entier {\tt n} strictement positif et qui renvoie le résultat du calcul $1 + \dfrac{1}{2} + \dfrac{1}{3} + \dots + \dfrac{1}{n}$ :
+\vspace{0.2cm}
+\begin{lstlisting}
+    def somme(n):
+        total = 0
+        for i in range(n):
+            total = total + 1/i
+        return total
+\end{lstlisting}
+Lors de l'exécution de {\tt somme(10)}, le message d'erreur :
+"{\tt ZeroDivisionError: division by zero}"
+apparaît. Identifier le problème et corriger la fonction pour qu'elle effectue le calcul demandé.
+\item On considère la fonction {\tt maxi} qui prend en argument une liste {\tt liste} de nombres et renvoie le plus grand nombre de cette liste :
+\begin{lstlisting}
+    def maxi(liste):
+        maximum = 0
+        while  indice <= len(liste):
+            if liste[indice] > maximum :
+                maximum = liste[indice]
+            indice = indice + 1
+        return maximum
+\end{lstlisting}
+
+\SQListe
+    \item L'exécution de {\tt maxi([2, 4, 9, 1])} déclenche une erreur, laquelle ? Corriger le programme afin que cette erreur ne se produise pas.
+    \item Le bug précédent est maintenant corrigé. Que renvoie à présent l'exécution de {\tt maxi([-2, -7, -3])} ? Quel est le maximum de cette liste ? Modifier la fonction pour qu'elle renvoie le bon résultat
+    \item Ecrire cette fonction en utilisant une boucle {\tt for} à la place de la boucle {\tt while}.
+\FinListe
+
+\item On considère la fonction {\tt suite} qui prend en argument un entier positif {\tt n} et renvoie un entier :
+\begin{lstlisting}
+    def suite(n):
+        if n==0:
+            return 0
+        else:
+            return 3+2*suite(n-2)
+\end{lstlisting}
+
+\SQListe
+    \item Quelle valeur renvoie l'appel {\tt suite(6)} ?
+    \item Que se passe-t-il si on exécute {\tt suite(7)} ?
+\FinListe
+\FinListe
+\vspace{0.2cm}
+\Exo{programmation et récursivité}{\bac : \textit{2022 Polynésie}}
+
+On s'intéresse dans cet exercice à la construction de chaînes de caractères suivant certaines règles de construction.
+
+\textbf{Règle A :} une chaîne est construite suivant la règle A dans les deux cas suivants :
+\begin{itemize}
+    \item[$\bullet$] soit elle est égale à {\tt "a"}
+    \item[$\bullet$] soit elle est de la forme {\tt "a" + chaine + "a"} où {\tt chaine} est une chaine de caractères construite suivant la règle A.
+\end{itemize}
+\textbf{Règle B :} une chaîne est construite suivant la règle B dans les deux cas suivants :
+\begin{itemize}
+    \item[$\bullet$] soit elle est de la forme {\tt "b" + chaine + "b"} où {\tt chaine} est une chaine de caractères construite suivant la règle A.
+    \item[$\bullet$] soit elle est de la forme {\tt "b" + chaine + "b"} où {\tt chaine} est une chaine de caractères construite suivant la règle B.
+\end{itemize}
+On a reproduit ci-dessous l'aide de la fonction {\tt choice} du module random.
+\begin{lstlisting}
+>>>from random import choice
+>>>help(choice)
+Help on method choice in module random:
+choice(seq) method of random.Random instance
+Choose a random element from a non-empty sequence.
+\end{lstlisting}
+La fonction {\tt A} ci dessous ne prend pas d'argument et renvoie une chaîne de caractères construite suivante la règle A, en choisissant aléatoirement entre les deux cas de figure de cette règle.
+\begin{lstlisting}
+def A():
+    if choice([True, False]):
+        return "a"
+    else:
+        return "a" + A() + "a"
+\end{lstlisting}
+
+\QListe
+ \item 
+ \SQListe
+ \item Cette fonction est-elle récursive ? Justifier.
+ \item L'appel {\tt choice([True,False])} peut renvoyer {\tt False} un très grand nombre de fois consécutives. Expliquer pourquoi ce cas de figure amènerait à une erreur d'exécution.
+ \FinListe
+
+Dans la suite, on considère une deuxième version de la fonction {\tt A}. A présent, elle prend en paramètre un entier {\tt n} tel que si la valeur de {\tt n} est négative ou nulle, la fonction renvoie {\tt "a"}. Sinon, elle renvoie une renvoie une chaine de caractères construite suivant la règle A avec un {\tt n} diminué de 1, en choisissant entre les deux cas de figure de cette règle.
+\begin{lstlisting}
+def A(n):
+    if .... or choice([True,False]):
+        return "a"
+    else:
+        return "a" + ... + "a"
+\end{lstlisting}
+
+\item 
+\SQListe
+    \item Recopier sur la copie et compléter aux emplacments des points de suspension {\tt ...} le code de cette nouvelle fonction {\tt A}.
+    \item Justifier le fait qu'un appel de la forme {\tt A(n)} avec {\tt n} un nombre entier positif inférieur à 50, termine toujours.
+\FinListe
+On donne ci-après le code de la fonction récursive {\tt B} qui prend en paramètre un entier {\tt n} et qui renvoie une chaine de caractères construite suivant le règle B.
+\begin{lstlisting}
+def B(n):
+    if n<=0 or choice([True,False]):
+        return "b" + A(n-1) + "b"
+    else:
+        return "b" + B(n-1) + "b"
+\end{lstlisting}
+On admet que :
+\begin{itemize}
+    \item[$\bullet$] Les appels {\tt A(-1)} et {\tt A(0)} renvoient la chaîne {\tt "a"};
+    \item[$\bullet$] l'appel {\tt A(1)} renvoie la chaîne {\tt "a"} ou la chaîne {\tt "aaa"};
+    \item[$\bullet$] l'appel {\tt A(2)} renvoie la chaine {\tt "a"} ou la chaîne {\tt "aaa"} ou la chaîne {\tt "aaaaa"}.
+\end{itemize}
+\item Donner toutes les chaînes possibles renvoyées par les appels {\tt B(0)}, {\tt B(1)} et {\tt B(2)}.
+
+\item
+\SQListe
+\item Ecrire une fonction {\tt raccourcir} qui prend comme paramètre une chaîne de caractères {\tt chaine} de longueur supérieure ou égale à 2, et renvoie la chaîne de caractères obtenue en supprimant de {\tt chaine} le premier et dernier caractère. On donne ci-dessous des exemples d'appel à cette fonction dans une console Python.
+\begin{lstlisting}
+>>> raccourcir("python")
+>>> "ytho"
+>>> raccourcir("ab")
+>>> ""
+\end{lstlisting}
+\item Recopier sur la copie et compléter les points de suspension {\tt ...} du code de la fonction {\tt regleA} ci-dessous pour qu'elle renvoie {\tt True} si la chaine passée en paramètre est construite suivant la règle A et {\tt False} sinon.
+\begin{lstlisting}
+    def regleA(chaine):
+        n = len(chaine)
+    if n >= 2:
+        return chaine[0] == "a" and chaine[n-1] == "a" and regleA(...)
+    else:
+        return chaine == ...
+\end{lstlisting}
+
+\FinListe
+\FinListe
+
+\end{document}
+

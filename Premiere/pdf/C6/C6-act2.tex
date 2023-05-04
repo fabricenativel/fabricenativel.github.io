@@ -1,0 +1,71 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//Macros.tex}}
+\ModeActivite
+\Activites{\algo\; -- C6 : Notions d'algorithmique}{\Pre}
+\pythonmode
+
+%Nom de la première activité
+\begin{Exercise}[title={Correction d'un algorithme},number=2]
+
+\Question Fonction de recherche du minimum\\
+On considère la fonction suivante :
+\begin{lstlisting}
+def minimum(liste):
+    mini = liste[0]
+    for k in range(1,len(liste)):
+        if liste[k]<mini:
+            mini=liste[k]
+    return mini
+\end{lstlisting}
+\subQuestion Que fait cette fonction ?  
+\subQuestion Ecrire une chaîne de documentation pour cette fonction.
+\subQuestion Ajouter les préconditions suivantes sous forme d'instructions \texttt{assert} : la liste passée en argument est non vide et ne contient que des valeurs de type entier ou flottant.
+\subQuestion Proposer un jeu de tests sous forme d'instruction \texttt{assert} pour cette fonction.
+\Question Problème de la correction \\
+\danger \; Le terme \og correction \fg \; ne désigne pas ici l'action de corriger, on dit qu'un algorithme est \textbf{correct} lorsqu'il fournit bien la réponse attendue à un problème dans tous les cas.
+
+\subQuestion On note $e_0, e_1, e_2, ...$ les éléments de la liste passée en paramètre. Que contient la variable \texttt{mini} avant d'entrer dans la boucle \texttt{for} ? Le donner sous la forme du minimum d'une liste d'éléments.
+\subQuestion Donner sous la forme du minimum d'une liste d'éléments, le contenu de la variable \texttt{mini} après un passage dans la boucle.
+\subQuestion On cherche à prouver que notre fonction est \textit{correcte} c'est à dire qu'elle renvoie le minimum de \textbf{n'importe} quelle liste passée en paramètre. Les tests effectués suffisent-ils ?
+\subQuestion Même question après deux passages, après trois passages.
+\subQuestion Proposer une propriété portant sur la variable \texttt{mini} et qui reste vraie avant d'entrer dans la boucle et à chaque itération dans la boucle.
+\subQuestion Montrer que cette propriété est vraie. \\
+\aide \; On prouvera successivement que :
+ \begin{itemize}
+ \item La propriété est vraie avant d'entrer dans la boucle. 
+ \item Si la propriété est vraie  lors d'une itération alors elle reste vraie à l'itération suivante.
+ \end{itemize}
+\Question Conclure sur la correction de la fonction.
+\end{Exercise}
+\separateur
+
+\begin{Exercise}[title={Terminaison d'un algorithme}]
+
+\Question Multiplier deux entiers en faisant des additions \\
+On considère la fonction suivante :
+\begin{lstlisting}
+def mult(n,p):
+    produit = 0
+    k = p
+    while k>0:
+        k=k-1
+        produit = produit+n
+    return produit
+\end{lstlisting}
+
+\subQuestion Que fait cette fonction ?  
+\subQuestion Ecrire une chaîne de documentation pour cette fonction.
+\subQuestion Ajouter les préconditions suivantes sous forme d'instructions \texttt{assert} : les arguments sont des entiers positifs.
+\subQuestion Proposer un jeu de tests sous forme d'instruction \texttt{assert} pour cette fonction.
+
+\Question Terminaison de cet algorithme
+
+\subQuestion Quels sont les valeurs successives prises par la variable \texttt{k}  lors de chaque passage dans la boucle ?
+\subQuestion Conclure. \\
+\aide \; On pourra utiliser la propriété mathématique suivante : \og il n'existe pas de suite d'entiers naturels strictement décroissante \fg. 
+\end{Exercise}
+\end{document}

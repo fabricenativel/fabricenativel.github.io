@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DevoirNSI{Programmation orienté objet}{\Term}\vspace{0.2cm}
+\pythonmode
+%Nom de la première activité
+
+\Exo{ Une application pour un élevage de chien }{{\tt 10 points}} \\
+On souhaite créer une application de gestion d'un élevage de chiens, un chien de cet élevage sera représenté par une instanciation de la classe {\tt Chien} suivante dont la signification des attributs est indiqué en commentaire :
+\begin{lstlisting}
+class Chien:
+
+    def __init__(self,nom,race,sexe,naissance):
+        # le nom, la race, le sexe et l'année de naissance du chien
+        self.nom = nom
+        self.race = race
+        self.sexe = sexe
+        self.naissance = naissance
+    
+    def __str__(self):
+        return f'{self.nom} ({self.sexe}) {self.race} né en {self.naissance}'
+
+\end{lstlisting}
+\QListe
+\item Ecrire l'instruction permettant de créer l'objet {\tt medor} de la classe {\tt Chien}, de race "caniche", femelle née en 2017 et nommé "Médor" ?
+\item Quel sera l'affichage produit par {\tt print(medor)} ?
+\item Ecrire une méthode {\tt get\_race} (un {\textit getter}) qui renvoie la race d'un objet de type {\tt Chien}.
+\item Ecrire une méthode {\tt set\_nom} (un {\textit setter})  qui permet de modifier le nom d'un objet de type {\tt Chien}.
+\item Ecrire l'instruction utilisant le méthode {tt\ set\_nom} permettant de changer le nom de {\tt medor} en "Maisdort".
+\item On suppose qu'on a importé le module {\tt time} de Python, l'expression {\tt time.gmtime().tm\_year} renvoie alors l'année en cours. Ecrire la méthode {\tt age}, qui renvoie l'âge approximatif d'un chien (on considère qu'un chien né en 2017 a 4 ans en 2021 sans s'occuper du jour de naissance)
+\FinListe
+
+\vspace{0.2cm}
+
+\Exo{Elève}{{\tt 10 points}} \\
+On souhaite créer une classe {\tt Eleve} qui modélise un élève suivant l'enseignement de spécialité {\sc nsi} en terminale. Cette classe possède les attributs suivants :
+\begin{itemize}
+	\item {\tt nom} : une chaîne de caractère contenant le prénom et le nom de l'élève
+	\item {\tt spe2} : le nom du deuxième enseignement de spécialité suivi par l'élève
+	\item {\tt notes} : la liste des notes obtenues par l'élève en {\sc nsi} durant l'année (cette liste est vide à la création)
+\end{itemize}
+\QListe
+\item Ecrire la classe {\tt Eleve} et son constructeur.
+\item Ecrire la méthode {\tt ajoute\_note} qui prend en argument un entier {\tt note} et permet d'ajouter la note {\tt note} à la liste des notes obtenu par un objet de la classe {\tt Eleve}.
+\item Compléter le programme python suivant afin que la variable {\tt jean\_untel} représente l'élève  "Jean Untel" qui suit aussi l'enseignement de spécialité "SES". Et que sa liste de notes soit {\tt [12, 15, 16, 8, 11, 9, 13]}.
+\begin{lstlisting}
+    jean_untel = ......
+    liste_notes = [12, 15, 16, 8, 11, 9, 13]
+    for note in liste_notes:
+        ...........
+\end{lstlisting}
+\item Recopier et compléter la méthode suivante de la classe {\tt Eleve} qui permet de renvoyer la moyenne des notes qu'il a obtenu.
+\begin{lstlisting}
+    def moyenne(self):
+        somme_note = 0
+        for note in .........:
+            somme_note ........
+        moyenne = somme_note / .....
+        return moyenne
+\end{lstlisting}
+\item Corriger cette méthode de façon à ce qu'elle renvoie {\tt None} lorsque la liste des notes de l'élève est vide.
+\item Réécrire cette méthode en utilisant un parcours par indice de la liste de notes de l'élève.
+\FinListe
+
+
+\end{document}
+

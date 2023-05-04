@@ -1,0 +1,121 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{12}
+\pythonmode
+
+\newcommand{\JS}{\cnum Interaction dans une page Web}
+
+
+
+\begin{frame}
+\mframe{\JS}
+\begin{block}{Interactivité dans une page Web}
+Les données présentes dans une page web peuvent être transmises à :
+\begin{itemize}
+\item<2-> un programme fonctionnant sur le serveur, on parle alors de \textit{script côté serveur} (exemple : requête dans un moteur de recherche). L'un des langages le plus utilisé dans ce cas est \textcolor{blue}{php}. Dans ce cas, deux méthodes de transmissions des données existent :
+ \begin{itemize}
+ \item<3-> La méthode \textcolor{red}{{\sc get}} : les données sont transmises dans l'{\sc url} 
+ \item<4-> La méthode \textcolor{red}{{\sc post}} : les données sont transmises dans le corps de la requête \texttt{http}.
+ \end{itemize}
+\item<5-> un programme fonctionnant sur le client (dans le navigateur). Le langage alors utilisé est \textcolor{red}{Javascript} et on parle  de \textit{script côté client}.
+\end{itemize}
+\end{block}
+\end{frame}
+
+% Bref historique de Javascript
+\begin{frame}
+\mframe{\JS}
+\begin{block}{Quelques remarques sur Javascript}
+\begin{itemize}
+\item<1-> Crée en \textbf{1995} par \textcolor{blue}{Brendan Eich}, qui travaillait alors pour Netscape (société qui developpait le navigateur dominant à ce moment : \textit{Navigator}).
+\item<2-> C'est un langage interprété (comme Python) et malgré la proximité de nom, il n'a rien à voir avec \textit{Java}.
+\item<3-> Javascript permet de gérer des interactions avec l'utilisateur notamment via des \textcolor{blue}{événements} se produisant dans la page : clic, survol, doubleclick, modification d'un formulaire ...
+\item<4-> En 2020, Javascript est l'un des langages les plus utilisés et les plus populaires.
+\item<5-> Javascript bien qu'utilisé majoritairement côté client peut l'être aussi côté serveur.
+\end{itemize}
+\end{block}
+\end{frame}
+
+% Bref historique de Javascript
+\begin{frame}
+\mframe{\JS}
+\begin{block}{Quelques éléments de syntaxe Javascript}
+\begin{itemize}
+\item<1-> Contrairement à Python où les blocs d'instructions sont indentées, en Javascript ils sont encadrées par des accolades : \texttt{\{} et \texttt{\}}
+\item<2-> Une ligne de commentaire commence par \texttt{//}, un commentaire multiligne est encadré par \texttt{/*} et \texttt{*/} 
+\item<3-> Un point virgule : ; permet de marquer la fin d'une instruction
+\item<4-> Les conditions (par exemple dans un \texttt{if} ou un \texttt{while}) sont entre parenthèses \\
+Par exemple \texttt{if (moyenne > 10) \{ \dots\}}
+\item<5-> Javascript permet la gestion de nombreux événements intervenant dans le navigateur. Par exemple : \texttt{onclick} (réponse à un clic), \texttt{onchange} (changement d'un champ de valeur), \texttt{onkeypress} (appuie sur une touche), \texttt{onload}(chargement d'un élément), \dots 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+% Bref historique de Javascript
+\begin{frame}
+\mframe{\JS}
+\begin{block}{Quelques éléments de syntaxe Javascript}
+\begin{itemize}
+\item<1-> La définition d'une fonction en Javascript commence par le mot clé \textcolor{blue}{function} suivi du nom de la fonction et des arguments puis du bloc d'instruction.
+\item<2-> La boucle {\tt for} en Javascript, a une syntaxe assez différente de celle de Python. Par exemple, pour créer une variable {\tt compteur} qui compte de 1 à 10 on écrira : \\
+\textcolor{blue}{for (i=1;i<11;i++) \{ ..... \}}
+\item<3-> Comme en Python, il faut convertir les variables au format texte en entier ou en flottant lorsqu'on veut les utiliser par exemple pour un calcul. Les fonctions correspodantes sont \textcolor{blue}{\tt parseInt} et \textcolor{blue}{\tt parseFloat}
+\item<4-> Lorsqu'un champ de formulaire {\sc html} possède un attribut {\tt id}, on peut récupérer la valeur de ce champ en javascript en utilisant : \\
+\textcolor{blue}{\tt getElementById("id").value}
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+% Quelques exercices
+\begin{frame}[fragile]
+\mframe{\JS}
+\begin{exampleblock}{Exercices}
+\begin{enumerate}
+\item<2-> Créer une page {\sc html}, dans laquelle on écrira à l'aide de javascript, les nombres entiers de 1 à 100.
+\item<3-> Créer une page {\sc html}, permettant d'afficher à l'aide de javascript, la table de multiplication d'un nombre entier.
+\item<4-> Créer une page {\sc html} dans laquelle figure un formulaire ayant un champ de texte permettant d'entrer un nombre. Lorsqu'on valide ce formulaire, la page affiche la table de multiplication du nombre figurant dans ce champ.
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\mframe{\JS}
+\begin{exampleblock}{Exemple de code Javascript}
+\begin{center}
+\begin{lstlisting}
+<script>
+        for (cpt=1;cpt<101;cpt++) 
+        {document.write(cpt+'<BR>')}
+</script>
+\end{lstlisting}
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\mframe{\JS}
+\begin{exampleblock}{Exemple de code Javascript}
+\begin{center}
+\begin{lstlisting}
+<script>
+        var nombre=7;
+        table=("<div>");
+        for (i=1;i<10;i++)
+        {mult = i+"x"+nombre+"="+nombre*i+'<br>';
+        table=table+mult;}
+        table=table+"</div>";
+        document.write(table);
+</script>
+\end{lstlisting}
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+\end{document}

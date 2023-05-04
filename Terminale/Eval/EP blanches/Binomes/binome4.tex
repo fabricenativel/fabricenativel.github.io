@@ -1,0 +1,93 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+% niveau et nom du projet à définir ici
+\newcommand{\niveau}{\Term}
+
+\fancyhead[L]{\niveau} \fancyhead[R]{Lycée Hintermann-Afféjee}
+\fancyfoot[C]{}
+\begin{center}
+\framebox{\makebox[0.986\textwidth][c]{\Large \bf Entrainement à l'épreuve pratique}} \\
+\end{center}
+
+\begin{tabularx}{0.47\textwidth}{|p{1.7cm}X|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Elève A}} \\
+    Nom    & \dotfill \\
+    Prénom & \dotfill \\
+    \hline
+\end{tabularx} \hfill
+\begin{tabularx}{0.47\textwidth}{|p{1.7cm}X|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Elève B}} \\
+    Nom    & \dotfill \\
+    Prénom & \dotfill \\
+    \hline
+\end{tabularx} 
+
+\vspace{0.25cm}
+\textbf{Enoncé}
+
+Ecrire une fonction {\tt maximum} qui prend en argument une liste d'entiers \textit{non vide} {\tt entiers} et renvoie le maximum des éléments de cette liste. 
+
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> maximum([12, 11, 8, 20, 15])
+20
+>>> maximum([-5, -12, -11, -4, -7])
+-4
+\end{lstlisting}
+
+\vspace{0.1cm}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|}
+    \hline
+    \ding{43} {\bf Etape \ding{182} : elève A/B} : Comprendre l'énoncé, proposer des tests pour la fonction demandée \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \hline
+\end{tabularx}
+
+\vspace{0.1cm}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|}
+    \hline
+    \ding{43} {\bf Etape \ding{183} : élève A} : Ecrire en français un algorithme pour résoudre le problème \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \hline
+\end{tabularx}
+
+\vspace{0.1cm}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|}
+    \hline
+    \ding{43} {\bf Etape \ding{184} : élève B} : Traduire cet algorithme en Python et le tester \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \ \dotfill \\
+    \hline
+\end{tabularx}
+
+\end{document}

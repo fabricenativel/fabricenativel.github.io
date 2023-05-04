@@ -1,0 +1,47 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{ccc}
+        \hspace{3cm} &  \hspace{3cm}  & \hspace{3cm} \\
+         & \circlenode{R1}{\bf R1} &  \circlenode{R5}{\bf R5} \\
+        & \vspace{0.5cm} & \\
+        \circlenode{R4}{\bf R4} & & \\
+        & \vspace{0.5cm} & \\
+        & \circlenode{R2}{\bf R2} &  \circlenode{R3}{\bf R3} \\
+    \end{tabular}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R1}{R2} 
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R1}{R5}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R1}{R3}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R2}{R4}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R2}{R3}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{ccc}
+        \hspace{3cm} &  \hspace{3cm}  & \hspace{3cm} \\
+         & \circlenode{R1}{\bf R1} &  \circlenode{R5}{\bf R5} \\
+        & \vspace{0.5cm} & \\
+        \circlenode{R4}{\bf R4} & & \\
+        & \vspace{0.5cm} & \\
+        & \circlenode{R2}{\bf R2} &  \circlenode{R3}{\bf R3} \\
+    \end{tabular}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R1}{R2} \naput{\textcolor{red}{10}}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R1}{R5}  \naput{\textcolor{red}{10}}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R1}{R3}  \naput{\textcolor{red}{1}}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R2}{R4} \naput{\textcolor{red}{10}}
+    \ncarc[linewidth=1.5pt,linecolor=blue]{R2}{R3} \naput{\textcolor{red}{1}}
+\end{frame}
+
+\end{document}

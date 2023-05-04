@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{4}{2022}
+\pythonmode
+
+\Exo{Conversion du binaire vers le décimal}{}
+
+Ecrire une fonction {\tt binaire\_vers\_decimal}  qui prend en paramètre une chaîne de caractères composée uniquement de "0" et de "1" et renvoie l'entier ayant cette chaîne de caractères comme écriture binaire. Par exemple, {\tt binaire\_vers\_decimal("1001011")} renvoie 75. En effet : $2^6+2^3+2^1+2^0 = 75$.
+
+\textbf{Exemples :} 
+\begin{lstlisting}
+>>> binaire_vers_decimal("1000000")
+64
+>>> binaire_vers_decimal("1111010")
+122
+>>> binaire_vers_decimal("11001100")
+204
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Séparation des 0 et des 1 dans une liste}
+
+On souhaite écrire une fonction {\tt separe} qui prend en argument une liste composée uniquement de 0 et de 1 et modifie cette liste de façon à ranger les 0 en début de liste et les 1 à la fin. Par exemple, {\tt separe([1,0,0,1,0,1,0])} doit renvoyer {\tt [0,0,0,0,1,1,1]}. Pour cela on propose l'algorithme suivant : 
+\begin{enumerate}
+    \item on crée deux indices {\tt i} et {\tt j},  tous les nombres situés \textit{avant} {\tt i} sont des 0 et tous ceux situés \textit{après} {\tt j} sont des 1.
+    \item Tant que {\tt i < j} certaines valeurs ne sont pas classées, si la valeur est un 0, on décale l'indice {\tt i} à droite sinon c'est un 1 et donc on l'échange avec l'indice {\tt j} et on diminue {\tt j}
+\end{enumerate}
+
+\begin{lstlisting}
+    def separe(liste):
+    i = ....
+    j = ....
+    while .... :
+        if liste[i]== .....:
+            i .....
+        else:
+            liste[i],liste[j] =
+            j ......
+\end{lstlisting}
+
+
+
+\textbf{Exemple :} 
+\begin{lstlisting}
+>>> liste = [0,1,1,1,0,0,1,0,1]
+>>> separe(liste)
+>>> liste
+[0,0,0,0,1,1,1,1,1]
+\end{lstlisting}
+
+\end{document}

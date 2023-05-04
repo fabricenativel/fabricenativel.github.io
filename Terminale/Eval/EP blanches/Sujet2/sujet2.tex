@@ -1,0 +1,56 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{2}{2022--2023}
+\pythonmode
+
+\Exo{Liste des indices}{}
+
+Ecrire une fonction {\tt liste\_indices}  qui prend en paramètres un entier {\tt n} et une liste d'entiers {\tt l} et qui renvoie la liste  des indices d'apparition de  {\tt n} dans {\tt l}. Par exemple, {\tt liste\_indices(5,[17,5,11,5,5,14])} renvoie {\tt [1,3,4]}. Lorsque l'entier n'apparaît pas dans la liste, on renvoie la liste vide.
+
+\textbf{Exemples :} 
+\begin{lstlisting}
+>>> liste_indice(13,[13,24,10,13])
+[0,3]
+>>> liste_indice(11,[7,19,15,14,2])
+[]
+>>> liste_indice(14,[7,14,15,28,2])
+[1]
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Recherche dichotomique dans une liste triée}
+
+On rappelle que lorsque qu'une liste est  \textit{déjà triée}, on peut y rechercher un élément grâce à la recherche dichotomique (plus performante que la recherche simple). Cet algorithme consiste à rechercher entre deux indices {\tt debut} (initialisé à 0) et {\tt fin} (initialisé à la longueur de la liste moins 1). A chaque étape on compare  l'élément recherché avec celui situé au milieu de ces deux indices et on les mets à jour en conséquence.
+Compléter l'implémentation itérative suivante de la recherche dichotomique :
+
+\begin{lstlisting}
+    def dichotomie(liste,element):
+    ''' recherche element dans liste en utilisant la recherche dichotomique'''
+    debut = ...
+    fin = ....
+    while debut<=fin:
+        milieu = ......
+        if liste[milieu]==element:
+            return ......
+        if liste[milieu]>element:
+            fin = .....
+        else:
+            debut = ....
+    return ....
+\end{lstlisting}
+
+\textbf{Exemples :}
+\begin{lstlisting}
+    >>> dichotomie([15,15,15,18,22,31],15)
+    True
+    >>> dichotomie([7,11,12,18,22,31],28)
+    False
+\end{lstlisting}
+\end{document}

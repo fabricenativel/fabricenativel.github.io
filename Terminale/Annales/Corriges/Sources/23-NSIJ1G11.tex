@@ -1,0 +1,69 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+
+
+%Schéma représentatif
+\begin{frame}
+    \mframe{\Schema}
+    \begin{center}
+    \begin{tabular}{|lll|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{description}}                       \\
+        \hline
+        {\tt \underline{id\_description}} & : & {\sc int}                        \\
+        \hline
+        {\tt resume}          & : & {\sc text}                       \\
+        \hline
+        {\tt duree}    & : & {\sc int}                        \\
+        \hline
+        {\tt \#{}id\_emission}           & : & {\sc int}                        \\
+        \hline
+    \end{tabular}
+    \end{center}
+    \end{frame}
+
+%Schéma représentatif
+\begin{frame}
+\mframe{\Schema}
+\begin{center}
+\begin{tabular}{|lll|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{livres}}                       \\
+	\hline
+	{\tt \underline{id}} & : & {\sc int}                        \\
+	\hline
+	{\tt \# id\_auteur}  & : & {\sc int} \rnode{o}{\phantom{o}} \\
+	\hline
+	{\tt titre}          & : & {\sc text}                       \\
+	\hline
+	{\tt anne\_publi}    & : & {\sc int}                        \\
+	\hline
+	{\tt note}           & : & {\sc int}                        \\
+	\hline
+\end{tabular} \hspace{5cm}
+\begin{tabular}{|lll|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{auteurs}}                 \\
+	\hline
+	\rnode{e}{\tt \underline{id\_auteur}} & : & {\sc int}  \\
+	\hline
+	{\tt nom}                             & : & {\sc text} \\
+	\hline
+	{\tt prenom}                          & : & {\sc text} \\
+	\hline
+	{\tt annee}                           & : & {\sc int}  \\
+	\hline
+	{\tt langue}                          & : & {\sc text} \\
+	\hline
+\end{tabular}\vspace{0.05cm}\\
+\end{center}
+\end{frame}
+\end{document}

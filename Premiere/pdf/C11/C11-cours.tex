@@ -1,0 +1,156 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{11}
+\pythonmode
+
+\newcommand{\Reseau}{\cnum Réseau}
+
+\pythonmode
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{block}{Quelques dates clés de l'historique d'internet}
+		\begin{itemize}
+			\item<1-> Debut des années 1960 : idée de la création d'un réseau informatique global permettant d'interconnecter de multiples sous-réseaux.
+			\item<2-> Début des années 1970 : naissance d'{\sc arpanet}, ancêtre d'internet.
+			\item<3-> 1973 : définition des protocoles {\sc tcp} (Transmission Control Protol) et {\sc ip} (Internet Protocol)
+			\item<4-> 1983 : premier serveur de noms de domaines ({\sc dns} pour domain name server))
+			\item<5-> 1989 : Naissance du \textit{web}
+			\item<6-> 2010 : Plus de 5 milliards de machines connectés.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Protocoles TCP/IP}
+		Internet fonctionne suivant une architecture réseau en 4 couches : \\
+		\begin{center}
+			\begin{tabularx}{0.9\textwidth}{c|X}
+				                                                                    &                                                                                                                                \\
+				\onslide<2->{\framebox[3cm]{\textcolor{blue}{\large Applications}}} & \alt<6->{\small {{\sc http}, {\sc pop}, {\sc ftp} \dots ... }}{\phantom{\small {{\sc http}, {\sc pop}, {\sc ftp} \dots ... }}} \\
+				                                                                    &                                                                                                                                \\
+				\onslide<3->{\framebox[3cm]{\textcolor{blue}{\large Transport}}}    & \alt<7->{\small {{\sc tcp}, {\sc udp}}}{\phantom{\small {{\sc tcp}, {\sc udp}}}}                                               \\
+				                                                                    &                                                                                                                                \\
+				\onslide<4->{\framebox[3cm]{\textcolor{blue}{\large Réseau}}}       & \alt<8->{\small {{\sc ip}v4, {\sc ip}v6}}{\phantom{\small {{\sc ip}v4, {\sc ip}v6}}}                                           \\
+				                                                                    &                                                                                                                                \\
+				\onslide<5->{\framebox[3cm]{\textcolor{blue}{\large Liaison}}}      & \alt<9->{\small {Ethernet, {\sc wifi}}}{\phantom{\small {Ethernet, {\sc wifi}}}}                                               \\
+			\end{tabularx}
+		\end{center}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<1-> Chaque couche  ne communique qu'avec les couches voisines.
+			\item<2-> Chaque couche ajoute les données dont il a besoin pour fonctionner à l'information transmise. C'est ce qu'on appelle l'\textcolor{blue}{encapsulation} des données.
+			\item<3-> Un autre modèle en 7 couches existe : le modèle {\sc osi}.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Transmission par paquet}
+		Dans le modèle {\sc tcp/ip}, les données sont transmises par paquet, ce qui présente des avantages :
+		\begin{itemize}
+			\item<1-> En cas d'erreur, il suffit de renvoyer le paquet concerné et pas la totalité des données
+			\item<2-> Le support de transmission n'est pas bloqué par l'envoi de donnée volumineuses et peut répondre à d'autre demandes en parallèle.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Protocole du bit alterné}
+    Le protocole du bit alterné est un protocole de transmission de paquets permettant de corriger \textcolor{red}{en parties}, les éventuels erreurs de transmission (paquets retardés ou perdus). Son fonctionnement est le suivant :
+    \begin{itemize}
+      \item<2-> L'émetteur joint à chaque message alternativement un 0 ou un 1 (d'où le nom \textit{bit alterné})
+      \item<3-> L'émetteur envoie le même paquet tant qu'il n'a pas reçu un accusé de réception avec un bit identique.
+      \item<4-> Le récepteur ne prend pas en compte deux paquets consécutifs portant le même bit.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Reseau}
+  \begin{block}{Illustration du fonctionnement}
+    \begin{tabularx}{0.6\textwidth}{XcccY}
+      \rnode{E}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{Sepia}{\textbf{ \faFemale} Alice} }} } &                                                       &                                                    &  & \rnode{R}{\psframebox[framearc=.3,framesep=0,linecolor=BlueViolet,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{BlueViolet}{\textbf{ \faMale} Bob} }}} \\
+                                                                                                                                                                                  &                                                       &                                                    &  &                                                                                                                                                                                  \\
+      \textcolor{Sepia}{\parbox{0.5cm}{$P_1$\textcircled{\raisebox{0.2pt}{\scriptsize 0}}} \rnode{Et1}{$\bullet$}}                                                                                                             &                                                       &                                                    &  &                                                                                                                                                                                  \\
+                                                                                                                                                                                  &                                                       &                                                    &  & \textcolor{BlueViolet}{\rnode{Rt1}{$\bullet$} \parbox{0.5cm}{ $P_1$\textcircled{\raisebox{0.2pt}{\scriptsize 0}} }}                                                                                                           \\
+      \textcolor{Sepia}{\parbox{0.5cm}{$P_2$\ding{192}} \rnode{Et2}{$\bullet$}}                                                                                                             &                                                       &                                                    &  &                                                                                                                                                                                  \\
+                                                                                                                                                                                  &                                                       &                                                    &  & \textcolor{BlueViolet}{\rnode{Rt2}{$\bullet$} \parbox{0.5cm}{ $P_2$\ding{192} }}                                                                                                           \\
+      \textcolor{Sepia}{\parbox{0.5cm}{$P_2$\ding{192}} \rnode{Et3}{$\bullet$}}                                                                                                             &                                                       & \rnode{Mt2}{\textcolor{Orange}{\faClock[regular]}} &  &                                                                                                                                                                                  \\
+                                                                                                                                                                                  &                                                       &                                                    &  & \textcolor{BlueViolet}{\rnode{Rt3}{$\bullet$} \parbox{0.5cm}{\faTimes}}                                                                                                             \\
+      \textcolor{Sepia}{\parbox{0.5cm}{$P_3$\textcircled{\raisebox{0.2pt}{\scriptsize 0}}} \rnode{Et4}{$\bullet$}}                                                                                                             &                                                       &                                                    &  &                                                                                                                                                                                  \\
+                                                                                                                                                                                  & \rnode{Mt4}{\textcolor{Red}{\faTimesCircle[regular]}} &    \rnode{Mt3}{ \ }                                                &  & \textcolor{BlueViolet}{\rnode{Rt4}{$\bullet$} \parbox{0.5cm}{ \ }}                                                                                                               \\
+      \textcolor{Sepia}{\parbox{0.5cm}{$P_3$\textcircled{\raisebox{0.2pt}{\scriptsize 0}}} \rnode{Et5}{$\bullet$}}                                                                                                             &                                                       &                                    &  &                                                                                                                                                                                  \\
+                                                                                                                                                                                  &                                                       &                                                    &  & \textcolor{BlueViolet}{\rnode{Rt5}{$\bullet$} \parbox{0.5cm}{$P_3$\textcircled{\raisebox{0.2pt}{\scriptsize 0}}}}                                                                                                             \\
+      \textcolor{Sepia}{\parbox{0.5cm}{$P_4$\ding{192}} \rnode{Et6}{$\bullet$}}                                                                                                             &                                                       &                                                    &  &                                                                                                                                                                                  \\
+                                                                                                                                                                                  &                                                       &                                                    &  & \textcolor{BlueViolet}{\rnode{Rt6}{$\bullet$} \parbox{0.5cm}{ \ }}                                                                                                               \\
+  \end{tabularx}
+  \ncline{-}{Et1}{Et2} \ncline{-}{Et2}{Et3} \ncline{-}{Et3}{Et4} \ncline{-}{Et4}{Et5} \ncline{-}{Et5}{Et6}
+  \ncline{-}{Rt1}{Rt2} \ncline{-}{Rt2}{Rt3} \ncline{-}{Rt3}{Rt4} \ncline{-}{Rt4}{Rt5} \ncline{-}{Rt5}{Rt6}
+  \ncline[arrowsize=0.2,linecolor=Green]{->}{Et1}{Rt1}
+  \ncline[arrowsize=0.2,linecolor=Green]{->}{Et2}{Rt2}
+  \ncline[arrowsize=0.2,linecolor=Green]{->}{Et3}{Rt3}
+  \ncline[arrowsize=0.2,linecolor=Red]{->}{Et4}{Mt4}
+  \ncline[arrowsize=0.2,linecolor=Orange]{->}{Rt2}{Mt2} \ncline[linestyle=dashed,linecolor=Orange]{-}{Mt2}{Mt3} \ncline[arrowsize=0.2,linecolor=Orange,offsetA=0.2cm]{<-}{Et5}{Mt3} \aput[-0.1cm]{:U}{\textcolor{Orange}{\faCheckSquare \ding{192}}}
+  \ncline[arrowsize=0.2,linecolor=Green]{->}{Et5}{Rt5}
+  \ncline[arrowsize=0.2,linecolor=Green,offsetA=0.2cm,linestyle=dashed]{<-}{Et2}{Rt1} \aput[-0.1cm]{:U}{\textcolor{Green}{\faCheckSquare \textcircled{\raisebox{0.2pt}{\scriptsize 0}}}}
+  \ncline[arrowsize=0.2,linecolor=Green,offsetA=0.2cm,linestyle=dashed]{<-}{Et4}{Rt3} \aput[-0.1cm]{:U}{\textcolor{Green}{\faCheckSquare \ding{192}}}
+  \ncline[arrowsize=0.2,linecolor=Green,offsetA=0.2cm,linestyle=dashed]{<-}{Et6}{Rt5} \aput[-0.1cm]{:U}{\textcolor{Green}{\faCheckSquare}}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Adresse mac}
+		\begin{itemize}
+			\item<1-> On considère un réseau local, de deux ordinateurs (reliés par un simple cable) ou de plusieurs ordinateurs (reliés par un \textit{switch})
+			\item<2-> Les adresses {\sc mac} (pour \textit{Media Access Control})  permettent d'identifier de façon unique un élément du réseau. Elle sont composées de six nombres en hexadécimal séparé par le caractère deux points (\textcolor{blue}{:}), par exemple {\tt 1A:B2:EC:AE:B0:DE}.
+			\item<3-> Le protocole {\tt arp} permet d'associer l'adresse {\sc mac} à l'adresse {\sc ip}.
+			\item<4-> Une commande {\tt ping} entre deux de ces machines, commence donc par un appel au protocole {\tt arp} afin d'obtenir l'adresse {\sc mac} de la machine cible.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Adresse ip}
+		\begin{itemize}
+			\item<1-> Deux machines ne peuvent communiquer que si \textcolor{blue}{elles sont sur le même réseau}, c'est à dire que leur adresse {\sc ip} débute par une partie commune. La longueur de cette partie commune dépend du masque de sous réseau.
+			\item<2-> Si le masque de sous réseau est {\tt 255.255.255.0}, le nombre maximal de machines sur le réseau est de 254 (parmi les 256 possibilités, deux sont réservées. L'une pour le \textit{broadcast} (envoi à tout le réseau) et l'autre pour le sous-réseau lui-même.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+
+
+\begin{frame}
+	\mframe{\Reseau}
+	\begin{alertblock}{Routeurs}
+		\begin{itemize}
+			\item<1-> Les routeurs permettent de faire communiquer des ordinateurs appartenant à des sous réseaux différents.
+			\item<2-> A titre d'exemple une \textit{box internet} dans une maison joue le rôle de switch (elle permet aux différents ordinateurs du foyer de communiquer entre eux) mais aussi de routeur (elle permet de communiquer avec des ordinateurs hors de la maison).
+			\item<3-> Les \textit{tables de routage} sont des informations stockés localement dans chaque routeur et lui permettant d'orienter les paquets qu'ils reçoit vers un autre routeur ou un sous réseau avec lequel il communique.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\end{document}

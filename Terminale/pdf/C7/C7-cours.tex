@@ -1,0 +1,53 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{7}
+
+
+\pythonmode
+\newcommand{\SOC}{\cnum Systèmes sur puce}
+
+
+% Définition SoC
+\begin{frame}{\SOC}
+	\mframe{\SOC}
+	\begin{alertblock}{Les sytèmes sur puce}
+		\begin{itemize}
+			\item<1-> Un ordinateur classique (modèle de Von Neumann) comprend les éléments suivants : un processeur (comprenant une unité arithmétique et logique et une unité de contôle), de la mémoire et des périphériques d'entrées et de sortie.
+			\item<2-> Un \textcolor{red}{système sur une puce}, est un circuit intégré réunissant sur le même composant (\textit{puce}) l'ensemble des composants constituant un ordinateur classique.
+		\end{itemize}
+	\end{alertblock}
+	\begin{block}{Remarques}
+		\begin{itemize}
+			\item<3-> C'est la miniaturisation des composants électroniques qui a permit l'avènement des \textit{SoC}.
+			\item<4-> En plus du processeur et de la {\sc ram}, un \textit{SoC} inclut généralement les périphériques réseau (Wifi et Bluetooth) et un circuit graphique ({\sc gpu})
+			\item<5-> On trouve des \textit{SoC} notamment dans les téléphones portables, les consoles de jeu portable ou encore les nano ordinateurs comme le Raspberry Pi.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Avantages et inconvénients SoC
+\begin{frame}{\SOC}
+	\mframe{\SOC}
+	\begin{block}{Avantages et inconvénients}
+		\begin{itemize}
+			\item<1-> Avantages d'un \textit{SoC}:
+			\begin{itemize}
+				\item<2-> Gain de place
+				\item<3-> Consommation réduite d'énergie
+				\item<4-> Gain de performance (circuit proches et optimisés)
+			\end{itemize}
+			\item<5-> Inconvénients d'un \textit{SoC}:
+			\begin{itemize}
+				\item<2-> Ne peut être réparé, les composants étant intégré si l'un d'entre deux tombe en panne (par exemple le Wifi) on doit changer le \textit{SoC} entier
+				\item<3-> N'est pas évolutif, contrairement à  un ordinateur traditionnel où on peut par exemple changer les barrettes de RAM.
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}

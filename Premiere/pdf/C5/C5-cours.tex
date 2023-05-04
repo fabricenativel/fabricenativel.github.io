@@ -1,0 +1,358 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{5}
+\newcommand{\Python}{\cnum Initiation à Python avec turtle}
+
+\pythonmode
+
+
+% boucle while
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{alertblock}{Boucles {\tt while}}
+		\begin{itemize}
+			\item<2-> La syntaxe d'une boucle \textcolor{red}{\tt while}  en Python est :
+			      \begin{lstlisting}
+	while <condition>:
+		<instruction>
+	\end{lstlisting}
+			      Cela permet d'exécuter les {\tt <instructions>} tant que la {\tt <condition>} est  vérifiée.
+			\item<3->  On ne sait pas a priori combien de fois cette boucle sera exécutée (et elle peut même être infinie), on dit que c'est une boucle \textcolor{blue}{non bornée}.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% boucle while
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple d'une boucle {\tt while}}
+		On suppose déjà crée une fonction {\tt carre(c)} qui dessine un carré de côté {\tt c} à partir de la position courante de la tortue.
+		Ecrire un programme Python, permettant de tracer la figure suivante sachant que : 
+		\begin{itemize}
+		\item le carré initial à 200 pixels de côté
+		\item le côté des carrés intérieur diminue de dix pourcents à chaque étape
+		\item le plus petit carré a un côté mesurant plus de 5 pixels.
+		\end{itemize}
+		\begin{center}
+			\includegraphics[scale=0.3]{ex_cours.eps}
+		\end{center}
+	\end{exampleblock}
+\end{frame}
+
+
+% boucle while
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple d'une boucle {\tt while}}
+		\begin{lstlisting}
+ 	cote = 200
+	while cote>5:
+    	carre(cote)
+     	cote = cote * 0.9
+		\end{lstlisting}
+		\begin{center}
+			\includegraphics[scale=0.3]{ex_cours.eps}
+		\end{center}
+	\end{exampleblock}
+\end{frame}
+
+% boucle while
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{alertblock}{Fonction renvoyant un résultat}
+		En plus d'exécuter un bloc d'instructions, une fonction peut transmettre une valeur au reste du programme à l'aide d'une instruction \pmc{return}.
+		On utilise alors la syntaxe suivante : 
+		\begin{lstlisting}
+			def <nom_fonction>(<arguments>):
+				<instruction>
+				return <valeur>
+			\end{lstlisting}
+	\end{alertblock}
+\end{frame}
+
+% Exemple
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple de fonction contenant un \pmc{return}}
+		La fonction ci-dessous, renvoie la moyenne des deux nombres donnés en argument
+		\begin{lstlisting}
+ 	def moyenne(x,y):
+		m = (x+y)/2
+		return m
+		\end{lstlisting}
+	\end{exampleblock}
+\end{frame}
+
+
+% Définition des listes
+\begin{frame}
+	\mframe{\Python}
+	\begin{center}
+		\begin{alertblock}{Les listes de Python}
+			\begin{itemize}
+				\item<1-> Les listes de Python sont des structures contenant  zéro, une ou plusieurs valeurs.
+				\item<2-> Une liste se note entre crochets : \textbf{[} et \textbf{]}
+				\item<3-> Les élements sont séparés par des virgules
+			\end{itemize}
+		\end{alertblock}
+		\begin{exampleblock}{Exemples}
+			\begin{itemize}
+				\item<4-> Une liste {\tt main} qui contient les noms des cinq doigts : \\
+				      \onslide<5-> {\tt main = ["pouce","index","majeur","annulaire","auriculaire"]}
+				\item<6-> Une liste {\tt l} contenant un unique élément : 12 \\
+				      \onslide<5-> {\tt l = [12]}
+			\end{itemize}
+		\end{exampleblock}
+	\end{center}
+\end{frame}
+
+
+
+
+% Représentation listes
+\begin{frame}
+	\mframe{\Python}
+	\begin{alertblock}{Indice d'un élément}
+		\begin{itemize}
+			\item<1-> Les éléments d'une liste sont repérés par leur position dans la liste, on dit leur \textcolor{blue}{indice} \\
+			\item<2-> Attention, la numérotation commence à zéro, l'indice du premier élément de la liste est donc zéro
+			\item<3-> On peut accéder à un élément en indiquant le nom de la liste puis  l'indice de cet élément entre crochet
+			\item<4-> L'erreur {\tt IndexError} indique qu'on tente d'accéder à un indice qui n'existe pas.
+		\end{itemize}
+		\onslide<4->{\begin{center}
+				Une liste L : \\
+				\begin{tabularx}{0.8\textwidth}{l|Y|Y|Y|Y|Y|}
+					\cline{2-6}
+					Eléments                    & {\tt L[0]}                       & {\tt L[1]}                       & {\tt L[2]}                       & {\tt L[3]}                       & {\tt L[4]}                       \\
+					\cline{2-6}
+					\multicolumn{1}{c}{ }       & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} \\
+					\multicolumn{1}{c}{Indices} & \multicolumn{1}{c}{0}            & \multicolumn{1}{c}{1}            & \multicolumn{1}{c}{2}            & \multicolumn{1}{c}{3}            & \multicolumn{1}{c}{4}            \\
+				\end{tabularx}
+			\end{center}}
+	\end{alertblock}
+\end{frame}
+
+% Exemples
+\begin{frame}
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple}
+		On considère la liste de prénoms suivants : \\
+		{\tt prenoms = ["Alex","Pierre","Marie","Jimmy","Elise"]}
+		\begin{itemize}
+			\item<1-> Compléter le schéma suivant permettant de représenter cette liste
+			      \onslide<2->{\begin{center}
+					      La liste {\tt prenoms} : \\
+					      \begin{tabularx}{0.8\textwidth}{l|Y|Y|Y|Y|Y|}
+						      \cline{2-6}
+						      Eléments                    & {\tt "Alex"}                     & {\tt "Pierre"}                   & {\tt "Marie"}                    & {\tt "Jimmy"}                    & {\tt "Elise"}                    \\
+						      \cline{2-6}
+						      \multicolumn{1}{c}{ }       & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} & \multicolumn{1}{c}{$\downarrow$} \\
+						      \multicolumn{1}{c}{Indices} & \multicolumn{1}{c}{...}          & \multicolumn{1}{c}{...}          & \multicolumn{1}{c}{...}          & \multicolumn{1}{c}{...}          & \multicolumn{1}{c}{...}          \\
+					      \end{tabularx}
+				      \end{center}}
+			\item<3-> Que contient {\tt prenoms[2]} ? \\
+			\item<4-> Comment accéder au premier élément de cette liste (c'est à dire "Alex") ?
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Définition des listes
+\begin{frame}
+	\mframe{\Python}
+	\begin{alertblock}{Longueur et index négatif}
+		\begin{itemize}
+			\item<1-> On peut accéder aux éléments d'une liste \textcolor{blue}{à partir de la fin} en utilisant des index \textcolor{blue}{négatifs}. L'indice $-1$ est le dernier élément, $-2$ l'avant dernier, \dots
+			\item<2-> La fonction \textcolor{blue}{\tt len} renvoie la longueur d'une liste, c'est à dire son nombre d'éléments.
+		\end{itemize}
+	\end{alertblock}
+	\onslide<3->{\begin{exampleblock}{Exemples}
+		On considère la liste {\tt voyelles = ["a","e","i","o","u","y"]}
+		\begin{itemize}
+			\item<4-> Que renvoie {\tt len(voyelles)} ?
+			\item<5-> Que va afficher {\tt print(voyelles[-2])} ?
+			\item<6-> Que va afficher {\tt print(voyelles[2])} ?
+			\item<7-> Que va afficher {\tt print(voyelles[6])} ?
+			\item<8-> Donner deux façons d'afficher le dernier élément de cette liste.
+		\end{itemize}}
+	\end{exampleblock}
+\end{frame}
+
+% Manipulation des listes
+\begin{frame}
+	\mframe{\Python}
+	\begin{alertblock}{Opérations sur les listes}
+		Les opérations suivantes permettent de manipuler les listes (ajout, suppression, insertion d'éléments). On fera bien attention à la syntaxe on met le nom de la liste suivi d'un point suivi de l'opération à effectuer (voir exemples)
+		\begin{itemize}
+			\item<1-> \textcolor{blue}{\tt remove} permet de supprimer un élément d'une liste. Par exemple : {\tt ma\_liste.remove(elt)} va enlever {\tt elt} de {\tt ma\_liste}.
+			\item<2-> \textcolor{blue}{\tt append} permet d'ajouter un élément à la fin d'une liste. Par exemple : {\tt ma\_liste.append(elt)} va ajouter {\tt elt} à la fin de {\tt ma\_liste}.
+			\item<3-> \textcolor{blue}{\tt insert} permet d'insérer un élément à un indice donnée. Par exemple : {\tt ma\_liste.insert(indice,elt)} va insérer {\tt elt} dans {\tt ma\_liste} à l'index {\tt indice}.
+			\item<4-> \textcolor{blue}{\tt pop} permet de récupérer un élement de la liste tout en le supprimant de la liste. Par exemple {\tt elt=ma\_liste.pop(2)} va mettre dans {\tt elt} {\tt ma\_liste[2]} et dans le même temps supprimer cet élément de la liste.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Exemple manipulation liste
+\begin{frame}
+	\mframe{\Python}
+	\begin{exampleblock}{Exemples}
+		On considère la liste {\tt ex = ['P','T','O','J']}
+		\begin{itemize}
+			\item<4-> Supprimer 'J' de cette liste ?
+			\item<5-> Ajouter 'N' en fin de liste
+			\item<6-> Insérer 'Y' en indice 1
+			\item<7-> Insérer 'H' en indice 3
+			\item<8-> Quel sera l'effet de l'instruction {\tt lettre = ex.pop(3)} ?
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+
+
+
+% Parcours d'une liste
+\begin{frame}
+	\mframe{\Python}
+	\begin{alertblock}{Parcours d'une liste}
+		On rappelle qu'une liste \textcolor{blue}{\tt L}, en Python peut se représenter par le schéma suivant : \\
+		\begin{tabularx}{0.8\textwidth}{l|Y|Y|Y|Y|Y|}
+			\cline{2-6}
+			Eléments                    & {\tt L[0]}                     & {\tt L[1]}                     & {\tt L[2]}                     & {\tt L[3]}                     & {\dots}                        \\
+			\cline{2-6}
+			\multicolumn{1}{c}{ }       & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} & \multicolumn{1}{c}{$\uparrow$} \\
+			\multicolumn{1}{c}{Indices} & \multicolumn{1}{c}{0}          & \multicolumn{1}{c}{1}          & \multicolumn{1}{c}{2}          & \multicolumn{1}{c}{3}          & \multicolumn{1}{c}{\dots}      \\
+		\end{tabularx} \\
+		On peut parcourir cette liste :
+		\begin{itemize}
+			\item<2-> \textcolor{red}{Par indice} (on se place sur la seconde ligne du schéma ci-dessus) et on crée une variable (un entier) qui va parcourir la liste des indices : \\
+			      \textcolor{blue}{\tt for indice in range(len(L))} \\
+			      Il faut alors accéder aux éléments en utilisant leurs indices.
+			\item <3->\textcolor{red}{Par élément} (on se place sur la première ligne du schéma ci-dessus) et on crée une variable qui va parcourir directement la liste des éléments : \\
+			      \textcolor{blue}{\tt for element in L} \\
+			      La variable de parcours (ici {\tt element}) contient alors directement les éléments).
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Remarques listes et chaines de caractères
+\begin{frame}
+	\mframe{\Python}
+	\begin{block}{Liste et chaîne de caractères}
+		\begin{itemize}
+			\item<1-> La notation avec les crochets permettant d'accéder aux éléments d'une liste s'utilise aussi avec les chaines de caractères. \\
+			      \onslide<2-> Par exemple si {\tt mot = "Génial"} alors {\tt mot[2]} contient la lettre \onslide<3->{"n"}
+			\item<4-> Le parcours par élément peut aussi se faire sur une chaine de caractères. \\
+			      \onslide<5-> Pour afficher chaque lettre du mot "Génial", on peut donc écrire : \\
+			      \onslide<6-> {\tt for lettre in mot:} \\
+			      \onslide<7-> {\tt \qquad    print(lettre)}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Parcours d'une liste : exemple
+\begin{frame}
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple}
+		Soit la liste Python : {\tt notes = [17,12,9,11,13,15,8]}, en effectuant des parcours de cette liste, écrire un programme permettant :
+		\begin{enumerate}
+			\item<1-> D'écrire les élements de cette liste qui sont supérieurs à 10.
+			\item<2-> De calculer la somme des éléments de cette liste.
+			\item<3-> De créer une nouvelle liste à partir de cette liste en ne conservant que les éléments inférieurs à 10
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+
+% Parcours d'une liste : exemple
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple}
+		Soit la liste Python : {\tt notes = [17,12,9,11,13,15,8]}, en effectuant des parcours de cette liste, écrire un programme permettant :
+		\begin{enumerate}
+			\item D'écrire les élements de cette liste qui sont supérieurs à 10.
+			      \begin{lstlisting}
+	notes = [17,12,9,11,13,15,8]
+	for note in notes:
+		if note>10:
+			print(note)  
+\end{lstlisting}
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+
+% Parcours d'une liste : exemple
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple}
+		Soit la liste Python : {\tt notes = [17,12,9,11,13,15,8]}, en effectuant des parcours de cette liste, écrire un programme permettant :
+		\begin{enumerate}
+			\item D'écrire les élements de cette liste qui sont supérieurs à 10.
+			\item De calculer la somme des élements de cette liste
+			      \begin{lstlisting}
+	notes = [17,12,9,11,13,15,8]
+	somme_notes=0
+	for note in notes:
+		somme_notes = somme_notes + note
+\end{lstlisting}
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+% Parcours d'une liste : exemple
+\begin{frame}[fragile]
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple}
+		Soit la liste Python : {\tt notes = [17,12,9,11,13,15,8]}, en effectuant des parcours de cette liste, écrire un programme permettant :
+		\begin{enumerate}
+			\item D'écrire les élements de cette liste qui sont supérieurs à 10.
+			\item De calculer la somme des élements de cette liste
+			\item De créer une nouvelle liste à partir de cette liste en ne conservant que les éléments inférieurs ou égaux à 10
+			      \begin{lstlisting}
+	notes = [17,12,9,11,13,15,8]
+	notes_inf_10 = []
+	for note in notes:
+		if note<=10:
+			notes_inf_10.append(note)
+\end{lstlisting}
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+
+% Génération de listes
+\begin{frame}
+	\mframe{\Python}
+	\begin{alertblock}{Création de listes}
+		On peut créer des listes de diverses façons en Python :
+		\begin{itemize}
+			\item<2-> \textcolor{red}{Par ajout succesif d'élement} on part alors d'une liste (éventuellement vide) et on ajoute chaque élément à l'aide d'instruction \textcolor{blue}{\tt append}.
+			\item<3-> \textcolor{red}{Par répétition du même élément} on utilise alors le caractère \textcolor{blue}{\tt *} pour indiquer le nombre de répétitions. \\
+			      \onslide<4-> {Par exemple pour créer la liste: \\ {\tt bavardages = ["bla", "bla", "bla", "bla"]} \\ on peut simplement écrire : \\}
+			      \onslide<5->{\textcolor{blue}{\tt bavardages = ["bla"]*4}}
+			\item<6->	 \textcolor{red}{Par compréhension}, c'est à dire en indiquant la définition des éléments qui composent la liste. \\
+			      \onslide<7-> {Par exemple la liste {\tt puissances2 = [1, 2, 4, 8, 16, 32, 64, 128]} est constitué des huits premières puissances de 2} \\
+			      \onslide<8-> {Elle contient donc $2^0, 2^1, 2^2, \dots 2^7$, ce qui se traduit en Python par :}\\
+			      \onslide<9-> \textcolor{blue}{\tt puissances2 = [2**k for k in range(8)]}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Python}
+	\begin{exampleblock}{Exemple}
+		Créer les listes suivantes par le moyen qui vous semble le plus approprié :
+		\begin{enumerate}
+			\item<1-> La liste des 20 premiers multiples de 7
+			\item<2-> La liste constituée de 100 zéros
+			\item<3-> La liste des lettres de l'alphabet
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+\end{document}

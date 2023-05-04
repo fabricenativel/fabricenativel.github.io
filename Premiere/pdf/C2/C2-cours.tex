@@ -1,0 +1,407 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{2}
+\newcommand{\Encodage}{\cnum Représentation des entiers, encodage des caractères}
+\pythonmode
+
+% Ecriture des nombres avec des 0 et des 1
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{alertblock}{Ecriture binaire}
+		\begin{itemize}
+			\item<1-> On peut écrire les nombres entiers positifs en utilisant seulement deux chiffres : 0 et 1.
+			\item<2-> Chaque chiffre est multiplié par une puissance de 2 selon  sa position dans le nombre.
+		\end{itemize}
+	\end{alertblock}
+	\begin{exampleblock}{Exemple}
+		\onslide<3->{Par exemple en binaire le nombre \textcolor{red}{$10001011$} correspond à 139 en décimal : \\}
+		\onslide<4->{
+			\begin{tabular}{p{0.4cm}p{0.4cm}p{0.4cm}p{0.4cm}p{0.4cm}p{0.4cm}p{0.4cm}p{0.4cm}c}
+				                   &                    &                    &                    &                    &                    &                    &                    & \\
+				\textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{1}   \\
+			\end{tabular}}
+	\end{exampleblock}
+\end{frame}
+
+
+% Ecriture des nombres avec des 0 et des 1
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{alertblock}{Ecriture binaire}
+		\begin{itemize}
+			\item On peut écrire les nombres entiers positifs en utilisant seulement deux chiffres : 0 et 1.
+			\item Chaque chiffre est multiplié par une puissance de 2 selon  sa position dans le nombre.
+		\end{itemize}
+	\end{alertblock}
+	\begin{exampleblock}{Exemple}
+		Par exemple en binaire le nombre \textcolor{red}{$10001011$} correspond à 139 en décimal : \\
+		\begin{tabular}{|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}|l}
+			\textcolor{blue}{$\scriptstyle{2^7}$} & \textcolor{blue}{$\scriptstyle{2^6}$}   & \textcolor{blue}{$\scriptstyle{2^5}$} & \textcolor{blue}{$\scriptstyle{2^4}$} & \textcolor{blue}{$\scriptstyle{2^3}$} & \textcolor{blue}{$\scriptstyle{2^2}$} & \textcolor{blue}{$\scriptstyle{2^1}$} & \textcolor{blue}{$\scriptstyle{2^0}$}                                                                                                                                                                                                                                 \\
+			\cline{1-8}
+			\textcolor{red}{1}                    & \textcolor{red}{0}                      & \textcolor{red}{0}                    & \textcolor{red}{0}                    & \textcolor{red}{1}                    & \textcolor{red}{0}                    & \textcolor{red}{1}                    & \textcolor{red}{1}                    & = \onslide<2->{\textcolor{red}{1}$\times$ \textcolor{blue}{$2^7$}+\textcolor{red}{1}$\times$ \textcolor{blue}{$2^3$}+\textcolor{red}{1}$\times$ \textcolor{blue}{$2^1$} + \textcolor{red}{1}$\times$ \textcolor{blue}{$2^0$}} \\
+			\multicolumn{8}{l}{}                  & \onslide<3->{$= 128 + 8 + 2 + 1 = 139$}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \\
+		\end{tabular}
+	\end{exampleblock}
+\end{frame}
+
+% Remarques
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Remarque sur l'écriture décimale :}
+		Nous sommes habitués à écrire les nombres en base 10, et en utilisant 10 chiffres (0,1,2,3,4,5,6,7,8 et 9), mais c'est le \textbf{même} principe qui est utilisé : les chiffres d'un nombre sont multipliés par une puissance de 10 suivant leur emplacement dans le nombre.\\
+		\onslide<2->{Par exemple, pour \textcolor{red}{1815} :\\}
+		\onslide<3->{\begin{tabular}{p{0.4cm}p{0.4cm}p{0.4cm}p{0.4cm}c}
+				                   &                    &                    &                    & \\
+				\textcolor{red}{1} & \textcolor{red}{8} & \textcolor{red}{1} & \textcolor{red}{5} & \\
+			\end{tabular}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Remarque sur l'écriture décimale :}
+		Nous sommes habitués à écrire les nombres en base 10, et en utilisant 10 chiffres (0,1,2,3,4,5,6,7,8 et 9), mais c'est le \textbf{même} principe qui est utilisé : les chiffres d'un nombre sont multipliés par une puissance de 10 suivant leur emplacement dans le nombre.\\
+		Par exemple, pour \textcolor{red}{1815} :\\
+		\begin{tabular}{p{0.4cm}|p{0.4cm}|p{0.4cm}|p{0.4cm}c}
+			$\scriptstyle{10^3}$ & $\scriptstyle{10^2}$ & $\scriptstyle{10^1}$ & $\scriptstyle{10^0}$ &                                                                             \\
+			\cline{1-4}
+			\textcolor{red}{1}   & \textcolor{red}{8}   & \textcolor{red}{1}   & \textcolor{red}{5}   & \onslide<2->{$=1 \times 1000 + 8 \times 100 + 1\times 10+ 1 \times 1=1815$} \\
+		\end{tabular}
+	\end{block}
+\end{frame}
+
+% Convention d'écriture 
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Convention d'écriture}
+		\begin{itemize}
+			\item<1-> Le nombre $101$ pourrait être écris en base 2 (et donc valoir \onslide<2->{cinq)}
+			      \onslide<3->{, ou être écrit en base 10, et donc valoir cent un.}
+			\item<4-> Afin d'éviter toute confusion, on convient d'écrire  en indice la base dans lequel le nombre est écrit
+			\item<5-> Par exemple $\base{10001}{2}$ est le nombre valant, \onslide<6->{dix-sept.}
+			\item<6-> Par contre $\base{10000}{10}$ vaut dix mille.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Vocabulaire
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Vocabulaire}
+		\begin{itemize}
+			\item<1-> Un chiffre en base 2 s'appelle un \textcolor{red}{bit}, un bit vaut donc 0 ou 1.
+			\item<2-> Le regroupement de 8 bits s'appelle un \textcolor{red}{octet} (en anglais un $byte$).
+			\item<3-> En utilisant un octet, on peut représenter les entiers de 0 à 255.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Exemples
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{\textcolor{yellow}{\flash} {Question flash}}
+		Compléter le tableau de conversion suivant : \\
+		\begin{center}
+			\begin{tabularx}{0.6\textwidth}{|X|X|}
+				\hline
+				Ecriture décimale & Ecriture binaire     \\
+				\hline
+				$\base{142}{10}$  &                      \\
+				\hline
+				$\base{207}{10}$  &                      \\
+				\hline
+				                  & $\base{100101}{2}$   \\
+				\hline
+				$\base{88}{10}$   &                      \\
+				\hline
+				$\base{222}{10}$  &                      \\
+				\hline
+				                  & $\base{11100001}{2}$ \\
+				\hline
+				                  & $\base{11110}{2}$    \\
+				\hline
+			\end{tabularx}
+		\end{center}\end{exampleblock}
+\end{frame}
+
+
+% Exemples
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{\textcolor{yellow}{\flash} {Question flash}}
+		\begin{itemize}
+			\item<1-> Ecrire les entiers positifs de 1 à 16 en base 2 :
+			      \renewcommand{\arraystretch}{1.5}
+			      \begin{tabularx}{0.92\textwidth}{|X|X|X|X|}
+				      \hline
+				      $1_{10}= \dots_2$  & $2_{10}= \dots_2$  & $3_{10}= \dots_2$  & $4_{10}= \dots_2$  \\
+				      \hline
+				      $5_{10}= \dots_2$  & $6_{10}= \dots_2$  & $7_{10}= \dots_2$  & $8_{10}= \dots_2$  \\
+				      \hline
+				      $9_{10}= \dots_2$  & $10_{10}=\dots_2$  & $11_{10}=\dots_2$  & $12_{10}=\dots_2$  \\
+				      \hline
+				      $13_{10}= \dots_2$ & $14_{10}= \dots_2$ & $15_{10}= \dots_2$ & $16_{10}= \dots_2$ \\
+				      \hline
+			      \end{tabularx}
+			\item<2->{Combien faudra-t-il de chiffres en base 2 pour écrire $32$ ? \\
+			      \lpo[1]}
+
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+% Autre base
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Autre base}
+		\begin{itemize}
+			\item<1-> Nous savons écrire les entiers naturels en base \textcolor{red}{10} en utilisant \textcolor{red}{10} chiffres, chaque chiffre étant multiplié par une puissance de \textcolor{red}{10}.
+			\item<2-> Nous savons écrire les entiers naturels en base \textcolor{red}{2} en utilisant \textcolor{red}{2} chiffres,chaque chiffre étant multiplié par une puissance de \textcolor{red}{2}.
+			\item<3-> On montre qu'il est en fait possible, pour tout entier \textcolor{red}{$b \geq 2$} d'écrire les entiers naturels dans la base \textcolor{red}{$b$} en utilisant \textcolor{red}{$b$} chiffres. Chaque chiffre sera alors multiplié par une puissance de \textcolor{red}{$b$}.
+		\end{itemize}
+	\end{block}
+	\onslide<4->{
+	\begin{exampleblock}{Un exemple en base 5}
+		\onslide<5->{
+			\begin{tabular}{lcl}
+				$\base{421}{5}$ & $=$ & $4 \times 5^2 + 2 \times 5^1 + 1 \times 5^0$ \\
+				$\base{421}{5}$ & $=$ & $\base{111}{10}$                             \\
+			\end{tabular}\\}
+		\onslide<6->{Attention, les chiffres en base 5 sont 0, 1, 2, 3 et 4. Par conséquent écrire $\base{67}{5}$ n'a pas de sens !}
+	\end{exampleblock}}
+\end{frame}
+
+
+% Ecriture hexadécimale
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{alertblock}{La base 16 : écriture hexadécimale}
+		\begin{itemize}
+			\item<1-> En informatique, outre la base 2, on utilise aussi beaucoup la base 16.
+			\item<2-> En base 16, il y a 16 chiffres : $0,1,2,3,4,5,6,7,8,9$ et $A,B,C,D,E,F$ (n'ayant plus de \og chiffres habituels \fg, on a utilisé les lettres de l'alphabet comme chiffres manquants)
+			\item<3-> Comme 16 est une puissance de 2 ($16=2^4$),  on peut aisément passer de l'écriture binaire à l'écriture hexadécimale en regroupant les chiffres en base 2 par groupe de 4. :\\
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Conversion}
+		\renewcommand{\arraystretch}{0.8}
+		\begin{center}
+			\begin{tabularx}{0.4\textwidth}{|X|X|X|}
+				\hline
+				hex. & bin.  & dec.  \\
+				\hline
+				0    & 0000  & 0     \\
+				1    & 0001  & 1     \\
+				2    & 0010  & 2     \\
+				3    & 0011  & 3     \\
+				4    & 0100  & 4     \\
+				5    & 0101  & 5     \\
+				6    & \dots & \dots \\
+				7    & \dots & \dots \\
+				8    & \dots & \dots \\
+				9    & \dots & \dots \\
+				A    & \dots & \dots \\
+				B    & \dots & \dots \\
+				C    & \dots & \dots \\
+				D    & \dots & \dots \\
+				E    & \dots & \dots \\
+				F    & \dots & \dots \\
+				\hline
+			\end{tabularx}
+		\end{center}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Conversion}
+		\renewcommand{\arraystretch}{0.8}
+		\begin{center}
+			\begin{tabularx}{0.4\textwidth}{|X|X|X|}
+				\hline
+				hex. & bin. & dec. \\
+				\hline
+				0    & 0000 & 0    \\
+				1    & 0001 & 1    \\
+				2    & 0010 & 2    \\
+				3    & 0011 & 3    \\
+				4    & 0100 & 4    \\
+				5    & 0101 & 5    \\
+				6    & 0110 & 6    \\
+				7    & 0111 & 7    \\
+				8    & 1000 & 8    \\
+				9    & 1001 & 9    \\
+				A    & 1010 & 10   \\
+				B    & 1011 & 11   \\
+				C    & 1100 & 12   \\
+				D    & 1101 & 13   \\
+				E    & 1110 & 14   \\
+				F    & 1111 & 15   \\
+				\hline
+			\end{tabularx}
+		\end{center}
+	\end{block}
+\end{frame}
+
+%Question Flash
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{\textcolor{yellow}{\flash} {Question flash}}
+		\begin{itemize}
+			\item<1-> Ecrire $\base{3EA}{16}$ en base 10
+			\item<2-> Ecrire $\base{3EA}{16}$ en base 2
+			\item<3-> Ecrire $\base{1101001011}{2}$ en base 16
+			\item<4-> Ecrire $\base{1101001011}{2}$ en base 10
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+%Algorithme des divisions successives
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{\textcolor{yellow}{\flash} {Algorithme des divisions successives}}
+		\begin{itemize}
+			\onslide<1->{\item L'algorithme des \textcolor{blue}{divisions successives}, permet d'écrire un nombre donnée en base 10 dans n'importe quelle base $b$. Le principe est d'effectuer les divisions euclidiennes successives par $b$, les restes de ces divisions sont les chiffres du nombre dans la base $b$.}
+			      \onslide<2->{\item Pour écrire $N$ en base $b$ :}
+			      \begin{enumerate}
+				      \item<3-> Faire la division euclidienne de $N$ par $b$, soit $Q$ le quotient et $R$ le reste. \\
+				            (c'est à dire écrire $N = Q\times b + R$ avec $R<b$)
+				      \item<4-> Ajouter $R$ aux chiffres de $N$ en base $b$
+				      \item<5-> Si $Q=0$ s'arrêter, sinon recommencer à partir de l'étape 1 en remplaçant $N$ par $Q$.
+			      \end{enumerate}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%Exemple algorithme des divisions successives
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{Exemple d'utilisation de l'algorithme des divisions successives}
+		Donner l'écriture en base 16 de $\base{2019}{10}$. \\ \pause
+		\begin{tabular}{lllllll}
+			$2019$                                & $=$               & $\onslide<3->{\textcolor{blue}{126}}$ & $\times$               & $16$               & $+$               & $\onslide<4->{\textcolor{red}{\boxed{3}}} $  \\
+			$\onslide<5->{\textcolor{blue}{126}}$ & \onslide<5->{$=$} & $\onslide<6->{\textcolor{blue}{7}}$   & \onslide<5->{$\times$} & \onslide<5->{$16$} & \onslide<5->{$+$} & $\onslide<7->{\textcolor{red}{\boxed{14}}} $ \\
+			$\onslide<8->{\textcolor{blue}{7}}$   & \onslide<8->{$=$} & $\onslide<9->{\textcolor{blue}{0}}$   & \onslide<8->{$\times$} & \onslide<8->{$16$} & \onslide<8->{$+$} & $\onslide<10->{\textcolor{red}{\boxed{7}}} $ \\
+		\end{tabular} \\
+		\onslide<14->{
+			Le quotient est nul, l'algorithme s'arrête et les chiffres en base 16 sont les restes obtenus à chaque étape donc  $\base{2019}{10}=\base{7E3}{16}$ (car 14 correspond au chiffre E).}
+	\end{exampleblock}
+\end{frame}
+
+%Exemple algorithme des divisions successives
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{Exemple d'utilisation de l'algorithme des divisions successives}
+		Donner l'écriture en base 16 de $\base{9787}{10}$. \\ \pause
+		\begin{tabular}{lllllll}
+			$9787$                                & $=$                 & $\onslide<3->{\textcolor{blue}{611}}$ & $\times$                & $16$                & $+$                & $\onslide<4->{\textcolor{red}{\boxed{11}}} $ \\
+			$\onslide<5->{\textcolor{blue}{611}}$ & \onslide<5->{$=$}   & $\onslide<6->{\textcolor{blue}{38}}$  & \onslide<5->{$\times$}  & \onslide<5->{$16$}  & \onslide<5->{$+$}  & $\onslide<7->{\textcolor{red}{\boxed{3}}} $  \\
+			$\onslide<8->{\textcolor{blue}{38}}$  & \onslide<8->{$=$}   & $\onslide<9->{\textcolor{blue}{2}}$   & \onslide<8->{$\times$}  & \onslide<8->{$16$}  & \onslide<8->{$+$}  & $\onslide<10->{\textcolor{red}{\boxed{6}}} $ \\
+			$\onslide<11->{\textcolor{blue}{2}}$  & \onslide<11->{ $=$} & $\onslide<12->{\textcolor{blue}{0}}$  & \onslide<11->{$\times$} & \onslide<11->{$16$} & \onslide<11->{$+$} & $\onslide<13->{\textcolor{red}{\boxed{2}}} $ \\
+		\end{tabular} \\
+		\onslide<14->{
+			Le quotient est nul, l'algorithme s'arrête et les chiffres en base 16 sont les restes obtenus à chaque étape donc  $\base{9781}{10}=\base{263B}{16}$ (car 11 correspond au chiffre B).}
+	\end{exampleblock}
+\end{frame}
+
+
+%Exemple algorithme des divisions successives (base 2)
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{Exemple d'utilisation de l'algorithme des divisions successives}
+		Donner l'écriture en base 2 de $\base{786}{10}$. \\ \pause
+		\begin{tabular}{lllllll}
+			$786$                                 & $=$                 & $\onslide<3->{\textcolor{blue}{393}}$ & $\times$                & $2$                & $+$                & $\onslide<4->{\textcolor{red}{\boxed{0}}} $  \\
+			$\onslide<5->{\textcolor{blue}{393}}$ & \onslide<5->{$=$}   & $\onslide<6->{\textcolor{blue}{196}}$ & \onslide<5->{$\times$}  & \onslide<5->{$2$}  & \onslide<5->{$+$}  & $\onslide<7->{\textcolor{red}{\boxed{1}}} $  \\
+			$\onslide<8->{\textcolor{blue}{196}}$ & \onslide<8->{$=$}   & $\onslide<9->{\textcolor{blue}{98}}$  & \onslide<8->{$\times$}  & \onslide<8->{$2$}  & \onslide<8->{$+$}  & $\onslide<10->{\textcolor{red}{\boxed{0}}} $ \\
+			$\onslide<11->{\textcolor{blue}{98}}$ & \onslide<11->{ $=$} & $\onslide<12->{\textcolor{blue}{49}}$ & \onslide<11->{$\times$} & \onslide<11->{$2$} & \onslide<11->{$+$} & $\onslide<13->{\textcolor{red}{\boxed{0}}} $ \\
+			$\onslide<14->{\textcolor{blue}{49}}$ & \onslide<14->{ $=$} & $\onslide<15->{\textcolor{blue}{24}}$ & \onslide<14->{$\times$} & \onslide<14->{$2$} & \onslide<14->{$+$} & $\onslide<16->{\textcolor{red}{\boxed{1}}} $ \\
+			$\onslide<17->{\textcolor{blue}{24}}$ & \onslide<17->{ $=$} & $\onslide<18->{\textcolor{blue}{12}}$ & \onslide<17->{$\times$} & \onslide<17->{$2$} & \onslide<17->{$+$} & $\onslide<19->{\textcolor{red}{\boxed{0}}} $ \\
+			$\onslide<20->{\textcolor{blue}{12}}$ & \onslide<20->{ $=$} & $\onslide<21->{\textcolor{blue}{6}}$  & \onslide<20->{$\times$} & \onslide<20->{$2$} & \onslide<20->{$+$} & $\onslide<22->{\textcolor{red}{\boxed{0}}} $ \\
+			$\onslide<23->{\textcolor{blue}{6}}$  & \onslide<23->{ $=$} & $\onslide<24->{\textcolor{blue}{3}}$  & \onslide<23->{$\times$} & \onslide<23->{$2$} & \onslide<23->{$+$} & $\onslide<25->{\textcolor{red}{\boxed{0}}} $ \\
+			$\onslide<26->{\textcolor{blue}{3}}$  & \onslide<26->{ $=$} & $\onslide<27->{\textcolor{blue}{1}}$  & \onslide<26->{$\times$} & \onslide<26->{$2$} & \onslide<26->{$+$} & $\onslide<28->{\textcolor{red}{\boxed{1}}} $ \\
+			$\onslide<29->{\textcolor{blue}{1}}$  & \onslide<29->{ $=$} & $\onslide<30->{\textcolor{blue}{0}}$  & \onslide<29->{$\times$} & \onslide<29->{$2$} & \onslide<29->{$+$} & $\onslide<31->{\textcolor{red}{\boxed{1}}} $ \\
+		\end{tabular} \\
+		\onslide<32->{
+			Le quotient est nul, l'algorithme s'arrête et $\base{786}{10}=\base{1100010010}{2}$.}
+	\end{exampleblock}
+\end{frame}
+
+
+%ASCII et Latin-1
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Représentation des caractères : code {\sc ascii}}
+		\begin{itemize}
+			\item<1-> Dès les années 1960, Le code \textcolor{blue}{\sc ascii} (American Standard Code for Information Interchange) a crée un standard pour la représentation des caractères.
+			\item<2-> Ce code n'utilisait que 7 bits et donc ne pouvait représenter que 128 caractères.
+			\item<3-> L'encodage \textcolor{blue}{Latin-1} (ou ISO-8859-1), a étendu le code {\sc ascii} à 8 bits (256 caractères représentables) en intégrant notamment les lettres latines accentuées.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%ASCII et Latin-1
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Représentation des caractères : unicode}
+		Le codage \textcolor{blue}{\sc utf-8} (Unicode Transformation Format) s'est imposé comme standard d'encodage des caractères.
+		\begin{itemize}
+			\item<1-> les caractères sont représentés sur un nombre variable d'octets (de 1 à 4)
+			\item<2-> compatibilité avec {\sc ascii}
+			\item<3-> possibilités de représenter plusieurs centaine de milliers de caractères
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+%Exemples
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{exampleblock}{Exemples}
+		\renewcommand{\arraystretch}{1.2}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\cline{2-4}
+				\multicolumn{1}{c|}{} & {\sc ascii}               & {\sc Latin-1}             & {\sc utf-8}           \\
+				\hline
+				\alt<2->{A            & 65                        & 65                        & 65}{        &  &  & } \\
+				\hline
+				\alt<3->{À            & \textcolor{red}{\faTimes} & 192                       & 192}{       &  &  & } \\
+				\hline
+				\alt<4->{$\beta$      & \textcolor{red}{\faTimes} & \textcolor{red}{\faTimes} & 946}{       &  &  & } \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{exampleblock}
+\end{frame}
+
+%Exemples
+\begin{frame}
+	\mframe{\Encodage}
+	\begin{block}{Encodage en Python}
+		En Python, 
+		\begin{itemize}
+			\item<2-> \pmc{chr}{\tt (code)} renvoie le caractère de code {\sc utf-8} {\tt code}
+			\item<3->  \pmc{ord}{\tt (caractere)} renvoie le code  {\sc utf-8} du caractère {\tt caractere}
+		 \end{itemize}
+	\end{block}
+	\onslide<4->{
+	\begin{exampleblock}{Exemple}
+		{\tt >}{\tt>}{\tt>}\pmc{chr}{\tt (946)} \\
+		{\tt '}$\beta${\tt '} \\
+		{\tt >}{\tt>}{\tt>}\pmc{ord}{\tt ('À')} \\
+		{\tt 192}\\
+	\end{exampleblock}}
+\end{frame}
+
+\end{document}

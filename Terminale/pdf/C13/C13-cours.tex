@@ -1,0 +1,123 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{13}
+
+\pythonmode
+
+\newcommand{\RT}{\cnum Recherche textuelle}
+
+\pythonmode
+
+\begin{frame}
+	\mframe{\RT}
+	\begin{block}{Recherche naïve}
+		Pour recherche si un motif {\pmc m} se trouve dans une chaîne {\pmc c}, on peut :
+		\begin{enumerate}
+			\item<1-> parcourir chaque caractère de la chaine {\pmc c}
+			\item<2-> si ce caractère correspond au premier caractère du motif {\pmc m},  alors on avance dans le motif tant que les caractères coïncident.
+			\item<3-> si on atteint la fin du motif, alors {\pmc m} se trouve dans {\pmc c}. Sinon on passe au caractère suivant de {\pmc c}.
+		\end{enumerate}
+	\end{block}
+	\begin{exampleblock}{Exemple}
+		\href{https://boyer-moore.codekodo.net/recherche_naive.php}{Visualisation en ligne du fonctionnement de l'algorithme}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+	\mframe{\RT}
+	\begin{block}{Proposition d'implémentation en Python}
+		\begin{lstlisting}
+	def recherche(motif,chaine):
+		lm,lc = len(motif),len(chaine)
+		for i in range(lc-lm+1):
+			i_motif,i_chaine = 0,i
+			while i_motif<lm and chaine[i_chaine] == motif[i_motif]:
+				i_motif += 1
+				i_chaine += 1
+			if i_motif == lm:
+				return True
+		return False
+		\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\RT}
+	\begin{block}{Coût de la recherche simple}
+		Soient $l_m$ la longueur du motif et $l_c$ celle de la chaine, on vérifie que l'algorithme de recherche simple demande au plus $l_m(l_c-l_m+1)$ comparaisons
+	\end{block}
+	\begin{exampleblock}{Exemple}
+		Combien de comparaisons seront nécessaires si on recherche le motif \pmc{bbbbbbbbba} (neuf fois le caractère \pmc{b} suivi d'un \pmc{a}) dans une chaine contenant un million de \pmc{b} ?
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\RT}
+	\begin{block}{Accélération de la recherche}
+		Supposons qu'on recherche le motif \pmc{extra} dans la chaine \pmc{un excellent exemple et un exercice extraordinaire}. La comparaison naïve ci-dessus commence par :\\
+		\onslide<2->{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			u              & n &   & e & x & c & e & l & l & e & n & t   \\
+			\hline
+			\multicolumn{1}{c}{$\updownarrow$} &  \multicolumn{11}{c}{}   \\
+			\hline
+			e              & x & t & r & a &   &   &   &   &   &   & \\
+			\hline
+		\end{tabular}}\\
+		\onslide<3->{Deux idées vont permettre d'accélérer la recherche :}
+		\begin{itemize}
+			\item<4-> Commencer par la fin du motif.
+			\item<5-> Prétraiter le motif de façon à éviter des comparaisons inutiles.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\RT}
+	\begin{block}{Accélération de la recherche}
+		Dans l'exemple ci-dessus cela donne : \\
+		\onslide<2->{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			u              & n &   & e & x & c & e & l & l & e & n & t   \\
+			\hline
+			 \multicolumn{4}{c}{}& \multicolumn{1}{c}{$\updownarrow$} &  \multicolumn{6}{c}{}   \\
+			\hline
+			e              & x & t & r & a &   &   &   &   &   &   & \\
+			\hline
+		\end{tabular}}\\
+		\onslide<3->{On peut avancer directement de 3 emplacements car le dernier \pmc{x} se trouve à 3 emplacements de la fin du motif.\\}
+		\onslide<4->{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+			\hline
+			u              & n &   & e & x & c & e & l & l & e & n & t   \\
+			\hline
+			 \multicolumn{7}{c}{}& \multicolumn{1}{c}{$\updownarrow$} &  \multicolumn{3}{c}{}   \\
+			\hline
+			& & & e              & x & t & r & a &    &   &   & \\
+			\hline
+		\end{tabular}\\}
+		\onslide<5->{Cette fois, le \pmc{l} ne se trouve pas dans le motif, on peut donc avancer de la longueur du motif.\\}
+		\onslide<6->{
+			\href{https://boyer-moore.codekodo.net/recherche_boyer.php}{Visualisation en ligne du fonctionnement de l'algorithme accéléré}}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\RT}
+	\begin{block}{Remarques}
+		\begin{itemize}
+ 		\item<1-> L'implémentation, plus délicate que la recherche naïve fait l'objet d'un exercice.
+ 		\item<2-> L'étude du coût de cet algorithme n'est pas au programme, mais à titre d'exemple, on pourra rechercher le nombre de comparaisons de la recherche du motif \pmc{aaaaaaaaaa} dans un texte  contenant un million de \pmc{b} et comparer avec le cas de la recherche naïve.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}

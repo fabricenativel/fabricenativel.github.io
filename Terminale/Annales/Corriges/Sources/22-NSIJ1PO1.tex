@@ -1,0 +1,51 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{ccccccc}
+         & \circlenode{e1}{\bf e1} & \hspace{1cm} & \fnode*[linecolor=ProcessBlue,framesize = 2  0.8cm](0.4,0.1){NON}{\bf NON} & \hspace{1.5cm} &  &   \\
+        & & & & & \fnode*[linecolor=ProcessBlue,framesize = 2  2cm](0.3,0){ET}{\bf ET}& \hspace{1.5cm} \circlenode{s}{\bf S} \\
+        & \circlenode{e0}{\bf e0} &  &  &  &  &   \\
+    \end{tabular}
+    \ncline{e1}{NON}
+    \ncline[offsetA=0.2cm,offsetB=0.45cm,nodesepA=-0.05cm,nodesepB=0.1cm]{NON}{ET}
+    \ncline[offsetA=0.05cm]{ET}{s}
+    \ncline[offsetB=-0.4cm]{e0}{ET}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{ccccccc}
+        & \circlenode{e1}{\bf e1} &  &  &  &  &   \\
+        & & & & & \fnode*[linecolor=ProcessBlue,framesize = 2  2cm](0.3,0){ET}{\bf ET}& \hspace{1.5cm} \circlenode{s}{\bf S} \\
+        & \circlenode{e0}{\bf e0} & \hspace{1cm} & \fnode*[linecolor=ProcessBlue,framesize = 2  0.8cm](0.4,0.1){NON}{\bf NON} & \hspace{1.5cm} &  &   \\
+    \end{tabular}
+    \ncline{e0}{NON}
+    \ncline[offsetA=-0.2cm,offsetB=-0.4cm,nodesepA=-0.05cm,nodesepB=0cm]{NON}{ET}
+    \ncline[offsetA=0.05cm]{ET}{s}
+    \ncline[offsetB=0.55cm,nodesepB=0.05cm]{e1}{ET}
+\end{frame}
+
+\begin{frame}
+    \mframe{\Schema}
+    \begin{tabular}{ccccccc}
+        & \circlenode{e1}{\bf e1} &  & \fnode*[linecolor=ProcessBlue,framesize = 2  0.8cm](0.4,0.1){NO}{\bf NON} &  &  &   \\
+        & & & & & \fnode*[linecolor=ProcessBlue,framesize = 2  2cm](0.3,0){ET}{\bf ET}& \hspace{1.5cm} \circlenode{s}{\bf S} \\
+        & \circlenode{e0}{\bf e0} & \hspace{1cm} & \fnode*[linecolor=ProcessBlue,framesize = 2  0.8cm](0.4,0.1){NON}{\bf NON} & \hspace{1.5cm} &  &   \\
+    \end{tabular}
+    \ncline{e0}{NON}
+    \ncline{e1}{NO}
+    \ncline[offsetA=-0.2cm,offsetB=-0.38cm,nodesepA=-0.05cm,nodesepB=0.05cm]{NON}{ET}
+    \ncline[offsetA=0.05cm]{ET}{s}
+    \ncline[offsetA=0.25cm,offsetB=0.5cm,nodesepA=-0.1cm,nodesepB=0.1cm]{NO}{ET}
+\end{frame}
+
+\end{document}

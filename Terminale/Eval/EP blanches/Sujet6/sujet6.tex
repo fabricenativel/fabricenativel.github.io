@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\EP{6}{2022--2023}
+\pythonmode
+
+\Exo{Somme des éléments positifs d'une liste}{}
+
+Ecrire une fonction {\tt somme\_positif} qui prend en argument une liste d'entiers {\tt entiers} et renvoie la somme des entiers positifs de cette liste.
+
+
+\textbf{Exemples :}
+\begin{lstlisting}
+>>> somme_positif([-1,-6,-8,3])
+3
+>>> somme_positif([5,-12,0,1,-4,7])
+13
+>>> somme_positif([])
+0
+>>> somme_positifs([-7,-11,-2])
+0
+\end{lstlisting}
+
+\vspace{0.2cm}
+
+\Exo{Unicité des éléments d'une liste}{}
+
+On veut écrire une fonction {\tt unique} qui prend en argument une liste  {\tt liste}  et renvoie {\tt True} si cette liste ne contient pas d’éléments en double et {\tt False sinon}. Pour cela on propose l'algorithme suivant :
+\begin{itemize}
+    \item On crée une liste {\tt deja\_vu} initialement vide
+    \item On parcourt chaque élément de la liste {\tt liste}, si un élément ne se trouve pas dans {\tt deja\_vu} alors on le rajoute sinon c'est qu'on l'a déjà rencontré et on renvoie {\tt False}
+    \item A la fin du parcours on renvoie {\tt True}
+\end{itemize} 
+
+\begin{lstlisting}
+def unique(liste):
+"""Renvoie True si les élements de liste sont uniques, False sinon"""
+deja_vu = ...
+for ..... in ....:
+    if ..... in deja_vu:
+        return .....
+    else:
+        ...........
+return ....
+\end{lstlisting}
+
+\textbf{Exemples}
+\begin{lstlisting}
+>>> unique([5,7,8,5,12])
+False
+>>> unique([5,7,8,12])
+True
+>>> unique([])
+True
+>>> unique([2])
+True
+>>> unique([2,0,1,8,9,2])
+False
+\end{lstlisting}
+\end{document}

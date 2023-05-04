@@ -1,0 +1,177 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{8}
+
+\htmlmode
+\newcommand{\Web}{\cnum Le Web}
+
+
+\lstset{xleftmargin=0mm}
+
+% Bref historique
+\begin{frame}
+	\mframe{\Web}
+	\begin{block}{Quelques dates clés à retenir}
+		\begin{itemize}
+			\item<1-> \textbf{1965 : } Invention du langage \textit{hypertexte} (Ted Nelson) qui permet de connecter entre eux divers documents.
+			\item<2-> \textbf{1989 : } Naissance officiel du web crée par Tim Berners-Lee au {\sc cern } de Genève.
+			\item<3-> \textbf{1993 : } Ouverture du code source des technologies du web ce qui permet sans doute son développement rapide.
+			\item<4-> \textbf{1994 : } Création du W3C, organisme en charge de la standardisation des langages et technologies du web.
+			\item<5-> \textbf{1995 : } Web interactif avec des technologies publiques. Javascript côté client et {\sc php} côté serveur.
+			\item<7-> \textbf{2001 : } Standardisation des pages avec un modèle en arbre pour les documents : le {\sc dom}.
+			\item<8-> \textbf{2010 : } Développement du \textit{Web} sur mobiles.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Confusion internet/web
+\begin{frame}
+	\mframe{\Web}
+	\begin{alertblock}{Internet et Web}
+		Attention à ne pas confondre le Web et Internet :
+		\begin{itemize}
+			\item<2-> \textbf{Internet} est né bien avant le Web et désigne un réseau informatique reliant entre eux les ordinateurs du monde entier.
+			\item<3-> Divers protocoles de communication et divers services existent sur internet, par exemple : le \textit{mail}, la messagerie instantanée, les reseaux pair à pair et ... le \textbf{web}.
+			\item<4-> Le \textbf{web} n'est donc qu'un des services d'internet même si c'est le plus largement utilisé.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+%Fonctionnement du web : modèle client/serveur
+\begin{frame}
+	\mframe{\Web}
+	\begin{alertblock}{Fonctionnement du web}
+		Le \textit{Web} fonctionne suivant le \textcolor{blue}{modèle client/serveur} :
+		\begin{itemize}
+			\item<2-> Le \textcolor{blue}{client} est (par exemple) le \textcolor{blue}{navigateur} présent sur notre ordinateur (\textit{firefox}, \textit{explorer}, \dots)
+			\item<3-> Le \textcolor{blue}{serveur} est un logiciel installé sur un ordinateur distant (par exemple : \textit{apache}, \textit{IIS}, \textit{nginx}, \dots)
+			\item<4-> Le client et le serveur pour se comprendre doivent \og parler la même langue \fg, cette langue est le \textcolor{blue}{\textit{protocole {\sc http}}} (pour \textcolor{blue}{H}yper\textcolor{blue}{T}ext \textcolor{blue}{T}ransfer \textcolor{blue}{P}rotocol).
+			\item<5-> Le client envoie des demandes (on dit des \textcolor{blue}{requêtes}) au serveur, lorsque celles ci sont correctement formulées et que la ressource demandée est disponible le serveur y répond favorablement.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+%Fonctionnement du web : modèle client/serveur
+\begin{frame}
+	\mframe{\Web}
+	\begin{alertblock}{Sécurité des transactions client/serveur}
+		\begin{itemize}
+			\item<2-> Le protocole \texttt{http} n'est \textcolor{red}{pas} sécurisé. \onslide<3->{Les informations sensibles (mot de passe, numéro de carte bleue, \dots) qui circulent entrent le client et le serveur peuvent donc être récupérées et lues.}
+			\item<4-> Le protocole \texttt{https} est sécurisé, de plus en plus de sites web l'utilisent. \onslide<5->{Les informations qui circulent sont alors cryptées}
+			\item<6-> Le navigateur affiche normalement une icône en forme de cadenas pour signaler que le site visité est en \texttt{https}.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Création d'un site web
+\begin{frame}
+	\mframe{\Web}
+	\begin{alertblock}{Création de sites web}
+		La mise au point de sites web, utilise trois technologies distinctes :
+		\begin{itemize}
+			\item<2-> {\sc html} : Hyper Text Markup Language \\
+			      \onslide<3->{C'est le langage  qui \textbf{structure} le document présenté (titres, sous-titres, division en paragraphe, tableaux, images \dots)}
+			\item<4-> {\sc css}  : Cascading Style Sheet \\
+			      \onslide<5->{Chargé de l'aspect du document : couleurs, bordures, styles et polices de caractères ...}
+			\item<5-> Javascript \\
+			      \onslide<6->{C'est un langage de programmation fonctionnant dans un navigateur et chargé de gérer les interactions avec l'utilisateur de la page}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% HTML : la base
+\begin{frame}[fragile]
+	\mframe{\Web}
+	\begin{alertblock}{Structure d'une page {\sc html}}
+		\begin{center}
+			\begin{lstlisting}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Titre ici</title>
+</head>
+<body>
+    <!--  Ici corps du document -->
+</body>
+</html>
+\end{lstlisting}
+		\end{center}
+	\end{alertblock}
+\end{frame}
+
+% HTML : la base
+\begin{frame}[fragile]
+	\mframe{\Web}
+	\begin{block}{Quelques balises à connaître}
+		\begin{itemize}
+			\item<1-> Les balises \texttt{<h1> \dots </h1>, <h2> \dots </h2>, \dots <h6> ... </h6>} permettent de définir jusqu'à 6 niveaux de titres.
+			\item<2-> Les balises \texttt{<div> \dots </div>} délimitent une division du document, \texttt{<p> \dots </p>} un paragraphe.
+			\item<3-> La balise \texttt{<hr>} crée une ligne de séparation horizontale, et \texttt{<br>} permet de passer à la ligne
+			\item<4-> La balise \texttt{<strong> \dots </strong>} pour mettre un texte en \textbf{gras}, \texttt{<em> \dots </em>} pour mettre un texte en \textit{italique}.
+			\item<5-> La balise \texttt{<a href="\dots"> \dots </a>} permet d'insérer un lien hypertexte.
+			\item<6-> La balise \texttt{<img src="\dots">} permet d'insérer une image.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% CSS : la base
+\begin{frame}[fragile]
+	\mframe{\Web}
+	\begin{alertblock}{Définir un style en css}
+		\begin{itemize}
+			\item<1-> On définit un style en donnant des paires \textcolor{blue}{\tt <attribut>:<valeur>} \\
+			      \onslide<2->{Par exemple : \textcolor{blue}{\tt color:red; font-weight:bold} indique que l'attribut \textcolor{blue}{\tt color} prend la valeur \textcolor{blue}{\tt red} et que l'attribut \textcolor{blue}{\tt font-weight} prend la valeur \textcolor{blue}{\tt bold}.}
+			\item<3-> Attention à bien respecter	 la syntaxe, un caractère \textcolor{red}{:} sépare l'attribut de sa valeur. Les paires <attribut>:<valeur> se terminent par un caractère \textcolor{red}{;}.
+			\item<4-> Voir le tableau donné en activité pour les attributs les plus courants ainsi que des valeurs possibles
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% CSS : la base
+\begin{frame}[fragile]
+	\mframe{\Web}
+	\begin{alertblock}{Appliquer un style en css}
+		\begin{itemize}
+			\item<1-> On peut appliquer un style directement à un élément html grâce à l'attribut {\tt style} de cet élément.
+			      \begin{lstlisting}
+<h1 style="color : yellow;">Ce titre est jaune</h1>
+\end{lstlisting}
+			\item<3-> On peut définir le style dans l'en-tête du document (entre les balises {\tt <style>} et {\tt <style>} ou dans un fichier séparé. Il suffit alors de modifier ce fichier pour changer l'apparence de toutes les pages qui l'utilisent.
+
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% CSS : la base
+\begin{frame}[fragile]
+	\mframe{\Web}
+	\begin{alertblock}{Définir un style en css}
+		\onslide<1-> Pour indiquer les éléments auxquels le style s'applique on utilise les \textcolor{red}{sélecteurs}. Sans entrer dans les détails, un sélecteur peut notamment être :
+		\begin{itemize}
+			\item<2-> une balise html, par exemple pour avoir les titres de niveau 1 de son document en rouge, on peut taper dans le fichier de style :
+			      \begin{lstlisting}
+h1 {color:red;}
+\end{lstlisting}
+			      Le sélecteur est ici \textcolor{blue}{\tt h1}, et toutes les balises {\tt <h1>} seront rouges.
+			\item<3-> un nom quelconque précédé du caractère \textcolor{red}{\tt .}, par exemple on peut avoir dans le fichier de style :
+			      \begin{lstlisting}
+.encadre {border :  1pt solid;}
+\end{lstlisting}
+			      Le sélecteur est ici \textcolor{blue}{\tt .encadre}, et toutes les balises html ayant {\tt encadre} dans leur attribut {\tt class} apparaitront avec une bordure.
+			      \begin{lstlisting}
+<p class="encadre"> ce paragraphe sera encadré</p>
+\end{lstlisting}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\end{document}

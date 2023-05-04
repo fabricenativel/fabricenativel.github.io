@@ -1,0 +1,53 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{10}
+\pythonmode
+\newcommand{\BinaireNegatif}{\cnum Représentation des entiers négatifs}
+
+% Complément à 2
+\begin{frame}
+	\mframe{\BinaireNegatif}
+	\begin{alertblock}{Complément à 2}
+		Pour représenter un entier négatif en machine, on utilise la méthode du \textcolor{red}{complément à 2} :
+		\begin{enumerate}
+			\item<2-> on commence par écrire la représentation binaire de la valeur absolue de ce nombre
+			\item<3-> on inverse tous les bits de cette représentation
+			\item<4-> on ajoute 1, sans tenir compte de la dernière retenue éventuelle
+		\end{enumerate}
+	\end{alertblock}
+	\begin{block}{Avantages de cette représentation}
+		\begin{itemize}
+			\item<5-> l'algorithme d'addition classique des nombres en base 2 fonctionne
+			\item<6-> tous les nombres sont représentés de façon unique (pas de double représentation pour zéro).
+			\item<7-> Le bit le plus à gauche est le bit de signe, il vaut 1 lorsque le nombre est négatif, 0 sinon.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+% Exemples
+\begin{frame}
+	\mframe{\BinaireNegatif}
+	\begin{exampleblock}{Exemples}
+		\begin{itemize}
+			\item Sur 8 bits, donner l'écriture en complement à 2 de $-12$
+			      \begin{tabular}{ll}
+				      \onslide<2->{\textbf{1.} On écrit $12=(8+4)$ en binaire sur 8 bits :} & \onslide<3->{$00001100$} \\
+				      \onslide<4->{\textbf{2.} On inverser tous les bits :}                 & \onslide<5->{$11110011$} \\
+				      \onslide<6->{\textbf{3.} On ajoute 1 :}                               & \onslide<7->{$11110100$} \\
+			      \end{tabular}
+			\item Même question pour $75$
+			      \begin{tabular}{ll}
+				      \onslide<7->{\textbf{1.} On écrit $75=64+8+2+1$ en binaire sur 8 bits :} & \onslide<8->{$01001011$}  \\
+				      \onslide<9->{\textbf{2.} On inverser tous les bits :}                    & \onslide<10->{$10110100$} \\
+				      \onslide<11->{\textbf{3.} On ajoute 1 :}                                 & \onslide<12->{$10110101$} \\
+			      \end{tabular}
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+\end{document}

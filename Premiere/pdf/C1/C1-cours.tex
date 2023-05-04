@@ -1,0 +1,273 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex/MacrosCours.tex}}
+\newcommand{\Systeme}{\cnum Système d'exploitation}
+\pythonmode
+
+% Définition système d'exploitation
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{alertblock}{Définition}
+		Un \textcolor{red}{système d'exploitation}  (en abrégé \textcolor{red}{OS}, de l'anglais \textit{Operating System}) est un programme (ou ensemble de programme) permettant de
+		\onslide<2->{gérer les ressources de l'ordinateur (mémoire, fichier, périphériques, \dots) sur lequel il s'execute}. \\
+	\end{alertblock}
+	\onslide<3->{\begin{exampleblock}{Exemples}
+			Les systèmes d'exploitation les plus répandus à l'heure actuelle sont :
+			\begin{itemize}
+				\item[\faWindows] <4-> Windows (différentes versions)
+				\item[\faLinux] <5-> {\sc gnu}/Linux  (plusieurs centaines de distribution différentes, parmi les plus connus : ubuntu, fedora, archlinux)
+				\item[\faAndroid] <6-> Android (smartphone)
+				\item[\faApple] <7-> MacOs (ordinateur) et iOS (smartphone)
+			\end{itemize}
+		\end{exampleblock}}
+\end{frame}
+
+%Schéma représentatif
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{La place du système d'exploitation}
+		\setlength{\shadowsize}{1pt}
+		\begin{tabularx}{0.9\textwidth}{Y}
+			\onslide<2->{\rnode{ut}{\psshadowbox{\makebox[5cm]{\par\noindent\rule[-0.2cm]{0pt}{0.6cm} \textcolor{red}{\textbf{\faUser \ L'utilisateur}} }} } }              \\
+			\\
+			\onslide<3->{\rnode{ap}{\psshadowbox{\makebox[5cm]{\par\noindent\rule[-0.2cm]{0pt}{0.6cm} {\textcolor{red}{\textbf{\faThList \ Les applications}} } }}}}            \\
+			\\
+			\onslide<6->{\rnode{os}{\psshadowbox{\makebox[5cm]{\par\noindent\rule[-0.2cm]{0pt}{0.6cm} {\textcolor{red}{\textbf{\faLinux \ Système d'exploitation}}} }}}} \\
+			\\
+			\onslide<6->{\rnode{or}{\psshadowbox{\makebox[5cm]{\par\noindent\rule[-0.2cm]{0pt}{0.6cm} {\textcolor{red}{\textbf{\faLaptop \ L'ordinateur}}} }}}}
+		\end{tabularx}
+		\onslide<4->{\ncline[doubleline=true,offset=1cm,doublesep=3pt,doublecolor=blue,linecolor=blue,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{ut}{ap}}
+		\onslide<4->{\ncline[doubleline=true,offset=1.5cm,doublesep=3pt,doublecolor=blue,linecolor=blue,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{<-}{ut}{ap}}
+		\onslide<5->{\naput{interagit avec }}
+		\onslide<7->{\ncline[doubleline=true,offset=0cm,doublesep=3pt,doublecolor=blue,linecolor=blue,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{<-}{ap}{os}}
+		\onslide<7->{\ncline[doubleline=true,offset=0.5cm,doublesep=3pt,doublecolor=blue,linecolor=blue,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{ap}{os}}
+		\onslide<7->{\naput{demandent des ressources au}}
+		\onslide<8->{\ncline[doubleline=true,offset=-1cm,doublesep=3pt,doublecolor=blue,linecolor=blue,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{<-}{os}{or}}
+		\onslide<8->{\ncline[doubleline=true,offset=-0.5cm,doublesep=3pt,doublecolor=blue,linecolor=blue,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{os}{or}}
+		\onslide<8->{\naput{gèrent les ressources de}}
+	\end{block}
+\end{frame}
+
+%Fonctionnalités d'un OS
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Fonctionnalités d'un système d'exploitation}
+		Parmi les principales fonctionnalités d'un système d'exploitation, on peut citer :
+		\begin{itemize}
+			\item<2-> La gestion des périphériques
+			\item<3-> La gestion des fichiers
+			\item<4-> La gestion des ressources comme par exemple la mémoire ou l'unité de calcul ({\sc cpu})
+			\item<5-> La gestion (et récupération) des erreurs
+			\item<6-> La sécurité des données
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+
+% Différences OS libres et propriétaires  schéma
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Du Code source à l'exécutable}
+		\begin{tabular}{ccccc}
+			& & & & \vspace{0.2cm} \\
+		\rnode{CS}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{Sepia}{\textbf{ \faFile} Code source}}}} & \hspace{1cm} & \onslide<2->{\rnode{{CO}}{\psframebox{\faCog Compilateur}}} & \hspace{1cm} & \onslide<3->{\rnode{EX}{\psframebox[framearc=.3,framesep=0,linecolor=blue,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=lightgray]{\textcolor{blue}{\textbf{ \faFileArchive} Exécutable} }} }} \\
+		\end{tabular}
+		\onslide<2->{\ncline[doubleline=true,doublesep=3pt,doublecolor=OliveGreen,linecolor=OliveGreen,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{CS}{CO} \naput[labelsep=0]{\textcolor{OliveGreen}{\faCheck}}}
+		\onslide<3->{\ncline[doubleline=true,doublesep=3pt,doublecolor=OliveGreen,linecolor=OliveGreen,linewidth=1.5pt,arrowsize=10pt,arrowinset=0.2,arrowlength=1.2]{->}{CO}{EX}\naput[labelsep=0]{\textcolor{OliveGreen}{\faCheck}}}
+		\onslide<5->{\ncbar[angle=90,linewidth=1.5pt,linecolor=red]{->}{EX}{CS} \nbput[labelsep=0.1pt]{\textcolor{red}{\faTimes \ Impossible}}}
+		\begin{enumerate}
+			\item<1-> Le \textcolor{Sepia}{code source} est écrit par des développeurs informatique. Ce \og code \fg est lisible et compréhensible par un être humain.
+			\item<2-> Ce code est \textcolor{red}{compilé}, c'est à dire qu'il est traduit par un programme informatique appelé compilateur.
+			\item<3-> Le résultat obtenu est \textcolor{blue}{un exécutable} fichier binaire compréhensible uniquement par un ordinateur
+			\item<4-> L'opération inverse (passé de l'exécutable au code source) est virtuellement \textcolor{red}{impossible} !
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+% Différences OS libres et propriétaires
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Libres et propriétaires}
+		On distingue généralement :
+		\begin{itemize}
+			\item<1-> Les logiciels (et donc les OS) \textcolor{blue}{propriétaires} développé par une société dans un but commercial. Par exemple Windows ou MacOS.
+			      \onslide<2->{Les utilisateurs n'ont alors pas le droit ni de modifier, ni de revendre le système d'exploitation.}
+			      \onslide<3->{En particulier, ils n'ont pas accès au \textcolor{blue}{code source}. Seul l'exécutable est fourni.}
+			\item<4-> Les logiciels (et donc les OS)  \textcolor{blue}{libres} développé par une communauté d'informaticiens. Par exemple Linux.
+			      \onslide<5->{Le code source est alors fourni (\textit{open source}), parfois avec des droits de modification.}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+% Bref historique
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Quelques repères historiques}
+		\begin{itemize}
+			\item<1->  \textcolor{blue}{\textbf{1970--1990}} \\
+			      Développement du système {\sc unix} (laboratoire Bells) par notamment Ken Thomson et Dennis Ritchie.
+			\item<2->  \textcolor{blue}{\textbf{1980--1990}} \\
+			      Développement du système {\sc ms-dos} (Microsoft)
+			\item<3->  \textcolor{blue}{\textbf{1983}} \\
+			      Projet de création d'un système d'exploitation libre semblable à {\sc unix} (Richard Stallman). C'est le projet {\sc gnu}.
+			\item<4->  \textcolor{blue}{\textbf{1990--}} \\
+			      Développement progressif de Windows (Microfost)
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Quelques repères historiques}
+		\begin{itemize}
+			\item<1-> \textcolor{blue}{\textbf{1991}} \\
+			      Linus Torvalds alors étudiant se lance dans le développement d'un système d'exploitation \textit{open source}. \\
+			\item<3->  \textcolor{blue}{\textbf{1992--}} \\
+			      Développement rapide de Linux qui est associé à des applications du projet {\sc gnu}. On devrait donc parler de {\sc gnu-l}inux.
+			\item<4-> \textcolor{blue}{\textbf{2001--}} \\
+			      Apple démarre le développement de MacOS sur la base du système {\sc bsd}, lui-même une variante d'{\sc unix}.
+			\item<5-> \textcolor{blue}{\textbf{2008--}} \\
+			      Google crée et diffuse le système d'exploitation Android pour téléphone. Ce système utilise le noyau du système Linux.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Un état des lieux en 2020}
+		\begin{itemize}
+			\item<1-> Windows est présent sur une très grande majorité des \textcolor{blue}{ordinateurs personnels} ($\simeq 85 \%$), suivi de MacOS ($\simeq 13\%$). Linux étant extrêmement minoritaire ($\simeq 2\%$).
+			\item<2-> Sur les téléphones portables, c'est Android (et donc Linux) qui domine largement (environ $80 \% $ de part de marché).
+			\item<3-> Dans le domaine des téléviseurs ou objet connectés, des serveurs web c'est Linux une fois de plus qui domine.
+			\item<4-> Enfin, Linux fait fonctionner la \textcolor{red}{totalité} des 500 ordinateurs les plus puissants du monde (source : \texttt{\href{https://www.top500.org/statistics/list/}{https://www.top500.org/statistics/list/}})
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Des ressources vidéo}
+		\begin{itemize}
+		\item<1->{Une  \href{https://youtu.be/4OhUDAtmAUo}{\textcolor{red}{\faYoutube \ vidéo} sur l'histoire des systèmes d'exploitation et leurs rôles.}}
+		\item<2->{Une  \href{https://youtu.be/4lXp_89c3RU}{\textcolor{red}{\faYoutube \ vidéo} sur les notions de compilateurs/interpréteur.}}
+		\item<3->{Une  \href{https://youtu.be/yVpbFMhOAwE}{\textcolor{red}{\faYoutube \ vidéo} sur Linux et son développement.}}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{Interface en ligne de commande (CLI)}
+		\begin{itemize}
+			\item<1-> Avant l'avènement des interfaces graphiques ({\sc gui} en anglais pour \textit{Graphical User Interface}) et de la souris que nous connaissons aujourd'hui, l'utilisateur communiquait avec les applications (et donc aussi l'OS) par l'intermédiaire d'un simple clavier et d'une \textbf{interface en ligne de commande} ({\sc cli} en anglais pour \textit{Command Line Interface}).
+			\item<2-> Aujourd'hui encore et pour diverses raisons (contrôle plus fin de l'ordinateur, récupération d'erreurs, \dots) la ligne de commande reste très utilisée.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{CLI : manipulation des dossiers}
+		\begin{description}
+			\item<1->[\texttt{pwd}] permet d'afficher le chemin complet du dossier dans lequel on se trouve.
+			\item<2->[\texttt{cd}] permet de changer le dossier courant, on indique le dossier de destination :
+			      \onslide<3->{\begin{itemize}
+					      \item de façon absolue, c'est à dire depuis la racine du système de fichier
+					      \item de façon relative, c'est à dire depuis le dossier courant, dans ce cas \og \texttt{..} \fg indique le dossier parent.
+				      \end{itemize}}
+			\item<4->[\texttt{mkdir}] permet de créer un dossier
+			\item<5->[\texttt{rmdir}] permet d'effacer un dossier vide
+			\item<6->[\texttt{mv}] permet de renommer ou de déplacer un dossier (fonctionne aussi sur les fichiers)
+		\end{description}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{exampleblock}{Exemples}
+		%tei{nom de l’image}{échelle de l’image}{sens}{texte a positionner}
+		\tei{ExArbo.eps}{0.5}{1}{
+			On se trouve dans le dossier \texttt{Cours}, on utilise le chemin relatif, écrire les commandes pour
+			\begin{enumerate}
+				\item<1-> se déplacer vers le dossier \texttt{Documents}\\
+				      \onslide<5-> \framebox{\textcolor{OliveGreen}{\texttt{cd ../../Documents}}}
+				\item<2-> y créer un dossier \texttt{Important}\\
+				      \onslide<6-> \framebox{\textcolor{OliveGreen}{\texttt{mkdir Important}}}
+				\item<3-> se déplacer vers le dossier \texttt{Vidéos}\\
+				      \onslide<7-> \framebox{\textcolor{OliveGreen}{\texttt{cd ../Vidéos}}}
+				\item<4-> Supprimer le dossier \texttt{2018} (supposé vide)\\
+				      \onslide<8-> \framebox{\textcolor{OliveGreen}{\texttt{rmdir 2018}}}
+			\end{enumerate}
+		}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{CLI : manipulation des fichiers}
+		\begin{description}
+			\item<2->[\texttt{ls}] permet de lister le contenu d'un dossier, parmi les options les plus courantes on trouve :
+			      \onslide<3->{\begin{itemize}
+					      \item[\texttt{ls -l}] pour voir les droits sur les  fichiers
+					      \item[\texttt{ls -a}] pour voir les  fichiers cachés, c'est à dire ceux dont le nom commence par un point \texttt{.}
+				      \end{itemize}}
+			\item<4->[\texttt{cat}] permet de visualiser le contenu d'un fichier texte
+			\item<5->[\texttt{touch}] permet de créer un fichier vide
+			\item<6->[\texttt{rm}] permet d'effacer un fichier
+			\item<6->[\texttt{cp}] permet de copier un fichier
+		\end{description}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{CLI : gestion des permissions}
+		Les systèmes de type Linux, conçu depuis l'origine pour être  \textcolor{blue}{multi-utilisateurs}  possèdent un système de gestion des \textcolor{blue}{permissions} sur les fichiers,
+		\onslide<2->{assurant la sécurité du système et la protection des données des utilisateurs.\\}
+		\onslide<3->{Trois type de droits sont définis :}
+		\begin{description}
+			\item<4->[\texttt{r}] droit de lecture du fichier
+			\item<5->[\texttt{w}] droit d'écriture  dans le fichier
+			\item<6->[\texttt{x}] droit d'execution du fichier
+		\end{description}
+		\onslide<7->{Ces droits sont définis pour : }
+		\begin{description}
+			\item<8->[\texttt{u}] le propriétaire du fichier
+			\item<9->[\texttt{g}] le groupe  du fichier
+			\item<10->[\texttt{o}] tous les autres utilisateurs
+		\end{description}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\mframe{\Systeme}
+	\begin{block}{CLI : command \texttt{chmod}}
+		\begin{itemize}
+			\item<2-> L'affichage des droits sur un fichier se fait en affichant un tiret \texttt{-} si le droit est absent ou la lettre (\texttt{r}, \texttt{w}, \texttt{x}) désignant le droit sinon. On liste dans l'ordre les droits du propriétaire, puis ceux groupe puis ceux des autres. Par exemple :  \\
+			      \begin{itemize}
+				      \item<3-> {{\texttt{rw-r-----} :}} \onslide<4-> {L'utilisateur a les droits d'écriture et de lecture, le groupe a le droit de lecture, les autres n'ont aucun droit}
+				      \item<5-> {{\texttt{rwxr-xr-x} :}} \onslide<6-> {L'utilisateur a les droits d'écriture, de lecture et d'exécution, le groupe et les autres ont le droit de lecture et d'exécution}
+			      \end{itemize}
+			\item<7-> La commande \texttt{chmod} permet de modifier les droits sur un fichier dont on est propriétaire. En voici quelques exemples :
+			      \begin{itemize}
+				      \item<8->{\texttt{chmod g+w monfichier} :} \onslide<9->{\footnotesize Ajoute (\texttt{+}) au groupe (\texttt{g}) le droit d'écriture (\texttt{w})}
+				      \item<10->{\texttt{chmod u+x monfichier} :} \onslide<11->{\footnotesize Ajoute (\texttt{+}) au propriétaire (\texttt{u}) le droit d'éxécution (\texttt{x})}
+				      \item<12->{\texttt{chmod og-r monfichier} :} \onslide<13->{\footnotesize Enlève (\texttt{-}) au groupe et aux autres (\texttt{og}) le droit de lecture (\texttt{r})}
+				      \item<14->{\texttt{chmod a-r monfichier} :} \onslide<15->{\footnotesize Enlève (\texttt{-}) à tout le monde (\texttt{a}) le droit de lecture (\texttt{r})}
+			      \end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\end{document}

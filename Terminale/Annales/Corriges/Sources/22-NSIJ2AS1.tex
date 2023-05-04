@@ -1,0 +1,38 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+
+\begin{frame}
+    \mframe{\Schema}
+    \psset{unit=1.4cm}
+    \rput(1,2){\circlenode{R1}{\bf R1}}
+    \rput(3,2){\circlenode{R2}{\bf R2}}
+    \rput(1,0){\circlenode{R3}{\bf R3}}
+    \rput(3,0){\circlenode{R4}{\bf R4}}
+    \rput(5,0){\circlenode{R5}{\bf R5}}
+    \rput(1,-2){\circlenode{R6}{\bf R6}}
+    \rput(3,-2){\circlenode{R7}{\bf R7}}
+    \rput(5,-2){\circlenode{R8}{\bf R8}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R1}{R2} \naput{\textcolor{red}{100}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R1}{R3} \naput{\textcolor{red}{10}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R1}{R4} \naput{\textcolor{red}{100}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R2}{R4} \naput{\textcolor{red}{10}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R3}{R4} \naput{\textcolor{red}{100}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R3}{R6} \naput{\textcolor{red}{10}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R3}{R7} \naput{\textcolor{red}{100}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R4}{R5} \naput{\textcolor{red}{20}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R4}{R7} \naput{\textcolor{red}{10}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R4}{R8} \naput{\textcolor{red}{100}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R5}{R8} \naput{\textcolor{red}{20}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R6}{R7} \naput{\textcolor{red}{10}}
+    \ncline[linewidth=1.5pt,linecolor=blue]{R7}{R8} \naput{\textcolor{red}{100}}
+\end{frame}
+
+\end{document}

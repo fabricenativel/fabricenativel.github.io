@@ -1,0 +1,27 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{Act}
+\usepackage{listings}
+
+\begin{document}
+\input{\detokenize{/home/fenarius/Travail/Cours/Commun/latex/Macros.tex}}
+
+\DevoirNSI{Entrainement à l'épreuve pratique}{\Term}\vspace{0.2cm}
+
+\Exo{Nombre d'occurences}{} \\
+Ecrire une fonction {\tt nb\_occurences} qui prend en argument un entier {\tt n} et une liste d'entiers {\tt liste} et qui renvoie le nombre d'apparitions de {\tt n} dans {\tt liste}.\\
+Par exemple, {\tt nb\_occurences(5,[12,6,5,18,11,11,5,6,5])} renvoie 3 puisque l'entier 5 apparaît trois fois dans la liste {\tt [12,6,5,18,11,11,5,6,5]}
+\vspace{0.3cm}
+
+
+\textbf{Exemples :} 
+\begin{lstlisting}
+>>> nb_occurences(7,[1,7,16,9,6])
+1
+>>> nb_occurences(11,[45,6,18,9])
+0
+>>> nb_occurences(0,[1,0,1,0,0,0,1,0,1])
+5
+\end{lstlisting}
+
+\end{document}

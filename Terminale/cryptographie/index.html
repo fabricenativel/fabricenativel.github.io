@@ -1,0 +1,2222 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours de NSI  du lycée Hintermann-Afféjee">
+      
+      
+        <meta name="author" content="Fabrice NATIVEL">
+      
+      
+      
+        <link rel="prev" href="../calculabilite/">
+      
+      
+        <link rel="next" href="../../officiels/">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+    
+    
+      
+        <title>C15-Sécurisation des communications - Numériques et Sciences Informatiques Lycée</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/fenarius.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c15-securisation-des-communications" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Numériques et Sciences Informatiques Lycée" class="md-header__button md-logo" aria-label="Numériques et Sciences Informatiques Lycée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m352 124.5-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4-43.2-32.4c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0h160c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8 0 26.5-21.5 48-48 48h-21.5c-17 0-33.3-6.7-45.3-18.7L480 160h-32v21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1 0 60.6-49.1 109.7-109.8 109.7H32.3c-3.3 0-6.6-.4-9.6-1.4-9.2-2.8-16.7-9.6-20.3-18.5C1 488.7.2 485.2 0 481.4c-.2-3.7.3-7.3 1.3-10.7 2.8-9.2 9.6-16.7 18.6-20.4 3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1 0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1V124.5zm160-52.2v-.6.6zm-1.3 7.4-46.4-11.6c-.2 1.3-.3 2.6-.3 3.9 0 13.3 10.7 24 24 24 10.6 0 19.5-6.8 22.7-16.3zm-379.8 36.8c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87V227c0 32.8 8.4 64.8 24 93H112c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7l69.4-59.6-152.6 23.5c-7 1.1-13.9-2.6-16.9-9S0 232.7 5.3 228l125.6-111.5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Numériques et Sciences Informatiques Lycée
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C15-Sécurisation des communications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/home.svg' width=16px height=16px>&thinsp; Accueil
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Premiere/progression/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/checklist-16.svg' width=16px height=16px>&thinsp; Cours de première
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../progression/" class="md-tabs__link md-tabs__link--active">
+        <img src='https://fabricenativel.github.io/icones/list-ordered-16.svg' width=16px height=16px>&thinsp; Cours de terminale
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../officiels/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/file-badge-16.svg' width=16px height=16px>&thinsp; Documents officiels
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index_annales/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/graduation-cap.svg' width=16px height=16px>&thinsp; Annales du Bac
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../projets/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/lightbulb.svg' width=16px height=16px>&thinsp; Projets
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../liens/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/links.svg' width=16px height=16px>&thinsp; Liens
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/python.svg' width=16px height=16px>&thinsp; Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../apropos/" class="md-tabs__link">
+        <img src='https://fabricenativel.github.io/icones/information.svg' width=16px height=16px>&thinsp; A propos
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Numériques et Sciences Informatiques Lycée" class="md-nav__button md-logo" aria-label="Numériques et Sciences Informatiques Lycée" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="m352 124.5-51.9-13c-6.5-1.6-11.3-7.1-12-13.8s2.8-13.1 8.7-16.1l40.8-20.4-43.2-32.4c-5.5-4.1-7.8-11.3-5.6-17.9S297.1 0 304 0h160c30.2 0 58.7 14.2 76.8 38.4l57.6 76.8c6.2 8.3 9.6 18.4 9.6 28.8 0 26.5-21.5 48-48 48h-21.5c-17 0-33.3-6.7-45.3-18.7L480 160h-32v21.5c0 24.8 12.8 47.9 33.8 61.1l106.6 66.6c32.1 20.1 51.6 55.2 51.6 93.1 0 60.6-49.1 109.7-109.8 109.7H32.3c-3.3 0-6.6-.4-9.6-1.4-9.2-2.8-16.7-9.6-20.3-18.5C1 488.7.2 485.2 0 481.4c-.2-3.7.3-7.3 1.3-10.7 2.8-9.2 9.6-16.7 18.6-20.4 3-1.2 6.2-2 9.5-2.2L433.3 412c8.3-.7 14.7-7.7 14.7-16.1 0-4.3-1.7-8.4-4.7-11.4l-44.4-44.4c-30-30-46.9-70.7-46.9-113.1V124.5zm160-52.2v-.6.6zm-1.3 7.4-46.4-11.6c-.2 1.3-.3 2.6-.3 3.9 0 13.3 10.7 24 24 24 10.6 0 19.5-6.8 22.7-16.3zm-379.8 36.8c16.3-14.5 40.4-16.2 58.5-4.1l130.6 87V227c0 32.8 8.4 64.8 24 93H112c-6.7 0-12.7-4.2-15-10.4s-.5-13.3 4.6-17.7l69.4-59.6-152.6 23.5c-7 1.1-13.9-2.6-16.9-9S0 232.7 5.3 228l125.6-111.5z"/></svg>
+
+    </a>
+    Numériques et Sciences Informatiques Lycée
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/home.svg' width=16px height=16px>&thinsp; Accueil
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/home.svg' width=16px height=16px>&thinsp; Accueil
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Ressources pour l'enseignement de la spécialité NSI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/checklist-16.svg' width=16px height=16px>&thinsp; Cours de première
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/checklist-16.svg' width=16px height=16px>&thinsp; Cours de première
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/progression/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/os/" class="md-nav__link">
+        C1-Systèmes d'exploitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/codage/" class="md-nav__link">
+        C2-Représentation des entiers et des caractères
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/ippt1/" class="md-nav__link">
+        C3-Initiation à Python avec Turtle - Partie 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/architecture/" class="md-nav__link">
+        C4-Architecture matérielle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/ippt2/" class="md-nav__link">
+        C5-Initiation à Python avec Turtle - Partie 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/notionsalgo/" class="md-nav__link">
+        C6-Notions d'algorithmique
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/donneestable/" class="md-nav__link">
+        C7-Lecture et traitement de données en table
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/leweb/" class="md-nav__link">
+        C8-Le web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/algostri/" class="md-nav__link">
+        C9-Algorithmes de tri
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/negatifs/" class="md-nav__link">
+        C10-Représentation des entiers négatifs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/reseau/" class="md-nav__link">
+        C11-Réseau
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/interactionweb/" class="md-nav__link">
+        C12-Interaction dans une page web
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/gloutons/" class="md-nav__link">
+        C13-Algorithmes gloutons
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/fusiontable/" class="md-nav__link">
+        C14-Fusion de tables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/interface/" class="md-nav__link">
+        C15-Interface homme-machine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/flottant/" class="md-nav__link">
+        C16-Notion de nombre flottant
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/knn/" class="md-nav__link">
+        C17-Algorithme des k plus proches voisins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/list-ordered-16.svg' width=16px height=16px>&thinsp; Cours de terminale
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/list-ordered-16.svg' width=16px height=16px>&thinsp; Cours de terminale
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progression/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revisions/" class="md-nav__link">
+        C0-Révisions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursivite/" class="md-nav__link">
+        C1-Récursivité
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql/" class="md-nav__link">
+        C2-Bases de données et SQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processus/" class="md-nav__link">
+        C3-Processus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diviser/" class="md-nav__link">
+        C4-Diviser pour régner
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poo/" class="md-nav__link">
+        C5-Notions de programmation orienté objet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sl/" class="md-nav__link">
+        C6-Structures de données linéaires
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../puces/" class="md-nav__link">
+        C7-Système sur puce
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arbres/" class="md-nav__link">
+        C8-Arbres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sgbd/" class="md-nav__link">
+        C9-Schéma relationnel d'une base de données
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algoarbre/" class="md-nav__link">
+        C10-Algorithmes sur les arbres
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphes/" class="md-nav__link">
+        C11-Graphes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routage/" class="md-nav__link">
+        C12-Protocoles de routage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../texte/" class="md-nav__link">
+        C13-Recherche textuelle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calculabilite/" class="md-nav__link">
+        C14-Calculabilité, décidabilité
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          C15-Sécurisation des communications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        C15-Sécurisation des communications
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#activites" class="md-nav__link">
+    Activités
+  </a>
+  
+    <nav class="md-nav" aria-label="Activités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activite-1-chiffrement-symetrique" class="md-nav__link">
+    Activité 1 : Chiffrement symétrique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activite-2-chiffrement-asymetrique" class="md-nav__link">
+    Activité 2 : Chiffrement asymétrique&thinsp; 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours" class="md-nav__link">
+    Cours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1-vocabulaire" class="md-nav__link">
+    Exercice 1 : Vocabulaire
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2-chiffre-de-cesar" class="md-nav__link">
+    Exercice 2 : Chiffre de César
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3-factorisation" class="md-nav__link">
+    Exercice 3 : Factorisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-4-autorite-de-certification" class="md-nav__link">
+    Exercice 4 : Autorité de certification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-5-implementation-de-lalgorithme-rsa" class="md-nav__link">
+    Exercice 5 : Implémentation de l'algorithme RSA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/file-badge-16.svg' width=16px height=16px>&thinsp; Documents officiels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/file-badge-16.svg' width=16px height=16px>&thinsp; Documents officiels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../officiels/" class="md-nav__link">
+        Documents officiels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/graduation-cap.svg' width=16px height=16px>&thinsp; Annales du Bac
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/graduation-cap.svg' width=16px height=16px>&thinsp; Annales du Bac
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index_annales/" class="md-nav__link">
+        Annales du bac
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          2021
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          2021
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2021/EE/" class="md-nav__link">
+        Epreuves écrites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2021/EP/" class="md-nav__link">
+        Epreuves pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          2022
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2022/EE/" class="md-nav__link">
+        Epreuves écrites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2022/EP/" class="md-nav__link">
+        Epreuves pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          2023
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          2023
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2023/EE/" class="md-nav__link">
+        Epreuves écrites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Annales/2023/EP/" class="md-nav__link">
+        Epreuves pratiques
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/lightbulb.svg' width=16px height=16px>&thinsp; Projets
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/lightbulb.svg' width=16px height=16px>&thinsp; Projets
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projets/" class="md-nav__link">
+        Projets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          Projets de Première
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Projets de Première
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/" class="md-nav__link">
+        Index des projets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/morpion/" class="md-nav__link">
+        Morpion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/cryptographie/" class="md-nav__link">
+        Cryptographie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/forcebrute/" class="md-nav__link">
+        Force brute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/pyxel/" class="md-nav__link">
+        Jeu avec Pyxel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/steganographie/" class="md-nav__link">
+        Steganographie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Premiere/projets/qcm/" class="md-nav__link">
+        QCM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+          Projets de Terminale
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Projets de Terminale
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/gomoku/" class="md-nav__link">
+        Gomoku
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/reseau/" class="md-nav__link">
+        POO et Réseau
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/reines/" class="md-nav__link">
+        Les 8 reines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projets/pyxel/" class="md-nav__link">
+        Jeu avec Pyxel
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/links.svg' width=16px height=16px>&thinsp; Liens
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/links.svg' width=16px height=16px>&thinsp; Liens
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../liens/" class="md-nav__link">
+        Liens
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/python.svg' width=16px height=16px>&thinsp; Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/python.svg' width=16px height=16px>&thinsp; Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <img src='https://fabricenativel.github.io/icones/information.svg' width=16px height=16px>&thinsp; A propos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          <img src='https://fabricenativel.github.io/icones/information.svg' width=16px height=16px>&thinsp; A propos
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apropos/" class="md-nav__link">
+        A Propos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#activites" class="md-nav__link">
+    Activités
+  </a>
+  
+    <nav class="md-nav" aria-label="Activités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activite-1-chiffrement-symetrique" class="md-nav__link">
+    Activité 1 : Chiffrement symétrique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activite-2-chiffrement-asymetrique" class="md-nav__link">
+    Activité 2 : Chiffrement asymétrique&thinsp; 
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cours" class="md-nav__link">
+    Cours
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1-vocabulaire" class="md-nav__link">
+    Exercice 1 : Vocabulaire
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2-chiffre-de-cesar" class="md-nav__link">
+    Exercice 2 : Chiffre de César
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3-factorisation" class="md-nav__link">
+    Exercice 3 : Factorisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-4-autorite-de-certification" class="md-nav__link">
+    Exercice 4 : Autorité de certification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-5-implementation-de-lalgorithme-rsa" class="md-nav__link">
+    Exercice 5 : Implémentation de l'algorithme RSA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="c15-securisation-des-communications"><span class='numchapitre'>C15</span> Sécurisation des communications <span style='float:right;'><span class="twemoji" title="Architectures matérielles, systèmes d'exploitation et réseaux"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg></span></span></h1>
+<p>Ce cours s'inspire largement de <a href="https://glassus.github.io/terminale_nsi/T5_Architecture_materielle/5.4_Cryptographie/cours/" target="_blank">celui de G. Lassus</a> (merci pour les illustrations)</p>
+<h2 id="activites">Activités</h2>
+<h3 id="activite-1-chiffrement-symetrique"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Activité 1 : <em>Chiffrement symétrique</em></h3>
+<ol>
+<li>
+<p>Opération <span style="font-variant:small-caps;">xor</span><br />
+En Python, on peut effectuer un <em>ou exclusif</em> bit à bit sur les représentations binaires de deux entiers à l'aide de l'opérateur <code>^</code>. Par exemple pour effectuer <code>28 ^ 42</code>:</p>
+<ul>
+<li>Convertir 28 en binaire : <span class="arithmatex">\((28)_{10} = (11100)_2\)</span></li>
+<li>Convertir 42 en binaire : <span class="arithmatex">\((42)_{10} = (101010)_2\)</span></li>
+<li>Effectuer un <span style="font-variant:small-caps;">xor</span> bit à bit :<br />
+<img alt="xor1" class="imgcentre" src="../images/C15/xor1.png" width="280px" />
+En effet, on rappelle que <span class="arithmatex">\(A \bigoplus B\)</span> vaut 1 lorsque <span class="arithmatex">\(A\)</span> ou <span class="arithmatex">\(B\)</span> vaut 1 mais pas les deux à la fois (d'où le nom ou <em>exclusif</em>)</li>
+<li>
+<p>Convertir le résultat en entier : <span class="arithmatex">\((110110)_2 = (54)_{10}\)</span></p>
+<p>a. Vérifier en utilisant Python, qu'on obtient bien <code>28 ^ 42 = 54</code></p>
+<p>b. Comme dans l'exemple ci-dessus, calculer <code>65 ^ 42</code>, vérifier votre résultat avec Python.</p>
+<p>c. Calculer <code>(65 ^ 42)^42</code>, que remarquez-vous ?</p>
+<p>d. A l'aide d'un programme Python, vérifier que pour tout entier <code>n</code> compris entre 0 et 255, on a : <code>(n ^ 42) ^ 42 = n</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On admet, sans démonstration que l'opération <span style="font-variant:small-caps;">xor</span> est <strong>symétrique</strong> c'est à dire que pour tout entier <code>n</code> et <code>m</code> : <code>(n ^ m) ^ m = n</code>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p>Chiffrement avec <span style="font-variant:small-caps;">xor</span><br />
+On décide d'utiliser l'opération <span style="font-variant:small-caps;">xor</span> pour chiffrer un message, on choisit un entier compris entre 0 et 255 qui sert de <em>clé de chiffrement</em>. Pour chiffrer un message, on effectue un <span style="font-variant:small-caps;">xor</span> entre le code <span style="font-variant:small-caps;">ascii</span> de chaque caractère du message et la clé de chiffrement. Par exemple, pour coder le mot <code>NSI</code> avec la clé 42 :</p>
+<ul>
+<li>On récupère les codes <span style="font-variant:small-caps;">ascii</span> de chaque lettre : <code>N</code> : 78, <code>S</code> : 83 et <code>I</code> : 73.</li>
+<li>On effectuer un <span style="font-variant:small-caps;">xor</span> avec la clé de chiffrement 42 : <code>78^42 = 100</code>, <code>83^42 = 121</code>, <code>73 ^ 42 = 99</code></li>
+<li>On remplace avec le caractère ayant ce code <span style="font-variant:small-caps;">ascii</span> : 100 : <code>d</code>, 121 : <code>y</code>, 99 : <code>c</code></li>
+<li>
+<p>Le chiffrement de <code>NSI</code> est donc <code>dyc</code></p>
+<p>a. Ecrire une fonction python <code>chiffre_xor</code> qui prend deux arguments (le texte à chiffrer et la clé de chiffrement) et renvoie le message chiffré. Par exemple <code>chiffre_xor("NSI",42)</code> doit renvoyer <code>dyc</code>.</p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>On rappelle qu'en python :</p>
+<ul>
+<li>la fonction <code>ord</code> renvoie le code <span style="font-variant:small-caps;">ascii</span> du caractère donné en paramètre. Par exemple, <code>ord("N")</code> renvoie 78.</li>
+<li>la fonction <code>chr</code> renvoie le caractère dont le code <span style="font-variant:small-caps;">ascii</span> est donné en paramètre. Par exemple, <code>chr(100)</code> renvoie  <code>d</code>.</li>
+</ul>
+</div>
+<p>b. Expliquer et justifier comment peut s'effectuer le déchiffrage d'un message avec cette technique. Quelle est la clé de déchiffrement ?</p>
+<p>c. Déchiffrer le message <code>qARE\E\F@REVIAÚF@@Z</code> sachant que la clé de chiffrement était 51.</p>
+<p>d. Un chiffrage est dit <em>symétrique</em> lorsque les clés de chiffrement et de de déchiffrement doivent être secrètes (elles peuvent donc être identiques ou alors la connaissance de l'une permet aisément d'obtenir l'autre). Le chiffrement par <span style="font-variant:small-caps;">xor</span> défini ci-dessus est-il symétrique ?</p>
+<p>e. Le chiffrement par le <a href="https://en.wikipedia.org/wiki/Caesar_cipher" target="_blank">code de César</a> est-il symétrique ?</p>
+<p>f. Dans le cas d'un chiffrement symétrique, deux personnes peuvent-elles s'échanger des messages si elles n'ont pas encore convenu ensemble d'une clé de chiffrement ? En déduire un inconvénient de cette méthode de chiffrement.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pour prolonger cette activité on pourra faire <a href="https://fabricenativel.github.io/Terminale/Annales/2021/EE/#centres-etrangers-candidats-libres-sujet-2-21-nsij2g11" target="_blank">l'exercice 3 de ce sujet de Bac 2021</a> dont la correction se trouve <a href="https://fabricenativel.github.io/Terminale/Annales/Corriges/21-NSIJ2G11-3/" target="_blank">ici</a>. En effet, cet exercice traite du chiffrement par <span style="font-variant:small-caps;">xor</span> en utilisant une chaîne de caractère comme clé.</p>
+</div>
+</li>
+</ol>
+<h3 id="activite-2-chiffrement-asymetrique"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Activité 2 : <em>Chiffrement asymétrique</em><span style='float:right;'><span style='float:right;'>&thinsp; <span class="twemoji" title="Activité en lien avec les mathématiques"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 241.1C0 161 65 96 145.1 96c38.5 0 75.4 15.3 102.6 42.5l72.3 72.2 72.2-72.2C419.5 111.3 456.4 96 494.9 96 575 96 640 161 640 241.1v29.7C640 351 575 416 494.9 416c-38.5 0-75.4-15.3-102.6-42.5L320 301.3l-72.2 72.2c-27.3 27.2-64.2 42.5-102.7 42.5C65 416 0 351 0 270.9v-29.8zM274.7 256l-72.2-72.2c-15.2-15.2-35.9-23.8-57.4-23.8-44.8 0-81.1 36.3-81.1 81.1v29.7c0 44.8 36.3 81.1 81.1 81.1 21.5 0 42.2-8.5 57.4-23.8l72.2-72.1zm90.5 0 72.2 72.2c15.2 15.2 35.9 23.8 57.4 23.8 44.8 0 81.1-36.3 81.1-81.1v-29.8c0-44.8-36.3-81.1-81.1-81.1-21.5 0-42.2 8.5-57.4 23.8L365.3 256z"/></svg></span></span></span></h3>
+<p>Dans un chiffrement <strong>asymétrique</strong>, la clé de chiffrement est <strong>publique</strong> et donc n'importe qui peut chiffrer un message. La clé de déchiffrement est par contre <strong>privée</strong> (et seul celui qui la possède peut déchiffrer). Le principe est donc qu'on ne peut pas (ou pas <em>"facilement"</em>) déduire de la clé de chiffrement (publique), la clé de déchiffrement (secrète).
+Le principe d'un chiffrement asymétrique est illustré ci-dessous (crédit : G. Lassus): 
+<img alt="chiffrement asymétrique" class="imgcentre" src="../images/C15/asym.png" width="500px" />
+Dans cette activité, après quelques rappels mathématiques, nous allons détailler chacune de ses étapes sur un exemple très connu de chiffrement asymétrique : l'algorithme <strong>RSA</strong> des initiales de ses trois inventeurs (Ron <strong>R</strong>ivest, Adi <strong>S</strong>hamir et Leonard <strong>A</strong>delman). Pour plus de détails historique, voir par exemple <a href="https://glassus.github.io/terminale_nsi/T5_Architecture_materielle/5.4_Cryptographie/cours/#231-histoire" target="_blank">ce site</a></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>La compréhension de l'algorithme demande des notions d'arithmétique qui pourront sembler ardues aux élèves ne faisant pas l'enseignement de spécialités mathématiques. Ces prérequis, sont présentés en début d'activité. On pourra simplement retenir <em>pour résumer</em> et façon <em>imparfaite</em> que dans le chiffrement RSA :</p>
+<ul>
+<li>la clé publique est un <em>très</em> grand nombre <span class="arithmatex">\(n\)</span> (plusieurs centaines de chiffres) choisi de façon à être le produit de deux nombres premiers,</li>
+<li>la clé privée est le couple <span class="arithmatex">\((p,q)\)</span> de nombres premiers tels que <span class="arithmatex">\(n=p\times q\)</span>,</li>
+<li>étant donnée la taille de <span class="arithmatex">\(n\)</span>, il est <em>difficile</em> (impossible avec la puissance de calcul actuelle des ordinateurs) de retrouver <span class="arithmatex">\(p\)</span> et <span class="arithmatex">\(q\)</span> à partir de <span class="arithmatex">\(n\)</span>. Et donc la connaissance de la clé publique ne permet pas d'en déduire celle de la clé privée.</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>Arithmétique modulaire<br />
+    a. Il est 22h, quelle heure sera-t-il 8h plus tard ?</p>
+<p>b. Si vous avez répondu 6h (et pas 30h à la question précédente), vous venez de faire de l'<em>arithmétique modulaire</em>, en effet vous n'avez conservé que le reste dans la division euclidienne par 24:<br />
+<span class="arithmatex">\(30 = 1 \times 24 + 6\)</span> on écrira que <span class="arithmatex">\(30 \equiv 6 [24]\)</span> et on lira <span class="arithmatex">\(30\)</span> est égal à <span class="arithmatex">\(6\)</span> modulo <span class="arithmatex">\(24\)</span> (ce qui peut se traduire par leur différence est un multiple de 24, c'est donc la même heure sur des jours différents).</p>
+<p>c. Vérifier (en faisant la division euclidienne) que <span class="arithmatex">\(42 \equiv 18 [24]\)</span></p>
+<p>d. Vérifier (en faisant la division euclidienne) que <span class="arithmatex">\(103 \equiv 7 [24]\)</span></p>
+<p>e. Compléter : <span class="arithmatex">\(13 \equiv \dots [5]\)</span></p>
+<p>f. Compléter : <span class="arithmatex">\(42 \equiv \dots [7]\)</span></p>
+</li>
+<li>
+<p>Nombres premiers et nombres premiers entre eux.</p>
+<p>a. Rappeler la définition d'un nombre premier. Les nombres suivants sont-ils premiers (justifier) : 12, 21, 29, 1 ?</p>
+<p>b. On dit que deux nombres sont <em>premiers entre eux</em> lorsque leur <span style="font-variant:small-caps;">pgcd</span> vaut 1, par exemple 12 et 5 sont premiers entre eux mais pas 33 et 27 (leur <span style="font-variant:small-caps;">pgcd</span> vaut 3). Donner la liste des nombres premiers avec 12 et inférieurs à 12.</p>
+</li>
+<li>
+<p>Algorithme RSA - étape 1 : création de la clé publique et de la clé privée</p>
+<ul>
+<li>Choisir deux nombres premiers <span class="arithmatex">\(p\)</span> et <span class="arithmatex">\(q\)</span> <em>très grands</em>. Pour disposer d'un exemple simple nous prendrons <span class="arithmatex">\(p=3\)</span> et <span class="arithmatex">\(q=11\)</span> </li>
+<li>Calculer le produit <span class="arithmatex">\(n = p\times q\)</span>. Dans notre exemple <span class="arithmatex">\(n = 3 \times 11 = 33\)</span>.</li>
+<li>Choisir un nombre premier <span class="arithmatex">\(e\)</span> premier avec <span class="arithmatex">\(\phi(n) = (p-1)(q-1)\)</span>. Dans notre exemple, on choisit <span class="arithmatex">\(e=3\)</span> qui est bien premier avec <span class="arithmatex">\(20\)</span> (comme <span class="arithmatex">\(p=3\)</span> et <span class="arithmatex">\(q=11\)</span>, <span class="arithmatex">\(\phi(33)=(p-1)(q-1)=20\)</span>).</li>
+<li>La clé <em>publique</em> d'Alice est le couple <span class="arithmatex">\((e,n)\)</span> et donc dans notre exemple le couple <span class="arithmatex">\((3,33)\)</span>. Rappelons que dans la réalité <span class="arithmatex">\(n\)</span> est un nombre très grand.</li>
+<li>
+<p>Pour déterminer la clé privé, il faut trouver un nombre <span class="arithmatex">\(d\)</span> tel que <span class="arithmatex">\(ed \equiv 1 [\phi(n)]\)</span>. Dans notre exemple il s'agit donc de trouver <span class="arithmatex">\(d\)</span> tel que <span class="arithmatex">\(3d \equiv 1 [20]\)</span>, le nombre 7 convient.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On dit que <span class="arithmatex">\(d\)</span> est un inverse de <span class="arithmatex">\(e\)</span> modulo <span class="arithmatex">\(\phi(n)\)</span> (leur produit vaut 1 modulo <span class="arithmatex">\(\phi(n)\)</span>). Dans la pratique un <a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu" target="_blank">algorithme</a> permet la détermination de <span class="arithmatex">\(d\)</span>.</p>
+</div>
+</li>
+<li>
+<p>Le couple <span class="arithmatex">\((d,n)\)</span> est la clé privée qui permet le déchiffrage. Dans notre exemple c'est donc <span class="arithmatex">\((7,33)\)</span>.</p>
+</li>
+</ul>
+<p>Soit le couple de nombre premiers <span class="arithmatex">\((p,q)\)</span> avec <span class="arithmatex">\(p=5\)</span> et <span class="arithmatex">\(q=13\)</span> :</p>
+<p>a. Calculer <span class="arithmatex">\(n\)</span> et <span class="arithmatex">\(\phi(n)\)</span>.</p>
+<p>b. Justifier que <span class="arithmatex">\((9,65)\)</span> ne peut pas être une clé publique.</p>
+<p>c. Vérifier que <span class="arithmatex">\((11,65)\)</span> est une clé publique.</p>
+<p>d. Vérifier que 35 est un inverse de 11 modulo 48.</p>
+<p>e. En déduire la clé privée.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>En résumé, la clé publique est <span class="arithmatex">\((e,n)\)</span> et la clé publique est <span class="arithmatex">\((d,n)\)</span>. Puisque <span class="arithmatex">\(d\)</span> et <span class="arithmatex">\(e\)</span> sont inverses l'un de l'autre modulo <span class="arithmatex">\(\phi(n)=(p-1)(q-1)\)</span> on peut penser qu'il est simple de retrouver l'un à partir de l'autre, dans la pratique cela est extrêmement difficile car on ne connaît pas <span class="arithmatex">\(\phi(n)\)</span>. En effet, <span class="arithmatex">\(n\)</span> étant très grand, il est difficile de calculer <span class="arithmatex">\(p\)</span> et <span class="arithmatex">\(q\)</span>, car il n'existe pas d'algorithme efficace permettant de factoriser des nombres possédant plusieurs centaines de chiffres.</p>
+</div>
+</li>
+<li>
+<p>Algorithme RSA - étape 2 : chiffrer un message<br />
+Pour envoyer un nombre secret <span class="arithmatex">\(S\)</span> en le chiffrant avec l'algorithme RSA de clé publique <span class="arithmatex">\((e,n)\)</span>, il faut calculer <span class="arithmatex">\(S^e [n]\)</span>. Rappelons que dans notre exemple la clé publique pour chiffrer est <span class="arithmatex">\((3,33)\)</span>. Par exemple, pour envoyer le nombre secret 4, on calcule <span class="arithmatex">\(4 ^ 3 [33] = 31\)</span> et on envoie 31.</p>
+<p>a. Chiffrer le nombre secret 10 avec la clé <span class="arithmatex">\((3,33)\)</span></p>
+<p>b. Chiffrer le nombre secret 17 avec la clé <span class="arithmatex">\((11,65)\)</span></p>
+</li>
+<li>
+<p>Algorithme RSA - étape 3 : déchiffrer un message<br />
+Pour déchiffrer un message <span class="arithmatex">\(M\)</span> de clé privée <span class="arithmatex">\((d,n)\)</span> il suffit de l'élever à la puissance <span class="arithmatex">\(d\)</span> et de calculer le reste dans la division euclidienne par <span class="arithmatex">\(n\)</span>. Rappelons que dans notre exemple exemple <span class="arithmatex">\(d=7\)</span> et <span class="arithmatex">\(n=33\)</span>. Si on reçoit le le message <span class="arithmatex">\(M = 31\)</span> on doit calculer : <span class="arithmatex">\(31^7 = 27512614111\)</span> puis chercher le reste modulo 33 : <span class="arithmatex">\(27512614111 [33] = 4\)</span>, on retrouve bien le message de départ qui était 4.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cela repose sur le résultat suivant : si <span class="arithmatex">\(e\)</span> et <span class="arithmatex">\(d\)</span> sont inverses modulo <span class="arithmatex">\(\phi(n)\)</span> alors <span class="arithmatex">\(M^{ed} \equiv M [n]\)</span>. Pour une démonstration, on pourra consulter <a href="https://fr.wikipedia.org/wiki/Chiffrement_RSA#Justification" target="_blank">cette page</a></p>
+</div>
+<p>a. Déchiffrer le nombre secret 18 avec la clé <span class="arithmatex">\((7,33)\)</span>.</p>
+<p>b. Même question pour le nombre secret 90 avec la clé <span class="arithmatex">\((11,65)\)</span>.</p>
+</li>
+<li>
+<p>Vous pouvez utiliser <a href="https://animations.interstices.info/interstices-rsa/rsa.html" target="_blank">cet outil en ligne</a> afin de vérifier vos réponse à cette activité.</p>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Le protocole <code>https</code> qui permet de sécuriser les transmissions sur le <em>Web</em> utilise à la fois :</p>
+<ul>
+<li>un chiffrement asymétrique pour la génération de clés de chiffrement identiques chez le serveur et le client</li>
+<li>un chiffrement symétrique (aujourd'hui <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES</a>) pour l'échange des données.</li>
+</ul>
+<p>Voir <a href="https://glassus.github.io/terminale_nsi/T5_Architecture_materielle/5.4_Cryptographie/cours/#3-https-exemple-dutilisation-conjointe-dun-chiffrement-asymetrique-et-dun-chiffrement-symetrique" target="_blank">cette page</a> pour plus de détails.</p>
+</div>
+<h2 id="cours">Cours</h2>
+<p>Vous pouvez télécharger une copie au format pdf du diaporama de synthèse de cours présenté en classe :</p>
+<p><span class='centre'><a class="md-button" href="../pdf/C15/C15-cours.pdf" target="_blank">Diaporama de cours <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z"/></svg></span></a></span></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Ce diaporama ne vous donne que quelques points de repères lors de vos révisions. Il devrait être complété par la relecture attentive de vos <strong>propres</strong> notes de cours et par une révision approfondie des exercices.</p>
+</div>
+<h2 id="exercices">Exercices</h2>
+<h3 id="exercice-1-vocabulaire"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 1 : <em>Vocabulaire</em></h3>
+<ol>
+<li>Expliquer en quelques phrases la différence entre un chiffrement <em>symétrique</em> et un chiffrement <em>asymétrique</em>.</li>
+<li>Donner un exemple de chiffrement symétrique.</li>
+<li>Donner un exemple de chiffrement asymétrique.</li>
+</ol>
+<h3 id="exercice-2-chiffre-de-cesar"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 2 : <em>Chiffre de César</em></h3>
+<ol>
+<li>Rappeler le principe du chiffrement de César</li>
+<li>
+<p>Ecrire en Python, une fonction <code>chiffre_cesar</code> qui prend en argument un texte et une clé de chiffrement <code>c</code> et renvoie le texte chiffré par la méthode de César avec un décalage de <code>c</code> emplacements. Par souci de simplicité, on supposera que le texte n'est composé que des 26 lettres majuscules de l'alphabet et on ne chiffre ni les espaces ni les symboles de ponctuation.</p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>On rappelle qu'en python :</p>
+<ul>
+<li>la fonction <code>ord</code> renvoie le code <span style="font-variant:small-caps;">ascii</span> du caractère donné en paramètre. Par exemple, <code>ord("N")</code> renvoie 78.</li>
+<li>la fonction <code>chr</code> renvoie le caractère dont le code <span style="font-variant:small-caps;">ascii</span> est donné en paramètre. Par exemple, <code>chr(100)</code> renvoie  <code>d</code>.</li>
+<li><code>n%26</code> donne le reste dans la division euclidienne de <code>n</code> par 26.</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Le chiffre de César peut-être cassé par <em>analyse fréquentielle</em>, comme expliqué ci-dessous :
+    <div class="centre"><iframe width="560" height="315" src="https://www.youtube.com/embed/sMOZf4GN3oc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
+    En utilisant cette technique, écrire un programme Python permettant de déchiffrer le message suivant :
+    <div class="highlight"><pre><span></span><code>PFOJC JCIG OJSN FSIGGW O RSQCRSF QS ASGGOUS
+Q SGH HFSG PWSB AOWG WZ FSGHS SBQCFS PSOIQCID O TOWFS
+</code></pre></div></p>
+</li>
+<li>
+<p>Décoder de nouveau le message précédent en utilisant la bibliothèque <a href="https://docs.sympy.org/latest/modules/crypto.html" target="_blank">sympy</a></p>
+</li>
+</ol>
+<h3 id="exercice-3-factorisation"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 3 : <em>Factorisation</em></h3>
+<p>On rappelle que la fiabilité de l'algorithme <span style="font-variant:small-caps;">rsa</span> est lié à la difficulté de trouver en connaissant un nombre <span class="arithmatex">\(n\)</span> les deux nombres premiers <span class="arithmatex">\(p\)</span> et <span class="arithmatex">\(q\)</span> tels que <span class="arithmatex">\(n = pq\)</span>. Cet exercice a pour but de le vérifier. Le module Crypto de python permet de générer des nombres premiers de n'importe quelle taille :
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">Crypto.Util</span> <span class="kn">import</span> <span class="n">number</span>
+<span class="kn">from</span> <span class="nn">Crypto.Random</span> <span class="kn">import</span> <span class="n">get_random_bytes</span> 
+
+<span class="c1"># Taille des nombres (en bits)</span>
+<span class="n">n_length</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># Génération de deux nombres premiers p et q de cette taille</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">getPrime</span><span class="p">(</span><span class="n">n_length</span><span class="p">,</span><span class="n">randfunc</span><span class="o">=</span><span class="n">get_random_bytes</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="n">getPrime</span><span class="p">(</span><span class="n">n_length</span><span class="p">,</span><span class="n">randfunc</span><span class="o">=</span><span class="n">get_random_bytes</span><span class="p">)</span>
+</code></pre></div></p>
+<ol>
+<li>Recopier ce programme, le tester et le compléter afin de calculer <span class="arithmatex">\(n = pq\)</span>.</li>
+<li>
+<p>Ecrire une fonction <code>factorise</code> qui prend en argument un entier <code>n</code> et renvoie deux entiers <code>p</code> et <code>q</code> tels que <code>n = p*q</code>.</p>
+<div class="admonition aide">
+<p class="admonition-title">Aide</p>
+<p>On pourra utiliser l'algorithme très simple qui consiste à essayer toutes les divisions possibles jusqu'à en trouver une dont le reste est 0.</p>
+</div>
+</li>
+<li>
+<p>Tester votre fonction <code>factorise</code> et vérifier qu'elle permet de retrouve <code>p</code> et <code>q</code> à partir de <code>n</code></p>
+</li>
+<li>
+<p>Modifier la valeur du paramètre <code>n_length</code> et  mesurer les temps d'execution.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Ne pas choisir une valeur trop élevé pour <code>n_length</code>, prendre par exemple 21 puis 22, 23, ... et observer l'augmentation correspondante du temps de calcul.</p>
+</div>
+</li>
+<li>
+<p>Prévoir le temps d'execution pour <code>n_length = 100</code></p>
+</li>
+<li>
+<p>La majorité des sites <em>Web</em> actuel utilise actuellement des clés de longueur 1024. Quel serait le temps d'exécution prévisible de votre programme pour casser une de ces clés ?</p>
+<div class="admonition lien">
+<p class="admonition-title">Lien</p>
+<p>La vidéo ci-dessous revient sur l'algorithme RSA et donne les longueurs des plus longues clés cassées à ce jour.
+<div class="centre">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M7kEpw1tn50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></p>
+</div>
+</li>
+</ol>
+<h3 id="exercice-4-autorite-de-certification"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 4 : <em>Autorité de certification</em></h3>
+<p>Comme vu en cours, une <em>autorité de certification</em> assure de l'identité d'un site afin d'éviter des attaques du type <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" target="_blank"><em>homme du milieu</em></a>, sans laquelle on pourrait se connecter à un site tiers en pensant qu'il s'agit par exemple de sa banque en ligne. Les requêtes <code>https</code> peuvent être observées à partir de la console de firefox. Pour cela :</p>
+<ol>
+<li>Lancer Firefox et ouvrir la console (menu <em>outils supplémentaires &gt; console du navigateur</em> ou avec le raccourci clavier <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-j">J</kbd></span>) et sélectionner l'onglet <em>Requêtes</em> (à droite)</li>
+<li>Dans la barre d'adresse du navigateur taper <code>wikipedia.fr</code>, les requêtes défilent dans la console, cliquer sur la requête : <code>GET https://www.wikipedia.fr</code> puis l'onglet sécurité à droite. Retrouver les informations suivantes :<ul>
+<li>La version du protocole TLS utilisé</li>
+<li>Le nom de l'autorité de certification</li>
+<li>La période de validité du cerfificat d'identité</li>
+</ul>
+</li>
+</ol>
+<h3 id="exercice-5-implementation-de-lalgorithme-rsa"><img alt="▪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/25aa.svg" title=":black_small_square:" />   Exercice 5 : <em>Implémentation de l'algorithme RSA</em></h3>
+<p>On rappelle que l'algorithme <span style="font-variant:small-caps;">rsa</span> impose de trouver l'inverse d'un nombre <span class="arithmatex">\(d\)</span> modulo <span class="arithmatex">\(\phi(n)\)</span>. Cela peut être fait en utilisant l'<a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu" target="_blank">algorithme d'Euclide étendu</a></p>
+<ol>
+<li>Proposer une implémentation en Python de cet algorithme.</li>
+<li>Proposer une implémentation en Python de l'algorithme de chiffrement <span style="font-variant:small-caps;">rsa</span></li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      
+        <script src="../../javascript/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

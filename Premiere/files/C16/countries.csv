@@ -1,0 +1,228 @@
+Country,Population,Area,GDP,Richesse
+East Timor ,1062777,15007,500,Faible
+Sierra Leone ,6005250,71740,500,Faible
+Somalia ,8863338,637657,500,Faible
+Burundi ,8090068,27830,600,Faible
+Gaza Strip ,1428757,360,600,Faible
+Malawi ,13013926,118480,600,Faible
+Tanzania ,37445392,945087,600,Faible
+Afghanistan ,31056997,647500,700,Faible
+Comoros ,690948,2170,700,Faible
+"Congo, Dem. Rep. ",62660551,2345410,700,Faible
+"Congo, Repub. of the ",3702314,342000,700,Faible
+Eritrea ,4786994,121320,700,Faible
+Ethiopia ,74777981,1127127,700,Faible
+Guinea-Bissau ,1442029,36120,800,Faible
+Kiribati ,105432,811,800,Faible
+Madagascar ,18595469,587040,800,Faible
+Niger ,12525094,1267000,800,Faible
+West Bank ,2460492,5860,800,Faible
+Yemen ,21456188,527970,800,Faible
+Zambia ,11502010,752614,800,Faible
+Mali ,11716829,1240000,900,Faible
+Nigeria ,131859731,923768,900,Faible
+Kenya ,34707817,582650,1000,Faible
+Liberia ,3042004,111370,1000,Faible
+Tajikistan ,7320815,143100,1000,Faible
+Benin ,7862944,112620,1100,Faible
+Burkina Faso ,13902972,274200,1100,Faible
+Central African Rep. ,4303356,622984,1100,Faible
+Tuvalu ,11810,26,1100,Faible
+Chad ,9944201,1284000,1200,Faible
+Mozambique ,19686505,801590,1200,Faible
+Sao Tome & Principe ,193413,1001,1200,Faible
+Bhutan ,2279723,47000,1300,Faible
+Djibouti ,486530,23000,1300,Faible
+"Korea, North ",23113019,120540,1300,Faible
+Rwanda ,8648248,26338,1300,Faible
+Cape Verde ,420979,4033,1400,Faible
+Cote d'Ivoire ,17654843,322460,1400,Faible
+Nepal ,28287147,147181,1400,Faible
+Uganda ,28195754,236040,1400,Faible
+Iraq ,26783383,437072,1500,Faible
+Togo ,5548702,56785,1500,Faible
+Haiti ,8308504,27750,1600,Faible
+Kyrgyzstan ,5213898,198500,1600,Faible
+Marshall Islands ,60422,11854,1600,Faible
+Senegal ,11987121,196190,1600,Faible
+"Gambia, The ",1641564,11300,1700,Faible
+Laos ,6368481,236800,1700,Faible
+Solomon Islands ,552438,28450,1700,Faible
+Uzbekistan ,27307134,447400,1700,Faible
+Burma ,47382633,678500,1800,Faible
+Cameroon ,17340702,475440,1800,Faible
+Mauritania ,3177388,1030700,1800,Faible
+Moldova ,4466706,33843,1800,Faible
+Mongolia ,2832224,1564116,1800,Faible
+Angola ,12127071,1246700,1900,Faible
+Bangladesh ,147365352,144000,1900,Faible
+Cambodia ,13881427,181040,1900,Faible
+Sudan ,41236378,2505810,1900,Faible
+Zimbabwe ,12236805,390580,1900,Faible
+"Micronesia, Fed. St. ",108004,702,2000,Moyenne
+Guinea ,9690222,245857,2100,Moyenne
+Pakistan ,165803560,803940,2100,Moyenne
+Ghana ,22409572,239460,2200,Moyenne
+Papua New Guinea ,5670544,462840,2200,Moyenne
+Serbia ,9396411,88361,2200,Moyenne
+Tonga ,114689,748,2200,Moyenne
+Nicaragua ,5570129,129494,2300,Moyenne
+Bolivia ,8989046,1098580,2400,Moyenne
+Georgia ,4661473,69700,2500,Moyenne
+Saint Helena ,7502,413,2500,Moyenne
+Vietnam ,84402966,329560,2500,Moyenne
+Honduras ,7326496,112090,2600,Moyenne
+Mayotte ,201234,374,2600,Moyenne
+Equatorial Guinea ,540109,28051,2700,Moyenne
+Cuba ,11382820,110860,2900,Moyenne
+India ,1095351995,3287590,2900,Moyenne
+Saint Vincent and the Grenadines ,117848,389,2900,Moyenne
+Vanuatu ,208869,12200,2900,Moyenne
+Lesotho ,2022331,30355,3000,Moyenne
+Indonesia ,245452739,1919440,3200,Moyenne
+Ecuador ,13547510,283560,3300,Moyenne
+Syria ,18881361,185180,3300,Moyenne
+Azerbaijan ,7961619,86600,3400,Moyenne
+Montserrat ,9439,102,3400,Moyenne
+Armenia ,2976372,29800,3500,Moyenne
+Sri Lanka ,20222240,65610,3700,Moyenne
+Wallis and Futuna ,16025,274,3700,Moyenne
+Jamaica ,2758124,10991,3900,Moyenne
+Maldives ,359008,300,3900,Moyenne
+Egypt ,78887007,1001450,4000,Moyenne
+Guyana ,767245,214970,4000,Moyenne
+Morocco ,33241259,446550,4000,Moyenne
+Suriname ,439117,163270,4000,Moyenne
+Guatemala ,12293545,108890,4100,Moyenne
+Jordan ,5906760,92300,4300,Moyenne
+Albania ,3581655,28748,4500,Moyenne
+Philippines ,89468677,300000,4600,Moyenne
+Paraguay ,6506464,406750,4700,Moyenne
+El Salvador ,6822378,21040,4800,Moyenne
+Lebanon ,3874050,10400,4800,Moyenne
+Venezuela ,25730435,912050,4800,Moyenne
+Belize ,287730,22966,4900,Moyenne
+Swaziland ,1136334,17363,4900,Moyenne
+China ,1313973713,9596960,5000,Moyenne
+Cook Islands ,21388,240,5000,Moyenne
+Grenada ,89703,344,5000,Moyenne
+Nauru ,13287,21,5000,Moyenne
+Peru ,28302603,1285220,5100,Moyenne
+Dominica ,68910,754,5400,Moyenne
+Saint Lucia ,168458,616,5400,Moyenne
+Ukraine ,46710816,603700,5400,Moyenne
+Gabon ,1424906,267667,5500,Moyenne
+Samoa ,176908,2944,5600,Moyenne
+Fiji ,905949,18270,5800,Moyenne
+Reunion ,787584,2517,5800,Moyenne
+Turkmenistan ,5042920,488100,5800,Moyenne
+Algeria ,32930091,2381740,6000,Moyenne
+Dominican Republic ,9183984,48730,6000,Moyenne
+Belarus ,10293011,207600,6100,Moyenne
+Bosnia & Herzegovina ,4498976,51129,6100,Moyenne
+Colombia ,43593035,1138910,6300,Moyenne
+Kazakhstan ,15233244,2717300,6300,Moyenne
+Panama ,3191319,78200,6300,Moyenne
+Libya ,5900754,1759540,6400,Moyenne
+Macedonia ,2050554,25333,6700,Moyenne
+Turkey ,70413958,780580,6700,Moyenne
+St Pierre & Miquelon ,7026,242,6900,Moyenne
+Tunisia ,10175014,163610,6900,Moyenne
+Iran ,68688433,1648000,7000,Moyenne
+Romania ,22303552,237500,7000,Moyenne
+Namibia ,2044147,825418,7200,Moyenne
+Thailand ,64631595,514000,7400,Moyenne
+Brazil ,188078227,8511965,7600,Moyenne
+Bulgaria ,7385367,110910,7600,Moyenne
+Seychelles ,81541,455,7800,Moyenne
+American Samoa ,57794,199,8000,Moyenne
+Guadeloupe ,452776,1780,8000,Moyenne
+French Guiana ,199509,91000,8300,Moyenne
+Anguilla ,13477,102,8600,Moyenne
+Saint Kitts & Nevis ,39129,261,8800,Moyenne
+Russia ,142893540,17075200,8900,Moyenne
+Botswana ,1639833,600370,9000,Moyenne
+Malaysia ,24385858,329750,9000,Moyenne
+Mexico ,107449525,1972550,9000,Moyenne
+Palau ,20579,458,9000,Moyenne
+Costa Rica ,4075261,51100,9100,Moyenne
+Trinidad & Tobago ,1065842,5128,9500,Moyenne
+Turks & Caicos Is ,21152,430,9600,Moyenne
+Chile ,16134219,756950,9900,Moyenne
+Latvia ,2274735,64589,10200,Moyenne
+Croatia ,4494749,56542,10600,Moyenne
+South Africa ,44187637,1219912,10700,Moyenne
+Antigua & Barbuda ,69108,443,11000,Moyenne
+Poland ,38536869,312685,11100,Moyenne
+Argentina ,39921833,2766890,11200,Moyenne
+Lithuania ,3585906,65200,11400,Moyenne
+Mauritius ,1240827,2040,11400,Moyenne
+Netherlands Antilles ,221736,960,11400,Moyenne
+Saudi Arabia ,27019731,1960582,11800,Moyenne
+Estonia ,1324333,45226,12300,Elevée
+N. Mariana Islands ,82459,477,12500,Elevée
+Uruguay ,3431932,176220,12800,Elevée
+Oman ,3102229,212460,13100,Elevée
+Slovakia ,5439448,48845,13300,Elevée
+Hungary ,9981334,93030,13900,Elevée
+Martinique ,436131,1100,14400,Elevée
+New Caledonia ,219246,19060,15000,Elevée
+Barbados ,279912,431,15700,Elevée
+Czech Republic ,10235455,78866,15700,Elevée
+British Virgin Is. ,23098,153,16000,Elevée
+"Bahamas, The ",303770,13940,16700,Elevée
+Puerto Rico ,3927188,13790,16800,Elevée
+Bahrain ,698585,665,16900,Elevée
+Virgin Islands ,108605,1910,17200,Elevée
+French Polynesia ,274578,4167,17500,Elevée
+Gibraltar ,27928,7,17500,Elevée
+Malta ,400214,316,17700,Elevée
+"Korea, South ",48846823,98480,17800,Elevée
+Portugal ,10605870,92391,18000,Elevée
+Brunei ,379444,5770,18600,Elevée
+Andorra ,71201,468,19000,Elevée
+Kuwait ,2418393,17820,19000,Elevée
+Slovenia ,2010347,20273,19000,Elevée
+Cyprus ,784301,9250,19200,Elevée
+Macau ,453125,28,19400,Elevée
+Israel ,6352117,20770,19800,Elevée
+Greece ,10688058,131940,20000,Elevée
+Greenland ,56361,2166086,20000,Elevée
+Guernsey ,65409,78,20000,Elevée
+Guam ,171019,541,21000,Elevée
+Isle of Man ,75441,572,21000,Elevée
+Qatar ,885359,11437,21500,Elevée
+New Zealand ,4076140,268680,21600,Elevée
+Faroe Islands ,47246,1399,22000,Elevée
+Spain ,40397842,504782,22000,Elevée
+United Arab Emirates ,2602713,82880,23200,Elevée
+Taiwan ,23036087,35980,23400,Elevée
+Singapore ,4492150,693,23700,Elevée
+Jersey ,91084,116,24800,Elevée
+Liechtenstein ,33987,160,25000,Elevée
+Italy ,58133509,301230,26700,Elevée
+Sweden ,9016596,449964,26800,Elevée
+Monaco ,32543,2,27000,Elevée
+Finland ,5231372,338145,27400,Elevée
+France ,60876136,547030,27600,Elevée
+Germany ,82422299,357021,27600,Elevée
+United Kingdom ,60609153,244820,27700,Elevée
+Aruba ,71891,193,28000,Elevée
+Japan ,127463611,377835,28200,Elevée
+Netherlands ,16491461,41526,28600,Elevée
+Hong Kong ,6940432,1092,28800,Elevée
+Australia ,20264082,7686850,29000,Elevée
+Belgium ,10379067,30528,29100,Elevée
+Ireland ,4062235,70280,29600,Elevée
+Canada ,33098932,9984670,29800,Elevée
+Austria ,8192880,83870,30000,Elevée
+Iceland ,299388,103000,30900,Elevée
+Denmark ,5450661,43094,31100,Elevée
+Switzerland ,7523934,41290,32700,Elevée
+San Marino ,29251,61,34600,Elevée
+Cayman Islands ,45436,262,35000,Elevée
+Bermuda ,65773,53,36000,Elevée
+Norway ,4610820,323802,37800,Elevée
+United States ,298444215,9631420,37800,Elevée
+Luxembourg ,474413,2586,55100,Elevée
+Western Sahara ,273008,266000,,Faible

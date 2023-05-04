@@ -1,0 +1,255 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{4}
+
+\newcommand{\Arch}{\cnum Architecture des ordinateurs}
+
+
+% Définition langage de programmation
+\begin{frame}
+	\mframe{\Arch}
+	\begin{alertblock}{Modèle de Von Neumann}
+		\begin{itemize}
+			\item<1-> Les ordinateurs modernes sont construits autour d'un modèle défini par le mathématicien John Von Neumann en 1945 et appelé \textcolor{blue}{Architecture de Von Neumann}.
+			\item<2-> Dans ce modèle, l'ordinateur se décompose en 5 parties distinctes :
+			      \begin{enumerate}
+				      \item<3-> Les dispositifs d'\textcolor{blue}{entrée} des données (ex : clavier, souris, écran tactile, réseau \dots),
+				      \item<4-> La \textcolor{blue}{mémoire} qui stocke les données et les programmes (ex : mémoire cache, {\sc ram}, \dots)
+				      \item<5-> L'\textcolor{blue}{unité arithmétique et logique {\sc ual}} qui effectue les opérations (addition, soustraction, comparaison, \dots) sur les données.
+				      \item<6-> L'\textcolor{blue}{unité de contrôle} qui est chargé de la gestion de l'ordre des opérations (séquençage)
+				      \item<7-> Les dispositifs de \textcolor{blue}{sortie} des données (ex : écran, imprimante, \dots)
+			      \end{enumerate}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+%Remarque architectecture von neumann
+\begin{frame}
+	\mframe{\Arch}
+	\begin{block}{Remarques :}
+		\begin{itemize}
+			\item<1-> Dans les ordinateurs modernes, l'{\sc ual} et l'unité de contrôle sont regroupés dans le processeur ({\sc cpu} pour Central Processing Unit en anglais)
+			\item<2-> Certains periphériques sont à la fois des dispositifs d'entrée et de sortie. Par exemple, le disque dur car on peut y lire (entrée) et écrire (sortie) des données.
+			\item<3-> Par rapport au modèle initial, les ordinateurs actuels possèdent parfois plusieurs processeurs ou coeurs.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%Schéma
+\begin{frame}
+	\mframe{\Arch}
+	\setlength{\shadowsize}{1pt}
+	\psset{linewidth=0.7pt}
+	\begin{block}{Schéma représentant l'architecture de Von Neumann :}
+		\begin{tabularx}{0.9\textwidth}{Xp{1cm}|Y|p{1cm}X}
+			\cline{3-3}
+			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   &  &                                                            &  & \\
+			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   &  & \textcolor{blue}{\textbf \faMicrochip \, {\Large \sc cpu}} &  & \\
+			\onslide<3->{\rnode{ram}{\psshadowbox{\makebox[2cm]{\par\noindent\rule[-1.4cm]{0pt}{3cm} \textcolor{red}{\textbf{\faMemory \ Mémoire}} }} } }                                                                                                                                                                                                                                                                                                                                                                                                      &  &
+			\onslide<2->{\rnode{ual}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=grispale]{\parbox[c][1.5cm][c]{1.8cm}{\textcolor{Sepia}{\large \  \ \ \sc ual} \newline {\small Unité arithmétique et logique}}}}} \newline \rule{0pt}{0.8cm} \newline {\rnode{uc}{\psframebox[framearc=.3,framesep=0,linecolor=Sepia,linewidth=1pt]{\psframebox*[framearc=.3,fillcolor=grispale]{\parbox[c][1.5cm][c]{1.8cm}{\textcolor{Sepia}{\large  \ \  \ \sc uc} \newline {\small Unité de contrôle}}}}} }   } &  &
+			\onslide<4->{\rnode{in}{\shadowbox{\makebox[2cm]{\par\noindent\rule[-0.4cm]{0pt}{1cm} {\textcolor{red}{ \faArrowAltCircleLeft \; Entrées}} }}} \newline \rule{0pt}{0.8cm} {\rnode{out}{\shadowbox{\makebox[2cm]{\par\noindent\rule[-0.4cm]{0pt}{1cm} \textcolor{red}{ Sorties \; \faArrowAltCircleRight} }}} }   }                                                                                                                                                                                                                                                                                                      \\
+			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   &  &                                                            &  & \\
+			\cline{3-3}
+		\end{tabularx}
+		\onslide<5->{\ncline[ linecolor=blue, linewidth=2px, offsetA=0.3cm]{<->}{ram}{ual}}
+		\onslide<6->{\ncline[linewidth=2px, linecolor=blue, offsetA=-0.7cm,nodesepA=0.3cm]{<->}{ram}{uc}}
+		\onslide<7->{\ncline[linecolor=blue,linewidth=2px]{<->}{ual}{uc}}
+		\onslide<8->{\ncline[linecolor=blue,linewidth=2px]{->}{in}{ual}}
+		\onslide<9->{\ncline[linecolor=blue,offsetA=0.2cm,offsetB=-0.2cm,nodesepA=-0.1cm,nodesepB=-0.1cm,linewidth=2px]{->}{ual}{out}}
+	\end{block}
+\end{frame}
+
+
+% Transistor et booléens
+\begin{frame}
+	\mframe{\Arch}
+	\begin{block}{Remarques :}
+		\begin{itemize}
+			\item<1-> Le composant de base des ordinateurs est le \textit{transistor}, un composant électronique ne pouvant être que dans deux états. Soit il laisse passer le courant (état \textcolor{red}{1}), soit il ne le laisse pas passer (état \textcolor{red}{0}).
+			\item<2-> Toutes les données représentées dans un ordinateur le sont donc sous forme de 0 et de 1.
+			\item<3-> Dès les années 1850, dans des travaux sur la logique, le mathématicien britannique Georges Boole avait travaillé sur des variables ne pouvant prendre que deux valeurs 0  ou 1.
+			\item<4-> On appelle, ces variables des \textcolor{red}{booléens}. On définit trois opérations de base que nous allons détailler sur les booléens : le \textcolor{red}{non}, le \textcolor{red}{et} et le \textcolor{red}{ou}.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+% Opérateur non
+\begin{frame}
+	\mframe{\Arch}
+	\begin{alertblock}{Opérateur \textbf{non}}
+		\begin{itemize}
+			\item<1-> Inverse la valeur de l'entrée
+			\item<2-> Symbole électronique
+			      \begin{center}
+				      \begin{tabularx}{0.8\textwidth}{Y|Y}
+					      \begin{circuitikz} \draw
+						      node[american not port](t1) {}
+						      ;\end{circuitikz} &
+					      \begin{circuitikz} \draw
+						      node[european not port](t1) {}
+						      ;\end{circuitikz}            \\
+					      Américain                 & Européen \\
+				      \end{tabularx}
+			      \end{center}
+			\item<3-> Table de vérité
+			      \begin{center}
+				      \begin{tabular}{|>{\color{blue}}c|>{\color{red}}c|}
+					      \hline
+					      Entrée & Sortie \\
+					      \hline
+					      0      & 1      \\
+					      \hline
+					      1      & 0      \\
+					      \hline
+				      \end{tabular}
+			      \end{center}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Opérateur et
+\begin{frame}
+	\mframe{\Arch}
+	\begin{alertblock}{Opérateur \textbf{et}}
+		\begin{itemize}
+			\item<1-> Vaut 1 lorsque les \textit{deux} entrées valent un
+			\item<2-> Symbole électronique
+			      \begin{center}
+				      \begin{tabularx}{0.8\textwidth}{Y|Y}
+					      \begin{circuitikz} \draw
+						      node[american and port](t1) {}
+						      ;\end{circuitikz} &
+					      \begin{circuitikz} \draw
+						      node[european and port](t1) {}
+						      ;\end{circuitikz}            \\
+					      Américain                 & Européen \\
+				      \end{tabularx}
+			      \end{center}
+			\item<3-> Table de vérité
+			      \begin{center}
+				      \begin{tabular}{|>{\color{blue}}c|>{\color{blue}}c|>{\color{red}}c|}
+					      \hline
+					      Entrée 1 & Entrée 2 & Sortie \\
+					      \hline
+					      0        & 0        & 0      \\
+					      \hline
+					      1        & 0        & 0      \\
+					      \hline
+					      0        & 1        & 0      \\
+					      \hline
+					      1        & 1        & 1      \\
+					      \hline
+				      \end{tabular}
+			      \end{center}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+
+% Opérateur or
+\begin{frame}
+	\mframe{\Arch}
+	\begin{alertblock}{Opérateur \textbf{or}}
+		\begin{itemize}
+			\item<1-> Vaut 1 lorsque l'une des deux entrées vaut 1
+			\item<2-> Symbole électronique
+			      \begin{center}
+				      \begin{tabularx}{0.8\textwidth}{Y|Y}
+					      \begin{circuitikz} \draw
+						      node[american or port](t1) {}
+						      ;\end{circuitikz} &
+					      \begin{circuitikz} \draw
+						      node[european or port](t1) {}
+						      ;\end{circuitikz}            \\
+					      Américain                  & Européen \\
+				      \end{tabularx}
+			      \end{center}
+			\item<3-> Table de vérité
+			      \begin{center}
+				      \begin{tabular}{|>{\color{blue}}c|>{\color{blue}}c|>{\color{red}}c|}
+					      \hline
+					      Entrée 1 & Entrée 2 & Sortie \\
+					      \hline
+					      0        & 0        & 0      \\
+					      \hline
+					      1        & 0        & 1      \\
+					      \hline
+					      0        & 1        & 1      \\
+					      \hline
+					      1        & 1        & 1      \\
+					      \hline
+				      \end{tabular}
+			      \end{center}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Autres portes : NAND et XOR
+\begin{frame}
+	\mframe{\Arch}
+	\begin{block}{Autres portes logiques}
+		Deux autres portes logiques sont fondamentales et bien que pouvant être construire à partir de OR, AND et NOT ont leur propre symbole :
+		\begin{itemize}
+			\item<2-> La porte XOR qui vaut 1 lorsque l'une des entrées vaut un mais pas les deux à la fois. C'est le ou exclusif.
+			\item<3-> La porte NAND qui vaut 0 seulement lorsque les deux entrées valent 1. C'est la porte "NON ET"
+			\item<4-> La porte NOR qui vaut 1 seulement lorsque les deux entrées valent 0. C'est la porte "NON OU"
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+%Python et les booléens
+\begin{frame}
+	\mframe{\Arch}
+	\begin{block}{Python et les booléens}
+		\begin{itemize}
+			\item<1-> Python possède le type de variable booléen, les deux valeurs possibles sont : \texttt{True} et \texttt{False}.
+			\item<2-> L'opération \textbf{non} s'obtient à l'aide de \texttt{not}
+			\item<3-> L'opération \textbf{et} s'obtient à l'aide de \texttt{and}
+			\item<4-> L'opération \textbf{ou} s'obtient à l'aide de \texttt{or}
+			\item<5-> Les booléens de python peuvent donc être notamment des résultats de test de condition.
+		\end{itemize}
+	\end{block}
+	\onslide<6->{
+		\begin{exampleblock}{Exemple}
+			\texttt{\# Définit une variable booléen ok  qui vaut vrai} \\
+			\texttt{\# lorsque au moins 2 des 3 variables a,b et c sont égales}\\
+			\onslide<7->{\texttt{ok=(a==b) or (a==c) or (b==c)}}
+		\end{exampleblock}}
+\end{frame}
+
+% Combinaison et réalisation d'opérations
+\begin{frame}
+	\mframe{\Arch}
+	\begin{alertblock}{Circuit logique}
+		\begin{itemize}
+			\item<1-> En combinant ces portes logiques, on réalise des circuits logiques permettant d'effectuer des opérations (additions, soustractions, comparaison, ...) sur les données stockées dans l'ordinateur.
+			\item<2-> Voir TP sur le site de simulation de circuit logique : {\tt https://circuitverse.org/}
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+% Assembleur
+\begin{frame}
+	\mframe{\Arch}
+	\begin{alertblock}{Assembleur}
+		\begin{itemize}
+			\item<1-> Le langage machine est le seul compréhensible par un processeur, il se compose uniquement de suites de 0 et de 1. Ecrire un programme avec ce langage est extrêmement compliqué pour un être humain.
+			\item<2-> Le langage assembleur traduit en code mnémotechnique les instructions machine les rendant plus accessibles à un être humain.\\
+			\onslide<3->{\textcolor{OliveGreen}{Par exemple {\tt ADD R2,R1,R0} signifie additionner les valeurs des registres R0 et R1 et stocker le résultat dans R2 se traduit en une suite de 0 et de 1.}}
+			\item<3-> Chaque assembleur est  spécifique à un processeur (ou à une famille de processeur).
+			\item<4-> Dans les langages de haut niveau (comme Python), c'est l'interpréteur (ou le compilateur) qui se charge de la traduction des instructions en langage machine. Ces langages sont donc indépendants des processeurs utilisés.
+		\end{itemize}
+	\end{alertblock}
+\end{frame}
+
+\end{document}

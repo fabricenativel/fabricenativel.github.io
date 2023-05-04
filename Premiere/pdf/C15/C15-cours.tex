@@ -1,0 +1,48 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\setcounter{numchap}{15}
+
+\pythonmode
+
+\newcommand{\IHM}{\cnum Interface Homme-Machine}
+
+\pythonmode
+
+% Capteurs et actionneurs
+\begin{frame}
+    \mframe{\IHM}
+    \begin{block}{Définitions}
+        Dans un système informatique embarqué (par exemple un objet connecté) :
+        \begin{itemize}
+            \item<2-> les \textcolor{red}{capteurs} récupèrent des informations du monde réel (pression, température, ...), ce sont des périphériques d'entrée.
+            \item<3-> le \textcolor{red}{processeur} traite ces informations en exécutant un programme,
+            \item<4-> les \textcolor{red}{actionneurs} agissent dans le monde réel (affichage, son, moteurs,...), ce sont des périphériques de sortie.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \mframe{\IHM}
+    \begin{block}{IHM}
+        Une interface Homme-Machine \textcolor{red}{\sc ihm} l'ensemble des méthodes qui permettent une communication bidirectionnelle entre l'utilisateur et le système informatique embarqué.
+        La mise au point d'une IHM, répond normalement à un cahier des charges strict qui indique toutes les fonctionnalités attendues.
+    \end{block}
+    \begin{exampleblock}{Carte Micro:bit}
+        \onslide<2->La mise en oeuvre des concepts du cours a été faite en utilisant une carte Micro:Bit :
+        \begin{itemize}
+            \item<3-> La carte possède des capteurs (boutons, accéléromètre, ...),
+            \item<4-> et des actionneurs (matrice de 5x5 leds, broche {\sc gpio}).
+            \item<5-> Elle est équipée d'un processeur pour traiter les données.
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\end{document}
+
+
+

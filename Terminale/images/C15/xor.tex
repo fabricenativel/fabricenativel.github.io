@@ -1,0 +1,24 @@
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
+\documentclass[10pt]{beamer}
+\usepackage{Cours}
+
+\begin{document}
+
+\input{\detokenize{/home/fenarius/Travail/Cours/fabricenativel.github.io/latex//MacrosCours.tex}}
+\newcommand{\Schema}{\cnum Schéma}
+\pythonmode
+
+
+\begin{frame}
+	\mframe{\Schema}
+	\begin{tabular}{ccccccc}
+		                & 0 & 1 & 1 & 1 & 0 & 0 \\
+		$\bigoplus$     & 1 & 0 & 1 & 0 & 1 & 0 \\
+		\vspace{-0.3cm} &   &   &   &   &   &   \\
+		\hline
+		\vspace{-0.3cm} &   &   &   &   &   &   \\
+		=               & 1 & 1 & 0 & 1 & 1 & 0 \\
+	\end{tabular}
+\end{frame}
+
+\end{document}
